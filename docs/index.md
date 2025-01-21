@@ -4,9 +4,9 @@ Cyber-Physical Systems (CPS) is a comprehensive course designed for students int
 
 ## Info
 
-Instructor: Dr. Jonathan Jaramillo
-Lecture Location: Hollister Hall 206
-Lecture Time: MW 8:40-9:55
-Discussion Location: Snee Hall Geoloical Sciences 2151
-Discussion Time: F 9:05-9:55
-[Syllabus](files/syllabus.pdf)
+* Instructor: Dr. Jonathan Jaramillo
+* Lecture Location: Hollister Hall 206
+* Lecture Time: MW 8:40-9:55
+* Discussion Location: Snee Hall Geoloical Sciences 2151
+* Discussion Time: F 9:05-9:55
+* [Syllabus](files/syllabus.pdf)
