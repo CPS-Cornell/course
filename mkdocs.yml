@@ -1,0 +1,32 @@
+site_name: Cyber-Physical Systems
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.breadcrumbs
+    - navigation.path
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+      #- toc.integrate
+  nav_dpeth: 4
+  palette:
+    scheme: slate
+    primary: blue-grey
+    accent: cyan
+
+nav:
+  - Home: index.md
+  - Notes: 
+    - 'Module 0 - Introduction': notes/Module0.md
+    - 'Module 1 - Computational Systems': notes/Module1.md
+    - 'Module 2 - Computer Architecture and Programming Languages': notes/Module2.md
+    - 'Module 3 - Communication': notes/Module3.md
+    - 'Module 4 - Actuators': notes/Module4.md
+    - 'Module 5 - Sensors': notes/Module5.md
+    - 'Module 6 - Systems of Sensors and Actuators': notes/Module6.md
+    - 'Module 7 - State Estimation': notes/Module7.md
+  - Labs:
+    - 'Lab 0 - Programming Languages': labs/Lab0/Lab0.md
+    
