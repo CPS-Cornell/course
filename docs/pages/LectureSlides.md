@@ -1,1 +1,1 @@
-[Lecture 1 - Course Introduction and CPS Frameworks](pages/lectureslides/module0.pdf)
+[Lecture 1 - Course Introduction and CPS Frameworks](lectureslides/module0.pdf)
