@@ -27,6 +27,9 @@ nav:
     - 'Module 5 - Sensors': notes/Module5.md
     - 'Module 6 - Systems of Sensors and Actuators': notes/Module6.md
     - 'Module 7 - State Estimation': notes/Module7.md
+  - Lecture Slides: pages/LectureSlides.md
   - Labs:
     - 'Lab 0 - Programming Languages': labs/Lab0/Lab0.md
+  - Case Studies:
+    - 'Case Study 1 - Traffic Light Cameras': case_studies/RedLightCameraNIST.md
     
