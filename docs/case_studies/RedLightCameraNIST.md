@@ -18,7 +18,7 @@ To successfully complete this assignment, you are encouraged to use the followin
 
 1. **NIST Cyber-Physical Systems Framework Documentation**:
    - Familiarize yourself with the domains, facets, and aspects defined in the NIST CPS framework.
-   - Available at: [https://www.nist.gov/cps][https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-201.pdf].
+   - Available [here](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-201.pdf).
 
 2. **Scholarly Articles and Research**:
    - Look for articles and research papers that discuss red light cameras, their impact, and challenges. 
