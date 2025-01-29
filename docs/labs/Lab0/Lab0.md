@@ -173,15 +173,15 @@ Loop through different durrations spanning from 1-15 seconds in 1 second increme
 1. Write a program to test how many analog readings the Raspberry Pi Pico can perform in a set period of time in both Arduino C++ and MicroPython.
 2. The onboard temperature sensor is connected to the ADC on pin 4. 
 3. Implement the following pseudocode in both environments:
-   ```
-   Loop through different durations spanning from 1-15 seconds in 1-second increments:
-       Initialize a counter variable to 0.
-       Set the start time to the current time.
-       While the elapsed time is less than the given duration:
-           Perform an analog read on the temperature sensor.
-           Increment the counter variable.
-       Print the value of the counter variable, representing how many readings occurred in the given duration.
-   ```
+```
+Loop through different durations spanning from 1-15 seconds in 1-second increments:
+    Initialize a counter variable to 0.
+    Set the start time to the current time.
+    While the elapsed time is less than the given duration:
+        Perform an analog read on the temperature sensor.
+        Increment the counter variable.
+    Print the value of the counter variable, representing how many readings occurred in the given duration.
+```
 4. Measure the performance in both environments and compare the results.
 
 ### **Task 5: LED PWM Test**
@@ -189,15 +189,15 @@ Loop through different durrations spanning from 1-15 seconds in 1 second increme
 1. Write a program in both C++ and MicroPython to control the brightness of the onboard LED using PWM.
 2. The brightness of the LED is determined by the PWM value of the pin. The PWM should be a integer from 0-255. The brightness of the LED should oscillate smoothly once per second. This can be achieved through the use of a sine or cosine function. 
 3. Implement the following pseudocode in both environments:
-   ```
-   Loop through a set duration (e.g., 10 seconds
-     Initilize a counter
-     While the time is less than the durration
-       Calculate the brightness of the led
-       Set the PWM duty cycle to the calculated value
-       Increment the counter
-     Print the number of times the PWM value was updated
-   ```
+```
+Loop through a set duration (e.g., 10 seconds
+  Initilize a counter
+  While the time is less than the durration
+    Calculate the brightness of the led
+    Set the PWM duty cycle to the calculated value
+    Increment the counter
+  Print the number of times the PWM value was updated
+```
 4. Measure the performance in both environments and compare the results.
 
 ## MicroPython Threading on the Raspberry Pi Pico
@@ -336,16 +336,16 @@ def sieve_of_eratosthenes(limit):
     return primes
 ```
   - Implement a function to check if a number is prime.
-  ```python
-  def is_prime(n):
-    """Check if a number is prime."""
-    if n < 2:
-        return False  # 0 and 1 are not prime numbers
-    for i in range(2, int(n**0.5) + 1):  # Check divisors up to sqrt(n)
-        if n % i == 0:
-            return False  # Not prime if divisible by i
-    return True  # Prime if no divisors found
-  ```
+```python
+def is_prime(n):
+  """Check if a number is prime."""
+  if n < 2:
+      return False  # 0 and 1 are not prime numbers
+  for i in range(2, int(n**0.5) + 1):  # Check divisors up to sqrt(n)
+      if n % i == 0:
+          return False  # Not prime if divisible by i
+  return True  # Prime if no divisors found
+```
 
   - Use threading to improve the performance of the algorithm.
 
