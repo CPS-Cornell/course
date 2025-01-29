@@ -91,18 +91,16 @@ The Pico is designed to offer flexibility and performance, making it an excellen
 ### **Step 3: Write and Run a Test Script**
 
 1. In Thonny, write the following code to blink the onboard LED:
+    ```
+    from machine import Pin
+    from time import sleep
 
-   ```
-   from machine import Pin
-   from time import sleep
+    led = Pin(25, Pin.OUT)
 
-   led = Pin(25, Pin.OUT)
-
-   while True:
-       led.toggle()
-       sleep(0.5)
-   ```
-
+    while True:
+        led.toggle()
+        sleep(0.5)
+    ```
 2. Save the file as `main.py` on the Pico.
 3. Click **Run**. The Pico's onboard LED should start blinking, confirming successful setup.
 
