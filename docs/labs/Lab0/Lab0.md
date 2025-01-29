@@ -86,9 +86,12 @@ The Pico is designed to offer flexibility and performance, making it an excellen
 5. If MicroPython is not already installed on the Pico, Thonny will prompt you to install it. Follow the on-screen instructions to flash MicroPython directly onto the Pico.
 6. Once the process is complete, Thonny will automatically connect to the Pico, ready for programming.
 
+![Thonny Setup](figs/Thonny.png)
+
 ### **Step 3: Write and Run a Test Script**
 
 1. In Thonny, write the following code to blink the onboard LED:
+
    ```python
    from machine import Pin
    from time import sleep
