@@ -92,7 +92,7 @@ The Pico is designed to offer flexibility and performance, making it an excellen
 
 1. In Thonny, write the following code to blink the onboard LED:
 
-   ```python
+   ```
    from machine import Pin
    from time import sleep
 
@@ -102,6 +102,7 @@ The Pico is designed to offer flexibility and performance, making it an excellen
        led.toggle()
        sleep(0.5)
    ```
+
 2. Save the file as `main.py` on the Pico.
 3. Click **Run**. The Pico's onboard LED should start blinking, confirming successful setup.
 
