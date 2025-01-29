@@ -91,16 +91,16 @@ The Pico is designed to offer flexibility and performance, making it an excellen
 ### **Step 3: Write and Run a Test Script**
 
 1. In Thonny, write the following code to blink the onboard LED:
-    ```
-    from machine import Pin
-    from time import sleep
+```python
+from machine import Pin
+from time import sleep
 
-    led = Pin(25, Pin.OUT)
+led = Pin(25, Pin.OUT)
 
-    while True:
-        led.toggle()
-        sleep(0.5)
-    ```
+while True:
+    led.toggle()
+    sleep(0.5)
+```
 2. Save the file as `main.py` on the Pico.
 3. Click **Run**. The Pico's onboard LED should start blinking, confirming successful setup.
 
@@ -120,16 +120,16 @@ Helpful Hints and Tips:
 1. To understand the relationship between computation and execution time, we will test how long it takes to execute an integer computation N times, where N=1, 10, 100, 1,000, 10,000, 100,000, and 1000,000. 
 2. Implement the following pseudocode in both C++ (Arduino IDE) and MicroPython (Thonny). Feel free to put any integer computation you want inside the inner loop, but ensure that floating point computations are executed. 
 3. Example task pseudocode:
-   ```
-   Loop through the 7 different values of N:
-     Store the current time
-     Loop from 1 to N:
-       Declare first integer
-       Declare second integer
-       Perform some floating point computation such as:
-       Declare third integer = first integer + second integer
-     Print the elapsed time for the inner loop
-   ```
+```
+Loop through the 7 different values of N:
+  Store the current time
+  Loop from 1 to N:
+    Declare first integer
+    Declare second integer
+    Perform some floating point computation such as:
+    Declare third integer = first integer + second integer
+  Print the elapsed time for the inner loop
+```
 4. Measure the execution time in both environments and record the results.
    - In Arduino IDE, use `millis()` to measure the time.
    - In MicroPython, use `time.ticks_ms()`.
@@ -138,16 +138,16 @@ Helpful Hints and Tips:
 
 1. Write a program in both C++ and MicroPython to perform a series of floating-point math operations (e.g., addition, multiplication, and division).
 2. Example task pseudocode:
-   ```
-   Loop through the 7 different values of N:
-     Store the current time
-     Loop from 1 to N:
-       Declare first float
-       Declare second float
-       Perform some interger computation such as:
-       Declare third float = (first float * second float)/(first float + second float)
-     Print the elapsed time for the inner loop
-   ```
+```
+Loop through the 7 different values of N:
+  Store the current time
+  Loop from 1 to N:
+    Declare first float
+    Declare second float
+    Perform some interger computation such as:
+    Declare third float = (first float * second float)/(first float + second float)
+  Print the elapsed time for the inner loop
+```
 3. Measure the execution time in both environments and record the results.
 
 ### **Task 3: Digital Output Test**
