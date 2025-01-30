@@ -91,7 +91,7 @@ The Pico is designed to offer flexibility and performance, making it an excellen
 ### **Step 3: Write and Run a Test Script**
 
 1. In Thonny, write the following code to blink the onboard LED:
-```python
+```{python select}
 from machine import Pin
 from time import sleep
 
@@ -144,7 +144,7 @@ Loop through the 7 different values of N:
   Loop from 1 to N:
     Declare first float
     Declare second float
-    Perform some interger computation such as:
+    Perform some integer computation such as:
     Declare third float = (first float * second float)/(first float + second float)
   Print the elapsed time for the inner loop
 ```
@@ -156,7 +156,7 @@ Loop through the 7 different values of N:
 2. Implement the following pseudo code in both Arduino C++ and Thonny MicroPython. The code should turn ON and OFF a digital pin as quickly as possible and count the number of times it can do so in a set period of time.  Test this for different increments of time spanning from 1-15 second in 1 second increments. 
 
 ```
-Loop through different durrations spanning from 1-15 seconds in 1 second increments
+Loop through different durations spanning from 1-15 seconds in 1 second increments
   Initialize a counter variable to 0.
   Set the start time to the current time.
   While the elapsed time is less than a given duration (e.g., 1 second):
@@ -191,8 +191,8 @@ Loop through different durations spanning from 1-15 seconds in 1-second incremen
 3. Implement the following pseudocode in both environments:
 ```
 Loop through a set duration (e.g., 10 seconds
-  Initilize a counter
-  While the time is less than the durration
+  Initialize a counter
+  While the time is less than the duration
     Calculate the brightness of the led
     Set the PWM duty cycle to the calculated value
     Increment the counter
