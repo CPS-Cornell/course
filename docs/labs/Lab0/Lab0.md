@@ -95,7 +95,7 @@ The Pico is designed to offer flexibility and performance, making it an excellen
 from machine import Pin
 from time import sleep
 
-led = Pin(25, Pin.OUT)
+led = Pin("LED", Pin.OUT)
 
 while True:
     led.toggle()
