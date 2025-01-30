@@ -91,7 +91,7 @@ The Pico is designed to offer flexibility and performance, making it an excellen
 ### **Step 3: Write and Run a Test Script**
 
 1. In Thonny, write the following code to blink the onboard LED:
-```{python select}
+```{.python .select}
 from machine import Pin
 from time import sleep
 
