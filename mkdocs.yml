@@ -10,6 +10,7 @@ theme:
     - navigation.tracking
     - toc.follow
     - content.code.copy
+    - content.code.select
       #- toc.integrate
   nav_dpeth: 4
   palette:
