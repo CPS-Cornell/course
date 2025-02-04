@@ -17,6 +17,6 @@ Cyber-Physical Systems (CPS) is a comprehensive course designed for students int
 
 
 ## Resources
-* [Syllabus](files/syllabus.md)
-* [Lab Report Rubric](files/rubric.md)
+* [Syllabus](pages/syllabus.md)
+* [Lab Report Rubric](pages/rubric.md)
 
