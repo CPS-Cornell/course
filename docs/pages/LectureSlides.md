@@ -4,3 +4,4 @@
 
 [Module 2 - Computer Architecture and Programming Languages](lectureslides/module2.pdf)
 
+[Module 3-5 - Communication Protocols and Networking](lectureslides/module3-5.pdf)

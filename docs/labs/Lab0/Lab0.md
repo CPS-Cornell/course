@@ -59,7 +59,7 @@ The Pico is designed to offer flexibility and performance, making it an excellen
 
 ### **Step 5: Select the Board and Port**
 
-1. In Arduino IDE, go to **Tools > Board** and select "Raspberry Pi Pico."
+1. In Arduino IDE, go to **Tools > Board** and select "Raspberry Pi Pico W"
 2. Go to **Tools > Port** and choose the port corresponding to the connected Pico.
 
 ### **Step 6: Upload a Blink Example**
@@ -67,6 +67,10 @@ The Pico is designed to offer flexibility and performance, making it an excellen
 1. Open the **File > Examples > 01.Basics > Blink** sketch.
 2. Modify the pin number in the code to `LED_BUILTIN` (the onboard LED of the Pico).
 3. Click **Upload**. The Pico's onboard LED should blink, confirming successful programming.
+
+**NOTE:** if the LED on you pico isn't blinking, its most likely because you have the wrong board selected. Make sure you have the **"Raspberry Pi Pico W"** board selected and not  "Raspberry Pi Pico".
+
+![Arduino Pico W](figs/pico_w_arduino.png)
 
 ---
 
