@@ -35,12 +35,12 @@ nav:
     - 'Module 1 - Computational Systems': notes/Module1.md
     - 'Module 2 - Computer Architecture and Programming Languages': notes/Module2.md
     - 'Module 3 - Wired Communication Protocols': notes/Module3.md
-    - 'Module 4 - Wireless Communication Protocols': notes/Module3.md
-    - 'Module 5 - Communication Networks': notes/Module3.md
-    - 'Module 6 - Actuators': notes/Module4.md
-    - 'Module 7 - Sensors': notes/Module5.md
-    - 'Module 8 - Systems of Sensors and Actuators': notes/Module6.md
-    - 'Module 9 - State Estimation': notes/Module7.md
+    - 'Module 4 - Wireless Communication Protocols': notes/Module4.md
+    - 'Module 5 - Communication Networks': notes/Module5.md
+    - 'Module 6 - Actuators': notes/Module6.md
+    - 'Module 7 - Sensors': notes/Module7.md
+    - 'Module 8 - Systems of Sensors and Actuators': notes/Module8.md
+    - 'Module 9 - State Estimation': notes/Module9.md
   - Lecture Slides: pages/LectureSlides.md
   - Labs:
     - 'Lab 0 - Programming Languages': labs/Lab0/Lab0.md
