@@ -2,7 +2,7 @@
 
 ## Objective
 
-In this lab, we will explore the basics of wired communication protocols. We will implment I2C to integrate a time-of-flight sensor and IMU with the Raspberry Pi Pico. We will also use Camera Serial Interface (CSI) to interface a camera module with the Raspberry Pi Zero. 
+In this lab, we will explore the basics of wired communication protocols. We will implement I2C to integrate a light-based proximity sensor and IMU with the Raspberry Pi Pico. We will also implement UART to establish a communication link between the Raspberry Pi Pico and a Raspberry Pi Zero, and test the real-world transmission speeds, and implement a simple data compression algorithm to reduce the amount of data transmitted.
 
 ## UART
 
@@ -15,6 +15,28 @@ In this lab, we will establish a UART connection between the Raspberry Pi Pico a
 The Raspberry Pi Zero 2 W is a small single-board computer that is similar to the Raspberry Pi Pico, but has more processing power and memory, and is capable of running a full operating system with a graphical user interface (GUI). Because the Zero is still significantly less powerful than a traditional laptop or desktop computer, running a full GUI can be slow and cumbersome. 
 
 For this reason, we will use the Raspberry Pi Zero in headless mode, meaning that we will not connect a monitor, keyboard, or mouse to the Zero. Instead, we will connect to the Zero over SSH (Secure Shell) from a laptop or desktop computer or via a serial connection over USB (much like the REPL on the Raspberry Pi Pico).
+
+The Raspberry Pi Zero has already been pre-configured to connect to the internet over WiFi. By default, it will connect to RedRover and a random IP address will be assigned. **Note:** The IP address of the Raspberry Pi Zero will usually remain constant for a few hours if you don't move between buildings. There are two ways to connect to the Raspberry Pi Zero: SSH and Serial.
+
+#### Serial Connection to Raspberry Pi Zero
+
+The Raspberry Pi Zero has been pre-configured to allow a serial connection over USB. To connect to the Raspberry Pi Zero over serial, follow these instructions:
+
+1. Install a serial terminal tool on your computer. For Windows, you can use [PuTTY](https://www.putty.org/). For Mac, you can use [CoolTerm](https://freeware.the-meiers.org/). For Linux, you can use [Screen](https://www.gnu.org/software/screen/manual/screen.html). However, the easiest, and most universal method is to use a the [Serial Terminal](https://marketplace.visualstudio.com/items?itemName=awsxxf.serialterminal) extension for Visual Studio Code.
+
+2. Connect the Raspberry Pi Zero to your computer using a USB cable. The Zero should appear as a serial device on your computer. The Raspberry Pi Zero has two USB ports, one only for power and the other for data, labeled USB. Be sure to connect the USB cable to the data port. 
+
+3. Open the serial terminal tool and connect to the Raspberry Pi Zero using a baud rate of 115200. The Raspberry Pi Zero will output a login prompt. The default username is `CPSPi` and the default password is `CPS`.
+
+4. Once you are logged in, you can use the Raspberry Pi Zero as you would any other Linux computer. You can use the `ifconfig` command to find the IP address of the Raspberry Pi Zero. There are two IP addresses. 127.0.0.1 is the default internal IP address and the other is the external IP address. Take note of the external IP address so that we can connect to the Raspberry Pi Zero over SSH.
+
+5. Run the command `sudo raspi-config` to bring up the Raspberry Pi configuration tool. Use the arrow keys and Enter key to navigate the menu. In order to use UART, we need to disable serial console. Follow these steps:
+
+    - Run `sudo raspi-config`.
+    - Navigate to Interfacing `Options → Serial`.
+    - When asked *"Would you like a login shell to be accessible over serial?*, select *No*.
+    - When asked to enable the serial port hardware, select *Yes*.
+    - Reboot the Pi Zero.
 
 To set up the Raspberry Pi, follow these instructions:
 
