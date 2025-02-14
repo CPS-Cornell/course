@@ -44,6 +44,9 @@ nav:
   - Lecture Slides: pages/LectureSlides.md
   - Labs:
     - 'Lab 0 - Programming Languages': labs/Lab0/Lab0.md
+    - 'Lab 1 - Wired Communication Protocols': labs/Lab1/Lab1.md
   - Case Studies:
     - 'Case Study 1 - Traffic Light Cameras': case_studies/RedLightCameraNIST.md
-    
+  - Tutorials:
+    - 'Raspberry Pi Zero': tutorials/zero_tutorial.md
+    - 'Asynchronous Programming': tutorials/async_tutorial.md
