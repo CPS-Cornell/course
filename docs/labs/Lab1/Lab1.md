@@ -18,8 +18,6 @@ For this reason, we will use the Raspberry Pi Zero in headless mode, meaning tha
 
 The Raspberry Pi Zero has already been pre-configured to connect to the internet over WiFi. By default, it will connect to RedRover and a random IP address will be assigned. **Note:** The IP address of the Raspberry Pi Zero will usually remain constant for a few hours if you don't move between buildings. There are two ways to connect to the Raspberry Pi Zero: SSH and Serial.
 
-#### Serial Connection to Raspberry Pi Zero
-
 The Raspberry Pi Zero has been pre-configured to allow a serial connection over USB. To connect to the Raspberry Pi Zero over serial, follow these instructions:
 
 1. Install a serial terminal tool on your computer. For Windows, you can use [PuTTY](https://www.putty.org/). For Mac, you can use [CoolTerm](https://freeware.the-meiers.org/). For Linux, you can use [Screen](https://www.gnu.org/software/screen/manual/screen.html). However, the easiest, and most universal method is to use a the [Serial Terminal](https://marketplace.visualstudio.com/items?itemName=awsxxf.serialterminal) extension for Visual Studio Code.
@@ -38,133 +36,216 @@ The Raspberry Pi Zero has been pre-configured to allow a serial connection over 
     - When asked to enable the serial port hardware, select *Yes*.
     - Reboot the Pi Zero.
 
-To set up the Raspberry Pi, follow these instructions:
+6. For a more detailed guide on setting up the Raspberry Pi Zero, refer to the [tutorial page](../../tutorials/zero_tutorial.md).
 
-1. First download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/). 
+### Wiring
 
-2. Then download **_THIS_** Raspberry Pi Zero Image. 
+Below is a pinout diagram of the Raspberry Pi Pico. Notice that it supports multiple UART interfaces. One of the challenges with this lab is that we do not have direct access to all of the pins on the Pico due to it being soldering directly to the XRP board. We will have to think of a creative way to access UART enabled pins. Look the [XRP board hardware overview page](https://docs.sparkfun.com/SparkFun_XRP_Controller/hardware_overview/). At the bottom you will see a Pinout Reference Table. Cross reference the pinout reference table with the pinout diagram of the Raspberry Pi Pico to determine which pins both support UART interface and are easily accessible with a jumper wire. (hint: consider the servos.)
 
-2. Select the RASPBERRY PI ZERO 2 W from the list of available Raspberry Pi Devices.
+![Raspberry Pi Pico Pinout](figs/Raspberry_Pi_Pico_Pinout.png)
 
-3. Scroll to the bottom and select Use Custom, for the the Operating System selection. Select the provided image file.
+Now consider the pinout diagram of the Raspberry Pi Zero. There is only one UART interface on the Zero. Consider which pins on on the Pico should connect to which pins on the Zero. Remember, the Pico and Zero must share a common ground for communication to work. While they might have the same ground through the shared USB bus, it is always a good idea to connect the grounds directly, especially when the robot starts driving untethered. 
 
-4. Under Storage, select the SD card you wish to use and begin the imaging process.
+![Raspberry Pi Zero Pinout](figs/Raspberry_Pi_Zero_Pinout.jpg)
 
-5. Once the image is complete, remove the SD card from your computer and insert it into the Raspberry Pi Zero.
-
-6. 
+**Remember:** `RX` stands for receive and `TX` stands for transmit. The `TX` pin on one device should connect to the `RX` pin on the other device, and vice versa.
 
 ### Code
 
-We will implement a simple test that transmits 10,000 bytes from the Raspberry Pi Pico to the Raspberry Pi Zero and measures the time it takes to transmit the data. Feel free to implement this test in any way that you think accurately measure the data transfer rate. Feel free to use the following pseudocode as a starting point if you want:
+Download the code for your [Raspberry Pi Pico](code/pico_uart.py) and [Raspberry Pi Zero](code/zero_uart.py). Also download the [helper class](code/MessageTypes.py) to manage the message types. The code for the Pico is the master and the code for the Zero is the slave. The master is responsible for sending data over UART, while the slave is responsible for receiving and processing the data. This is an arbitrary distinction, and the roles could be reversed by implementing the appropriate code on each device. UART is full duplex, meaning that data can be sent and received simultaneously. So, in theory, both devices could simultaneously sending, receiving, and processing data. However, for the sake of simplicity, we will implement a simple two-way master-slave communication protocol.
 
-For the Raspberry Pi Pico:
-```
-1. Define BUFFER_SIZE = 10000
-2. Create TEST_DATA = "A" repeated BUFFER_SIZE times
+Almost of all of the code for this portion of the lab utilizes asynchronous programming. This is because UART is a blocking protocol, meaning that the program will pause execution while waiting for data to arrive. This is inefficient for real-time applications, so we use asynchronous programming to allow the CPU to listen for incoming data while doing other tasks. Please review asynchronous programming in our [tutorial](../../tutorials/async_tutorial.md) if you are unfamiliar with the concept or need a refresher.
 
-3. Initialize UART0 at 9600 baud on TX pin=0, RX pin=1
+#### Step 1: Implement `send_data` function in `UARTMaster`
 
-4. Pause for 2 seconds
+In this step, you will implement the `send_data` function in the `UARTMaster` class. This function sends data over UART and waits for an ACK response.
 
-5. Print "Pico (Sender): Starting test..."
+**Task:**
+- Implement the function to send data over UART using the `MessageType.DATA` to indicate the message type. This is a string (`DATA`), and should be followed by a colon (`:`) and the data characters. These should all be conncatenated together to form a single string. Refer to `pint()` in UARTMaster for an example how to format the message.
+- Use a try-except block to handle timeouts. You can set timeouts using `asyncio.wait_for()`.
+- Refer to the `handshake` function for an example of how to handle timeouts.
 
-6. Send the string "START TEST\n" over UART
+#### Step 2: Handle `DATA` messages in `UARTSlave`
 
-7. Pause briefly (0.1 seconds)
+In this step, you will handle `DATA` messages in the `UARTSlave` class. This class is responsible for receiving and processing messages from the UART interface.
 
-8. Record current time as t_start
-9. Write TEST_DATA (10,000 bytes) to UART
-10. Record current time as t_end
+**Task:**
+- Implement the case to handle `DATA` messages in the `handle_messages` function of `UARTSlave`.
+- When a `DATA` message is received, send an ACK response back to the sender.
+- You should strip off the `DATA:` prefix before processing the data.
+- Print off the length of the data contained in the message to confirm proper transmission.
 
-11. Calculate delta_ms = (t_end - t_start)
-    If delta_ms == 0, set delta_ms = 1  (avoid division by zero)
+#### Step 3: Implement `simple_rle_compress` function in `UARTMaster`
 
-12. Calculate pico_bps = (BUFFER_SIZE * 8,000) / delta_ms
-    (Explanation: 8 bits per byte times 1,000 ms → convert to seconds)
+In this step, you will implement the `simple_rle_compress` function in the `UARTMaster` class. This function compresses a string using a simple run-length encoding (RLE) algorithm.
 
-13. Print "Sent X bytes in Y ms -> Z bits/s" (pico_bps)
+RLE stands for Run-Length Encoding, which is a simple compression algorithm that replaces consecutive characters with the character followed by the number of occurrences. For example, the string 'aaabbc' can be compressed to '3a2b1c'.
 
-14. Initialize an empty response string
-15. Set timeout_ms = 3000
-16. Record start_wait = current time (ms)
+**Task:**
+- Implement the RLE compression algorithm to replace consecutive characters with the character followed by the number of occurrences.
 
-17. While (current time - start_wait) < timeout_ms:
-       If there is data in UART’s buffer:
-           Read available bytes
-           Append to response
-       If response contains a newline, break out of the loop
+#### Step 4: Implement `decompress` function in `UARTSlave`
 
-18. If response is not empty:
-       Print "Received from Zero: <response>"
-   Else:
-       Print "No response from Zero."
+In this step, you will implement the `decompress` function in the `UARTSlave` class. This function decompresses a string that was compressed using the RLE algorithm.
 
-19. End
-```
+This function should take a compressed string as input and return the original string by undoing the RLE compression.
 
-For the Raspberry Pi Zero:
-```
-1. Define BUFFER_SIZE = 10000
-2. Set baud_rate = 9600
+**Task:**
+- Implement the RLE decompression algorithm to restore the original string from the compressed format.
+- For example, '3a2b1c' should become 'aaabbc'.
 
-3. Open UART device '/dev/serial0' at baud_rate = 9600, timeout=1
+#### Step 6: Implement `send_compressed_data` function in `UARTMaster`
 
-4. Print "Zero (Receiver): Waiting for START TEST..."
+In this step, you will implement the `send_compressed_data` function in the `UARTMaster` class. This function compresses data using RLE, sends it over UART, and waits for an ACK response.
 
-5. Loop indefinitely:
-    - If there's incoming data on UART:
-        - Read one line (until newline)
-        - If the line is "START TEST":
-            - Print "'START TEST' received."
-            - Break out of this loop
+**Task:**
+- Compress the data using the `simple_rle_compress` function.
+- Send the compressed data over UART and wait for an ACK response.
 
-6. Record t_start = current time (seconds)
+#### Step 6: Handle compressed data messages in `UARTSlave`
 
-7. Set received_bytes = 0
+In this step, you will handle compressed data messages in the `UARTSlave` class.
 
-8. While received_bytes < BUFFER_SIZE:
-    - Read up to (BUFFER_SIZE - received_bytes) bytes from UART
-    - If any bytes were read, increase received_bytes accordingly
+**Task:**
+- Implement the case to handle compressed data messages in the `handle_messages` function of `UARTSlave`.
+- When a compressed data message is received, decompress the data using the `decompress` function and send an ACK response back to the sender.
 
-9. Record t_end = current time (seconds)
-10. Calculate delta_s = (t_end - t_start)
-    If delta_s == 0, set delta_s = very small value (e.g., 0.000001)
+#### Step 7: Implement `encrypt_decrypt` function in `UARTMaster`
 
-11. Calculate zero_bps = (received_bytes * 8) / delta_s
+In this step, you will implement the `encrypt_decrypt` function in the `UARTMaster` class. This function encrypts or decrypts data using a simple XOR cipher.
 
-12. Construct result_str:
-    "Zero (Receiver): Received X bytes in Y s -> Z bits/s"
+A XOR cipher is a simple encryption algorithm that works by performing the XOR operation between each character in the plaintext and a key. To decrypt the ciphertext, the same key is used to perform the XOR operation on the ciphertext. This is because the XOR operation is its own inverse, meaning that applying the XOR operation twice with the same key will return the original plaintext.
 
-13. Print result_str
+The basic structure of the XOR cipher is as follows:
+- For each character in the plaintext,
+- Convert to an integer using the `ord()` function,
+- Perform the XOR operation with the key using the `^` operator,
+- Convert back to a character using the `chr()` function.
+- Contatenate the characters together to form the ciphertext.
 
-14. Write result_str back to the Pico over UART
+**Task:**
+- Implement the XOR cipher encryption/decryption algorithm.
 
-15. End
-```
+#### Step 8: Implement `encrypt_decrypt` function in `UARTSlave`
 
+In this step, you will implement the `encrypt_decrypt` function in the `UARTSlave` class. This function decrypts data that was encrypted using the XOR cipher.
 
-### Setting up the Time-of-Flight Sensor
+**Task:**
+- Implement the XOR cipher decryption algorithm.
+- Use the same approach as in the `UARTMaster` class to perform the XOR operation.
 
-Recall that I2C uses two wires for communication: SDA (data line) and SCL (clock line). The Raspberry Pi Pico has 3 I2C buses, but we will use the default I2C bus (I2C0) for this lab. Becuase most sensors also require power, Sparkfun has created a Qwiic connector that combines power and I2C into a single connector with 4 pins. This header can be found on many of their sensors as well as the top side of the XRP control board. 
+#### Step 9: Implement `send_compressed_encrypted_data` function in `UARTMaster`
 
-For more details about the connectors on the XRP control board, refer to the [XRP Hardware Overview Page](https://docs.sparkfun.com/SparkFun_XRP_Controller/hardware_overview/).
+In this step, you will implement the `send_compressed_encrypted_data` function in the `UARTMaster` class. This function compresses and encrypts data, sends it over UART, and waits for an ACK response.
 
-**_NOTE:_** The Qwiic connector has 4 small pins inside the connector. If the connector is plugged in at angle, the pins risk bending and breaking. Be sure to plug in the connector straight and carefully. 
+**Task:**
+- Compress the data using the `simple_rle_compress` function.
+- Encrypt the compressed data using the `encrypt_decrypt` function.
+- Send the compressed and encrypted data over UART and wait for an `ACK` response.
+- Ensure that `ACK` returns the expected length.
 
-![XRP Connectors](figs/XRP_Controller-Overview.jpg)
+#### Step 10: Handle compressed and encrypted data messages in `UARTSlave`
+
+In this step, you will handle compressed and encrypted data messages in the `UARTSlave` class.
+
+**Task:**
+- Implement the case to handle compressed and encrypted data messages in the `handle_messages` function of `UARTSlave`.
+- When a compressed and encrypted data message is received, decrypt the data using the `encrypt_decrypt` function and decompress it using the `decompress` function.
+- Print off the length of the data contained in the message to confirm proper transmission.
+- Send an `ACK` response back to the sender.
+- Be sure to send the `ACK` response with the length of the data contained in the message.
+
+### Testing
+
+To test the UART communication between the Raspberry Pi Pico and the Raspberry Pi Zero, implement a function (or multiple functions) that sends a large amount of data from the Pico to the Zero and measures the time it takes to transmit the data.
+
+This function should start by opening [this](code/data.txt) file and saving its contents as a string. Then, the function should send the data using the `send_data`, `send_compressed_data`, and `send_compressed_encrypted_data` functions. The function should measure the time it takes to transmit the data, including decompression and decryption time on the Zero. This is why it is essential that the zero send the `ACK` message after it has decompressed and/or decrypted the data.
+
+Try this again with a different sized files. You can generate a data.txt file using the [generate_data.py](generate_data.py) script. This scrip will generate random numbers and characters to create a string that will be saved to a `data.txt` file. You can also vary how "random" the data is by changing the mean and standard deviation of the random number generator. A larger mean and smaller standard deviation will result in more repeating characters, which will compress better.
+
+Reflect on how the data transmission speed changes with different data sizes and compression/encryption methods. What are the advantages and disadvantages of compressing and encrypting data before transmission? How does the data transmission speed compare to the theoretical maximum baud rate of the UART interface? What are some potential applications for the data compression and encryption methods you implemented in this lab? 
+
+Graph some data to show trends in the data transmission speed as a function of data size and compression/encryption method. Include any other relevant data or analysis that you think would be helpful in explaining your results.
+
+### Analysis
+
+Consider the OSI model we learned about in class. For each of the 7 layers, analyze how the communication protocol we implemented in this lab fits into the model. See the [course notes](../../notes/Module5.md) and [powerpoint](../../pages/lectureslides/module3-5.pdf) for a refresher on the OSI model. Not all of the layers will be relevant to this lab, but consider the ones that are.
+
+For reference, UART is a datalink layer protocol, however, the protocol we implemented in this lab is a higher level protocol that uses UART as a foundational layer. Consider how the different layers of the ISO model build on top of each other to create a complete communication system.
+
+Brainstorm some potential applications for the communication protocol we implemented in this lab. What are some real-world scenarios where this protocol could be useful? What are some potential limitations or drawbacks of the protocol? How could the protocol be improved or extended to support additional features or functionality? What layers of the OSI model would be involved in these improvements?
+
+Discuss the trade-offs between speed, reliability, and complexity/overhead in the communication protocol we implemented. How do these trade-offs affect the performance and usability of the protocol? What are some potential ways to optimize the protocol for different use cases or scenarios? How much overhead does adding features such as compression and encryption add to the communication speed? How does this change with file size or the randomness of the data? Include any graphs, diagrams, or pseudocode that you think would be helpful in explaining your analysis.
+
+## I2C
 
 ### Inertial Measurement Unit (IMU)
 
-The IMU built into the XRP control board is the LSM6DSO. This IMU has a 3-axis accelerometer and a 3-axis gyroscope. The IMU is connected to the I2C bus on the XRP control board. Forunately, there exists significant software support for the XRP, so we don't have to implement the I2C communication for the IMU from scratch. The standard software for the XRP can be [found here](https://github.com/Open-STEM/XRP_MicroPython/tree/main), under XRPLib. 
+The IMU built into the XRP control board is the LSM6DSO. This IMU has a 3-axis accelerometer and a 3-axis gyroscope. The IMU is connected to the I2C bus on the XRP control board. Forunately, there exists significant software support for the XRP, so we don't have to implement the I2C communication for the IMU from scratch.
 
-To use the IMU, we will need to import the IMU class from the XRPLib. 
+For reference, a gyroscope is microelectromechanical system (MEMS) that measures angular velocity. An accelerometer is a MEMS that measures acceleration. The gyroscope measures angular velocity in degrees per second, while the accelerometer measures acceleration in g's. Together, the gyroscope and accelerometer can be used to determine the orientation of the IMU in 3D space. Gyroscopes and accelerometers will be discussed further in the "Sensors" lab. 
+
+For now, you should notice that the gyroscope will return values very close to zero when the IMU is stationary, because the XRP control board is not rotating. The accelerometer, on the other hand, should return values close to 1g in the z-direction (up and down) and 0 in the x and y directions. This is due to the gravitational force acting on the IMU. The accelerometer will only read 0 in all directions when the IMU is in free fall.
+
+#### Scan for I2C Devices
+
+Below is some code to open a generic I2C bus and scan for devices. This code will be useful for determining the I2C address of the IMU. 
 
 ```python
-from XRPLib import IMU
-myIMU = IMU()
+from machine import Pin, I2C
+import time
+
+# Define I2C pins (use default I2C1 on Pico W: GP6=SCL, GP7=SDA)
+i2c = I2C(1, scl=Pin(19), sda=Pin(18), freq=400000)  # 400kHz frequency
+
+def scan_i2c():
+    print("Scanning for I2C devices...")
+    devices = i2c.scan()
+    
+    if devices:
+        print("Found devices at addresses:")
+        for device in devices:
+            print(hex(device))  # Print address in hexadecimal
+    else:
+        print("No I2C devices found.")
+
+while True:
+    scan_i2c()
+    time.sleep(5)  # Wait 5 seconds before scanning again
 ```
 
-Gyroscopes and accelerometers will be discussed further in the "Sensors" lab. For now its important to know that gyroscope measures angular velocity and the accelerometer measures acceleration. You should notice that the gyroscope will return values very close to zero when the IMU is stationary, because the XRP control board is not rotating. The accelerometer, on the other hand, should return values close to 1g in the z-direction (up and down) and 0 in the x and y directions. This is due to the gravitational force acting on the IMU. The accelerometer will only read 0 in all directions when the IMU is in free fall.
+What is the I2C address of the IMU?
 
+Now download [this](code/imu.py) file as well as [this](code/imu_defs.py) helper file and run it on the XRP control board. This code will wraps around the I2C library to provide a more user-friendly interface for the IMU.
+
+A new IMU object can be created using the following code:
+
+```python
+from imu import IMU
+myIMU = IMU.get_default_imu()
+```
+
+### Tasks
+
+Write a script that reads accelerometer data from the IMU and prints it to the console. The IMU class has a method called `get_accel_rates()` that returns a tuple of the x, y, and z acceleration values. Put this in a loop and analyze what frequency the data is being read at. Are values being repeated, or is each value unique? 
+
+Do the same for the gyroscope data. The IMU class has a method called `get_gyro_rates()` that returns a tuple of the x, y, and z angular velocity values. Perform a similar analysis on the gyroscope data.
+
+Now sending a command to the IMU to range the rate at which it measures new data. This can be done with the functions `acc_rate()` and `gyro_rate()`. The argument to these functions is the rate in Hz. Only certain rates are supported, so read the comments in the code to find an appropriate rate.
+
+Try setting the rates to a value lower than the frequency your loop was reading data. What happens? Do you get repeat data, or does your loop slow down to match the rate of the IMU? Do this for both the accelerometer and gyroscope.
+
+Now try adjusting the clock speed of the I2C bus. The default speed is 400kHz. Try setting it to 100kHz and 1MHz. What happens to the data read from the IMU? Also try setting the I2C bus to an arbitrary frequency, like 250kHz. What happens? Check if the clock speed gets set to the value you requested using `print("I2C frequency:", i2c.freq())`. What results do you get? 
+
+Reason about what bottle necks might be limiting the performance of your system. Is the speed of the sensor collecting data, the speed of the I2C bus, or the speed of the code reading the data? How could you optimize the system to improve performance?
+
+### Analysis 
+
+Give careful consideration to the various tasks in this lab. Share your thoughts on various aspects of the I2C communication. What factors affect the data transfer rates of I2C? What are the advantages and disadvantages of using I2C for communication between devices? How does I2C compare to other communication protocols, such as UART and SPI? What layer of it the OSI model does I2C fit into?
+
+Include any graphs, diagrams, or pseudocode that you think would be helpful in explaining your analysis.
+
+## Conclusions
+
+Compare I2C, UART, and our custom communication protocol built on top of UART. What are the advantages and disadvantages of each protocol? In what scenarios would you use each protocol? How do the protocols differ in terms of speed, reliability, complexity, and overhead? How do the protocols compare in terms of ease of use and implementation? What are some potential applications for each protocol?
 

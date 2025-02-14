@@ -114,6 +114,8 @@ while True:
 
 The goal of this section is to test the performance of C++ and micro python various types of computation and IO. We will develop test benches for integer and floating point computation, digital I/O, analog to digital conversion, and digital to analog conversion. 
 
+Remember, C++ is a compiled language, which means that all of the code is analyzed before it is converted to machine code. This can lead to faster execution times through optimization. One of the optimizations performed by the Arduino IDE is to remove unused code. This means that if the code inside your loop is not used or does not affect the output of the program, it will be removed. As a result, you might find that your C++ loops run very fast every time, regardless of how many iterations you have. If you want to measure the performance of the code inside your
+
 Helpful Hints and Tips:
 - Use the `millis()` function in Arduino to measure time.
 - Use the `time.ticks_ms()` function in MicroPython to measure time.
@@ -127,12 +129,14 @@ Helpful Hints and Tips:
 ```
 Loop through the 7 different values of N:
   Store the current time
+  Initialize a running sum to zero
   Loop from 1 to N:
     Declare first integer
     Declare second integer
-    Perform some floating point computation such as:
+    Perform some integer computation such as:
     Declare third integer = first integer + second integer
-  Print the elapsed time for the inner loop
+    Add third integer to the running sum
+  Print the elapsed time for the inner loop and the total sum
 ```
 4. Measure the execution time in both environments and record the results.
    - In Arduino IDE, use `millis()` to measure the time.
@@ -145,12 +149,14 @@ Loop through the 7 different values of N:
 ```
 Loop through the 7 different values of N:
   Store the current time
+  Initialize a running sum to zero
   Loop from 1 to N:
     Declare first float
     Declare second float
     Perform some integer computation such as:
     Declare third float = (first float * second float)/(first float + second float)
-  Print the elapsed time for the inner loop
+    Add third integer to the running sum
+  Print the elapsed time for the inner loop and the total sum
 ```
 3. Measure the execution time in both environments and record the results.
 
@@ -311,7 +317,7 @@ Print the result of the sum
 Print the elapsed time
 ```
 
-4. Measure the performance of the single-threaded and multithreaded programs in MicroPython and compare them to the C++ program. Compare the multithreaded performance to the single-threaded performance in both languages.
+4. Measure the performance of the single-threaded and multithreaded programs in MicroPython and compare them to the C++ program. Compare the multithreaded performance to the single-threaded performance in both languages. **Note:** you do not need to implement the threading test in C++ as the Arduino IDE does not support threading.
 
 ### **Task 7: Extra Credit (1-3 points) (Optional)**
 
