@@ -51,4 +51,3 @@ nav:
     - 'Introduction to Raspberry Pi Zero': tutorials/zero_tutorial.md
     - 'Raspberry Pi Zero Wifi Setup': tutorials/zero_wifi.md
     - 'Asynchronous Programming': tutorials/async_tutorial.md
-    - 'Asynchronous Programming': tutorials/async_tutorial.md
