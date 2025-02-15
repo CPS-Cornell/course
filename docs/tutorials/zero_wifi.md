@@ -49,11 +49,9 @@ Once the default configuration has been removed, use `raspi-config` to set up a 
    ```bash
    sudo raspi-config
    ```
-2. Navigate to:
-   - **System Options**  
-   - **Wireless LAN**
-3. Enter the **SSID (network name)** and **Wi-Fi passphrase** when prompted.
-4. Exit `raspi-config` and allow the Raspberry Pi to apply the settings.
+2. Using the arrow keys, enter, and esc, navigate to: **System Options** -> **Wireless LAN**
+1. Enter the **SSID (network name)** and **Wi-Fi passphrase** when prompted.
+2. Exit (esc) `raspi-config` and allow the Raspberry Pi to apply the settings.
 
 ---
 
