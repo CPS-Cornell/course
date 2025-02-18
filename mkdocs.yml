@@ -27,6 +27,12 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
   - Home: index.md
@@ -51,3 +57,4 @@ nav:
     - 'Introduction to Raspberry Pi Zero': tutorials/zero_tutorial.md
     - 'Raspberry Pi Zero Wifi Setup': tutorials/zero_wifi.md
     - 'Asynchronous Programming': tutorials/async_tutorial.md
+    - 'Lab Report Writing': pages/rubric.md

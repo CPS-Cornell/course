@@ -6,16 +6,16 @@ The following rubric outlines the criteria used to evaluate your lab reports. Wh
 
 ## **1. Introduction (15 points):** 
 
-The introduction should give a concise and clear overview of the contents of the lab, including core concepts from lecture, and provide a compelling motivation for the work.
+The introduction should give a concise and clear overview of the contents of the lab, including core concepts from lecture, and provide a compelling motivation for the work. Place the key concepts of the lab into context with regards to CPS design principles. Motivate the need for the experiments conducted in the lab and how your results impact key system architecture design choices. 
 
-- **13–15 points**: Clearly states the objectives, background, and relevance of the experiment. Provides sufficient context for the problem.
+- **13–15 points**: Clearly states the objectives, background, and relevance of the experiment. Provides sufficient context for the problem. 
 - **9–12 points**: Adequate discussion of objectives and background, with some lack of depth or clarity.
 - **5–8 points**: Limited or unclear description of objectives and background.
 - **0–4 points**: Missing or unrelated to the experiment.
 
 ## **2. Methodology (20 points)**
 
-Each step of your work should be clearly documented. Short, relevant snippets of code or pseudocode that are critical to core concepts should be included and thoroughly explained. Be sure to convey your knowledge and mastery of the material at hand.
+Each step of your work should be clearly documented. Short, relevant snippets of code or pseudocode that are critical to core concepts should be included and thoroughly explained. Be sure to convey your knowledge and mastery of the material at hand. Include explanation for any functions or code elements that are critical to functionality of your code. Highlight any engineering and debugging challenges that you faced while implementing the lab as well as how you overcame them. 
 
 - **17–20 points**: Detailed description of the procedures, hardware, software, and configurations used. Diagrams and schematics are clear and accurate.
 - **13–16 points**: Adequate description of the procedures with minor omissions or unclear details.
@@ -24,7 +24,7 @@ Each step of your work should be clearly documented. Short, relevant snippets of
 
 ## **3. Results (20 points)**
 
-The results section should neatly summarize your findings. Include appropriate visualizations, tables, and figures. 
+The results section should neatly summarize your findings. Include appropriate visualizations, tables, and figures. Each figure should be properly labeled so that you can refer to it directly in your writing. Be sure to use appropriate scales and labels for your axes. Each figure should include a short description to help the reader understand the concepts being communicated. Be use to use the most appropriate format for conveying your findings (e.g. don't display large tables of raw data, synthesize results using statistical methods when necessary and visualize whenever appropriate).
 
 - **17–20 points**: Results are clearly presented with appropriate use of tables, graphs, and figures. Data is accurate and well-organized.
 - **13–16 points**: Results are presented adequately, but some figures/tables are unclear or disorganized.

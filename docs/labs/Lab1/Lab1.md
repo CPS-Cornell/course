@@ -32,7 +32,7 @@ The Raspberry Pi Zero has been pre-configured to allow a serial connection over 
 
     - Run `sudo raspi-config`.
     - Navigate to Interfacing `Options → Serial`.
-    - When asked *"Would you like a login shell to be accessible over serial?*, select *No*.
+    - When asked *"Would you like a login shell to be accessible over serial?"*, select *No* (to prevent conflicts when we use UART).
     - When asked to enable the serial port hardware, select *Yes*.
     - Reboot the Pi Zero.
 
@@ -94,7 +94,7 @@ This function should take a compressed string as input and return the original s
 - Implement the RLE decompression algorithm to restore the original string from the compressed format.
 - For example, '3a2b1c' should become 'aaabbc'.
 
-#### Step 6: Implement `send_compressed_data` function in `UARTMaster`
+#### Step 5: Implement `send_compressed_data` function in `UARTMaster`
 
 In this step, you will implement the `send_compressed_data` function in the `UARTMaster` class. This function compresses data using RLE, sends it over UART, and waits for an ACK response.
 
@@ -155,6 +155,8 @@ In this step, you will handle compressed and encrypted data messages in the `UAR
 - Send an `ACK` response back to the sender.
 - Be sure to send the `ACK` response with the length of the data contained in the message.
 
+> Note: When analyzing how this protocol fits into the OSI model, keep in mind that UART is often considered a physical/datalink layer. Our custom packet-based protocol and message handling build on top of it.
+
 ### Testing
 
 To test the UART communication between the Raspberry Pi Pico and the Raspberry Pi Zero, implement a function (or multiple functions) that sends a large amount of data from the Pico to the Zero and measures the time it takes to transmit the data.
@@ -176,6 +178,8 @@ For reference, UART is a datalink layer protocol, however, the protocol we imple
 Brainstorm some potential applications for the communication protocol we implemented in this lab. What are some real-world scenarios where this protocol could be useful? What are some potential limitations or drawbacks of the protocol? How could the protocol be improved or extended to support additional features or functionality? What layers of the OSI model would be involved in these improvements?
 
 Discuss the trade-offs between speed, reliability, and complexity/overhead in the communication protocol we implemented. How do these trade-offs affect the performance and usability of the protocol? What are some potential ways to optimize the protocol for different use cases or scenarios? How much overhead does adding features such as compression and encryption add to the communication speed? How does this change with file size or the randomness of the data? Include any graphs, diagrams, or pseudocode that you think would be helpful in explaining your analysis.
+
+- Consider adding any notes on simplifying or grouping multiple questions if they seem repetitive.
 
 ## I2C
 
@@ -248,4 +252,6 @@ Include any graphs, diagrams, or pseudocode that you think would be helpful in e
 ## Conclusions
 
 Compare I2C, UART, and our custom communication protocol built on top of UART. What are the advantages and disadvantages of each protocol? In what scenarios would you use each protocol? How do the protocols differ in terms of speed, reliability, complexity, and overhead? How do the protocols compare in terms of ease of use and implementation? What are some potential applications for each protocol?
+
+- You may also combine some of the questions into a single comparative analysis if that feels more natural for explaining the trade-offs.
 

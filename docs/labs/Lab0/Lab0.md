@@ -4,6 +4,14 @@
 
 In this lab, students will explore the performance differences between C++ and MicroPython and between single-threaded and multi-threaded programing by implemening tests a Raspberry Pi Pico. The lab provides an opportunity to understand embedded systems programming and performance evaluation using popular development environments: Arduino IDE (C++) and Thonny (MicroPython).
 
+As you work on the lab and write up the report, consider the following scenario: You work for an engineering firm developing cyber-physical systems (perhaps robots, planes, cars, or anything you'd like). Your team is tasked with starting a new project and are in the initial investigation stage. The project lead decides to make you the head of the computational subsystem team and tasks you with generating a report to justify the high level design decisions you are making. These include:
+- What programming language would work best for this project?
+- How does the type of computation being performed affect the performance of the system?
+- Is there an interplay between the types of computation that are being performed and the programming language being used?
+- Does the system require a multi-core architecture, and if so, how does that impact the software engineering decisions that will be made?
+
+You don't need to answer these questions directly, but your report should be structured in such a way that it can easily be read by any engineer to help them make decisions about their computational system with strong justifications.
+
 Learning outcomes:
 - Introduce the Raspberry Pi Pico, its key features, and programming environments.
 - Understand the performance differences between C++ and MicroPython on the Raspberry Pi Pico.
@@ -372,6 +380,7 @@ Any solution to this problem will result in 1 extra credit point. However, addit
   - Use cases where one paradigm might be preferred over the other
   - Compare the data across tasks and languages to identify any consistent trends or anomalies that could inform future decisions about programming environments for embedded systems.
 4. Give a comprehensive analysis as to why there are speed differences in the in execution time of the code in different paradigms. Are the same computations occurring in both versions of the code? If so, how do you account for the difference in execution speed. Discuss this topic thoroughly. 
+
 
 
 
