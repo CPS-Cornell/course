@@ -38,6 +38,8 @@ The Raspberry Pi Zero has been pre-configured to allow a serial connection over 
 
 6. For a more detailed guide on setting up the Raspberry Pi Zero, refer to the [tutorial page](../../tutorials/zero_tutorial.md).
 
+7. Before running any code or installing any packages via `pip` on the Raspberry Pi Zero, be sure to activate the virtual environment by running `pyenv activate cps` in the terminal.
+
 ### Wiring
 
 Below is a pinout diagram of the Raspberry Pi Pico. Notice that it supports multiple UART interfaces. One of the challenges with this lab is that we do not have direct access to all of the pins on the Pico due to it being soldering directly to the XRP board. We will have to think of a creative way to access UART enabled pins. Look the [XRP board hardware overview page](https://docs.sparkfun.com/SparkFun_XRP_Controller/hardware_overview/). At the bottom you will see a Pinout Reference Table. Cross reference the pinout reference table with the pinout diagram of the Raspberry Pi Pico to determine which pins both support UART interface and are easily accessible with a jumper wire. (hint: consider the servos.)
