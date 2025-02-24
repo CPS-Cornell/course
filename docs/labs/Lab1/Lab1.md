@@ -241,10 +241,6 @@ Now sending a command to the IMU to range the rate at which it measures new data
 
 Try setting the rates to a value lower than the frequency your loop was reading data. What happens? Do you get repeat data, or does your loop slow down to match the rate of the IMU? Do this for both the accelerometer and gyroscope.
 
-Now try adjusting the clock speed of the I2C bus. The default speed is 400kHz. Try setting it to 100kHz and 1MHz. What happens to the data read from the IMU? Also try setting the I2C bus to an arbitrary frequency, like 250kHz. What happens? Check if the clock speed gets set to the value you requested using `print("I2C frequency:", i2c.freq())`. What results do you get? 
-
-Reason about what bottle necks might be limiting the performance of your system. Is the speed of the sensor collecting data, the speed of the I2C bus, or the speed of the code reading the data? How could you optimize the system to improve performance?
-
 ### Analysis 
 
 Give careful consideration to the various tasks in this lab. Share your thoughts on various aspects of the I2C communication. What factors affect the data transfer rates of I2C? What are the advantages and disadvantages of using I2C for communication between devices? How does I2C compare to other communication protocols, such as UART and SPI? What layer of it the OSI model does I2C fit into?
