@@ -7,6 +7,7 @@ This lab will require you to run python code locally on your laptop, including u
 Instructions on how to install and use virtual environment package managers, such as [pyenv](../../tutorials/pyenv_tutorial.md) and [anaconda](../../tutorials/anaconda_tutorial.md), can be found on the tutorials page.
 
 Once you have your virtual environment set up, use conda or pip to install the appropriate dependencies for running `test_tcp_client.py` on your laptop. 
+
 ---
 
 ### Overview
