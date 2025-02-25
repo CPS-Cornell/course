@@ -29,12 +29,12 @@ The second portion of this lab will not require any programming, but instead wil
 
 Below is an overview of each file and its role in this project.
 
-### 1 `imu_defs.py`
+### 1 [`imu_defs.py`](code/pico/imu_defs.py)
 - Defines constants and register addresses for the LSM6DSO IMU (an accelerometer + gyroscope).
 - Houses low-level bitfield and register definitions (e.g., `LSM_REG_CTRL1_XL`, `LSM_ODR`, etc.) that help configure and communicate with the sensor.
 - You will not need to edit this file directly, but it is useful to understand how the IMU is being set up and read.
 
-### 2 `imu.py`
+### 2 [`imu.py`](code/pico/imu.py)
 - Contains the `IMU` class, which handles higher-level communication with the LSM6DSO sensor.
 - Manages initialization, calibration, and reading of accelerometer and gyroscope data (in mg and mdps).  
 - Maintains internally computed roll, pitch, and yaw angles by integrating gyro data over time.
@@ -42,7 +42,7 @@ Below is an overview of each file and its role in this project.
   - `get_roll()`, `get_pitch()`, `get_yaw()`: Return the current orientation angles in degrees.
   - `calibrate()`: Collects baseline readings to zero out the IMU.
 
-### 3 `tcp_server.py`
+### 3 [`tcp_server.py`](code/pico/tcp_server.py)
 - Implements a simple TCP server class, `TCPServer`, using `uasyncio` on the Pico.
 - Handles client connections, listens for incoming messages, and sends data back to the client.
 - Provides:
@@ -51,7 +51,7 @@ Below is an overview of each file and its role in this project.
   - `send(message)`: Sends data to the connected client.
   - `callback`: A user-defined function (passed in) that processes incoming messages.
 
-### 4 `test_tcp_server.py` (Your Main Focus)
+### 4 [`test_tcp_server.py`](code/pico/test_tcp_server.py) (Your Main Focus)
 - **Where you will do most of your work.**
 - Imports and instantiates `TCPServer`.
 - Declares (or should declare) the LED pin and the IMU object.
@@ -63,17 +63,17 @@ Below is an overview of each file and its role in this project.
     2. Waits for a connection.
     3. In a loop, calls `read_sensor()` and sends the data to the client over TCP.
 
-### 5 `tcp_client.py`
+### 5 [`tcp_client.py`](code/local_computer/tcp_client.py)
 - A Python (desktop) client class, `TCPClient`, using `asyncio` to connect to the Pico.
 - When connected, it listens for incoming messages and can send commands back (like `ON` or `OFF`).
 
-### 6 `test_tcp_client.py`
+### 6 [`test_tcp_client.py`](code/local_computer/test_tcp_client.py)
 - Demonstrates usage of `TCPClient`.
 - Prompts you for the Pico’s IP address.
 - Opens a live plot (via `live_plotter.py`).
 - Lets you send text commands (like `ON` or `OFF`) from the keyboard to the Pico.
 
-### 7 `live_plotter.py`
+### 7 [`live_plotter.py`](code/local_computer/live_plotter.py)
 - Handles real-time plotting of roll, pitch, and yaw using `matplotlib` and an asynchronous loop.
 - Whenever new sensor data arrives, it updates the rolling plot in near real time.
 
