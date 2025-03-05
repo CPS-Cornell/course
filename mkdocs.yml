@@ -52,6 +52,7 @@ nav:
     - 'Lab 0 - Programming Languages': labs/Lab0/Lab0.md
     - 'Lab 1 - Wired Communication Protocols': labs/Lab1/Lab1.md
     - 'Lab 2 - Wireless Communication Protocols': labs/Lab2/Lab2.md
+    - 'Lab 3 - Sensors': labs/Lab3/Lab3.md
   - Case Studies:
     - 'Case Study 1 - Traffic Light Cameras': case_studies/RedLightCameraNIST.md
   - Tutorials:
