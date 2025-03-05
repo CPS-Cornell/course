@@ -1,4 +1,4 @@
-# **Lab2: TCP for Data Streaming and Command Messages
+# Lab2: TCP for Data Streaming and Command Messages
 
 ## Python on your Laptop
 
