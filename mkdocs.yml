@@ -55,6 +55,7 @@ nav:
     - 'Lab 3 - Sensors': labs/Lab3/Lab3.md
   - Case Studies:
     - 'Case Study 1 - Traffic Light Cameras': case_studies/RedLightCameraNIST.md
+    - 'Case Study 2 - Digital Twins in Gardening & Greenhouses': case_studies/DigitalTwins.md
   - Tutorials:
     - 'Introduction to Raspberry Pi Zero': tutorials/zero_tutorial.md
     - 'Raspberry Pi Zero Wifi Setup': tutorials/zero_wifi.md
