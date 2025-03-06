@@ -207,7 +207,7 @@ while true:
 
 2. **Accelerometer**
     - Next measure the noise of the accelerometer. Collect a couple of seconds of accelerometer data and save it in a pickle or CSV file on your laptop. Avoid moving the XRP control board or causing any vibrations by bumping the table. 
-    - Computer the standard deviations of all three axis of the control board.
+    - Compute the standard deviations of all three axis of the control board.
 
 ---
 
