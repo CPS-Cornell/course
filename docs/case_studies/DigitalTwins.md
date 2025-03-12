@@ -63,24 +63,24 @@ For this assignment, you will explore how digital twins can transform greenhouse
 ## Grading Criteria (Conceptual Rubric)
 
 1. **Clarity of Digital Twin Explanation (20%)**
-- How well do you describe the concept of a digital twin and its relevance to cyber-physical systems?
+   - How well do you describe the concept of a digital twin and its relevance to cyber-physical systems?
 
 2. **Application to Greenhouses/Gardening (20%)**
-- Do you effectively identify the main data points, control tasks, and challenges in greenhouse and gardening scenarios?
+   - Do you effectively identify the main data points, control tasks, and challenges in greenhouse and gardening scenarios?
 
 3. **Cloud Farming & Remote Monitoring (20%)**
-- Is there a clear explanation of how remote/cloud capabilities enhance the digital twin (including benefits and considerations)?
+   - Is there a clear explanation of how remote/cloud capabilities enhance the digital twin (including benefits and considerations)?
 
 4. **Integration with AgXRP (20%)**
-- How thoroughly do you connect the robot’s capabilities to the digital twin approach?
-- Do you suggest thoughtful modifications or enhancements?
+   - How thoroughly do you connect the robot’s capabilities to the digital twin approach?
+   - Do you suggest thoughtful modifications or enhancements?
 
 5. **High-Level System Design (10%)**
-- Is there a well-structured conceptual diagram illustrating system interactions?
+   - Is there a well-structured conceptual diagram illustrating system interactions?
 
 6. **Overall Organization & Presentation (10%)**
-- Is the report logically structured?
-- Are ideas well-supported, coherent, and concise within the page limit?
+   - Is the report logically structured?
+   - Are ideas well-supported, coherent, and concise within the page limit?
 
 ---
 
