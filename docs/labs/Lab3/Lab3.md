@@ -48,7 +48,9 @@ Below is a brief description of the files included in your lab. These files prov
 
     - A utility script that runs on the laptop and can be used to log the incoming UDP data from the Pico into a CSV file, which you can analyze later with Excel, Python, MATLAB, or other data analysis tools. The CSV file is automatically generated when the python script is killed. 
 
-11. [`test_udp_client`](code/local/test_udp_client.py)
+11. [`test_udp_client.py`](code/local/test_udp_client.py)
+
+    - A test script that runs on the laptop to interact with the UDP server on the Pico. This file demonstrates how to set up a UDP client, process incoming data, and send messages back to the Pico. It provides a foundation for visualizing sensor data and can be modified to work with the live plotter or data logger.
 
 ---
 
