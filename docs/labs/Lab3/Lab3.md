@@ -208,8 +208,12 @@ while true:
 ```
 +
     - **Note:* this loop doesn't have any `delay` or `sleep` calls. This is because it is imperative to integrate a digital signal as quickly as possible to ensure an accurate approximation for the angular position. Because your code calls `await asyncio.sleep(0.3)`, it is recommended to remove this line of code. If you want updates to be less frequently, implement a time to control the rate of data transfer. 
+    - Take a couple hundred readings of the gyroscope (with just one axis). What is the mean and standard deviation? The mean of these readings is what we call the "bias". Use two different methods to estimate the orientation the IMU around one axis using the gyroscope.
+      - First, integrate the readings to estimate the angle for a minute or so. Plot this and estimate how much drift has accumulated. (Be sure that the `gryo_offset` fields are set to zero.)
+      - Next, record gyroscope readings for a few seconds and take the average like before. Then subtract this average from each reading before you integrate it to estimate the IMU angle. Be sure to do these steps right after each other. 
+      - Graph both orientations over the course of a minute. Does subtracting the bias of the gyroscope readings reduce the bias of your angle estimates after integrating? 
 
-2. **Accelerometer**
+1. **Accelerometer**
     - Next measure the noise of the accelerometer. Collect a couple of seconds of accelerometer data and save it in a pickle or CSV file on your laptop. Avoid moving the XRP control board or causing any vibrations by bumping the table. 
     - Compute the standard deviations of all three axis of the control board.
 
