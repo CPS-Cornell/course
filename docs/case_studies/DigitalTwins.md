@@ -6,6 +6,8 @@ A *digital twin* is a virtual representation of a physical asset or process, con
 
 For this assignment, you will explore how digital twins can transform greenhouse and gardening operations, illustrating real-world examples and practical outcomes for growers and how these concepts connect to the AgXRP system. You will focus on the *conceptual* aspects—high-level system design, data flows, and remote/cloud integration—rather than technical implementation details. You will also consider how the AgXRP might be extended to enhance digital twin capabilities, particularly for cloud-based remote monitoring and automation.
 
+Additional resources, including documentation on the AgXRP and peer reviewed articles, are available on Canvas.
+
 ---
 
 ## Instructions and Scope

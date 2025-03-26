@@ -17,7 +17,7 @@ while True:
         press_count += 1
         print(f"Button pressed! Count: {press_count}")
         # Small delay to avoid detecting multiple presses (debouncing)
-        #time.sleep(0.2)
+        time.sleep(0.2)
     
     # Small delay to avoid excessive CPU usage while polling
     time.sleep(0.01)

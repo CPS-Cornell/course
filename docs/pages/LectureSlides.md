@@ -7,3 +7,5 @@
 [Module 3-5 - Communication Protocols and Networking](lectureslides/module3-5.pdf)
 
 [Module 6 - Sensors](lectureslides/module6.pdf)
+
+[Module 7 - Actuators](lectureslides/module7.pdf)

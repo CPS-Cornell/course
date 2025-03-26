@@ -193,6 +193,7 @@ Below are four tasks for students, taking advantage of the Raspberry Pi Pico, th
    - Use a simple while loop that continuously reads the current state of the pin.
    - Compare the current reading to the previous reading to detect a rising edge (i.e., from LOW to HIGH).
    - When a rising edge is detected, increment a counter variable.
+   - For more details on how the encoder works, see the [geared motor documentation](https://cdn.sparkfun.com/assets/4/b/4/5/4/DG01D-E-sparkfun_Datasheet.pdf).
 
 3. **Sketch/Pseudocode**:
 
