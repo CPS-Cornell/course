@@ -28,7 +28,7 @@ Mitigating noise is essential for ensuring that sensor readings are accurate and
 
 -   **Fusing Data Based on Sensor Noise**: If you have multiple independent sensor readings, as long as the variance of each reading is finite, the variance of the average of those readings will decrease. Mathematically, if each sensor has a variance \\\sigma^2\\, the variance of the average of independent sensor readings is given by:
 
-$$\sigma^2\_{avg} = \frac{\sigma^2}{N}$$
+$$\sigma^2_{avg} = \frac{\sigma^2}{N}$$
 
 Where $\sigma^2_{avg}$ is the variance of the average of the sensor readings, and \\N\\ is the number of sensors.
 

@@ -97,11 +97,8 @@ The Digital Fourier Transform is a mathematical technique used to convert a disc
 ### Overview of the DFT:
 
 - **Basis Functions:** The DFT uses complex exponentials (sines and cosines) as its basis functions. These functions extend infinitely in time, meaning they are not localized.
-
 - **Global Analysis:** Because the basis functions are not localized, the DFT analyzes the signal globally. It considers the entire time domain to compute each frequency component.
-
 - **Stationary Signals:** The DFT is most effective for stationary signals—signals whose statistical properties do not change over time—because it assumes the frequency content does not vary with time.
-
 - **Resolution:** It provides uniform resolution across all frequencies, which can be a limitation when dealing with signals that have both high-frequency and low-frequency components of interest.
 
 ### Equation of the Digital Fourier Transform
@@ -154,7 +151,11 @@ Analyzes the frequency content of a signal over short windows of time, providing
 
 #### Wavelet Transform:
 
-Unlike STFT, wavelets provide a multi-resolution analysis of a signal, allowing for good frequency resolution for low frequencies and good time resolution for high frequencies. This makes it particularly useful for non-stationary signals. \* **Basis Functions:** Wavelets use small waves, called wavelets, as their basis functions. These wavelets are localized in time (they have finite duration) and can be stretched or compressed to analyze different frequency components. \* **Time-Frequency Localization:** Wavelets provide a time-frequency representation of the signal, making them ideal for analyzing non-stationary signals where frequency components change over time. \* **Multi-Resolution Analysis:** Wavelets can analyze signals at various scales. High-frequency (short-scale) components are analyzed with good time resolution, while low-frequency (long-scale) components are analyzed with good frequency resolution. \* **Adaptability:** Because of their ability to focus on specific time intervals and frequency bands, wavelets are useful in applications like image compression, denoising, and feature extraction in signals.
+Unlike STFT, wavelets provide a multi-resolution analysis of a signal, allowing for good frequency resolution for low frequencies and good time resolution for high frequencies. This makes it particularly useful for non-stationary signals. 
+- **Basis Functions:** Wavelets use small waves, called wavelets, as their basis functions. These wavelets are localized in time (they have finite duration) and can be stretched or compressed to analyze different frequency components. 
+- **Time-Frequency Localization:** Wavelets provide a time-frequency representation of the signal, making them ideal for analyzing non-stationary signals where frequency components change over time. 
+- **Multi-Resolution Analysis:** Wavelets can analyze signals at various scales. High-frequency (short-scale) components are analyzed with good time resolution, while low-frequency (long-scale) components are analyzed with good frequency resolution. 
+- **Adaptability:** Because of their ability to focus on specific time intervals and frequency bands, wavelets are useful in applications like image compression, denoising, and feature extraction in signals.
 
 ### 4. Filtering
 
