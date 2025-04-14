@@ -45,8 +45,8 @@ nav:
     - 'Module 5 - Communication Networks': notes/Module5.md
     - 'Module 6 - Sensors': notes/Module6.md
     - 'Module 7 - Actuators': notes/Module7.md
-    - 'Module 8 - Systems of Sensors and Actuators': notes/Module8.md
-    - 'Module 9 - State Estimation': notes/Module9.md
+    - 'Module 8 - State Estimation': notes/Module8.md
+    - 'Module 12 - Systems of Sensors and Actuators': notes/Module12.md
   - Lecture Slides: pages/LectureSlides.md
   - Labs:
     - 'Lab 0 - Programming Languages': labs/Lab0/Lab0.md

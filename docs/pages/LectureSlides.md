@@ -9,3 +9,5 @@
 [Module 6 - Sensors](lectureslides/module6.pdf)
 
 [Module 7 - Actuators](lectureslides/module7.pdf)
+
+[Module 8 - Signal Processing and State Estimation](lectureslides/module8.pdf)

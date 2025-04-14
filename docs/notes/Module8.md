@@ -1,668 +1,832 @@
-# Systems of Sensors and Actuators
+# State Estimation for Cyber-physical Systems
 
-## Noise Modeling and Reduction in Sensor Systems
+## Signal Processing Concepts for Cyber-Physical Systems
 
-Sensor networks consist of multiple interconnected sensors that work together to collect, process, and communicate data about physical environments. By providing real-time insights and facilitating data-driven decision-making, sensor networks play a key role in improving efficiency, reliability, and responsiveness in various cyber-physical systems. Sensors are important for three main reasons: mitigating sensor noise, overcoming environmental factors, and increasing reliability and redundancy.
+### 1. Digital vs Analog Signals
 
-### Mitigating Sensor Noise
+In signal processing, it is important to understand the difference between analog and digital signals.
 
-Mitigating noise is essential for ensuring that sensor readings are accurate and reliable. Noise can come from various sources, such as electrical interference or thermal fluctuations, and can significantly affect data quality.
+**Analog signals**  
+Analog signals are continuous in both time and amplitude, representing real-world phenomena like sound, temperature, or light. Computation can be performed with analog components such as capacitors, resistors, and inductors, which can be used to implement mathematical operations like integration, differentiation, and filtering.
 
--   **Importance of Sensor Noise Models**: a sensor noise model allows you to know how much you can rely on a sensor reading.
+**Digital signals**  
+Digital signals are discrete in nature, meaning they are represented by a sequence of distinct values. To process analog signals in digital systems, they need to be sampled and quantized. Most signal processing within cyber-physical systems has been shifted to computational systems due to their flexibility and ease of implementation.
 
--   **Sensor Noise Models:**
+Deciding whether to implement signal processing on an analog signal or convert it to a digital signal for processing is crucial in cyber-physical systems. This decision often depends on factors such as cost, space, reliability, timing constraints, and performance. Environmental conditions like temperature, humidity, and electromagnetic interference can affect both analog and digital components, potentially leading to early failure. Although analog components, such as resistors and capacitors, are often easier to replace compared to surface-mount microprocessors, the low cost of microcontrollers and circuit board production may make replacing the entire circuit board more economical. For this reason, careful analysis is required when designing signal processing systems.
 
--   **Gaussian Noise**: The most common noise model, assuming that noise follows a normal distribution.
+### 2. Sampling and Quantization
 
--   **Uniform Noise**: Describes noise with a constant probability distribution over a specific range.
+In signal processing, sampling and quantization are key steps in converting an analog signal to a digital signal.
 
--   **Poisson Noise**: Used for sensors that count events, such as photon sensors, particularly when measuring low-intensity signals.
+#### Aliasing and the Nyquist Frequency
 
--   **Shot Noise**: Occurs due to discrete charge carriers, often seen in electronic components and photon detection, especially in weak signals.
+##### What Is Aliasing?
 
--   **Quantization Noise**: Results from analog-to-digital conversion and is influenced by the precision of the digital representation.
+**Aliasing** is a phenomenon that occurs when a continuous signal is sampled at a rate that is insufficient to accurately capture its frequency content. When the sampling rate is too low, high-frequency components of the signal are "misinterpreted" as lower frequencies in the sampled data, causing distortion. This effect is called aliasing because the high-frequency components appear as "aliases" of lower frequencies in the sampled signal.
 
--   **1/f Noise (Pink Noise)**: A type of noise where power decreases as frequency increases, commonly seen in electronic circuits and long-term measurements.
+##### How Does Aliasing Occur?
 
--   **White Noise**: Characterized by a flat spectral density, affecting all frequencies equally and representing random, uncorrelated noise.
+When a signal is sampled, it is multiplied by a series of evenly spaced pulses (the sampling rate). This multiplication produces replicas of the signal’s spectrum centered around multiples of the sampling frequency $f_s$. If the sampling rate is too low, the replicas overlap, causing different frequency components to blend together, which leads to aliasing.
 
--   **Fusing Data Based on Sensor Noise**: If you have multiple independent sensor readings, as long as the variance of each reading is finite, the variance of the average of those readings will decrease. Mathematically, if each sensor has a variance \\\sigma^2\\, the variance of the average of independent sensor readings is given by:
+##### The Nyquist Frequency
 
-$$\sigma^2_{avg} = \frac{\sigma^2}{N}$$
+The **Nyquist frequency** is defined as half of the sampling rate:
 
-Where $\sigma^2_{avg}$ is the variance of the average of the sensor readings, and \\N\\ is the number of sensors.
+$$f_{\text{Nyquist}} = \frac{f_s}{2}$$
 
-### Overcoming Environmental Factors
+- **Sampling Theorem (Nyquist-Shannon Theorem):** To avoid aliasing, a continuous signal must be sampled at a rate greater than twice its highest frequency component. This required rate is known as the **Nyquist rate**.
 
-Environmental conditions, like temperature, humidity, or electromagnetic interference, can impact sensor performance. Properly designed sensor networks can adapt to and compensate for these factors to maintain accurate data collection. It is important to consider **complementary sensors**, or sets of sensors that aren’t impacted by the same environmental variables.
+- **Condition:** If a signal contains frequencies up to $f_{\max}$, then the sampling rate $f_s$ should satisfy:
 
-Examples:
+$$f_s > 2 f_{\max}$$
 
--   Example 1: Consider **ultrasonic** and **infrared** proximity sensors. Ultrasonic sensors are susceptible to the texture of an object (due to sound absorption), and infrared sensors are susceptible to the color of an object (due to light absorption). Relying on both can reduce failure modes of the system.
+This ensures that all frequency components are below the Nyquist frequency $f_{\text{Nyquist}}$, and no aliasing occurs.
 
--   Example 2: Many driverless cars use both **LiDAR** and **computer vision**. LiDAR is effective for creating detailed 3D maps, but can be less reliable in heavy rain or fog, while computer vision can be affected by lighting conditions such as shadows or glare. By combining both technologies, the system can compensate for each sensor’s limitations. 
+##### Relationship Between Aliasing and the Nyquist Frequency
 
-Key Takeaways:
+- **Frequencies Above the Nyquist Frequency:** When sampling a signal, any frequency component above the Nyquist frequency will "fold" back and appear as a lower frequency in the sampled signal. For example, if a frequency component in the original signal is slightly above $f_{\text{Nyquist}}$, it will be interpreted as a frequency just below $f_{\text{Nyquist}}$ in the sampled data.
 
--   **Sensors Measurement Independence:** If two sensors are impacted by the same environmental factors, **their measurement noise cannot be considered independent**.
+- **Frequency "Folding":** The effect of aliasing can be thought of as a mirroring or folding around the Nyquist frequency. Frequencies above the Nyquist frequency will "reflect" into the range from $0$ to $f_{\text{Nyquist}}$, creating incorrect low-frequency representations.
 
--   **Sensor Selection:** it is critical to select sensors that are not susceptible to the same environmental factors.
+##### Example of Aliasing with the Nyquist Frequency
 
-### Increasing Reliability and Redundancy
+Consider a continuous signal with a frequency component at $f = 1.5 f_{\text{Nyquist}}$. When sampled:
 
-Reliability and redundancy are crucial in sensor networks to prevent data loss or system failures. By using multiple sensors for the same measurement, systems can ensure continued operation even if some sensors fail.
+- **Expected Frequency Representation:** Without aliasing, this component would be represented at $f = 1.5 f_{\text{Nyquist}}$.
 
-#### Why Sensor Systems are Critical for Reliability:
+- **Aliased Frequency Representation:** Since it exceeds the Nyquist frequency, it folds back to appear as a frequency at $f_{\text{alias}} = 0.5 f_{\text{Nyquist}}$.
 
-1.  **Sensor Vs Actuator Failure**: It tends to be easier to engineer reliability into an actuator by using more robust materials and mechanical designs than it is to engineer reliability into a sensor because many sensors require delicate physical mechanism for proper sensitivity.
+This lower frequency (alias) is not present in the original signal, leading to distortion in the sampled signal’s frequency content.
 
-    -   For many systems, actuation failure is not as critical as sensor failure.
+##### Preventing Aliasing
 
-    -   Example from Agriculture: In climate control systems, such as used in livestock housing or crop storage, a failure of the heating or cooling element could be detected and reported by the temperature sensor leading to rapid repair. Alternatively, a faulty temperature sensor that is off by a few degrees could be difficult to detect until after the livestock or crop is damaged or killed.
+1.  **Use a Higher Sampling Rate:** Increase the sampling rate so that it exceeds twice the maximum frequency of the signal.
 
-2.  **Failure Detection**: Sensors can often report actuator failures, but not vise versa. Multiple sensors are needed in order to be able to detect anomalies due to failure in a single sensor.
+2.  **Apply an Anti-Aliasing Filter:** Before sampling, apply a low-pass filter to the continuous signal to remove frequency components above the Nyquist frequency. This filter, known as an **anti-aliasing filter**, ensures that only frequencies within the allowable range are sampled, preventing aliasing.
 
-## Simulating Sensor Interfaces
+##### Summary
 
-Simulating sensor interfaces in the design of cyber-physical systems is crucial for testing and validating algorithms, such as sensor fusion techniques, before deploying them on actual hardware. This process can be broken down into three main steps:
+-   **Aliasing** is the distortion that occurs when sampling a signal at a rate that is insufficient to capture its high-frequency content.
 
-### 1. Modeling the System Dynamics
+-   **Nyquist Frequency** is half of the sampling rate and represents the highest frequency that can be accurately represented in sampled data without aliasing.
 
-**Objective**: Create a mathematical representation of the physical system to generate realistic data that sensors would detect.
+-   **Relation:** To avoid aliasing, the signal must be sampled at a rate greater than twice the highest frequency in the signal (the Nyquist rate).
 
-#### Define the Physical Model
+-   **Prevention:** Use a high enough sampling rate and/or an anti-aliasing filter to remove high-frequency components before sampling.
 
--   **Kinematics and Dynamics**: Establish equations of motion for the system (e.g., Newton’s laws for linear motion, rotational dynamics for angular motion).
+#### Quantization:
 
--   **State Variables**: Identify key variables such as position, velocity, acceleration, orientation, and angular velocity.
+**Quantization**  
+The process of mapping the sampled values to discrete levels. This introduces a level of **quantization error** due to the rounding of values to the nearest level.
 
--   **External Forces**: Include forces like gravity, friction, and control inputs that affect the system’s movement.
+**Quantization Error**  
+The difference between the original analog value and the quantized digital value. It is a form of distortion that affects the accuracy of the digital representation of the signal.
 
-#### Implement Numerical Simulation
+The resolution of quantization determines how accurately the analog value can be represented digitally. This can be determined by the ADC, or by the computational system during storage after the data is collected. While it might seem better to have the highest resolution possible, there are a number of trade-offs to consider. Higher resolution data takes more memory, longer to transfer, is more computationally expensive to process, and might not match the architecture of the processor.
 
--   **Time Discretization**: Choose a suitable time step (`dt`) for the simulation to balance accuracy and computational efficiency.
+For example, the Raspberry Pi Pico’s processor only supports 32-bit numbers. Adding or subtracting any two numbers takes the same amount of time regardless of the number, as long the numbers are 32 bits. When a number is so large it needs to be presented by 64 bits, there will be a slow down when doing computations on a 32-bit processor.
 
--   **Integration Methods**: Use numerical integration techniques (e.g., Euler, Runge-Kutta methods) to update the state variables over time.
+### 3. Frequency Analysis
 
--   **Scenario Design**: Define specific movements or maneuvers (e.g., straight-line motion, rotations) that the system will perform during the simulation.
+Understanding the frequency components of signals is fundamental for many applications in cyber-physical systems. Different transforms help analyze signals in the frequency domain:
 
-#### Validation
+#### **Digital Fourier Transform (DFT)**
 
--   **Sanity Checks**: Ensure the simulated motion adheres to physical laws and expected behavior.
+The Digital Fourier Transform is a mathematical technique used to convert a discrete signal from its original domain (often time or space) into the frequency domain. It decomposes a sequence of values into components of different frequencies, effectively revealing the frequency spectrum of the signal. The DFT is defined for a sequence of $N$ complex numbers and produces an $N$-point frequency spectrum.
 
--   **Visualization**: Plot trajectories and state variables to visually inspect the system’s dynamics.
+### Overview of the DFT:
 
-### 2. Modeling the Sensor Noise
+- **Basis Functions:** The DFT uses complex exponentials (sines and cosines) as its basis functions. These functions extend infinitely in time, meaning they are not localized.
+- **Global Analysis:** Because the basis functions are not localized, the DFT analyzes the signal globally. It considers the entire time domain to compute each frequency component.
+- **Stationary Signals:** The DFT is most effective for stationary signals—signals whose statistical properties do not change over time—because it assumes the frequency content does not vary with time.
+- **Resolution:** It provides uniform resolution across all frequencies, which can be a limitation when dealing with signals that have both high-frequency and low-frequency components of interest.
 
-**Objective**: Simulate realistic sensor outputs by adding noise and imperfections to the ideal measurements.
+### Equation of the Digital Fourier Transform
 
-#### Identify Sensor Characteristics
+The DFT of a discrete-time signal $x[n]$ of length $N$ is defined by the equation:
 
--   **Sensor Types**: Determine which sensors are being simulated (e.g., accelerometers, gyroscopes).
+$$
+X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-j \frac{2\pi}{N} k n}
+$$
 
--   **Specifications**: Gather data on sensor specifications such as range, sensitivity, resolution, and noise characteristics from datasheets.
+- $X[k]$: The $k$-th element of the transformed sequence in the frequency domain.
+- $x[n]$: The $n$-th element of the original sequence in the time (or spatial) domain.
+- $N$: The total number of samples in the sequence.
+- $k$: The index of the frequency component, ranging from $0$ to $N-1$.
+- $n$: The index of the time-domain sample, ranging from $0$ to $N-1$.
+- $j$: The imaginary unit ($j = \sqrt{-1}$).
 
-#### Implement Noise Models
+The exponential term can also be expanded using Euler’s formula:
 
--   **Random Noise**:
+$$
+e^{-j \frac{2\pi}{N} k n} = \cos\left( \frac{2\pi}{N} k n \right) - j \sin\left( \frac{2\pi}{N} k n \right)
+$$
 
-    -   **Gaussian Noise**: Add zero-mean Gaussian noise to simulate white noise commonly present in sensors.
+### Explanation
 
-    -   **Standard Deviation**: Set the noise level based on the sensor’s noise density specification.
+- **Frequency Components:** The DFT decomposes the input sequence into its constituent frequencies. Each $X[k]$ represents the amplitude and phase of a specific frequency component.
+- **Discrete Frequencies:** The frequencies are discrete and are integer multiples of the fundamental frequency $f_0 = \frac{1}{N T}$, where $T$ is the sampling interval.
+- **Complex Numbers:** The result $X[k]$ is generally a complex number, encoding both amplitude and phase information.
 
--   **Bias and Drift**:
+### Inverse Digital Fourier Transform
 
-    -   **Constant Bias**: Include a fixed offset that represents calibration errors.
+To reconstruct the original time-domain sequence from its frequency-domain representation, the inverse DFT is used:
 
-    -   **Temperature Effects**: Model drift that can occur due to temperature changes over time.
+$$
+x[n] = \frac{1}{N} \sum_{k=0}^{N-1} X[k] \cdot e^{j \frac{2\pi}{N} k n}
+$$
 
--   **Quantization Error**:
+- The inverse transform uses a positive exponent in the exponential term.
+- The factor $\frac{1}{N}$ ensures proper scaling of the amplitude.
 
-    -   **Resolution Limitations**: Simulate the effects of finite sensor resolution by quantizing the sensor outputs.
+### Key Points
 
--   **Other Noise Types**:
+- **Periodicity:** Both $x[n]$ and $X[k]$ are assumed to be periodic with period $N$.
+- **Orthogonality:** The exponential functions used in the DFT are orthogonal over the interval $N$, which allows for the unique decomposition of the signal.
+- **Computational Efficiency:** The Fast Fourier Transform (FFT) is an algorithm to compute the DFT efficiently, reducing the computational complexity from $O(N^2)$ to $O(N \log N)$.
 
-    -   A more extensive list of noise models is given in Mitigating Sensor Noise section.
+#### Short-Time Fourier Transform (STFT)
 
-#### Generate Noisy Sensor Data
+Analyzes the frequency content of a signal over short windows of time, providing a time-frequency representation. It is useful when the signal’s frequency components change over time. The STFT is computed by breaking the signal into short segments and applying the Fourier Transform to each segment. It is commonly used in speech processing, music analysis, and vibration analysis, as well as visualization tools such as spectrograms.
 
--   **Transform True States**: Convert the system dynamics into sensor measurements (e.g., acceleration, angular velocity) in the sensor’s frame of reference.
+#### Wavelet Transform:
 
--   **Apply Noise**: Add the modeled noise to the ideal sensor readings to obtain simulated measurements.
+Unlike STFT, wavelets provide a multi-resolution analysis of a signal, allowing for good frequency resolution for low frequencies and good time resolution for high frequencies. This makes it particularly useful for non-stationary signals. 
+- **Basis Functions:** Wavelets use small waves, called wavelets, as their basis functions. These wavelets are localized in time (they have finite duration) and can be stretched or compressed to analyze different frequency components. 
+- **Time-Frequency Localization:** Wavelets provide a time-frequency representation of the signal, making them ideal for analyzing non-stationary signals where frequency components change over time. 
+- **Multi-Resolution Analysis:** Wavelets can analyze signals at various scales. High-frequency (short-scale) components are analyzed with good time resolution, while low-frequency (long-scale) components are analyzed with good frequency resolution. 
+- **Adaptability:** Because of their ability to focus on specific time intervals and frequency bands, wavelets are useful in applications like image compression, denoising, and feature extraction in signals.
 
--   **Environmental Factors**: Optionally include effects like vibrations or electromagnetic interference if relevant.
+### 4. Filtering
 
-#### Validation
+**Filtering** is used to manipulate the frequency content of a signal. Three common types of filters are: **low-pass**, **high-pass**, and **band-pass** filters.
 
--   **Statistical Analysis**: Check that the noise-added data matches expected statistical properties.
+#### Low-Pass Filter
 
--   **Comparison with Real Data**: If possible, compare simulated sensor data with real-world measurements for accuracy.
+##### Implementation
+To implement a simple digital low-pass filter, you can use a **first-order Infinite Impulse Response (IIR) filter**, also known as a recursive filter. This type of filter is efficient and easy to implement, making it suitable for real-time applications. The filter operates using the following difference equation:
 
-### 3. Simulating the Communication Interface (Optional)
+$$
+y[n] = \alpha \cdot x[n] + (1 - \alpha) \cdot y[n - 1]
+$$
 
-**Objective**: Emulate the data transmission between sensors and processing units, including communication protocols.
+Where:
+- **$y[n]$**: Current output sample
+- **$x[n]$**: Current input sample
+- **$y[n - 1]$**: Previous output sample
+- **$\alpha$**: Filter coefficient (between 0 and 1)
 
-#### Understand the Communication Protocol
+This equation calculates the output by taking a weighted average of the current input and the previous output, effectively smoothing the signal by attenuating high-frequency components.
 
--   **Protocol Specifications**: Familiarize yourself with the communication protocol used by the sensors (e.g., I²C, SPI) and all relevant factors, for example:
+##### Main Parameter
 
-    -   **Addressing**: Know how sensors are addressed on the bus.
+The primary parameter of this filter is the **filter coefficient $\alpha$**. This coefficient determines how much the filter responds to new input samples versus the accumulated past outputs.
 
-    -   **Data Format**: Understand how data is formatted and transmitted.
+- **When $\alpha$ is close to 1**: The filter responds more quickly to changes, allowing higher frequencies to pass through.
+- **When $\alpha$ is close to 0**: The filter responds more slowly, attenuating higher frequencies and providing smoother output.
 
-    -   **Clock Speed**: Determine the clock frequency and data rate of the communication.
+##### Relationship Between $\alpha$ and Cutoff Frequency
 
-    -   **Timings**: Be aware of the timing requirements for start/stop conditions and data transfer.
+The cutoff frequency $f_c$ of the filter defines the frequency at which the output signal’s amplitude is reduced to 70.7% (or -3 dB) of the input signal’s amplitude. The relationship between $\alpha$, the cutoff frequency $f_c$, and the sampling frequency $f_s$ is given by:
 
-    -   **Other Sensors**: If multiple sensors are involved, understand how they interact on the bus, including impacts on data throughput.
+$$
+\alpha = \frac{2\pi f_c T}{2\pi f_c T + 1}
+$$
 
-    -   **Master-Slave Architecture**: Recognize the roles of master and slave devices in communication.
+Where:
+- **$T$** is the sampling period ($T = \frac{1}{f_s}$).
 
-#### Implement Protocol Simulation
+Alternatively, solving for the cutoff frequency:
 
--   **Software Simulation**:
+$$
+f_c = \frac{1}{2\pi T} \left( \frac{\alpha}{1 - \alpha} \right)
+$$
 
--   **Libraries and Tools**: Use programming libraries or simulation tools to emulate the communication protocol.
+**Explanation:**
 
--   **Virtual Devices**: Create virtual sensor devices that behaves as if it were the real sensor.
+- **Low $\alpha$** (close to 0): Lower cutoff frequency, more smoothing.
+- **High $\alpha$** (close to 1): Higher cutoff frequency, less smoothing.
 
--   **Data Packaging**:
+##### Equivalent Analog Circuit
 
--   **Registers and Buffers**: Simulate sensor registers where data is stored and retrieved.
+The digital low-pass filter described is analogous to a **first-order RC (resistor-capacitor) low-pass filter** in the analog domain.
 
--   **Data Formats**: Ensure data is formatted correctly (e.g., two’s complement, bit packing, endianess).
+**Analog RC Low-Pass Filter:**
 
-#### Simulate Communication Timing and Behavior (for features not handled by the communication protocol)
+- **Components:**
+    - **Resistor (R)**
+    - **Capacitor (C)**
 
--   **Clock Synchronization**: Emulate the clock signals and ensure proper timing between the master and slave.
+- **Configuration:**
+    - The resistor is connected in series with the input signal.
+    - The capacitor is connected between the output node and ground.
+    - The output is taken across the capacitor.
 
--   **Start/Stop Conditions**: Implement the start and stop conditions as per the protocol.
+**Cutoff Frequency in Analog Filter:**
 
--   **Acknowledgment Bits**: Handle acknowledgments after each byte transferred.
+$$
+f_c = \frac{1}{2\pi RC}
+$$
 
--   **Error Handling**: Simulate potential communication errors, such as NACK responses or bus contention.
+**Relationship to Digital Filter:**
 
-#### Integrate with Sensor Data
+The time constant $\tau$ in the analog filter ($\tau = RC$) is analogous to the digital filter’s response determined by $\alpha$. By matching the time constants, you can relate the digital filter coefficient to the analog filter’s components.
 
--   **Data Retrieval**: Program the virtual sensor to provide the noisy sensor data upon request.
+#### Summary
 
--   **Command Processing**: Implement handling of specific commands or configurations sent over the interface.
+- **Implementation:**
+    - Use the recursive formula to calculate each output sample based on the current input and previous output.
+- **Main Parameter:**
+    - The filter coefficient $\alpha$, which controls the balance between the input and the previous output.
+- **Cutoff Frequency Relation:**
+    - $\alpha$ is directly related to the cutoff frequency $f_c$ and sampling frequency $f_s$.
+    - Adjusting $\alpha$ changes $f_c$, allowing you to control the filter’s frequency response.
+- **Equivalent Analog Circuit:**
+    - A first-order RC low-pass filter with a resistor and capacitor.
+    - The digital filter mimics the behavior of this analog circuit in processing discrete signals.
 
-#### Testing and Validation
+#### **High-pass filter**
 
--   **Protocol Analyzers**: Use software tools to monitor and verify the correctness of the simulated communication.
+##### Implementation
 
--   **Integration Testing**: Connect the simulated interface with the sensor fusion algorithm to test end-to-end functionality.
+A simple digital high-pass filter can be implemented using a **first-order Infinite Impulse Response (IIR) filter** with the following difference equation:
+$$
+y[n] = \alpha \cdot y[n - 1] + \alpha \cdot (x[n] - x[n - 1])
+$$
 
-### Conclusion
+- **$y[n]$**: Current output sample
+- **$x[n]$**: Current input sample
+- **$y[n - 1]$**: Previous output sample
+- **$x[n - 1]$**: Previous input sample
+- **$\alpha$**: Filter coefficient (between 0 and 1)
 
-By following these three steps, you create a comprehensive simulation environment that allows you to:
+This equation calculates the output by combining the difference between the current and previous input samples with a scaled version of the previous output. This effectively allows high-frequency components to pass through while attenuating low-frequency components.
 
--   **Test Algorithms**: Evaluate sensor fusion or data processing algorithms using realistic sensor data and communication protocols.
+##### Main Parameter
 
--   **Identify Issues Early**: Detect and correct potential problems in the system design before hardware implementation.
+The primary parameter of this filter is the **filter coefficient $\alpha$**. This coefficient determines the filter’s response characteristics, particularly its cutoff frequency.
 
--   **Optimize Performance**: Experiment with different system parameters, sensor specifications, and communication settings to optimize system performance.
+- **When $\alpha$ is close to 0**: The filter attenuates most frequencies, including higher frequencies.
+- **When $\alpha$ is close to 1**: The filter allows higher frequencies to pass through more effectively, providing less attenuation of high-frequency components.
 
-#### Additional Tips
+##### Relationship Between $\alpha$ and Cutoff Frequency
 
--   **Modular Design**: Keep the simulation components modular to allow easy updates and reuse in different projects.
+The cutoff frequency $f_c$ defines the frequency at which the output signal’s amplitude is reduced to 70.7% (or -3 dB) of the input signal’s amplitude. The relationship between the filter coefficient $\alpha$, the cutoff frequency $f_c$, and the sampling frequency $f_s$ is given by:
 
--   **Documentation**: Document your models and assumptions thoroughly to aid in debugging and future development.
+$$
+\alpha = \frac{\tau}{\tau + T}
+$$
 
--   **Collaboration**: If working in a team, ensure that interfaces between modules are well-defined to facilitate collaboration.
+Where:
 
-## Reliability and Redundancy in Cyber-Physical Systems
+- **$\tau$** is the time constant of the filter ($\tau = \frac{1}{2\pi f_c}$)
+- **$T$** is the sampling period ($T = \frac{1}{f_s}$)
 
-### Terminology
+Substituting $\tau$ into the equation:
 
-The reliability of cyber-physical systems is paramount, especially in applications like autonomous vehicles, medical devices, and industrial automation. This module explores how to model and enhance the reliability and redundancy of CPS using probabilistic methods and system architecture considerations.
+$$
+\alpha = \frac{1}{1 + \frac{1}{2\pi f_c T}}
+$$
 
-#### Reliability, Availability, Maintainability
+This can also be expressed in terms of $f_c$ and $f_s$:
 
--   **Reliability $R$**: The probability that a system or component performs its required functions under stated conditions for a specified period.
+$$
+\alpha = \frac{1}{1 + \frac{f_s}{2\pi f_c}}
+$$
 
--   **Availability $A$**: The proportion of time a system is in a functioning condition. It considers both reliability and maintainability.
+**Explanation:**
 
--   **Maintainability $M$**: The probability that a failed system will be restored to operational effectiveness within a given period.
+- **Low $\alpha$** (close to 0): Lower cutoff frequency, more attenuation of low frequencies.
+- **High $\alpha$** (close to 1): Higher cutoff frequency, allowing more high-frequency components to pass.
 
-#### Failure Modes
+##### Equivalent Analog Circuit
 
-Understanding how components can fail is crucial for modeling reliability.
+The digital high-pass filter described is analogous to a **first-order RC (resistor-capacitor) high-pass filter** in the analog domain.
 
--   **Hardware Failures**: Physical component degradation or sudden breakdown.
+**Analog RC High-Pass Filter:**
 
--   **Software Failures**: Bugs, errors in code logic, or unexpected inputs leading to crashes.
+- **Components:**
+    - **Capacitor (C)**
+    - **Resistor (R)**
 
--   **Network Failures**: Communication breakdowns, latency issues, or data loss.
+- **Configuration:**
+    - The capacitor is connected in series with the input signal.
+    - The resistor is connected from the output node to ground.
+    - The output is taken across the resistor.
 
-#### Mean Time to Failure (MTTF)
+**Cutoff Frequency in Analog Filter:**
 
--   **Definition**: The average expected time to the first failure of a non-repairable system.
+$$
+f_c = \frac{1}{2\pi RC}
+$$
 
--   **Calculation**: For a large number of identical components:
+**Relationship to Digital Filter:**
 
-$$MTTF = \frac{Total\ operational\ time}{Number\ of\ failures}$$
+The time constant $\tau$ in the analog filter ($\tau = RC$) is analogous to the digital filter’s response determined by $\alpha$. By matching the time constants, you can relate the digital filter coefficient to the analog filter’s components.
 
-#### Mean Time Between Failures (MTBF)
+##### Summary
 
--   **Definition**: The average time between consecutive failures in a repairable system.
+- **Implementation:**
+    - Use the recursive formula involving current and previous input and output samples to calculate each output sample.
 
--   **Calculation**: $MTBF = MTTF + MTTR$ (Mean Time to Repair), but often $MTTR$ is negligible.
+- **Main Parameter:**
+    - The filter coefficient $\alpha$, which controls the cutoff frequency and the balance between attenuating low frequencies and allowing high frequencies to pass.
 
-#### Failure Rate $\lambda$
+- **Cutoff Frequency Relation:**
+    - $\alpha$ is directly related to the cutoff frequency $f_c$ and the sampling frequency $f_s$. Adjusting $\alpha$ changes $f_c$, allowing you to control the filter’s frequency response.
 
--   **Definition**: The frequency with which an engineered system or component fails, expressed in failures per unit of time.
+- **Equivalent Analog Circuit:**
+    - A first-order RC high-pass filter with a capacitor and a resistor. The digital filter mimics the behavior of this analog circuit in processing discrete signals.
 
--   **Relation to $MTTF$**: $\lambda = \frac{1}{MTTF}$.
+#### **Band-pass filter**
 
-## Probabilistic Modeling of Reliability
+##### Implementation
 
-Failure and Reliability functions are can use different distributions to model the behavior of components and systems. The most common models for reliability are based on constant failure rates or time-dependent failure rates. 
-- **Constant Failure Rate**: Assumes that the failure rate $\lambda$ is constant over time (exponential distribution). 
-- **Time-Dependent Failure Rate**: Uses distributions like Weibull to model systems where failure rates change over time.
+To implement a simple digital band-pass filter, you can use a **second-order Infinite Impulse Response (IIR) filter**, commonly known as a biquad filter. This filter allows frequencies within a certain range to pass through while attenuating frequencies outside that range.
 
-### Constant Failure Rate Reliability Function
+The difference equation for a digital band-pass filter is:
 
-The failure rate, $\lambda$, is the reciprocal of the MTTF, and is assumed to be constant over time. We use an exponential distribution to model the probability that a component survives until time $t$ without failure.
+$$
+y[n] = b_0 x[n] + b_1 x[n - 1] + b_2 x[n - 2] - a_1 y[n - 1] - a_2 y[n - 2]
+$$
 
--   **Reliability Function $R(t)$**: The probability that a component survives until time $t$ without failure.
+- **$y[n]$**: Current output sample
+- **$x[n]$**: Current input sample
+- **$b_0, b_1, b_2$**: Feedforward coefficients
+- **$a_1, a_2$**: Feedback coefficients
 
-    $$R(t) = e^{-\lambda t}$$
+These coefficients are calculated based on the desired center frequency ($f_0$), quality factor ($Q$), and the sampling frequency ($f_s$).
 
--   **Failure Function $F(t)$**: The probability that a component fails by time t.
+##### Coefficient Calculation
 
-    $$F(t) = 1 - R(t) = 1 - e^{-\lambda t}$$
+First, compute the intermediate variables:
 
--   **Probability Density Function $f(t)$**: The rate at which failures occur at time t.
+$$
+\omega_0 = 2\pi \frac{f_0}{f_s}
+$$
 
-#### Example: Estimating the Probability of Sensor Failure Within 5 Years
+$$
+\alpha = \frac{\sin(\omega_0)}{2Q}
+$$
 
-To estimate the probability that a sensor will fail within 5 years when its mean time to failure (MTTF) is 12 years, we can use the exponential reliability function, which is commonly used for electronic components with a constant failure rate.
+Where:
 
-##### Step-by-Step Calculation
+- **$Q$**: Quality factor, which determines the filter’s bandwidth.
 
-1. **Calculate the Failure Rate ($\lambda$):**
+The coefficients for a **band-pass filter** (constant skirt gain, peak gain = $Q$) are:
 
-    - The failure rate $\lambda$ is the reciprocal of the MTTF.
+$$
+b_0 = \alpha \\
+b_1 = 0 \\
+b_2 = -\alpha \\
+a_0 = 1 + \alpha \\
+a_1 = -2 \cos(\omega_0) \\
+a_2 = 1 - \alpha
+$$
 
-    $$\lambda = \frac{1}{\text{MTTF}} = \frac{1}{12 \text{ years}} \approx 0.08333 \text{ failures/year}$$
+Normalize the coefficients by dividing each by $a_0$:
 
-2. **Use the Reliability Function:**
+$$
+b_0 = \frac{b_0}{a_0} \\
+b_1 = \frac{b_1}{a_0} \\
+b_2 = \frac{b_2}{a_0} \\
+a_1 = \frac{a_1}{a_0} \\
+a_2 = \frac{a_2}{a_0}
+$$
 
-    - The reliability function for an exponential distribution is:
+The normalized coefficients are then used in the difference equation to process the input signal.
 
-    $$R(t) = e^{-\lambda t}$$
+##### Main Parameters
 
-    - Where:
-        - $R(t)$ is the probability that the sensor **survives** up to time $t$.
-        - $t$ is the time in years.
+The main parameters of the digital band-pass filter are:
 
-3. **Calculate the Reliability at $t = 5$ Years:**
+1. **Center Frequency ($f_0$)**: The frequency at which the filter has maximum gain.
+2. **Quality Factor ($Q$)**: Determines the sharpness or selectivity of the filter. A higher $Q$ results in a narrower bandwidth.
+3. **Sampling Frequency ($f_s$)**: The rate at which the input signal is sampled.
 
-    $$R(5) = e^{-0.08333 \times 5} = e^{-0.41665} \approx 0.65924$$
+##### Relationship Between Parameters and Cutoff Frequencies
 
-    - This means there’s approximately a 65.92% chance the sensor will **survive** for 5 years.
+The bandwidth (BW) of the filter is related to the center frequency and the quality factor:
 
-4. **Calculate the Probability of Failure Within 5 Years:**
+$$
+BW = \frac{f_0}{Q}
+$$
 
-    - The probability that the sensor **fails** within 5 years is:
+The lower ($f_L$) and upper ($f_H$) cutoff frequencies are:
 
-    $$P(\text{Failure within 5 years}) = 1 - R(5) = 1 - 0.65924 = 0.34076 = \boxed{34.08\%}$$
+$$
+f_L = f_0 - \frac{BW}{2} \\
+f_H = f_0 + \frac{BW}{2}
+$$
 
-    - So there’s approximately a **34.08%** chance the sensor will fail within 5 years.
+By adjusting $Q$, you control the bandwidth of the filter around the center frequency:
 
-### Time-dependent Failure Rate Reliability Function (Weibull Distribution)
+- **Higher $Q$**: Narrower bandwidth, more selective filtering.
+- **Lower $Q$**: Wider bandwidth, less selective filtering.
 
-The failure rate $\lambda(t)$ is a function of time, allowing for varying failure rates over the lifetime of a component. The **Weibull distribution** is commonly used to model such behavior. It is particularly useful because it can represent increasing, decreasing, or constant failure rates, which correspond to different phases of a product’s lifecycle.
+##### Equivalent Analog Circuit
 
-#### Key Parameters
+The equivalent analog circuit for a band-pass filter is a **series RLC circuit** or a **parallel RLC circuit**, depending on the design.
 
-1.  **Shape Parameter ($\beta$)**
+**Series RLC Band-Pass Filter:**
 
-    -   **Interpretation:** Determines how the failure rate changes over time.
+- **Components:**
+    - **Resistor (R)**
+    - **Inductor (L)**
+    - **Capacitor (C)**
 
-    -   **Values and Implications:**
+- **Configuration:**
+    - The resistor, inductor, and capacitor are connected in series.
+    - The output is taken across the resistor or the entire series circuit.
 
-        -   $\beta < 1$: Decreasing failure rate
+**Analog Band-Pass Filter Characteristics:**
 
-            -   **Implications:** Early-life failures or "infant mortality."
+- **Resonant Frequency ($f_0$):**
 
-            -   **Causes:** Manufacturing defects or early wear-in issues.
+$$
+f_0 = \frac{1}{2\pi \sqrt{LC}}
+$$
 
-            -   **Failure Rate Behavior:** Decreases over time.
+- **Bandwidth (BW):**
 
-        -   $\beta = 1$: Constant failure rate
+$$
+BW = \frac{R}{2\pi L}
+$$
 
-            -   **Implications:** Random failures, no aging effect.
+- **Quality Factor ($Q$):**
 
-            -   **Causes:** External random events, constant risk over time.
+$$
+Q = \frac{f_0}{BW} = \frac{1}{R} \sqrt{\frac{L}{C}}
+$$
 
-            -   **Failure Rate Behavior:** Remains constant.
+The digital band-pass filter emulates the frequency-selective behavior of the analog RLC circuit in the discrete-time domain.
 
-            -   **Note:** Weibull distribution reduces to the exponential distribution.
+##### Summary
 
-        -   $\beta > 1$: Increasing failure rate
+- **Implementation:**
+    - Use a second-order IIR (biquad) filter with coefficients calculated based on $f_0$, $Q$, and $f_s$.
+- **Main Parameters:**
+    - Center frequency ($f_0$), quality factor ($Q$), and sampling frequency ($f_s$).
+- **Cutoff Frequency Relation:**
+    - Bandwidth ($BW = f_0 / Q$) determines the range of frequencies passed.
+    - Lower and upper cutoff frequencies are $f_L = f_0 - BW/2$ and $f_H = f_0 + BW/2$.
+- **Equivalent Analog Circuit:**
+    - A series or parallel RLC circuit acting as a band-pass filter.
+    - The digital filter replicates the frequency-selective behavior of the analog RLC circuit.
 
-            -   **Implications:** Wear-out failures or aging products.
+#### Notch Filter
 
-            -   **Causes:** Material fatigue, wear and tear, degradation.
+A notch filter can be composed by combining a low-pass and a high-pass filter. The low-pass filter is used to attenuate frequencies below the notch frequency, while the high-pass filter is used to attenuate frequencies above the notch frequency. The notch frequency is the frequency that is neither attenuated nor amplified by the filter.
 
-            -   **Failure Rate Behavior:** Increases over time.
+### 5. Noise Reduction
 
-2.  **Scale Parameter ($\eta$)**
+Noise reduction is crucial for reliable signal interpretation in cyber-physical systems:
 
-    -   **Implications:** A scale factor that stretches or compresses the distribution along the time axis.
+-   **Moving Average**: A simple technique that averages a window of successive samples to smooth out noise. It is effective against high-frequency noise but can introduce lag.
 
-    -   **Higher $\eta$:** Longer life products.
+-   **Adaptive Filtering**: Adaptive filters, such as the Least Mean Squares (LMS) filter, Recursive Least Squares (RLS) filter, Kalman filter, and Normalized Least Mean Squares (NLMS) filter, change their parameters based on the incoming signal to effectively minimize the noise. They are useful when noise characteristics change over time.
 
-    -   **Lower $\eta$:** Shorter life products.
+### 6. Correlation
 
-    -   **Note**: when $\beta = 1$, the Weibull distribution reduces to the exponential distribution with $\lambda = \frac{1}{\eta}$.
+**Correlation** measures the similarity between two signals, which is particularly helpful in pattern recognition and synchronization tasks.
 
-#### Mathematical Functions
+-   **Cross-correlation** measures the similarity between two different signals as a function of the time-lag applied to one of them, which can help identify repeating patterns or align signals.
 
--   **Reliability Function**: The probability that a unit will survive beyond time $t$:
+-   **Autocorrelation** is used to find repeating patterns within a single signal, like identifying the fundamental period in a periodic signal.
 
-    $$R(t) = e^{-\left(\frac{t}{\eta}\right)^\beta}$$
+-   Correlation can be performed using convolution, as it is mathematically equivalent to convolution with a time-reversed signal. Additionally, correlation can be computed efficiently in the frequency domain using Fourier transforms.
 
--   **Failure Function $F(t)$**: The probability that a component fails by time $t$:
+### 7. Autoregressive Modeling
 
-    $$F(t) = 1 - e^{-\left( \frac{t}{\eta}\right)^\beta }$$
+**Autoregressive (AR) models** predict future values in a time series by using past values. An AR model uses a linear combination of previous data points to forecast future points.
 
--   **Probability Density Function (PDF)**: The likelihood of failure at a specific time $t$:
+-   In real-time applications, AR models are used for **predictive maintenance**, where future signal behavior is estimated based on historical data. This approach is also used in noise reduction and system identification.
 
-    $$f(t) = \frac{\beta}{\eta} \left( \frac{t}{\eta}\right)^{\beta - 1} e^{-\left( \frac{t}{\eta}\right)^\beta }$$
+### 8. Decimation and Interpolation
 
--   **Hazard Function** (Failure Rate Function): The instantaneous failure rate at time $t$:
+**Decimation** and **interpolation** are techniques used to change the sampling rate of a signal.
 
-    $$h(t) = \frac{f(t)}{R(t)} = \frac{\beta}{\eta} \left( \frac{t}{\eta} \right)^{\beta - 1}$$
+-   **Decimation** involves reducing the number of samples in a signal by a factor, effectively downsampling it. It is useful in reducing the amount of data for processing while maintaining the essential characteristics of the signal. Common methods for decimation include:
 
-#### Example
+-   **Averaging Decimation**: Averaging a group of consecutive samples to reduce the sampling rate while preserving the overall signal characteristics.
 
-**Scenario:** Suppose you have collected failure data for a type of sensor and estimated the Weibull parameters as $\beta = 1.5$ and $\eta = 1,000$ hours.
+-   **Decimation by a Factor**: Keeping every Nth sample and discarding the others, often followed by a low-pass filter to prevent aliasing.
 
-**Calculations:**
+-   **CIC (Cascaded Integrator-Comb) Filter**: A computationally efficient filter structure used in hardware implementations for decimation, especially in high-speed digital signal processing.
 
-1. **Reliability:** Calculate the reliability of a sensor at $t = 500$ hours.
+-   **Interpolation** involves increasing the number of samples in a signal, effectively upsampling it. It is used when a higher sampling rate is needed, often followed by low-pass filtering to smooth the upsampled signal. Common methods for interpolation include:
 
-    $$R(500) = e^{- \left( \frac{500}{1,000} \right)^{1.5}} = e^{- \left( 0.5 \right)^{1.5}} = e^{-0.3536} \approx 0.7022$$
+-   **Zero-Order Hold (ZOH)**: Repeats each sample value for the duration of the new sampling interval.
 
-    **Interpretation:** Approximately 70.22% of sensors are expected to survive beyond 500 hours.
+-   **Linear Interpolation**: Estimates intermediate values by linearly connecting adjacent samples.
 
-2. **Probability of Failure:** Calculate the probability that a sensor will fail by $t = 1,500$ hours.
+-   **Polynomial Interpolation**: Uses higher-order polynomials to estimate new sample values, providing a smoother result compared to linear interpolation.
 
-    $$F(1,500) = 1 - e^{- \left( \frac{1,500}{1,000} \right)^{1.5}} = 1 - e^{- \left( 1.5 \right)^{1.5}} = 1 - e^{-1.8371} \approx 1 - 0.1590 = 0.8410$$
+-   **Spline Interpolation**: Uses piecewise polynomials (splines) for interpolation, ensuring smoothness at the boundaries between intervals.
 
-    **Interpretation:** Approximately 84.10% of sensors are expected to fail by 1,500 hours.
+### 9. Modulation and Demodulation
 
-3. **Hazard Function:** Calculate the effective failure rate at $t = 1,000$ hours.
+**Modulation** is the process of altering a carrier signal to encode information, and **demodulation** is the reverse process to extract the information from the modulated signal.
 
-    $$h(1,000) = \frac{1.5}{1,000} \left( \frac{1,000}{1,000} \right)^{1.5 - 1} = \frac{1.5}{1,000} (1)^{0.5} = 0.0015 \text{ failures/hour}$$
+-   **Amplitude Modulation (AM)** and **Frequency Modulation (FM)** are common techniques used for transmitting data over communication channels.
 
-    **Interpretation:** The instantaneous failure rate at 1,000 hours is 0.0015 failures per hour.
+-   In cyber-physical systems, modulation is used for **wireless communication**, where sensor data is transmitted over a distance. Proper modulation helps in efficient and robust data transfer, especially in environments with significant interference.
 
-### Visual Representation
+## State Space
 
-While we cannot display graphs here, in practice, you can plot:
+In a CPS, the "state" represents all the information required to describe the system’s current condition. This could include physical quantities like position, velocity, temperature, and electrical currents, as well as digital aspects like mode states or error conditions.
 
--   **PDF:** Shows the distribution of failure times.
+-   **Coordinate System Selection**: Selecting an appropriate coordinate system is crucial for accurately representing the system state. The choice of coordinate system can simplify the representation of system dynamics and facilitate efficient state estimation, especially for complex systems with multiple degrees of freedom.
 
--   **CDF:** Illustrates the cumulative probability of failure over time.
+-   **Degrees of Freedom (DoF)**: Degrees of freedom represent the number of independent variables that define the state of a system. Understanding and correctly modeling the DoF is essential to accurately describe the system state and effectively estimate it in real-time applications.
 
--   **Reliability Function R(t):** Depicts the probability of survival over time.
+-   **State-Space vs. Configuration Space**: The system state can be represented in different forms, such as **state-space** or **configuration space**. State-space representation includes all the dynamic variables (e.g., positions and velocities), whereas configuration space focuses on the possible positions or configurations of the system. Choosing the appropriate representation depends on the application and the nature of the system being analyzed.
 
--   **Hazard Function h(t):** Visualizes how the failure rate changes with time.
+### Modeling State Space
 
-### When to Use Weibull Distribution
+**State space representation** is a mathematical framework used to model and analyze dynamic systems. It expresses a system’s dynamics using a set of first-order differential (or difference) equations in terms of state variables, inputs, and outputs. This representation is particularly powerful for complex systems, especially those with multiple inputs and outputs (MIMO systems), time-varying parameters, or nonlinearities.
 
-When purchasing parts from a distributer, you may often receive information on the mean time to failure. You can use the constant failure rate model to calculate how the reliability of the part decreases with wear and tear, but **you can not account for early failure due to manufacturing defects**. However, the Weibull distribution can account for changing failure rates over time, which can be useful in the following scenarios:
+### Key Components:
 
--   If a component has a high failure rate at the beginning of its life, you may want to add a "burn-in" period to your testing procedures to weed out faulty components before shipping the product to the customer.
+1. **State Variables ($\mathbf{x}(t)$ or $\mathbf{x}[k]$)**:
 
--   If you are designing a maintenance testing schedule, you may want add additional calibration and testing earlier in the life of the component to catch any early failures, and then reduce the frequency of testing after a certain age, until it reaches the end of its life where you may want to begin testing more frequently again.
+    - Represent the smallest set of variables that describe the system’s current state.
+    - Capture all the necessary information to predict future behavior, given the inputs.
 
--   When designing warranty policies, you may want the policy to cover the period of time where the components are most likely to prematurely fail due to manufacturing defects, but not cover the period of time where the component is most likely to fail due to wear and tear.
+2. **Input Variables ($\mathbf{u}(t)$ or $\mathbf{u}[k]$)**:
 
-Generally, if you are collecting data to characterize the reliability of a component, it is best to also account for manufacturing defects and early life failures by using the Weibull distribution. If you are using a component that has already been characterized by the manufacturer and only the mean time to failure is provided, you can use the constant failure rate model to estimate the reliability of the component over time.
+    - External signals or controls applied to the system.
 
-## Modeling Reliability in Cyber-Physical Systems
+3. **Output Variables ($\mathbf{y}(t)$ or $\mathbf{y}[k]$)**:
 
-Understanding **series** and **parallel systems** is fundamental in reliability engineering, as it helps in designing systems with desired reliability levels. This document explains these concepts in detail and provides examples of how sensors or actuators can be configured in series or parallel to affect system reliability.
+    - Measurable signals or quantities of interest derived from the system.
 
-### Series Systems
+4. **System Matrices**:
 
--   **Definition**: The system fails if any component fails.
+    - **$\mathbf{A}$**: State matrix (defines the system dynamics).
+    - **$\mathbf{B}$**: Input matrix (how inputs affect states).
+    - **$\mathbf{C}$**: Output matrix (how states affect outputs).
+    - **$\mathbf{D}$**: Feedthrough (or direct transmission) matrix (direct input-output relationship).
 
--   **Reliability Calculation**:
+### General Form:
 
-    $$R_{\text{series}} = \prod_{i=1}^{n} R_i$$
+#### Continuous-Time Systems:
 
--   **Interpretation**: Reliability decreases as more components are added in series.
+**State Equation**:
 
-### Parallel Systems
+$$\dot{\mathbf{x}}(t) = \mathbf{A}\mathbf{x}(t) + \mathbf{B}\mathbf{u}(t)$$
 
--   **Definition**: The system functions as long as at least one component functions.
+**Output Equation**:
 
--   **Reliability Calculation**:
+$$\mathbf{y}(t) = \mathbf{C}\mathbf{x}(t) + \mathbf{D}\mathbf{u}(t)$$
 
-    $$R_{\text{parallel}} = 1 - \prod_{i=1}^{n} (1 - R_i)$$
+#### Discrete-Time Systems:
 
--   **Interpretation**: Adding components in parallel increases system reliability.
+**State Equation**:
 
-### k-out-of-n Systems
+$$\mathbf{x}[k+1] = \mathbf{A}\mathbf{x}[k] + \mathbf{B}\mathbf{u}[k]$$
 
--   **Definition**: The system functions if at least $k$ out of $n$ components function.
+**Output Equation**:
 
--   **Reliability Calculation**:
+$$\mathbf{y}[k] = \mathbf{C}\mathbf{x}[k] + \mathbf{D}\mathbf{u}[k]$$
 
-    $$R = \sum_{i=k}^{n} \binom{n}{i} R_i^i (1 - R_i)^{n - i}$$
+### Advantages of State Space Representation:
+- Handles complex systems with multiple inputs and outputs.
+- Suitable for time-varying and nonlinear systems.
+- Facilitates modern control design techniques like state feedback and observers.
 
--   **Interpretation**: Adding more components than is needed to operate the system increases reliability, and allows for broken components to be replaced without system failure.
+-   **Handles Complex Systems**: Suitable for MIMO systems and higher-order systems without the complexity of transfer functions.
 
-## Implications for Systems Modeling
+-   **Time-Varying and Nonlinear Systems**: Can model systems where parameters change over time or with the state.
 
-The calculations show that the system maintains high reliability over the first two years, primarily due to the redundancy in both the temperature sensors and heating elements.
+-   **Modern Control Design**: Facilitates advanced control strategies like state feedback, observers, and optimal control.
 
-**Recommendations to Maintain High System Reliability:**
+### Example: Mass-Spring-Damper System
 
-1.  **Regular Maintenance:**
+Consider a mechanical system described by the second-order differential equation:
 
-    -   Schedule periodic inspections to identify and replace any failing components.
+$$m\ddot{x}(t) + c\dot{x}(t) + kx(t) = u(t)$$
 
-2.  **Monitoring Systems:**
+Where:
 
-    -   Install real-time monitoring to detect early signs of component degradation.
+-   $x(t)$: Position of the mass.
+-   $u(t)$: External force applied.
+-   $m$: Mass.
+-   $c$: Damping coefficient.
+-   $k$: Spring constant.
 
-3.  **Environmental Controls:**
-
-    -   Ensure optimal operating conditions to minimize stress on components.
-
-4.  **Future Planning:**
-
-    -   As time progresses beyond two years, consider strategies to address the gradual decline in reliability, such as proactive replacements or increased redundancy.
-
-### Examples of Series and Parallel Systems in Reliability Engineering
-
-#### Actuators in Series
-
--   **Scenario:** Consider a robotic arm with multiple joints, each powered by an actuator. The proper functioning of the robotic arm requires all actuators to operate correctly.
-
--   **System Requirement:** Failure of any actuator leads to failure of the entire robotic arm’s operation.
-
--   **Reliability Calculation:** Assuming each actuator has reliability $R_a(t)$:
-
--   **Total System Reliability for *N* Actuators in Series:**
-
-    $$R_{\text{system}}(t) = [R_a(t)]^N$$
-
--   **Example Calculation:** If each actuator has a reliability of 95% ($R_a(t) = 0.95$):
-
--   **With 3 Actuators in Series:** The system reliability is about 85.74%.
-
-    $$R_{\text{system}}(t) = (0.95)^3 = 0.8574$$
-
--   **Implication:** The more actuators connected in series, the lower the overall system reliability.
-
-#### Sensors in Parallel (Redundant Sensors)
-
--   **Scenario:** You have multiple sensors measuring the same parameter, and the system requires only one functioning sensor to operate. This is common in critical systems where sensor failure can have significant consequences (e.g., in aerospace or medical devices).
-
--   **System Configuration:**
-
-    -   Primary Sensor
-    -   Redundant Backup Sensors
-
--   **Reliability Calculation:** If each sensor has reliability $R_s(t)$:
-
-    -   **Total System Reliability with *N* Sensors:**
-
-        $$R_{\text{system}}(t) = 1 - [1 - R_s(t)]^N$$
-
--   **Example Calculation:** Suppose each sensor has a reliability of 90% ($R_s(t) = 0.9$) over a mission time.
-
-    -   **With 1 Sensor:**
-
-        $$R_{\text{system}}(t) = R_s(t) = 0.9$$
-
-    -   **With 2 Sensors in Parallel:** The system reliability increases to 99% with one redundant sensor.
-
-        $$R_{\text{system}}(t) = 1 - [1 - 0.9]^2 = 1 - (0.1)^2 = 1 - 0.01 = 0.99$$
-
-    -   **With 3 Sensors in Parallel:** The system reliability increases to 99.9% with two redundant sensors.
-
-        $$R_{\text{system}}(t) = 1 - [1 - 0.9]^3 = 1 - (0.1)^3 = 1 - 0.001 = 0.999$$
-
--   **Implication:** Adding redundant sensors in parallel significantly increases system reliability.
-
-#### Example: Chicken Barn
-
-A chicken barn has four temperature sensors and 15 heating elements to keep the chickens warm. The system needs at least two temperature sensors and 10 heating elements to fully work. The mean time between failures for the temperature sensors is 15 years and the mean time between failures for the heating elements is 10 years. Calculate the probability that the system will fail within one year and two years of operation.
-
-##### System Overview
-
--   **Temperature Sensors:**
-
-    -   Quantity: **4**
-
-    -   Requirement: At least **2** must be operational.
-
-    -   Mean Time Between Failures (MTBF): **15 years**
-
--   **Heating Elements:**
-
-    -   Quantity: **15**
-
-    -   Requirement: At least **10** must be operational.
-
-    -   Mean Time Between Failures (MTBF): **10 years**
-
-##### Assumptions
-
-1.  Constant Failure Rate: The failure rates are constant over time (exponential distribution).
-
-2.  Independence: Failures are independent events.
-
-3.  Binary State Components: Components are either fully operational or failed (no partial failures).
-
-##### Calculation Steps
-
-##### Calculation Steps
-
-1. **Calculate Failure Rates ($\lambda$)**
-
-The failure rate $\lambda$ is the reciprocal of the MTBF:
-
-- Temperature Sensors:
-    $$\lambda_{\text{sensor}} = \frac{1}{\text{MTBF}_{\text{sensor}}} = \frac{1}{15} \approx 0.0667 \text{ failures/year}$$
-
-- Heating Elements:
-    $$\lambda_{\text{element}} = \frac{1}{\text{MTBF}_{\text{element}}} = \frac{1}{10} = 0.1 \text{ failures/year}$$
-
-2. **Compute Individual Component Reliability ($R(t)$)**
-
-The reliability function for an exponential distribution is:
-$$R(t) = e^{-\lambda t}$$
-
-- At $t = 1$ Year:
-    - Temperature Sensors:
-        $$R_{\text{sensor}}(1) = e^{-0.0667 \times 1} = e^{-0.0667} \approx 0.9355$$
-    - Heating Elements:
-        $$R_{\text{element}}(1) = e^{-0.1 \times 1} = e^{-0.1} \approx 0.9048$$
-
-- At $t = 2$ Years:
-    - Temperature Sensors:
-        $$R_{\text{sensor}}(2) = e^{-0.0667 \times 2} = e^{-0.1334} \approx 0.8752$$
-    - Heating Elements:
-        $$R_{\text{element}}(2) = e^{-0.1 \times 2} = e^{-0.2} \approx 0.8187$$
-
-3. **Calculate Probabilities for Components**
-
-**Temperature Sensors**: We need the probability that at least 2 out of 4 sensors are operational.
+**Step 1: Define State Variables**
 
 Let:
-- $p_s = R_{\text{sensor}}(t)$ (probability a sensor is operational)
-- $q_s = 1 - p_s$ (probability a sensor has failed)
 
-Possible Successful Scenarios:
-1. Exactly 2 Sensors Operational:
-     $$P(\text{2 working}) = {4 \choose 2} p_s^2 q_s^2 = 6 p_s^2 q_s^2$$
-2. Exactly 3 Sensors Operational:
-     $$P(\text{3 working}) = {4 \choose 3} p_s^3 q_s = 4 p_s^3 q_s$$
-3. Exactly 4 Sensors Operational:
-     $$P(\text{4 working}) = {4 \choose 4} p_s^4 = p_s^4$$
+-   $x_1(t) = x(t)$ (Position)
+-   $x_2(t) = \dot{x}(t)$ (Velocity)
 
-Total Probability:
-$$P_{\text{sensor}}(t) = P(\text{2 working}) + P(\text{3 working}) + P(\text{4 working})$$
+**Step 2: Derive State Equations**
 
-**Heating Elements**: We need the probability that at least 10 out of 15 elements are operational.
+Express the system as first-order differential equations:
 
-Let:
-- $p_e = R_{\text{element}}(t)$ (probability an element is operational)
-- $q_e = 1 - p_e$ (probability an element has failed)
+1.  $\dot{x}_1(t) = x_2(t)$
+2.  $\dot{x}_2(t) = -\dfrac{k}{m} x_1(t) - \dfrac{c}{m} x_2(t) + \dfrac{1}{m} u(t)$
 
-Total Probability:
-$$P_{\text{element}}(t) = \sum_{k=10}^{15} {15 \choose k} p_e^k q_e^{15 - k}$$
+**Step 3: Write in Matrix Form**
 
-4. **Calculate System Reliability**
+$$
+\begin{bmatrix} 
+\dot{x}_1(t) \\ 
+\dot{x}_2(t) 
+\end{bmatrix} = 
+\begin{bmatrix} 
+0 & 1 \\ 
+-\dfrac{k}{m} & -\dfrac{c}{m} 
+\end{bmatrix} 
+\begin{bmatrix} 
+x_1(t) \\ 
+x_2(t) 
+\end{bmatrix} + 
+\begin{bmatrix} 
+0 \\ 
+\dfrac{1}{m} 
+\end{bmatrix} u(t)
+$$
 
-The system functions only if both the sensors and heating elements meet their operational requirements.
-$$R_{\text{system}}(t) = P_{\text{sensor}}(t) \cdot P_{\text{element}}(t)$$
+**Output Equation** (Assuming output is position):
 
-**Temperature Sensors At $t = 1$ Year**:
-- Values:
-    - $p_s = 0.9355$
-    - $q_s = 1 - 0.9355 = 0.0645$
+$$
+y(t) = \begin{bmatrix} 1 & 0 \end{bmatrix} 
+\begin{bmatrix} 
+x_1(t) \\ 
+x_2(t) 
+\end{bmatrix}
+$$
 
-Calculations:
-1. $P(\text{2 working}) = 6 \times (0.9355)^2 \times (0.0645)^2 \approx 0.0218$
-2. $P(\text{3 working}) = 4 \times (0.9355)^3 \times 0.0645 \approx 0.2114$
-3. $P(\text{4 working}) = (0.9355)^4 \approx 0.7659$
+### Interpretation:
 
-Total Probability:
-$$P_{\text{sensor}}(1) = 0.0218 + 0.2114 + 0.7659 = 0.9991$$
+-   **State Vector** ($\mathbf{x}(t)$): Encapsulates the system’s current position and velocity.
 
-**Heating Elements At $t = 1$ Year**:
-- Values:
-    - $p_e = 0.9048$
-    - $q_e = 1 - 0.9048 = 0.0952$
+-   **State Matrix** ($\mathbf{A}$): Describes how the current state affects the rate of change of the state.
 
-Calculations:
-$$P_{\text{element}}(1) = \sum_{k=10}^{15} {15 \choose k} p_e^k q_e^{15 - k}$$
+-   **Input Matrix** ($\mathbf{B}$): Shows how the external force influences the state.
 
-Compute Individual Probabilities:
-1. $P(\text{10 working}) = {15 \choose 10} p_e^{10} q_e^5 \approx 0.0087$
-2. $P(\text{11 working}) = {15 \choose 11} p_e^{11} q_e^4 \approx 0.0373$
-3. $P(\text{12 working}) = {15 \choose 12} p_e^{12} q_e^3 \approx 0.1181$
-4. $P(\text{13 working}) = {15 \choose 13} p_e^{13} q_e^2 \approx 0.2593$
-5. $P(\text{14 working}) = {15 \choose 14} p_e^{14} q_e \approx 0.3521$
-6. $P(\text{15 working}) = (0.9048)^{15} \approx 0.2231$
+-   **Output Matrix** ($\mathbf{C}$): Relates the state to the measurable output.
 
-Total Probability:
-$$P_{\text{element}}(1) = 0.0087 + 0.0373 + 0.1181 + 0.2593 + 0.3521 + 0.2231 = 0.9985$$
+-   **Feedthrough Matrix** ($\mathbf{D}$): Zero in this case, indicating no direct input-to-output path.
 
-**System Reliability at 1 Year**:
-$$R_{\text{system}}(1) = P_{\text{sensor}}(1) \cdot P_{\text{element}}(1) \approx 0.9991 \times 0.9985 \approx 0.9976$$
+### Why Use State Space Representation?
 
-**Probability of Failure at 1 Year**:
-$$P_{\text{failure}}(1) = 1 - R_{\text{system}}(1) \approx 1 - 0.9976 = 0.0024 = \boxed{0.24\%}$$
+-   **Unified Framework**: Offers a consistent method to model various types of systems.
+
+-   **Computational Efficiency**: Suitable for numerical simulations and computer-based analysis.
+
+-   **Control Design**: Essential for designing controllers that modify the system’s behavior based on its state (e.g., feedback control).
+
+### Observability
+
+The ability to estimate the complete internal state of the system based on the available sensor measurements is known as **observability**. State estimation aims to make sure the state of the system is accurately tracked, even when some internal variables are not directly measurable.
+
+## Observability in State Space Representation
+
+**Observability** is a fundamental concept in control theory and state-space analysis. It determines whether the internal states of a dynamic system can be inferred by observing its external outputs over time. In both continuous-time and discrete-time systems, observability plays a crucial role in system analysis, controller design, and state estimation.
+
+-   **Observable System**: A system is said to be observable if the current state can be determined in finite time using only the outputs and inputs.
+
+-   **Unobservable System**: If some states cannot be reconstructed from the outputs and inputs, the system is unobservable.
+
+Consider a linear time-invariant (LTI) system represented in state-space form for both continuous-time and discrete-time systems, where the system is given by the state vector ($\mathbf{x}(t)$), state matrix ($\mathbf{A}$), input matrix ($\mathbf{B}$), output matrix ($\mathbf{C}$), and feedthrough matrix ($\mathbf{D}$).
+
+The steps for determining observability are as follows:
+
+1. **Construct Observability Matrix $\mathcal{O}$**:
+    - Calculate $\mathbf{C}$, $\mathbf{C}\mathbf{A}$, $\mathbf{C}\mathbf{A}^2$, …​, $\mathbf{C}\mathbf{A}^{n-1}$.
+
+2. **Calculate Rank of $\mathcal{O}$**:
+    - Use matrix rank determination methods (e.g., Gaussian elimination, singular value decomposition).
+
+3. **Assess Observability**:
+    - If rank $\mathcal{O} = n$, the system is observable.
+    - If rank $\mathcal{O} < n$, the system is unobservable.
+
+### Observability Matrix
+
+The observability of a system can be assessed using the **Observability Matrix**, $\mathcal{O}$, which is constructed as:
+
+$$
+\mathcal{O} = \begin{bmatrix} 
+\mathbf{C} \\ 
+\mathbf{C}\mathbf{A} \\ 
+\mathbf{C}\mathbf{A}^2 \\ 
+\vdots \\ 
+\mathbf{C}\mathbf{A}^{n-1} 
+\end{bmatrix}
+$$
+
+- $n$ is the number of state variables in the system.
+- The matrix $\mathcal{O}$ has dimensions $n \times n$ for single-output systems.
+
+### Observability Criterion
+
+- **A system is observable if and only if** the observability matrix $\mathcal{O}$ has full rank (i.e., rank $n$).
+- If $\mathcal{O}$ is rank-deficient (rank less than $n$), the system is unobservable.
+
+### Interpretation
+
+-   **Full Rank**: Every state contributes uniquely to the output, allowing reconstruction of the entire state vector.
+
+-   **Rank Deficient**: Some states do not influence the output sufficiently, making them unobservable.
+
+### Examples
+
+#### Continuous-Time System Example
+
+**System Matrices**:
+
+$$\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -2 & -3 \end{bmatrix}, \quad \mathbf{C} = \begin{bmatrix} 1 & 0 \end{bmatrix}$$
+
+**Construct Observability Matrix**:
+
+$$\mathcal{O} = \begin{bmatrix} \mathbf{C} \\ \mathbf{C}\mathbf{A} \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 1 \times 0 + 0 \times (-2) & 1 \times 1 + 0 \times (-3) \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$$
+
+**Analysis**:
+
+- The observability matrix $\mathcal{O}$ has full rank (rank 2).
+
+- **Conclusion**: The system is observable.
+
+#### Discrete-Time System Example
+
+**System Matrices**:
+
+$$\mathbf{A} = \begin{bmatrix} 1 & 0 \\ 0 & \lambda \end{bmatrix}, \quad \mathbf{C} = \begin{bmatrix} 0 & 1 \end{bmatrix}$$
+
+Assume $\lambda$ is a scalar.
+
+**Construct Observability Matrix**:
+
+$$\mathcal{O} = \begin{bmatrix} \mathbf{C} \\ \mathbf{C}\mathbf{A} \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 0 \times 1 + 1 \times 0 & 0 \times 0 + 1 \times \lambda \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 0 & \lambda \end{bmatrix}$$
+
+**Analysis**:
+
+- The rank of $\mathcal{O}$ depends on $\lambda$.
+
+- If $\lambda \neq 0$, the rank is 2, and the system is observable.
+
+- If $\lambda = 0$, the rank is 1, and the system is unobservable.
+
+**Conclusion**:
+
+- The system’s observability depends on the value of $\lambda$.
+
+### Importance of Observability
+
+-   **State Estimation**: Necessary for designing observers or estimators (e.g., Luenberger observer, Kalman filter) to estimate the internal states.
+
+-   **Control Design**: Essential for implementing state feedback controllers when not all states are measured directly.
+
+-   **System Diagnostics**: Helps in fault detection and system monitoring by ensuring that all states can be observed.
+
+### Practical Considerations
+
+-   **Sensor Placement**: Adequate and strategic placement of sensors can improve observability.
+
+-   **Noise and Disturbances**: Real-world measurements are affected by noise, impacting state estimation accuracy.
+
+-   **Time-Varying Systems**: For time-varying systems, observability may change over time and requires time-dependent analysis.
+
+## Sensors and Uncertainty
+
+Sensors provide data to estimate the system state, but real-world sensors often have inaccuracies, delays, and noise. State estimation techniques are used to reduce the impact of these uncertainties and provide a more reliable understanding of the system state.
+
+### Kalman Filter
+
+One of the most common methods for state estimation in CPS is the **Kalman Filter**. The Kalman Filter is used to estimate the state of a system by combining sensor measurements with a mathematical model of the system dynamics. It does this in two steps:
+
+-   **Prediction**: The system model is used to predict the future state based on previous estimates.
+
+-   **Update**: The prediction is adjusted using new sensor measurements, correcting the estimate based on observed data and uncertainty levels.
+
+For non-linear systems, an **Extended Kalman Filter (EKF)** or **Unscented Kalman Filter (UKF)** may be used, which handle the non-linearities in the prediction or update steps.
+
+### Particle Filter
+
+In more complex, highly non-linear systems where the Kalman Filter cannot be effectively applied, **Particle Filters** can be used for state estimation. Particle filters use a set of random samples (particles) to approximate the probability distribution of the system state.
+
+### State Estimation in Control
+
+State estimation is crucial for feedback control. Many control systems require information about variables that cannot be directly measured, such as velocity or acceleration. For example, in an autonomous vehicle, a state estimator can predict the vehicle’s speed and orientation based on GPS, inertial sensors, and control inputs.
+
+### State-Space Representation
+
+State-space representation is a mathematical model that describes the internal state of a system using a set of first-order differential or difference equations. In a state-space model, the system is represented by state variables, input variables, and output variables, which are organized into vector form. This approach is particularly useful for modeling multi-input, multi-output (MIMO) systems, and provides a unified framework for analyzing both linear and non-linear dynamics. The state-space representation is essential for designing modern control systems and implementing state estimation techniques like the Kalman Filter, as it allows for a compact and efficient representation of the system’s dynamic behavior.
+
+### Applications
+
+-   **Robotics**: Estimating the position, velocity, and orientation of a robot in environments where direct measurement might not be possible.
+
+-   **Automotive Systems**: State estimation for vehicle stability, adaptive cruise control, and other driver assistance systems.
+
+-   **Power Systems**: Monitoring the internal state of power grids to ensure stability, detect faults, and adjust loads.
+
+-   **Smart Manufacturing**: Estimating the health and operational state of machinery based on sensor data, which helps in predictive maintenance and process optimization.
+
+State estimation is essential for achieving robustness, reliability, and real-time responsiveness in cyber-physical systems. By combining sensor data with system models, state estimation enables accurate monitoring, enhances control performance, and helps systems deal with sensor inaccuracies and unexpected disturbances.
+
