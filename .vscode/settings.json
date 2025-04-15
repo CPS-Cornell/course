@@ -3,5 +3,9 @@
     "editor.detectIndentation": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false,
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "markdownlint.configFile": ".markdownlint.json",
+    "markdownlint.customRules": [
+        ".markdownlint.json"
+    ]
 }
