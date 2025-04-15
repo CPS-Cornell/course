@@ -6,9 +6,9 @@
 
 1. **[controller.py](code/pico/controller.py)**
 
-   * **What it contains**: An abstract `Controller` class meant to be extended for different control strategies (e.g., PID). It defines the interface (`update`, `is_done`, `clear_history`) that all controllers must implement.
-   - **How it works**: You can create your own specialized controller (like a PID) by subclassing `Controller`. That specialized controller then implements how the input (for instance, an error signal) translates into an output (motor effort).
-   - **Usage**: In this project, the `PID` class (defined in `pid.py`) inherits from this to handle tasks such as speed control, heading maintenance, or distance-based movement.
+- **What it contains**: An abstract `Controller` class meant to be extended for different control strategies (e.g., PID). It defines the interface (`update`, `is_done`, `clear_history`) that all controllers must implement.
+- **How it works**: You can create your own specialized controller (like a PID) by subclassing `Controller`. That specialized controller then implements how the input (for instance, an error signal) translates into an output (motor effort).
+- **Usage**: In this project, the `PID` class (defined in `pid.py`) inherits from this to handle tasks such as speed control, heading maintenance, or distance-based movement.
 
 2. **[pid.py](code/pico/pid.py)**
 
