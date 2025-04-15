@@ -1,7 +1,7 @@
 {
-  "micropico.syncFolder": "docs\\inclass_examples\\actuators",
-  "editor.detectIndentation": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "prettier.tabWidth": 4
+    "micropico.syncFolder": "docs\\inclass_examples\\actuators",
+    "editor.detectIndentation": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "prettier.tabWidth": 4
 }

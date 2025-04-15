@@ -152,7 +152,7 @@ TEMP:23.5, HUMID:45, TIME:1001
    - How is the proximity related to the distance of an object 
    - How does ambient light (lux/light) relate to the proximity reading?
    - Why might this proximity sensor need to measure ambient light?
-    **Color Variation**:
+4. **Color Variation**:
     - Repeat the experiment with a white object and then a black, matte object.
     - Notice how the color and reflectivity of the object can affect IR-based proximity readings.
 

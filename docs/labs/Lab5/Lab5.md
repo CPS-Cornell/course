@@ -242,9 +242,9 @@ roll_filtered = α × (previous_roll + gyro_rate × Δt) + (1 – α) × roll_ac
 
 Where:
 
--   `(previous_roll + gyro_rate × Δt)` is the estimate from the gyroscope.
--   `roll_acc` is the angle computed from the accelerometer.
--   `α` is the filter coefficient (typically 0.95–0.99).
+- `(previous_roll + gyro_rate × Δt)` is the estimate from the gyroscope.
+- `roll_acc` is the angle computed from the accelerometer.
+- `α` is the filter coefficient (typically 0.95–0.99).
 
 ---
 
@@ -273,8 +273,8 @@ roll_acc = arctan2(acc_y, acc_z) × (180 / π)
 pitch_acc = arctan2(-acc_x, sqrt(acc_y² + acc_z²)) × (180 / π)
 ```
 
--   `acc_x`, `acc_y`, `acc_z` are accelerometer readings in mg.
--   These formulas yield roll and pitch angles in degrees.
+- `acc_x`, `acc_y`, `acc_z` are accelerometer readings in mg.
+- These formulas yield roll and pitch angles in degrees.
 
 For a more detailed overview of how these equations are derived, see [this](https://mwrona.com/posts/accel-roll-pitch/) blogpost.
 
