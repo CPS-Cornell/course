@@ -1,4 +1,4 @@
-# Kalman Filter Lab Write-up
+# Kalman Filter
 
 ## File Overview
 
@@ -220,7 +220,7 @@ After conducting the above experiments, answer the following:
 
 ---
 
-# Complementary Filter Lab
+# Complementary Filter
 
 ## 1. Introduction
 
