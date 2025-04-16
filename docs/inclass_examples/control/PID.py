@@ -79,7 +79,9 @@ class PIDController:
         self.i_term = self.ki * self.integral
         
         # Derivative term calculated on measurement (not error) to avoid derivative kick
-        derivative = (self.prev_measured - measured_value) / dt if dt > 0 else 0
+        #derivative = (self.prev_measured - measured_value) / dt if dt > 0 else 0
+        #derivative = (self.prev_measured - measured_value) / dt
+        derivative = (self.prev_error - error) / dt
         self.d_term = self.kd * derivative
         
         # Save values for next iteration
@@ -178,7 +180,7 @@ def plot_results(time, speeds, control_outputs, p_terms, i_terms, d_terms, setpo
     plt.show()
 
 def wind_gust(t):
-    return 0
+    return -200
     """Generate random wind gusts"""
     if 30 < t < 35 or 60 < t < 70:
         return -1000  # Strong headwind (negative force)
@@ -192,11 +194,11 @@ def main():
     car = Car()
     
     # Create PID controller (tune these values as needed)
-    kp = 5000  # Proportional gain
-    ki = 0   # Integral gain
-    ki = 500   # Integral gain
+    kp = 700  # Proportional gain
+    #ki = 0   # Integral gain
+    ki = 300   # Integral gain
     #kd = 0  # Derivative gain
-    kd = 1500  # Derivative gain
+    kd = 1200  # Derivative gain
     target_speed = 10  # km/h
     controller = PIDController(kp, ki, kd, target_speed/3.6)  # Convert to m/s
     
