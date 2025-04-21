@@ -126,7 +126,7 @@ The following files are **not** intended for the Pico. They are used on your **l
         - Runs a loop so it can continuously listen and store data.
     - **Usage**: Launch this on your laptop to receive sensor arrays from `kalman_filter.py` running on the Pico. Adjust the array sizes and sensor lists as needed.
 
-## Task 2: Tuning the Kalman Filter Parameters (Q and R)
+## Task 1: Tuning the Kalman Filter Parameters (Q and R)
 
 1. **Locating Q and R**
 
@@ -165,7 +165,7 @@ The following files are **not** intended for the Pico. They are used on your **l
 
 ---
 
-## Task 3: Adjusting the Array Size and Measuring Loop Speed
+## Task 2: Adjusting the Array Size and Measuring Loop Speed
 
 1. **Locate the Array Size**
 
@@ -197,7 +197,7 @@ The following files are **not** intended for the Pico. They are used on your **l
 
 ---
 
-## Task 4: Discussion Questions
+## Task 3: Discussion Questions
 
 After conducting the above experiments, answer the following:
 
