@@ -161,7 +161,6 @@ The following files are **not** intended for the Pico. They are used on your **l
 
     - When Q is very large, your encoder (process) updates are deemed untrustworthy, and the filter may rely more on the IMU reading.
     - When R is very large, the IMU measurement is seen as untrustworthy, so the filter leans more heavily on the encoder reading.
-    - When Q and R are similar, the filter attempts to balance both signals.
 
 ---
 
