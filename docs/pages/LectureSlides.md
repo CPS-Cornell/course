@@ -13,3 +13,5 @@
 [Module 8 - Signal Processing and State Estimation](lectureslides/module8.pdf)
 
 [Module 9 - Feedback Control](lectureslides/module9.pdf)
+
+[Module 10 - Computer Visions](lectureslides/module10.pdf)
