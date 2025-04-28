@@ -2,8 +2,7 @@ import degirum as dg
 import cv2
 import time
 
-token = "dg_SxtLxKUmnHvhaB2567apQKwdy3wbGTuuhyzCx"
-#token = "<your_token_here>"  # Replace with your actual token
+token = "<your_token_here>"  # Replace with your actual token
 
 # Connect to DeGirum's public model zoo
 zoo = dg.connect(dg.CLOUD, "https://cs.degirum.com/degirum/public", token=token)
