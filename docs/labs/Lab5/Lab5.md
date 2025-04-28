@@ -268,8 +268,8 @@ These return the orientation values (in degrees) computed from gyroscope integra
 The accelerometer measures acceleration along the sensor’s axes. When gravity is the only force acting, we can calculate orientation using trigonometry:
 
 ```c++
-roll_acc = arctan2(acc_y, acc_z) × (180 / π)
-pitch_acc = arctan2(-acc_x, sqrt(acc_y² + acc_z²)) × (180 / π)
+roll_acc = arctan2(acc_x, acc_z) × (180 / π)
+pitch_acc = arctan2(acc_y, acc_z) × (180 / π)
 ```
 
 - `acc_x`, `acc_y`, `acc_z` are accelerometer readings in mg.
