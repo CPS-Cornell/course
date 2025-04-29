@@ -10,6 +10,7 @@ from picamera2 import Picamera2
 import imagezmq
 import cv2    
 import numpy as np
+import simplejpeg
 
 def squareness(bbox):
     if bbox is not None:
@@ -44,7 +45,7 @@ def main():
     detector = cv2.QRCodeDetector() # Corrected class name
 
     # Replace with your laptop's IP (or hostname) and port:
-    connect_to = "tcp://10.49.66.76:5555"
+    connect_to = "tcp://10.48.73.89:5555"
     sender = imagezmq.ImageSender(connect_to=connect_to)
     rpi_name = socket.gethostname()
 
@@ -58,6 +59,8 @@ def main():
     try:
         while True:
             frame = picam2.capture_array()
+            if frame.shape[2] == 4: 
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
 
             # Use the correct variable 'frame' here
             data, bbox, _ = detector.detectAndDecode(frame) 
@@ -79,13 +82,17 @@ def main():
                         cv2.polylines(frame, [points], isClosed=True, color=(0, 0, 255), thickness=2)
 
                 # send_image blocks until the message is sent
-                sender.send_image(rpi_name, frame)
-                # Optional: throttle frame rate
-                time.sleep(0.1)
+                image_to_send = frame
             else:
                  # Send frame even if no QR code is detected
-                 sender.send_image(rpi_name, frame)
-                 time.sleep(0.1) # Keep throttling consistent
+                image_to_send = frame
+                
+            # Use this line of code to send uncompressed images
+            #sender.send_image(rpi_name, image_to_send)
+
+            # Use these lines of code to send compressed images
+            jpg_buffer = simplejpeg.encode_jpeg(image_to_send, quality=95, colorspace='BGR')
+            sender.send_jpg(rpi_name,jpg_buffer)
 
     except KeyboardInterrupt:
         pass
