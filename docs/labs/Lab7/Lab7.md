@@ -155,7 +155,6 @@ Tasks include:
 When the Raspberry Pi Zero detects an object using the camera, it should send this information to the Pico for further processing.
 
 
-
 ## 5. UDP Communication: Pico to Laptop
 
 Finally, you'll implement UDP communication to send detection results from the Pico to your laptop.
@@ -170,8 +169,25 @@ When the Pico receives information about a detected object from the Raspberry Pi
 
 ## Submission Requirements
 
-[Details about what students need to submit, including code files, demonstration videos, etc.]
+To successfully complete this lab, you must:
 
-## Evaluation Criteria
-
-[Information about how the lab will be graded, what aspects will be evaluated, etc.]
+1.  **Complete all assigned tasks:**
+    - Assemble the robot with all specified components.
+    - Implement and test the Roomba algorithm on the Pico.
+    - Implement and test the computer vision algorithm on the Raspberry Pi Zero.
+    - Establish and test UART communication between the Raspberry Pi Zero and the Pico.
+    - Establish and test UDP communication between the Pico and your laptop.
+2.  **Record a video demonstration:**
+    - The video should clearly show your robot operating autonomously, detecting objects, and sending information to your laptop.
+    - Narrate the video, explaining what the robot is doing and what is being displayed on your laptop.
+3.  **Submit a short reflection:**
+    - Write a brief reflection discussing the main components of this lab. Include your thoughts and learnings on:
+        - Wired communication protocols (e.g., UART)
+        - Wireless communication protocols (e.g., UDP over Wi-Fi)
+        - Embedded systems computing (e.g., Raspberry Pi Pico)
+        - Single board computer system computing (e.g., Raspberry Pi Zero)
+        - Actuators (e.g., motors, servo)
+    - Consider why we partitioned the functionality of the system the way we did
+        - What type of computation is the Pico responsible for (and why)?
+        - What type of computation is the Zero responsible for (and why)?
+        - What type of computation is the cloud responsible for (and why)?
