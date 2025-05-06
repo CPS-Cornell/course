@@ -1,6 +1,7 @@
 import network
 import time
 import urequests
+import gc
 
 
 # Helper function to connect to WiFi
@@ -73,3 +74,4 @@ for i in range(100):
     response = urequests.get(url)
     print(response.status_code)
     time.sleep(16)
+    gc.collect()
