@@ -57,6 +57,7 @@ nav:
     - 'Lab 4 - Actuators': labs/Lab4/Lab4.md
     - 'Lab 5 - Signal Processing': labs/Lab5/Lab5.md
     - 'Lab 6 - Computer Vision': labs/Lab6/Lab6.md
+    - 'Lab 7 - Computer Vision': labs/Lab7/Lab7.md
   - Case Studies:
     - 'Case Study 1 - Traffic Light Cameras': case_studies/RedLightCameraNIST.md
     - 'Case Study 2 - Digital Twins in Gardening & Greenhouses': case_studies/DigitalTwins.md

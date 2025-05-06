@@ -123,7 +123,9 @@ You can extend this basic implementation by adding additional features such as:
 1. Study the provided `rumba.py` implementation
 2. Adjust constants like `SAFE_DISTANCE_CM` and `TURN_SPEED` to optimize performance
 3. Run the algorithm on your robot and observe its behavior
-4. Make necessary modifications to improve navigation in your specific environment
+4. Make necessary modifications to improve navigation in your specific environment, for example
+    - Depending on what end of the robot is the "front", you might need to reverse the direction that the algorithm considers forward. This can be done using negative signs in front of the wheel speeds. 
+    - You might find that the robot runs too fast or slow, try changing the speed of the robot. 
 
 ## 3. Computer Vision Implementation
 

@@ -27,7 +27,7 @@ class RumbaRobot:
         # Initialize the robot components
         self.drive = DifferentialDrive.get_default_differential_drive()
         self.rangefinder = Rangefinder(20, 21)  # Front ultrasonic sensor
-        self.proximity = VCNL4040(i2c=machine.I2C(0, sda=machine.Pin(16), scl=machine.Pin(17)))
+        #self.proximity = VCNL4040(i2c=machine.I2C(0, sda=machine.Pin(16), scl=machine.Pin(17)))
         
         # Initialize movement state
         self.current_state = self.STATE_FORWARD
@@ -71,7 +71,7 @@ class RumbaRobot:
         """Update robot movement based on sensor data and current state"""
         front_distance = self.get_front_distance()
         print("Front distance:", front_distance)
-        back_proximity = self.get_back_proximity()
+        #back_proximity = self.get_back_proximity()
         current_time = time.time()
         
         # Increment random counter for introducing occasional randomness
@@ -88,9 +88,9 @@ class RumbaRobot:
                 # Obstacle detected in front, start turning
                 self.current_state = self.STATE_TURN
                 self.choose_random_turn()
-            elif back_proximity > self.BACK_PROXIMITY_THRESHOLD:
-                # Obstacle detected behind, move forward faster
-                self.drive.set_speed(self.FORWARD_SPEED * 1.5, self.FORWARD_SPEED * 1.5)
+            #elif back_proximity > self.BACK_PROXIMITY_THRESHOLD:
+            #    # Obstacle detected behind, move forward faster
+            #    self.drive.set_speed(self.FORWARD_SPEED * 1.5, self.FORWARD_SPEED * 1.5)
             else:
                 # Normal forward movement
                 self.drive.set_speed(self.FORWARD_SPEED, self.FORWARD_SPEED)
