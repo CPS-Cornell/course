@@ -192,13 +192,11 @@ Brainstorm some potential applications for the communication protocol we impleme
 
 Discuss the trade-offs between speed, reliability, and complexity/overhead in the communication protocol we implemented. How do these trade-offs affect the performance and usability of the protocol? What are some potential ways to optimize the protocol for different use cases or scenarios? How much overhead does adding features such as compression and encryption add to the communication speed? How does this change with file size or the randomness of the data? Include any graphs, diagrams, or pseudocode that you think would be helpful in explaining your analysis.
 
-- Consider adding any notes on simplifying or grouping multiple questions if they seem repetitive.
-
 ## I2C
 
 ### Inertial Measurement Unit (IMU)
 
-The IMU built into the XRP control board is the LSM6DSO. This IMU has a 3-axis accelerometer and a 3-axis gyroscope. The IMU is connected to the I2C bus on the XRP control board. Forunately, there exists significant software support for the XRP, so we don't have to implement the I2C communication for the IMU from scratch.
+The IMU built into the XRP control board is the LSM6DSO. This IMU has a 3-axis accelerometer and a 3-axis gyroscope. The IMU is connected to the I2C bus on the XRP control board. Fortunately, there exists significant software support for the XRP, so we don't have to implement the I2C communication for the IMU from scratch.
 
 For reference, a gyroscope is microelectromechanical system (MEMS) that measures angular velocity. An accelerometer is a MEMS that measures acceleration. The gyroscope measures angular velocity in degrees per second, while the accelerometer measures acceleration in g's. Together, the gyroscope and accelerometer can be used to determine the orientation of the IMU in 3D space. Gyroscopes and accelerometers will be discussed further in the "Sensors" lab.
 
@@ -261,5 +259,3 @@ Include any graphs, diagrams, or pseudocode that you think would be helpful in e
 ## Conclusions
 
 Compare I2C, UART, and our custom communication protocol built on top of UART. What are the advantages and disadvantages of each protocol? In what scenarios would you use each protocol? How do the protocols differ in terms of speed, reliability, complexity, and overhead? How do the protocols compare in terms of ease of use and implementation? What are some potential applications for each protocol?
-
-- You may also combine some of the questions into a single comparative analysis if that feels more natural for explaining the trade-offs.

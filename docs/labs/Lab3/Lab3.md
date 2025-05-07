@@ -226,24 +226,26 @@ Here is an outline that you can follow to organize your report.
 
 **Introduction** - Give the reader a general sense of what this lab is about and why this topic is important to CPS. 
 
-**Proximity Sensor** 
-    -  Methodology 
-    -  Results
-    -  Discussion
+1. **Proximity Sensor** 
+    - Methodology 
+    - Results
+    - Discussion
 
-**Range Finder** 
-    -  Methodology 
-    -  Results
-    -  Discussion
+2. **Range Finder** 
+    - Methodology 
+    - Results
+    - Discussion
 
-**IMU** 
-    -  Methodology 
-    -  Results
-    -  Discussion
+3. **IMU** 
+    - Methodology 
+    - Results
+    - Discussion
 
-**Analysis** - Give an overview of the significance of your results.
+4. **Analysis** 
+    - Give an overview of the significance of your results.
 
-**Conclusion and Application** - Briefly ties these concepts to broader CPS application.
+5. **Conclusion and Application** 
+    - Briefly ties these concepts to broader CPS application.
 
 As always, refer to the lab report rubric for a more detailed outline of report expectations.
 

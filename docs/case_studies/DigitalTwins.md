@@ -21,11 +21,11 @@ Additional resources, including documentation on the AgXRP and peer reviewed art
 
 - Describe why greenhouses and gardening systems are ideal candidates for digital twin implementation (e.g., microclimate control, water and nutrient management, real-time sensor monitoring).
 - Discuss key elements needed to create a garden/greenhouse digital twin. Try to be specific regarding these elements. Find links to specific computational components, evaluate their features and discuss why you think they would be a good fit.
-  - **Computational System** (micro controllers, single board computer, GPU)
-  - **Sensors and Data Collection** (temperature, humidity, soil moisture, etc.)
-  - **Modeling and Prediction** (plant growth models, resource consumption, yield forecasts)
-  - **Communication Mechanisms** (how the sensors "talk" to the microprocessors)
-  - **Control Mechanisms** (automated watering, lighting, ventilation)
+    - **Computational System** (micro controllers, single board computer, GPU)
+    - **Sensors and Data Collection** (temperature, humidity, soil moisture, etc.)
+    - **Modeling and Prediction** (plant growth models, resource consumption, yield forecasts)
+    - **Communication Mechanisms** (how the sensors "talk" to the microprocessors)
+    - **Control Mechanisms** (automated watering, lighting, ventilation)
 
 ### 3. Cloud Farming and Remote Monitoring (~1/3 page)
 
@@ -55,9 +55,9 @@ Additional resources, including documentation on the AgXRP and peer reviewed art
 
 - **Length**: 3-4 pages single spaced not including diagrams or figures
 - **Format**:
-  - Use headings/subheadings that align with the sections above (Digital Twins & CPS, Garden/Greenhouse Twins, Cloud Farming, AgXRP Role, etc.).
-  - You may include simple diagrams or charts to clarify your conceptual design.
-  - References are optional but encouraged if you draw on specific articles or prior work (cite any sources appropriately).
+    - Use headings/subheadings that align with the sections above (Digital Twins & CPS, Garden/Greenhouse Twins, Cloud Farming, AgXRP Role, etc.).
+    - You may include simple diagrams or charts to clarify your conceptual design.
+    - References are optional but encouraged if you draw on specific articles or prior work (cite any sources appropriately).
 - **Submission**: A single PDF document uploaded to canvas.
 
 ---
@@ -65,24 +65,24 @@ Additional resources, including documentation on the AgXRP and peer reviewed art
 ## Grading Criteria (Conceptual Rubric)
 
 1. **Clarity of Digital Twin Explanation (20%)**
-   - How well do you describe the concept of a digital twin and its relevance to cyber-physical systems?
+    - How well do you describe the concept of a digital twin and its relevance to cyber-physical systems?
 
 2. **Application to Greenhouses/Gardening (20%)**
-   - Do you effectively identify the main data points, control tasks, and challenges in greenhouse and gardening scenarios?
+    - Do you effectively identify the main data points, control tasks, and challenges in greenhouse and gardening scenarios?
 
 3. **Cloud Farming & Remote Monitoring (20%)**
-   - Is there a clear explanation of how remote/cloud capabilities enhance the digital twin (including benefits and considerations)?
+    - Is there a clear explanation of how remote/cloud capabilities enhance the digital twin (including benefits and considerations)?
 
 4. **Integration with AgXRP (20%)**
-   - How thoroughly do you connect the robot’s capabilities to the digital twin approach?
-   - Do you suggest thoughtful modifications or enhancements?
+    - How thoroughly do you connect the robot’s capabilities to the digital twin approach?
+    - Do you suggest thoughtful modifications or enhancements?
 
 5. **High-Level System Design (10%)**
-   - Is there a well-structured conceptual diagram illustrating system interactions?
+    - Is there a well-structured conceptual diagram illustrating system interactions?
 
 6. **Overall Organization & Presentation (10%)**
-   - Is the report logically structured?
-   - Are ideas well-supported, coherent, and concise within the page limit?
+    - Is the report logically structured?
+    - Are ideas well-supported, coherent, and concise within the page limit?
 
 ---
 

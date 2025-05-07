@@ -2,7 +2,7 @@
 
 ## Python on your Laptop
 
-This lab will require you to run python code locally on your laptop, including using pip to install some dependencies. It is best practice to use a virtual environment to ensure that package dependencies don't interfere with each other from project to project. Windows users are also recommended to try using WSL, which can be downloaded from the microsoft store (Ubuntu 24.04 is the recommended version), by following [these](https://dev.to/brayandiazc/install-wsl-from-the-microsoft-store-111h) instructions.
+This lab will require you to run python code locally on your laptop, including using pip to install some dependencies. It is best practice to use a virtual environment to ensure that package dependencies don't interfere with each other from project to project.
 
 Instructions on how to install and use virtual environment package managers, such as [pyenv](../../tutorials/pyenv_tutorial.md) and [anaconda](../../tutorials/anaconda_tutorial.md), can be found on the tutorials page.
 
