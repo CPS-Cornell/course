@@ -329,7 +329,7 @@ The `UDPServer` class (from [`udp_server.py`](code/pico/udp_server.py)) is used 
 
 ---
 
-7. ## Pseudocode
+### Pseudocode
 
 ```python
 # Initialize filter parameters
@@ -365,7 +365,7 @@ while True:
     sleep(dt)
 ```
 
-## 8. Complentary Filter Questions
+## 7. Complementary Filter Questions
 
 Answer the following questions after completing your implementation:
 
