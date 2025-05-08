@@ -76,4 +76,4 @@ nav:
     - 'Random Sampling Consensus': in_class_examples/RANSAC/RANSAC.md
     - 'Signal Processing': in_class_examples/signal_processing/signal_processing.md
     - 'IoT - ThingSpeak': in_class_examples/thingspeak/thingspeak.md
-    - 'IoT - MQTT': in_class_examples/MQTT/MQTT.md
+    - 'IoT - MQTT': in_class_examples/MQTT/mqtt.md
