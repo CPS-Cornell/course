@@ -134,8 +134,6 @@ Tasks include:
 - Processing detection results to identify objects of interest
 - Optimizing the algorithm for real-time performance
 
-Your computer vision system should be able to detect and classify objects in the robot's environment.
-
 ## 4. UART Communication: Raspberry Pi Zero to Pico
 
 In this section, you'll establish communication between the Raspberry Pi Zero (running computer vision) and the Raspberry Pi Pico (controlling the robot). For simplicity, you will only need to send message from the Zero to the Pico (no messages from the Pico to the Zero). 
