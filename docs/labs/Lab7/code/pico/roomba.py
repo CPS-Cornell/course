@@ -1,4 +1,3 @@
-# filepath: c:\Users\jdj78\Documents\CPS\course\docs\labs\Lab7\code\pico\rumba.py
 
 import time
 import random

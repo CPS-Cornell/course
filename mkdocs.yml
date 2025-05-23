@@ -62,11 +62,12 @@ nav:
     - 'Case Study 1 - Traffic Light Cameras': case_studies/RedLightCameraNIST.md
     - 'Case Study 2 - Digital Twins in Gardening & Greenhouses': case_studies/DigitalTwins.md
   - Tutorials:
+    - 'Lab Report Writing': pages/rubric.md
     - 'Introduction to Raspberry Pi Zero': tutorials/zero_tutorial.md
     - 'Raspberry Pi Zero Wifi Setup': tutorials/zero_wifi.md
     - 'Intro to Apt and Pip': tutorials/pip_apt_tutorial.md
     - 'Asynchronous Programming': tutorials/async_tutorial.md
-    - 'Lab Report Writing': pages/rubric.md
+    - 'WebRTC Video Streaming': tutorials/webrtc_tutorial.md
   - In Class Examples:
     - 'Actuator Control': in_class_examples/actuators/actuator_control.md
     - 'Computer Vision': in_class_examples/computer_vision/computer_vision.md

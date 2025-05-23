@@ -122,7 +122,7 @@ class RumbaRobot:
         """Main robot control loop"""
         try:
             while True:
-                self.update_movement()
+                #self.update_movement()
                 await asyncio.sleep(0.05)  # 50ms update interval
         except KeyboardInterrupt:
             self.stop()
