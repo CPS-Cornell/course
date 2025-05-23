@@ -1,0 +1,2303 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Module4/">
+      
+      
+        <link rel="next" href="../Module6/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Module 5 - Communication Networks - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#networking-communication" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 5 - Communication Networks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../labs/Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#open-systems-interconnection-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Systems Interconnection (OSI)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Systems Interconnection (OSI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-7-layer-osi-networking-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 7-Layer OSI Networking Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-osi-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of OSI Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osi-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      OSI in Practice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-communication-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Communication Networks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Communication Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-network-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Network Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#open-systems-interconnection-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Systems Interconnection (OSI)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Systems Interconnection (OSI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-7-layer-osi-networking-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 7-Layer OSI Networking Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-osi-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of OSI Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osi-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      OSI in Practice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-communication-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Communication Networks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Communication Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-network-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Network Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="networking-communication">Networking Communication</h1>
+<h2 id="open-systems-interconnection-osi">Open Systems Interconnection (OSI)</h2>
+<p>The <strong>OSI (Open Systems Interconnection)</strong> 7-layer model is a conceptual framework used to understand how different networking protocols interact in a communication system. Each layer in the OSI model represents a specific function within the data communication process.</p>
+<h3 id="the-7-layer-osi-networking-hierarchy">The 7-Layer OSI Networking Hierarchy</h3>
+<ol>
+<li>
+<p><strong>Physical Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Physical layer is responsible for the physical connection between devices. It deals with the transmission and reception of raw binary data (bits) over a communication medium such as cables, fiber optics, or radio waves.</p>
+</li>
+<li>
+<p><strong>Key Elements</strong>:</p>
+<ul>
+<li>
+<p>Transmission media (cables, wireless, etc.)</p>
+</li>
+<li>
+<p>Data encoding and signal transmission</p>
+</li>
+<li>
+<p>Bit rate control</p>
+</li>
+<li>
+<p>Hardware components like network adapters, repeaters, hubs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>: Ethernet cables, Wi-Fi, Bluetooth.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Link Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Data Link layer establishes, maintains, and decides how data is transferred between devices within the same network (local network). It packages raw bits from the Physical layer into frames and handles error detection, correction, and flow control.</p>
+</li>
+<li>
+<p><strong>Key Elements</strong>:</p>
+<ul>
+<li>
+<p>Framing (breaking data into packets or frames)</p>
+</li>
+<li>
+<p>MAC (Media Access Control) addressing</p>
+</li>
+<li>
+<p>Error detection (e.g., CRC) and correction</p>
+</li>
+<li>
+<p>Flow control to manage the rate of data transmission.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>: Ethernet, Wi-Fi, MAC addresses, PPP (Point-to-Point Protocol).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Network Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Network layer is responsible for determining the best path for data to travel from the source to the destination across multiple networks. It manages <strong>logical addressing</strong> (IP addresses) and <strong>routing</strong>.</p>
+</li>
+<li>
+<p><strong>Key Elements</strong>:</p>
+<ul>
+<li>
+<p>IP addressing</p>
+</li>
+<li>
+<p>Routing and forwarding data packets between different networks</p>
+</li>
+<li>
+<p>Packet fragmentation and reassembly.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>: IP (Internet Protocol), ICMP (Internet Control Message Protocol), routers.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Transport Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Transport layer ensures reliable data transfer between devices, providing error recovery, flow control, and data integrity. It segments data into smaller units for easier transmission and reassembles them at the destination.</p>
+</li>
+<li>
+<p><strong>Key Elements</strong>:</p>
+<ul>
+<li>
+<p>End-to-end connection management</p>
+</li>
+<li>
+<p>Error detection and recovery</p>
+</li>
+<li>
+<p>Flow control (e.g., using TCP sliding windows)</p>
+</li>
+<li>
+<p>Segmentation and reassembly of data.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>: TCP (Transmission Control Protocol) for reliable communication, UDP (User Datagram Protocol) for faster, connectionless communication.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Session Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Session layer establishes, manages, and terminates communication sessions between applications. It handles dialog control, allowing multiple applications to communicate over the network.</p>
+</li>
+<li>
+<p><strong>Key Elements</strong>:</p>
+<ul>
+<li>
+<p>Session establishment, maintenance, and termination</p>
+</li>
+<li>
+<p>Synchronization (checkpoints to resume communication after interruptions)</p>
+</li>
+<li>
+<p>Dialog control (full-duplex or half-duplex communication).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>: SMB (Server Message Block), NetBIOS, RPC (Remote Procedure Call).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Presentation Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Presentation layer is responsible for translating data between the application layer and the network. It ensures that the data sent by one system is readable by another by handling data formats, encryption, and compression.</p>
+</li>
+<li>
+<p><strong>Key Elements</strong>:</p>
+<ul>
+<li>
+<p>Data encryption and decryption</p>
+</li>
+<li>
+<p>Data compression and decompression</p>
+</li>
+<li>
+<p>Data format translation (e.g., from text encoding like ASCII to binary format).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>: SSL/TLS (encryption for secure data transmission), JPEG, GIF, MPEG (data formatting standards).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Application Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Application layer is the closest layer to the end-user and provides network services directly to applications. It enables interaction with software applications and handles high-level protocols that manage the exchange of information between users.</p>
+</li>
+<li>
+<p><strong>Key Elements</strong>:</p>
+<ul>
+<li>
+<p>User interface and interaction with applications</p>
+</li>
+<li>
+<p>High-level protocols for communication (email, file transfer, etc.)</p>
+</li>
+<li>
+<p>Services like email, file transfer, web browsing.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>: HTTP (HyperText Transfer Protocol), FTP (File Transfer Protocol), SMTP (Simple Mail Transfer Protocol), DNS (Domain Name System).</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="summary-of-osi-layers">Summary of OSI Layers</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Layer</strong></th>
+<th><strong>Function</strong></th>
+<th><strong>Examples</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>7. Application</strong></td>
+<td>Interface for end-user services and network apps</td>
+<td>HTTP, FTP, SMTP, DNS</td>
+</tr>
+<tr>
+<td><strong>6. Presentation</strong></td>
+<td>Data formatting, encryption, compression</td>
+<td>SSL/TLS, JPEG, MPEG, ASCII</td>
+</tr>
+<tr>
+<td><strong>5. Session</strong></td>
+<td>Manages sessions between applications</td>
+<td>SMB, RPC, NetBIOS</td>
+</tr>
+<tr>
+<td><strong>4. Transport</strong></td>
+<td>Reliable data transfer, error handling, flow control</td>
+<td>TCP, UDP</td>
+</tr>
+<tr>
+<td><strong>3. Network</strong></td>
+<td>Routing and forwarding of packets across networks</td>
+<td>IP, ICMP, routers</td>
+</tr>
+<tr>
+<td><strong>2. Data Link</strong></td>
+<td>Transfers frames between devices within the same network</td>
+<td>Ethernet, MAC addresses, Wi-Fi</td>
+</tr>
+<tr>
+<td><strong>1. Physical</strong></td>
+<td>Transmits raw data as electrical or radio signals</td>
+<td>Cables, Wi-Fi, Bluetooth, hubs</td>
+</tr>
+</tbody>
+</table>
+<p>The OSI model serves as a theoretical framework. In practice, many protocols span multiple layers. For example, the <strong>TCP/IP model</strong>, commonly used in modern networking, combines some layers (e.g., Presentation and Application layers into one). Nonetheless, the OSI model is a useful way to understand how data moves through a network and how different protocols work together to ensure communication.</p>
+<h3 id="osi-in-practice">OSI in Practice</h3>
+<p>The following example demonstrates how each layer of the <strong>OSI model</strong> is used when a user accesses a website via a browser. The data flows through each layer to ensure successful transmission and reception.</p>
+<ol>
+<li>
+<p><strong>Physical Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Physical layer transmits raw binary data over the physical medium, such as Ethernet cables or Wi-Fi signals.</p>
+</li>
+<li>
+<p><strong>Example</strong>: The network adapter (e.g., Ethernet port or Wi-Fi chip) on your computer sends electrical or radio signals representing bits across the network. The connection could be made through a cable or over a wireless network.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Link Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Data Link layer creates frames and handles error detection and correction for data transmitted within the local network.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Your computer’s MAC address is used to identify it on the local network. The router uses your MAC address to direct the request to the next point in the network. Data is encapsulated into Ethernet frames for transmission within the local area network (LAN).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Network Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Network layer manages IP addressing and routing, determining the best path for data to travel across different networks.</p>
+</li>
+<li>
+<p><strong>Example</strong>: The router identifies your computer’s IP address and uses it to route your request to the web server hosting the website. The data is broken into packets and forwarded to the web server through the internet.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Transport Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Transport layer ensures reliable data transfer, error recovery, and flow control, splitting data into segments.</p>
+</li>
+<li>
+<p><strong>Example</strong>: <strong>TCP</strong> (Transmission Control Protocol) breaks your HTTP request into segments and ensures that the segments are delivered in the correct order to the web server. It also handles retransmission if any segments are lost during transmission.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Session Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Session layer manages and maintains the communication session between the client (your browser) and the server.</p>
+</li>
+<li>
+<p><strong>Example</strong>: When you open a connection to the web server (via HTTP), the session layer manages the communication session, ensuring that it stays open while you browse and closes it when you’re done.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Presentation Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Presentation layer translates data between the application and network formats, handling encryption and data formatting.</p>
+</li>
+<li>
+<p><strong>Example</strong>: If the website uses <strong>HTTPS</strong>, SSL/TLS encryption is applied here, ensuring that sensitive information is encrypted before it is transmitted over the network. Data is also compressed or formatted for efficient transmission.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Application Layer</strong></p>
+<ul>
+<li>
+<p><strong>Function</strong>: The Application layer provides services directly to end-user applications, enabling interaction between applications and the network.</p>
+</li>
+<li>
+<p><strong>Example</strong>: <strong>HTTP</strong> at the Application layer governs the exchange of web content. When you enter a URL, the browser sends an <strong>HTTP GET request</strong> to the web server. The server responds with HTML content, which your browser renders as a webpage.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Explanation of the End-to-End Process</strong> When a user enters a URL into a browser, the browser (Application layer) sends an HTTP request to the web server. The data is encrypted (Presentation layer), and the session is established (Session layer). The transport protocol (Transport layer) breaks the data into segments for transmission. The Network layer divides it into packets, which are encapsulated into frames (Data Link layer) and sent as signals (Physical layer). The server responds by reversing this process, ensuring successful communication.</p>
+<hr />
+<h2 id="types-of-communication-networks">Types of Communication Networks</h2>
+<p>Different types of networks exist based on their scope, size, and use cases. Below is a breakdown of common network types:</p>
+<ol>
+<li>
+<p><strong>Personal Area Network</strong> (PAN) - Very short range (usually within a few meters).</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Interconnects devices around an individual for personal use.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: Bluetooth, Infrared (IR), USB connections.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Connecting a smartphone to a smartwatch, Bluetooth headphones, or other personal devices.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Local Area Network</strong> (LAN) - Small geographic area, such as a home, office, or building.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Connects devices within a limited area to enable resource sharing and communication.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: Ethernet (wired LAN), Wi-Fi (wireless LAN).</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Office networks, home networks connecting computers, printers, and servers.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Wireless Local Area Network</strong> (WLAN) - Similar to LAN but uses wireless technology.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Provides wireless communication within a limited area.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: Wi-Fi.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Internet access in homes, offices, cafes, and public spaces.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Metropolitan Area Network</strong> (MAN) - Covers a city or large campus.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Connects multiple LANs within a metropolitan area to enable communication across distances greater than a LAN but smaller than a WAN.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: City-wide wireless networks, cable TV networks.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Connecting multiple offices of a company across a city, university campuses, municipal broadband.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Wide Area Network</strong> (WAN) - Large geographic areas, such as countries or even globally.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Connects multiple LANs and MANs across large distances, often via public or leased communication infrastructures.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: The internet, corporate networks spanning multiple locations worldwide.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Communication across countries or continents, global internet access.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Campus Area Network</strong> (CAN) - A specific campus or group of buildings, such as a university, military base, or industrial complex.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Provides networking between multiple LANs within a limited geographic area.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: University campus networks, company campuses.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Connecting all buildings on a university or industrial complex.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Storage Area Network</strong> (SAN) - A specialized network to provide block-level storage.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Connects storage devices (e.g., disk arrays, tape libraries) to servers, providing centralized storage management.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: Fibre Channel SAN, iSCSI.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Data centers, large-scale enterprise storage systems.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>System Area Network</strong> (SAN) - A high-performance network connecting clusters of computers or servers.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Provides fast and low-latency communication between servers.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: Infiniband.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Supercomputers, high-performance computing clusters.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Home Area Network</strong> (HAN) - Limited to a home environment.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Connects devices in a home for sharing resources like internet access, media, and automation systems.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: Wi-Fi, Zigbee, Z-Wave.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Smart homes, connecting computers, smart appliances, security systems.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Virtual Private Network</strong> (VPN) - Spans across different networks (LAN, WAN) and provides secure communication over public networks.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Creates a secure tunnel for private communication over a public network, like the internet.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: VPN services for secure internet access, corporate VPNs.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Secure remote access to a company’s network, encrypting internet connections.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Global Area Network (GAN) - Worldwide communication.</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Connects networks across the globe, often used for mobile communication.</p>
+</li>
+<li>
+<p><strong>Examples</strong>: Satellite networks, cellular networks.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: International mobile phone communication, global business networks.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="summary-of-network-types">Summary of Network Types</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Network Type</strong></th>
+<th><strong>Scope</strong></th>
+<th><strong>Examples</strong></th>
+<th><strong>Use Cases</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PAN</strong></td>
+<td>Personal space</td>
+<td>Bluetooth, USB</td>
+<td>Personal devices like smartphones, wearables</td>
+</tr>
+<tr>
+<td><strong>LAN</strong></td>
+<td>Small area (home, office)</td>
+<td>Ethernet, Wi-Fi</td>
+<td>Home or office networks</td>
+</tr>
+<tr>
+<td><strong>WLAN</strong></td>
+<td>Small area (wireless)</td>
+<td>Wi-Fi</td>
+<td>Wireless internet access in homes, offices</td>
+</tr>
+<tr>
+<td><strong>MAN</strong></td>
+<td>City or large campus</td>
+<td>City-wide networks</td>
+<td>Municipal broadband, campus-wide networks</td>
+</tr>
+<tr>
+<td><strong>WAN</strong></td>
+<td>Large geographic area</td>
+<td>The Internet</td>
+<td>Global communication and data exchange</td>
+</tr>
+<tr>
+<td><strong>CAN</strong></td>
+<td>Campus or building</td>
+<td>University networks</td>
+<td>University, industrial complexes</td>
+</tr>
+<tr>
+<td><strong>SAN (Storage)</strong></td>
+<td>Data center</td>
+<td>Fibre Channel, iSCSI</td>
+<td>Centralized storage management</td>
+</tr>
+<tr>
+<td><strong>SAN (System)</strong></td>
+<td>High-performance computing</td>
+<td>Infiniband</td>
+<td>Supercomputers, server clusters</td>
+</tr>
+<tr>
+<td><strong>HAN</strong></td>
+<td>Home</td>
+<td>Zigbee, Wi-Fi</td>
+<td>Smart homes, home automation</td>
+</tr>
+<tr>
+<td><strong>VPN</strong></td>
+<td>Secure virtual network</td>
+<td>VPN Services</td>
+<td>Secure remote access, internet encryption</td>
+</tr>
+<tr>
+<td><strong>GAN</strong></td>
+<td>Worldwide</td>
+<td>Satellite networks</td>
+<td>Global communication systems</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

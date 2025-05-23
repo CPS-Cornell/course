@@ -1,0 +1,4281 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Module6/">
+      
+      
+        <link rel="next" href="../Module8/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Module 7 - Actuators - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#actuators" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 7 - Actuators
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../labs/Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#digital-to-analog-converters-dacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital to Analog Converters (DACs)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Digital to Analog Converters (DACs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters-for-dacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Parameters for DACs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-types-of-dacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Types of DACs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Types of DACs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-resistor-ladder-r-2r-dac" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Resistor Ladder (R-2R DAC)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sigma-delta-dac" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sigma-Delta (ΣΔ DAC)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disadvantages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-current-steering-dac" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Current Steering DAC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pulse-width-modulation-pwm-dac" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Pulse Width Modulation (PWM DAC)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-components-of-electric-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Components of Electric Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Components of Electric Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dc-motor-characteristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      DC Motor Characteristic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ac-motor-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      AC Motor Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-of-ac-and-dc-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy of AC and DC Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Taxonomy of AC and DC Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miscellaneous Actuators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous Actuators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hydrostatic-actuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hydrostatic Actuation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hydrostatic Actuation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Principle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-hydrostatic-actuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Hydrostatic Actuation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-hydrostatic-actuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Hydrostatic Actuation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piezoelectric-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Piezoelectric Actuators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Piezoelectric Actuators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-principle_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Principle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piezoelectric-actuator-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Piezoelectric Actuator Configurations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pneumatic-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pneumatic Actuators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pneumatic Actuators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-principle_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Principle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-pneumatic-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Pneumatic Actuators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-pneumatic-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Pneumatic Actuators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-pneumatic-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Pneumatic Actuators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-relays-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Relays Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-relays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Relays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-relays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Relays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-relays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Relays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disadvantages of Relays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applications_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#digital-to-analog-converters-dacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital to Analog Converters (DACs)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Digital to Analog Converters (DACs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters-for-dacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Parameters for DACs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-types-of-dacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Types of DACs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Types of DACs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-resistor-ladder-r-2r-dac" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Resistor Ladder (R-2R DAC)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sigma-delta-dac" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sigma-Delta (ΣΔ DAC)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disadvantages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-current-steering-dac" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Current Steering DAC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pulse-width-modulation-pwm-dac" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Pulse Width Modulation (PWM DAC)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-components-of-electric-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Components of Electric Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Components of Electric Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dc-motor-characteristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      DC Motor Characteristic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ac-motor-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      AC Motor Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-of-ac-and-dc-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy of AC and DC Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Taxonomy of AC and DC Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miscellaneous Actuators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous Actuators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hydrostatic-actuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hydrostatic Actuation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hydrostatic Actuation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Principle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-hydrostatic-actuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Hydrostatic Actuation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-hydrostatic-actuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Hydrostatic Actuation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piezoelectric-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Piezoelectric Actuators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Piezoelectric Actuators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-principle_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Principle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piezoelectric-actuator-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Piezoelectric Actuator Configurations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pneumatic-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pneumatic Actuators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pneumatic Actuators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-principle_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Principle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-pneumatic-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Pneumatic Actuators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-pneumatic-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Pneumatic Actuators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-pneumatic-actuators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Pneumatic Actuators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-relays-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Relays Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-relays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Relays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-relays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Relays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-relays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Relays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disadvantages of Relays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applications_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="actuators">Actuators</h1>
+<h2 id="digital-to-analog-converters-dacs">Digital to Analog Converters (DACs)</h2>
+<p>A Digital-to-Analog Converter (DAC) is an electronic device that converts digital signals, typically represented as binary data, into corresponding analog signals. These analog signals can be voltages, currents, or other continuous values that are used to interact with the physical world. DACs are critical in applications where digital systems (such as computers or microcontrollers) need to output real-world signals, like sound, video, or control signals for motors and actuators.</p>
+<h3 id="key-parameters-for-dacs">Key Parameters for DACs</h3>
+<ol>
+<li>
+<p><strong>Resolution</strong> The resolution of a DAC defines how finely it can divide the analog output range, typically measured in bits. A higher resolution allows for more precise output.</p>
+<ul>
+<li>
+<p>Example: An 8-bit DAC can output 256 different levels (2^8), while a 12-bit DAC can output 4096 levels (2^12).</p>
+</li>
+<li>
+<p>Applications: Higher resolution is required in systems needing finer analog control, such as audio processing or instrumentation.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Sample Rate</strong> The sample rate refers to how quickly the DAC can update its output. It is measured in samples per second (SPS or Hz).</p>
+<ul>
+<li>
+<p>Importance: Critical in applications like signal generation or audio playback, where rapid updates are needed to reproduce high-frequency signals.</p>
+</li>
+<li>
+<p>Example: Audio DACs may have sample rates of 44.1 kHz or higher, depending on the required audio quality.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Reference Voltage</strong> The reference voltage sets the maximum output range of the DAC. It defines the voltage corresponding to the maximum digital input value.</p>
+<ul>
+<li>
+<p>Internal vs. External: Some DACs have an internal reference voltage, while others allow an external reference for greater flexibility.</p>
+</li>
+<li>
+<p>Example: A 12-bit DAC with a 5V reference can generate an output in steps of approximately 1.22 mV (5V / 4096).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Settling Time</strong> Settling time is the time required for the DAC output to stabilize within a certain error margin after a change in input.</p>
+<ul>
+<li>
+<p>Importance: Fast settling times are crucial for high-speed applications such as real-time control systems.</p>
+</li>
+<li>
+<p>Typical Values: Settling times can range from nanoseconds to microseconds depending on the DAC’s design.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Output Range</strong> The output range is the span of analog values that the DAC can produce, influenced by resolution and reference voltage.</p>
+<ul>
+<li>
+<p>Unipolar vs. Bipolar: Output range may be unipolar (e.g., 0V to reference voltage) or bipolar (e.g., -5V to +5V), depending on the DAC’s design.</p>
+</li>
+<li>
+<p>Example: Bipolar DACs are commonly used in audio applications where AC signals are needed.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Other Considerations</strong></p>
+<ul>
+<li>
+<p><strong>Linearity</strong> (INL/DNL): Measures the deviation from an ideal output. High INL/DNL errors can lead to output inaccuracies and missing codes.</p>
+</li>
+<li>
+<p><strong>Noise</strong>: Quantified by the signal-to-noise ratio (SNR). Lower noise is crucial for high-fidelity applications like audio or instrumentation.</p>
+</li>
+<li>
+<p><strong>Power Consumption</strong>: Important for battery-powered or portable systems, with some DACs optimized for low power consumption.</p>
+</li>
+<li>
+<p><strong>Output Drive Capability</strong>: Refers to the DAC’s ability to drive a load (e.g., speakers, sensors) without performance degradation.</p>
+</li>
+<li>
+<p><strong>Glitch Energy</strong>: The energy of output spikes when switching between values. Low glitch energy is important for smooth waveform generation.</p>
+</li>
+<li>
+<p><strong>Monotonicity</strong>: Ensures that the DAC output consistently increases with increasing input, preventing erratic behavior in control systems.</p>
+</li>
+<li>
+<p><strong>Temperature Coefficients</strong>: Indicates how performance varies with temperature, a key factor for precision applications.</p>
+</li>
+<li>
+<p><strong>Latency</strong>: Time taken for the DAC to convert a digital input to an analog output, crucial in real-time or high-speed applications.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="common-types-of-dacs">Common Types of DACs</h3>
+<h4 id="1-resistor-ladder-r-2r-dac">1. Resistor Ladder (R-2R DAC)</h4>
+<ul>
+<li>
+<p><strong>How it works</strong>: The <strong>R-2R resistor ladder</strong> DAC is based on a network of resistors arranged in a repeating pattern of R and 2R resistors. This configuration allows for a simple binary-weighted conversion:</p>
+<ul>
+<li>
+<p>The digital input bits control switches that connect the resistor network to either a reference voltage (representing a digital "1") or ground (representing a digital "0").</p>
+</li>
+<li>
+<p>Each switch is connected to a different point in the resistor network, with each successive bit controlling a resistor that contributes half as much to the output as the previous one, forming a binary-weighted contribution to the output.</p>
+</li>
+<li>
+<p>The voltage drop across the resistors is summed, producing an analog output that is proportional to the digital input value.</p>
+</li>
+<li>
+<p>The R-2R design is efficient because it only requires two resistor values (R and 2R), regardless of the number of bits in the DAC, making it simple and cost-effective to implement.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>
+<p><strong>Simple design</strong>: Uses only two resistor values (R and 2R), simplifying manufacturing and implementation.</p>
+</li>
+<li>
+<p><strong>Fast conversion</strong>: No complex processing, allowing for relatively fast output generation.</p>
+</li>
+<li>
+<p><strong>Low cost</strong>: Simple design means these DACs are generally inexpensive to produce.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>
+<p><strong>Limited resolution</strong>: Precision is limited by resistor tolerance and matching, making high resolution difficult.</p>
+</li>
+<li>
+<p><strong>Sensitivity to resistor variations</strong>: Resistor value errors can lead to output inaccuracies, especially in high-bit DACs.</p>
+</li>
+<li>
+<p><strong>Power consumption</strong>: As the number of bits increases, power consumption rises due to the need for precise resistors and driving switches.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Applications</strong>:</p>
+<ul>
+<li>
+<p><strong>Audio applications</strong>: Used in early audio equipment to generate analog signals from digital audio data.</p>
+</li>
+<li>
+<p><strong>Low- to mid-range resolution</strong>: Typically used in applications such as signal generation and basic control systems, where moderate resolution and precision are sufficient.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-sigma-delta-dac">2. Sigma-Delta (ΣΔ DAC)</h4>
+<ul>
+<li>
+<p><strong>How it works</strong>: A <strong>Sigma-Delta DAC</strong> employs oversampling and noise shaping techniques to convert digital signals to analog:</p>
+<ul>
+<li>
+<p>It first converts the multi-bit digital input into a high-frequency stream of 1-bit values. This is achieved by using a sigma-delta modulator, which oversamples the input signal at a much higher rate than the Nyquist rate and shapes the quantization noise to push it out of the frequency band of interest.</p>
+</li>
+<li>
+<p>The 1-bit stream, which consists of rapid toggling between high and low values, is then filtered by a low-pass filter that averages the high-frequency data, producing a smooth analog signal as the output.</p>
+</li>
+<li>
+<p>Because it operates with a 1-bit output, the sigma-delta DAC can achieve very high resolution without requiring a complex architecture.</p>
+</li>
+<li>
+<p>However, it relies on oversampling, meaning that it needs to process data at much higher rates than simpler DACs to achieve the same output bandwidth.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="advantages">Advantages</h3>
+<ul>
+<li>
+<p><strong>High resolution</strong>: Achieves very high resolution (often 16-24 bits), ideal for high-precision applications.</p>
+</li>
+<li>
+<p><strong>Low noise</strong>: Noise shaping reduces quantization noise in the frequency band of interest.</p>
+</li>
+<li>
+<p><strong>Efficient digital processing</strong>: Oversampling and noise shaping simplify filtering requirements while producing high-quality analog output.</p>
+</li>
+</ul>
+<h3 id="disadvantages">Disadvantages</h3>
+<ul>
+<li>
+<p><strong>Slower speed</strong>: Oversampling results in slower speed, making it unsuitable for high-speed applications.</p>
+</li>
+<li>
+<p><strong>Latency</strong>: The conversion process introduces some delay, problematic for real-time applications.</p>
+</li>
+<li>
+<p><strong>Complex architecture</strong>: Involves more complex digital signal processing, consuming more power and requiring more design effort.</p>
+</li>
+<li>
+<p><strong>Common Applications</strong>:</p>
+<ul>
+<li>
+<p><strong>High-resolution audio</strong>: Commonly used in audio DACs for high-end audio equipment such as CD players, digital-to-analog audio interfaces, and high-definition audio playback systems.</p>
+</li>
+<li>
+<p><strong>Communication Systems</strong>: Commonly used in RF-Transmitters and communication base-stations to convert digital signals into analog RF signals, providing high accuracy and stability required for reliable communication.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-current-steering-dac">3. Current Steering DAC</h4>
+<ul>
+<li>
+<p><strong>How it works</strong>: A <strong>Current Steering DAC</strong> uses a series of current sources that are controlled by the digital input to generate the analog output:</p>
+<ul>
+<li>
+<p>Each digital input bit controls a switch that either directs a current to the output node (representing a "1") or to ground (representing a "0").</p>
+</li>
+<li>
+<p>The total output current is the sum of the currents directed to the output by the activated current sources. Each current source is binary-weighted, with the most significant bit controlling the largest current source and each subsequent bit controlling progressively smaller current sources.</p>
+</li>
+<li>
+<p>This architecture allows for very fast switching, making current steering DACs ideal for high-speed applications. The output is a current signal that is typically converted to a voltage using a resistor or an operational amplifier at the output stage.</p>
+</li>
+<li>
+<p>Current steering DACs are often used when speed is more critical than absolute precision, as they can switch currents quickly but may have limitations in terms of resolution and accuracy compared to other DAC types.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>
+<p><strong>High speed</strong>: Among the fastest DAC architectures, ideal for high-frequency applications.</p>
+</li>
+<li>
+<p><strong>Scalable to high resolution</strong>: Can achieve high resolution while maintaining speed.</p>
+</li>
+<li>
+<p><strong>Low glitch energy</strong>: Low glitch energy makes it suitable for waveform generation and RF applications.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>
+<p><strong>Requires precise current sources</strong>: DAC accuracy depends on the precision of the current sources, which can be difficult and expensive to implement.</p>
+</li>
+<li>
+<p><strong>Non-idealities at high resolution</strong>: Matching issues and thermal effects can limit accuracy at higher resolutions.</p>
+</li>
+<li>
+<p><strong>Power consumption</strong>: Can consume significant power, particularly in high-speed and high-resolution applications.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Applications</strong>:</p>
+<ul>
+<li>
+<p><strong>High-speed data transmission</strong>: Used in RF systems and telecommunication applications where data needs to be converted and transmitted at very high speeds.</p>
+</li>
+<li>
+<p><strong>Video signal generation</strong>: Employed in high-speed DACs for generating analog video signals from digital video data in display systems.</p>
+</li>
+<li>
+<p><strong>Digital oscilloscopes</strong>: Used in applications that require both speed and precision, such as signal analysis and waveform generation.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-pulse-width-modulation-pwm-dac">4. Pulse Width Modulation (PWM DAC)</h4>
+<ul>
+<li>
+<p><strong>How it works</strong>: A <strong>Pulse Width Modulation (PWM) DAC</strong> converts digital data into an analog signal by modulating the width of a square wave’s pulses based on the digital input:</p>
+<ul>
+<li>
+<p>The digital input controls the duty cycle of the square wave (i.e., the ratio of the time the signal is "high" to the total period of the wave). A higher duty cycle represents a higher analog value, while a lower duty cycle represents a lower analog value.</p>
+</li>
+<li>
+<p>To generate the analog output, the PWM signal is passed through a low-pass filter. The filter removes the high-frequency components of the square wave, leaving behind an average voltage that corresponds to the duty cycle of the PWM signal.</p>
+</li>
+<li>
+<p>This method is relatively simple and cost-effective to implement, but the resolution and accuracy of the output are limited by the frequency of the PWM signal and the quality of the filtering.</p>
+</li>
+<li>
+<p>PWM DACs are particularly useful in systems where cost or power efficiency is prioritized over high-speed or high-resolution requirements.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>
+<p><strong>Simplicity and low cost</strong>: Simple to implement with a digital pulse generator and low-pass filter, making it cost-effective.</p>
+</li>
+<li>
+<p><strong>Efficient for power control</strong>: Ideal for motor control and other power applications due to the efficiency of switching.</p>
+</li>
+<li>
+<p><strong>Flexible resolution</strong>: Resolution can be adjusted by changing the PWM frequency or controlling the duty cycle with finer granularity.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>
+<p><strong>Limited resolution</strong>: Achieving high resolution requires very high-frequency PWM signals, which are harder to generate and filter.</p>
+</li>
+<li>
+<p><strong>Noise and ripple</strong>: High-frequency noise and ripple in the output require careful filtering to achieve a clean analog signal.</p>
+</li>
+<li>
+<p><strong>Speed limitations</strong>: Response time is limited by the PWM frequency, making it unsuitable for high-speed applications.</p>
+</li>
+<li>
+<p><strong>Output smoothing</strong>: Requires a low-pass filter for smoothing, which can limit system bandwidth.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Applications</strong></p>
+<ul>
+<li>
+<p><strong>Motor control</strong>: Commonly used in motor speed controllers, where varying the duty cycle of the PWM signal adjusts the motor’s power and speed.</p>
+</li>
+<li>
+<p><strong>LED dimming</strong>: Used to control LED brightness by adjusting the duty cycle of the PWM signal.</p>
+</li>
+<li>
+<p><strong>Audio synthesis</strong>: Found in low-cost audio applications such as basic audio output or waveform generation where high fidelity is not essential.</p>
+</li>
+<li>
+<p><strong>Power supplies</strong>: Used in switch-mode power supplies and converters for efficient voltage regulation by varying the duty cycle to adjust the output voltage.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="summary">Summary</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Metric</strong></td>
+<td><strong>Resistor Ladder</strong></td>
+<td><strong>Sigma-Delta</strong></td>
+<td><strong>Current Steering</strong></td>
+<td><strong>PWM DAC</strong></td>
+</tr>
+<tr>
+<td><strong>Sample Rate</strong></td>
+<td>Moderate</td>
+<td>Low to moderate</td>
+<td>Very high</td>
+<td>Low to moderate</td>
+</tr>
+<tr>
+<td><strong>Settling Time</strong></td>
+<td>Moderate</td>
+<td>Long</td>
+<td>Very fast</td>
+<td>Slow</td>
+</tr>
+<tr>
+<td><strong>Resolution</strong></td>
+<td>Low to moderate (8-12 bits)</td>
+<td>High (16-24 bits)</td>
+<td>High (12-16 bits)</td>
+<td>Moderate (up to 10-12 bits)</td>
+</tr>
+<tr>
+<td><strong>Linearity</strong></td>
+<td>Moderate</td>
+<td>Excellent</td>
+<td>Good (limited at high resolutions)</td>
+<td>Poor</td>
+</tr>
+<tr>
+<td><strong>Noise</strong></td>
+<td>Moderate</td>
+<td>Low</td>
+<td>High</td>
+<td>High (requires filtering)</td>
+</tr>
+<tr>
+<td><strong>Power Consumption</strong></td>
+<td>Moderate</td>
+<td>High</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><strong>Output Drive</strong></td>
+<td>Requires external buffer</td>
+<td>Requires buffer for heavy loads</td>
+<td>Can drive low-impedance loads</td>
+<td>Typically requires filtering</td>
+</tr>
+<tr>
+<td><strong>Latency</strong></td>
+<td>Low</td>
+<td>High</td>
+<td>Very low</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td><strong>Temp. Coefficients</strong></td>
+<td>Sensitive</td>
+<td>Low</td>
+<td>Moderate</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Low</td>
+<td>Moderate to high</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<h2 id="motors">Motors</h2>
+<h3 id="basic-components-of-electric-motors">Basic Components of Electric Motors</h3>
+<h4 id="terminology">Terminology</h4>
+<p>Stator<br />
+The stationary part of the motor that produces a magnetic field. In DC motors, it often contains permanent magnets, while in AC motors, it consists of coils that generate a rotating magnetic field when energized.</p>
+<p>Rotor<br />
+The rotating component within the stator, responsible for producing motion. The rotor is influenced by the stator’s magnetic field and converts electrical energy into mechanical rotation. In DC motors, it is connected to a commutator.</p>
+<p>Windings<br />
+Coils of wire that create magnetic fields when electric current flows through them. Windings are often found on both the stator (in AC motors) and the rotor (in DC motors). Their arrangement impacts the motor’s speed, torque, and efficiency.</p>
+<p>Armature<br />
+This is the core component, typically the rotating part in a DC motor, where the interaction of magnetic fields generates torque. The armature holds the windings and is responsible for converting electrical energy into mechanical motion.</p>
+<p>Commutator (in brushed DC motors)<br />
+A segmented ring attached to the rotor. It periodically reverses the current direction in the windings to sustain unidirectional rotation. The commutator works with brushes to maintain electrical contact.</p>
+<p>Brushes (in brushed DC motors)<br />
+Conductive carbon or metal pieces that maintain contact with the commutator. Brushes enable the current to flow into the rotor’s windings, creating the necessary magnetic field for rotation.</p>
+<p>Shaft<br />
+A central metal rod connected to the rotor, which transfers the motor’s mechanical energy to external systems. The shaft spins with the rotor and drives attached components like gears or pulleys.</p>
+<p>Bearings<br />
+Mechanical supports for the shaft, allowing it to rotate smoothly within the motor housing. Bearings reduce friction and wear, enhancing motor efficiency and lifespan.</p>
+<p>Motor Housing (or Frame)<br />
+The outer casing that supports and protects the motor’s internal components. It helps with heat dissipation and prevents dust, debris, and other contaminants from entering the motor.</p>
+<p>Torque Constant (Kt)<br />
+The torque constant defines the relationship between the input current and the resulting torque in a motor. It is typically measured in Newton-meters per ampere (Nm/A). A higher torque constant indicates that the motor generates more torque for a given current.</p>
+<p>Speed Regulation Constant<br />
+The speed regulation constant describes how well a motor maintains its speed under varying loads. It is usually given as a percentage and represents the change in speed from no load to full load.Lower speed regulation indicates better stability, meaning the motor can maintain a consistent speed despite changes in load.</p>
+<p>Back EMF<br />
+The voltage generated by an electric motor as it rotates, opposing the applied input voltage. This phenomenon occurs due to Faraday’s Law of Induction: as the motor’s armature (or rotor) spins within a magnetic field, it induces a voltage in the opposite direction of the supply voltage.</p>
+<p>Power Factor<br />
+In AC motors. The ratio of real power (used for work) to apparent power (total power drawn from the source). It indicates how effectively the motor converts electrical power into useful work. A power factor closer to 1 (or 100%) means higher efficiency, with less wasted energy in the form of reactive power.</p>
+<p>Slip<br />
+In an AC motor. The difference between the synchronous speed (the speed of the magnetic field) and the actual rotor speed, expressed as a percentage. Slip allows torque production in induction motors, as it creates relative motion between the magnetic field and rotor. Without slip, an induction motor would not generate torque.</p>
+<h4 id="dc-motor-characteristic">DC Motor Characteristic</h4>
+<ol>
+<li>
+<p><strong>Torque vs. Speed</strong></p>
+<ul>
+<li>
+<p><strong>No-load Speed</strong>: At zero torque (no load), the motor runs at its maximum speed.</p>
+</li>
+<li>
+<p><strong>Stall Torque</strong>: At zero speed, the motor produces its maximum torque (stall torque).</p>
+</li>
+<li>
+<p>Equation:</p>
+<div class="arithmatex">\[T = T_{\text{stall}} \left(1 - \frac{N}{N_{\text{no-load}}} \right)\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(T\)</span>: Torque</li>
+<li><span class="arithmatex">\(T_{\text{stall}}\)</span>: Stall Torque</li>
+<li><span class="arithmatex">\(N\)</span>: Speed</li>
+<li><span class="arithmatex">\(N_{\text{no-load}}\)</span>: No-load Speed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Current vs. Torque</strong></p>
+<ul>
+<li>
+<p>Torque is directly proportional to armature current.</p>
+</li>
+<li>
+<p>Equation:</p>
+<div class="arithmatex">\[T = k_t I_a\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(T\)</span>: Torque</li>
+<li><span class="arithmatex">\(k_t\)</span>: Torque constant</li>
+<li><span class="arithmatex">\(I_a\)</span>: Armature current</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Speed vs. Armature Current</strong></p>
+<ul>
+<li>
+<p>As the load increases, the speed decreases, and the armature current increases.</p>
+</li>
+<li>
+<p>Equation:</p>
+<div class="arithmatex">\[N = N_{\text{no-load}} - k_N I_a\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(N\)</span>: Speed</li>
+<li><span class="arithmatex">\(k_N\)</span>: Speed regulation constant</li>
+<li><span class="arithmatex">\(I_a\)</span>: Armature current</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Back EMF (Electromotive Force)</strong>:</p>
+<ul>
+<li>
+<p>The voltage generated by an electric motor as it rotates, opposing the applied input voltage.</p>
+<div class="arithmatex">\[E_b = k_e N\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(E_b\)</span>: Back EMF</li>
+<li><span class="arithmatex">\(k_e\)</span>: Back EMF constant</li>
+<li><span class="arithmatex">\(N\)</span>: Speed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Armature (Windings) Current</strong>:</p>
+<ul>
+<li>
+<p>Derived from Ohm’s law</p>
+<div class="arithmatex">\[I_a = \frac{V_a - E_b}{R_a}\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(I_a\)</span>: Armature current</li>
+<li><span class="arithmatex">\(V_a\)</span>: Armature voltage</li>
+<li><span class="arithmatex">\(E_b\)</span>: Back EMF</li>
+<li><span class="arithmatex">\(R_a\)</span>: Armature resistance</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Power Output</strong>:</p>
+<ul>
+<li>
+<p>Angular power is the product of torque and angular speed</p>
+<div class="arithmatex">\[P_{\text{out}} = T \times \omega\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(P_{\text{out}}\)</span>: Output power</li>
+<li><span class="arithmatex">\(\omega\)</span>: Angular speed (rad/s)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="ac-motor-characteristics">AC Motor Characteristics</h4>
+<ol>
+<li>
+<p><strong>Torque vs. Slip</strong></p>
+<ul>
+<li>
+<p><strong>Behavior</strong>:</p>
+<ul>
+<li>
+<p><strong>Starting Torque</strong>: At maximum slip (motor start), the torque is significant but less than the maximum torque.</p>
+</li>
+<li>
+<p><strong>Pull-Out Torque (Maximum Torque)</strong>: The torque reaches its maximum value at a certain slip before decreasing.</p>
+</li>
+<li>
+<p><strong>Stable Operating Region</strong>: Between zero slip and the slip at maximum torque.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Equation:</p>
+<div class="arithmatex">\[T = \frac{K s R_2}{(R_2^2 + (s X_2)^2)}\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(T\)</span>: Torque</li>
+<li><span class="arithmatex">\(K\)</span>: Constant proportional to the square of the supply voltage and stator parameters</li>
+<li><span class="arithmatex">\(s\)</span>: Slip (<span class="arithmatex">\(s = \frac{N_s - N}{N_s}\)</span>)</li>
+<li><span class="arithmatex">\(R_2\)</span>: Rotor resistance</li>
+<li><span class="arithmatex">\(X_2\)</span>: Rotor reactance</li>
+<li><span class="arithmatex">\(N_s\)</span>: Synchronous speed</li>
+<li><span class="arithmatex">\(N\)</span>: Rotor speed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Speed vs. Torque</strong></p>
+<ul>
+<li>
+<p><strong>Behavior</strong>:</p>
+<ul>
+<li>
+<p>As load torque increases, the motor speed decreases slightly (small slip increase).</p>
+</li>
+<li>
+<p>Induction motors run slightly below synchronous speed.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Equation</strong>:</p>
+<div class="arithmatex">\[s = \frac{T R_2}{K (R_2^2 + (s X_2)^2)}\]</div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Slip in Induction Motor</strong>:</p>
+<ul>
+<li>
+<p>Slip is the relative speed difference between the rotor and the rotating magnetic field.</p>
+<div class="arithmatex">\[s = \frac{N_s - N}{N_s}\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(s\)</span>: Slip</p>
+</li>
+<li>
+<p><span class="arithmatex">\(N_s\)</span>: Synchronous speed (<span class="arithmatex">\(N_s = \frac{120 f}{P}\)</span>)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(N\)</span>: Rotor speed</p>
+</li>
+<li>
+<p><span class="arithmatex">\(f\)</span>: Supply frequency</p>
+</li>
+<li>
+<p><span class="arithmatex">\(P\)</span>: Number of poles</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Induced EMF in Rotor (Induction Motor)</strong>:</p>
+<ul>
+<li>
+<p>The rotor’s induced EMF is proportional to the slip.</p>
+<div class="arithmatex">\[E_2 = s E_{2s}\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(E_2\)</span>: Rotor induced EMF</p>
+</li>
+<li>
+<p><span class="arithmatex">\(E_{2s}\)</span>: Standstill rotor EMF</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Torque in Synchronous Motor</strong>:</p>
+<ul>
+<li>
+<p>Torque is proportional to the product of supply voltage, excitation EMF, and <span class="arithmatex">\(\sin(\delta)\)</span>.</p>
+<div class="arithmatex">\[T = \frac{V E_f}{X_s} \sin \delta\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(T\)</span>: Torque</p>
+</li>
+<li>
+<p><span class="arithmatex">\(V\)</span>: Supply voltage</p>
+</li>
+<li>
+<p><span class="arithmatex">\(E_f\)</span>: Excitation EMF</p>
+</li>
+<li>
+<p><span class="arithmatex">\(X_s\)</span>: Synchronous reactance</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\delta\)</span>: Load angle</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="taxonomy-of-ac-and-dc-motors">Taxonomy of AC and DC Motors</h3>
+<ol>
+<li>
+<p><strong>DC Motors</strong></p>
+<ul>
+<li>
+<p>1.1 <strong>Brushed DC Motors</strong></p>
+<ul>
+<li>
+<p>Brushed DC motors work based on the interaction between magnetic fields generated by permanent magnets (or sometimes electromagnets) in the stator and current-carrying coils in the rotor (armature). Here’s a breakdown of the working principle:</p>
+</li>
+<li>
+<p><strong>Working Principle</strong></p>
+<ul>
+<li>
+<p>When current flows through the armature windings, they generate a magnetic field.</p>
+</li>
+<li>
+<p>This magnetic field interacts with the stator’s field, creating a force (torque) that causes the rotor to turn.</p>
+</li>
+<li>
+<p>The commutator reverses the current direction through the windings every half turn, keeping the torque in the same rotational direction and maintaining continuous motion.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>
+<p>Simple Speed Control: Brushed DC motors offer straightforward speed control through voltage variation, making them easy to integrate into various applications without complex electronics.</p>
+</li>
+<li>
+<p>High Starting Torque: These motors provide high starting torque, which is beneficial for applications requiring strong initial movement, such as in automotive starters and industrial machinery.</p>
+</li>
+<li>
+<p>Cost-Effectiveness: Brushed DC motors are generally less expensive to manufacture and purchase compared to other motor types, making them a cost-effective solution for many applications.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>
+<p>Maintenance Requirements: The brushes in brushed DC motors wear out over time due to friction with the commutator, necessitating regular maintenance and replacement to ensure continued operation.</p>
+</li>
+<li>
+<p>Electrical Noise: The contact between brushes and the commutator can generate electrical noise and sparks, which may interfere with sensitive electronic equipment and require additional filtering or shielding.</p>
+</li>
+<li>
+<p>Efficiency and Lifespan: The friction between brushes and the commutator also leads to energy losses and heat generation, reducing the overall efficiency and lifespan of the motor compared to brushless alternatives.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Common Subtypes:</p>
+<ul>
+<li>
+<p><strong>Permanent Magnet DC Motor (PMDC)</strong>: Uses permanent magnets for field excitation; smaller size and lower power.</p>
+</li>
+<li>
+<p><strong>Series Wound DC Motor</strong>: Field and armature windings are in series; high starting torque.</p>
+</li>
+<li>
+<p><strong>Shunt Wound DC Motor</strong>: Field and armature windings are in parallel; more stable speed control.</p>
+</li>
+<li>
+<p><strong>Compound Wound DC Motor</strong>: Combination of series and shunt windings; balance between torque and speed stability.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Applications: Automotive systems (e.g., windshield wipers, seat motors), small appliances, toys.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>1.2 <strong>Brushless DC Motors</strong> (BLDC)</p>
+<ul>
+<li>
+<p>No brushes; electronic commutation improves efficiency and reduces wear.</p>
+</li>
+<li>
+<p><strong>Working Principle</strong></p>
+<ul>
+<li>
+<p>Electronic controllers (ESC) manage the current flow through the motor windings.</p>
+</li>
+<li>
+<p>The ESC switches the current in the windings to create a rotating magnetic field.</p>
+</li>
+<li>
+<p>Permanent magnets on the rotor follow the rotating magnetic field, causing the rotor to turn.</p>
+</li>
+<li>
+<p>Sensors (e.g., Hall effect sensors) or sensorless control methods determine the rotor position for precise commutation.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>
+<p>Higher efficiency and reliability due to the absence of brushes.</p>
+</li>
+<li>
+<p>Lower maintenance requirements as there are no brushes to replace.</p>
+</li>
+<li>
+<p>Better speed-torque characteristics and higher speed ranges.</p>
+</li>
+<li>
+<p>Reduced electrical noise compared to brushed motors.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>
+<p>Higher initial cost due to the need for electronic controllers.</p>
+</li>
+<li>
+<p>More complex control algorithms required for operation.</p>
+</li>
+<li>
+<p>Potential issues with electromagnetic interference (EMI) from the electronic controllers.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Common Subtypes:</p>
+<ul>
+<li>
+<p><strong>Inner Rotor BLDC</strong>: Permanent magnets on the rotor; common in compact devices.</p>
+</li>
+<li>
+<p><strong>Outer Rotor BLDC</strong>: Permanent magnets on the outer rotor, slower but higher torque.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Applications: Drones, computer cooling fans, electric vehicles, appliances.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>1.3 <strong>Stepper Motors</strong></p>
+<ul>
+<li>
+<p>Similar to a brushless DC motor, but moves in discrete steps, enabling precise positioning control.</p>
+</li>
+<li>
+<p><strong>Working Principle</strong></p>
+<ul>
+<li>
+<p>Stepper motors operate by energizing stator windings in a specific sequence.</p>
+</li>
+<li>
+<p>This creates a rotating magnetic field that interacts with the rotor’s magnetic field.</p>
+</li>
+<li>
+<p>The rotor moves in discrete steps, corresponding to the sequence of the energized windings.</p>
+</li>
+<li>
+<p>The number of steps per revolution is determined by the motor’s design, allowing for precise control of angular position.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>
+<p>Precise control of position and speed without the need for feedback systems.</p>
+</li>
+<li>
+<p>High torque at low speeds, making them suitable for holding applications.</p>
+</li>
+<li>
+<p>Simple and rugged construction with long operational life.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>
+<p>Lower efficiency compared to other motor types due to continuous power consumption.</p>
+</li>
+<li>
+<p>Limited high-speed performance and potential for resonance issues.</p>
+</li>
+<li>
+<p>Requires a dedicated driver circuit to manage the step sequence.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Common Subtypes:</p>
+<ul>
+<li>
+<p><strong>Permanent Magnet Stepper Motor</strong>: Uses a permanent magnet for rotor; good holding torque.</p>
+</li>
+<li>
+<p><strong>Variable Reluctance Stepper Motor</strong>: Rotating teeth align with stator teeth for motion; lower torque.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Applications: 3D printers, CNC machines, robotics, camera platforms.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>AC Motors</strong></p>
+<ul>
+<li>
+<p>2.1 <strong>Synchronous AC Motors</strong></p>
+<ul>
+<li>
+<p>Rotor speed matches supply frequency, providing constant speed under different loads.</p>
+</li>
+<li>
+<p><strong>Working Principle</strong></p>
+<ul>
+<li>
+<p>Synchronous AC motors operate by synchronizing the rotor speed with the frequency of the AC supply.</p>
+</li>
+<li>
+<p>The stator generates a rotating magnetic field when AC power is applied.</p>
+</li>
+<li>
+<p>The rotor, which can have permanent magnets or electromagnets, locks onto the rotating magnetic field and rotates at the same speed.</p>
+</li>
+<li>
+<p>Synchronous AC motors can operate in one of two ways:</p>
+<ul>
+<li>
+<p><strong>Fixed-frequency</strong> operation: The motor runs at a constant speed determined by the supply frequency, usually 50-60Hz, requires a smaller motor to get the stator and rotor to synchronize.</p>
+</li>
+<li>
+<p><strong>Variable-frequency</strong> operation: The motor speed can be controlled by adjusting the supply frequency using a variable frequency drive, allowing for precise speed control</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>
+<p>High efficiency and power factor, especially in permanent magnet synchronous motors (PMSM).</p>
+</li>
+<li>
+<p>Capable of providing high torque at low speeds.</p>
+</li>
+<li>
+<p>Can maintain constant speed under varying loads.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>
+<p>Fixed-frequency motors require a starting mechanism to bring the rotor up to synchronous speed.</p>
+</li>
+<li>
+<p>More complex and expensive compared to induction motors.</p>
+</li>
+<li>
+<p>Require a variable frequency drive for speed control.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Common Subtypes:</p>
+<ul>
+<li>
+<p><strong>Permanent Magnet Synchronous Motor (PMSM)</strong>: Permanent magnets on rotor; highly efficient.</p>
+</li>
+<li>
+<p><strong>Reluctance Synchronous Motor</strong>: Uses magnetic reluctance for torque; simpler and robust.</p>
+</li>
+<li>
+<p><strong>Hysteresis Motor</strong>: Utilizes hysteresis in rotor material for smooth operation; low starting torque.</p>
+</li>
+<li>
+<p><strong>Wound Rotor Synchronous Motor</strong>: Rotor windings connect to external resistors for speed control.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Applications: Industrial equipment, conveyors, air compressors, precision machinery.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>2.2 <strong>Induction (Asynchronous) Motors</strong></p>
+<ul>
+<li>
+<p>Operates without synchronization; rotor speed slightly less than supply frequency.</p>
+</li>
+<li>
+<p><strong>Working Principle</strong></p>
+<ul>
+<li>
+<p>Induction motors operate based on electromagnetic induction.</p>
+</li>
+<li>
+<p>When AC power is applied to the stator windings, it creates a rotating magnetic field.</p>
+</li>
+<li>
+<p>This rotating magnetic field induces a current in the rotor, which in turn creates its own magnetic field.</p>
+</li>
+<li>
+<p>The interaction between the stator’s rotating magnetic field and the rotor’s magnetic field produces torque, causing the rotor to turn.</p>
+</li>
+<li>
+<p>The rotor speed is always slightly less than the synchronous speed of the rotating magnetic field, hence the term "asynchronous."</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>
+<p>Simple and rugged construction with low maintenance requirements.</p>
+</li>
+<li>
+<p>Cost-effective and widely used in various applications.</p>
+</li>
+<li>
+<p>Good efficiency and reliable performance.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>
+<p>Lower starting torque compared to synchronous motors.</p>
+</li>
+<li>
+<p>Speed control is more complex and less precise.</p>
+</li>
+<li>
+<p>Efficiency decreases at lower loads.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Common Subtypes:</p>
+<ul>
+<li>
+<p><strong>Single-Phase Induction Motor</strong></p>
+<ul>
+<li>
+<p><strong>Split-Phase Motor</strong>: Basic single-phase motor; moderate starting torque.</p>
+</li>
+<li>
+<p><strong>Capacitor-Start Motor</strong>: Uses a capacitor to increase starting torque.</p>
+</li>
+<li>
+<p><strong>Permanent-Split Capacitor (PSC) Motor</strong>: Capacitor always connected; smoother operation.</p>
+</li>
+<li>
+<p><strong>Shaded Pole Motor</strong>: Low cost, simple construction; low starting torque.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Three-Phase Induction Motor</strong></p>
+<ul>
+<li>
+<p><strong>Squirrel Cage Motor</strong>: Most common type; robust, low maintenance, good efficiency.</p>
+</li>
+<li>
+<p><strong>Wound Rotor Motor</strong>: Allows external resistance for speed control; used in high torque applications.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Applications: Industrial machinery, pumps, fans, compressors, household appliances.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Servos</strong></p>
+<ul>
+<li>
+<p>Servos are highly precise motors that provide control over position, speed, and torque. They are used in applications where exact control of angular or linear motion is required.</p>
+</li>
+<li>
+<p><strong>Working Principle of Servos</strong></p>
+<ul>
+<li>
+<p>A servo motor operates through a closed-loop control system, where the motor’s position, speed, or torque is continually monitored and adjusted to match a desired setpoint.</p>
+</li>
+<li>
+<p>Typically, a <strong>controller</strong> sends a signal to the servo, and a <strong>feedback mechanism</strong> (often an encoder or potentiometer) measures the current position.</p>
+</li>
+<li>
+<p>The feedback signal is compared to the target position, and any difference generates an <strong>error signal</strong>. The servo’s control circuitry adjusts the motor accordingly until the error is minimized, achieving precise positioning.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Advantages of Servos</p>
+<ul>
+<li>
+<p><strong>High Precision</strong>: Servos provide highly accurate control of position and motion, suitable for precision applications.</p>
+</li>
+<li>
+<p><strong>Fast Response Time</strong>: Closed-loop control allows quick adjustments, making servos ideal for applications needing rapid movement and precise stops.</p>
+</li>
+<li>
+<p><strong>High Torque at Low Speed</strong>: Servos can produce high torque without requiring high speeds, which is advantageous in robotics and automation.</p>
+</li>
+<li>
+<p><strong>Stability</strong>: The feedback system ensures stable positioning, even under varying loads or external forces.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Disadvantages of Servos</p>
+<ul>
+<li>
+<p><strong>Higher Cost</strong>: The added components (e.g., feedback sensors and control electronics) make servos more expensive than standard motors.</p>
+</li>
+<li>
+<p><strong>Complex Control System</strong>: Servo systems require controllers and feedback mechanisms, increasing setup complexity and maintenance requirements.</p>
+</li>
+<li>
+<p><strong>Limited Rotation in Some Types</strong>: Standard servos typically offer limited rotation (often 180°), which may restrict use in applications needing continuous rotation.</p>
+</li>
+<li>
+<p><strong>Higher Power Consumption</strong>: Maintaining precise control often requires more power, especially under constant load conditions.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Subtypes</strong></p>
+<ul>
+<li>
+<p><strong>Positional Rotation Servo</strong>:</p>
+<ul>
+<li>
+<p>Provides rotation within a limited range (typically 0° to 180° or 270°).</p>
+</li>
+<li>
+<p>Often used in hobby robotics, RC cars, and other applications needing precise angle control.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Continuous Rotation Servo</strong>:</p>
+<ul>
+<li>
+<p>Designed for continuous 360° rotation, similar to a standard DC motor, but with speed and direction control.</p>
+</li>
+<li>
+<p>Common in applications needing variable-speed control but without precise position requirements.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Linear Servo</strong>:</p>
+<ul>
+<li>
+<p>Converts rotational motion into linear motion using a gear or lead screw mechanism.</p>
+</li>
+<li>
+<p>Used in applications like 3D printers and other systems where linear movement is required.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Brushless Servo</strong>:</p>
+</li>
+<li>
+<p>Uses a brushless motor instead of a brushed motor, providing higher efficiency, longer lifespan, and quieter operation.</p>
+</li>
+<li>
+<p>Suitable for applications requiring high durability and low maintenance.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Applications of Servos</p>
+<ul>
+<li>
+<p><strong>Industrial Automation</strong>: Used in CNC machinery, conveyor systems, and robotic arms for precise motion control.</p>
+</li>
+<li>
+<p><strong>Robotics</strong>: Integral to robotic joints, grippers, and actuators that need exact positioning and motion.</p>
+</li>
+<li>
+<p><strong>Medical Devices</strong>: Used in surgical robots, diagnostic equipment, and laboratory automation, where accuracy and repeatability are essential.</p>
+</li>
+<li>
+<p><strong>Consumer Electronics</strong>: Common in camera autofocus systems, CD drives, and other devices requiring micro-level precision.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Special-Purpose Motors</p>
+<ul>
+<li>
+<p>3.1 <strong>Universal Motor</strong></p>
+<ul>
+<li>
+<p>Operates on either AC or DC; high starting torque, high-speed capabilities.</p>
+</li>
+<li>
+<p>Applications: Power tools, kitchen appliances (mixers, blenders), vacuum cleaners.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>3.2 <strong>Linear Motor</strong></p>
+<ul>
+<li>
+<p>Operates on linear motion rather than rotational.</p>
+</li>
+<li>
+<p>Direct linear force production without gears.</p>
+</li>
+<li>
+<p>Applications: Magnetic levitation (MagLev) trains, linear actuators, conveyor systems.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>3.3 <strong>Hysteresis Motor</strong></p>
+<ul>
+<li>
+<p>Self-starting synchronous motor with smooth torque characteristics.</p>
+</li>
+<li>
+<p>Known for quiet operation.</p>
+</li>
+<li>
+<p>Applications: Clocks, tape recorders, precision timing devices.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>3.4 <strong>Pancake (Axial Flux) Motor</strong></p>
+<ul>
+<li>
+<p>Flat, disk-like shape; higher power density for compact spaces.</p>
+</li>
+<li>
+<p>Increasingly popular for electric vehicles.</p>
+</li>
+<li>
+<p>Applications: Electric bicycles, robots, wheel motors in electric vehicles.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="summary-table">Summary Table</h4>
+<table>
+<thead>
+<tr>
+<th>Motor Type</th>
+<th>Key Characteristics</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+<th>Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brushed DC Motor</td>
+<td>Uses brushes and commutators; produces torque directly proportional to current.</td>
+<td>Simple design, easy speed control, high starting torque.</td>
+<td>Brushes wear out, requires maintenance, generates electrical noise.</td>
+<td>Automotive (e.g., windshield wipers), toys, small appliances.</td>
+</tr>
+<tr>
+<td>Brushless DC Motor</td>
+<td>Electronic commutation, no brushes, rotor with permanent magnets.</td>
+<td>High efficiency, long lifespan, low maintenance, quieter operation.</td>
+<td>Requires complex control circuitry, higher initial cost.</td>
+<td>Drones, electric vehicles, computer cooling fans, appliances.</td>
+</tr>
+<tr>
+<td>Stepper Motor</td>
+<td>Moves in discrete steps, allowing precise positioning without feedback.</td>
+<td>Precise control, no feedback required, high holding torque.</td>
+<td>Low efficiency, can overheat with extended holding, limited speed.</td>
+<td>3D printers, CNC machines, robotics, medical devices.</td>
+</tr>
+<tr>
+<td>Variable-Frequency Synchronous AC Motor</td>
+<td>Speed controlled by varying input frequency using a variable-frequency drive (VFD).</td>
+<td>Adjustable speed, high efficiency, precise torque control.</td>
+<td>Requires a VFD or inverter, complex setup.</td>
+<td>Electric vehicles, industrial automation, pumps, HVAC systems.</td>
+</tr>
+<tr>
+<td>Constant-Frequency Synchronous AC Motor</td>
+<td>Operates at a fixed speed determined by the power supply frequency.</td>
+<td>Stable, constant speed, high efficiency at fixed loads.</td>
+<td>Limited to applications needing consistent speed, lacks adaptability.</td>
+<td>Conveyors, fans, compressors, pumps.</td>
+</tr>
+<tr>
+<td>Induction Motor</td>
+<td>Asynchronous operation, no brushes, commonly squirrel cage or wound rotor.</td>
+<td>Robust, low maintenance, cost-effective.</td>
+<td>Speed varies slightly with load, reduced efficiency at light loads.</td>
+<td>Industrial machinery, fans, compressors, household appliances.</td>
+</tr>
+<tr>
+<td>Universal Motor</td>
+<td>Operates on AC or DC, high speed with brushes and commutator.</td>
+<td>High power-to-size ratio, operates on AC/DC, compact.</td>
+<td>High wear, noisy, requires frequent maintenance.</td>
+<td>Power tools, household appliances, vacuum cleaners.</td>
+</tr>
+<tr>
+<td>Servo Motor</td>
+<td>Uses closed-loop control for precise position, speed, and torque.</td>
+<td>High precision, fast response, high torque at low speeds.</td>
+<td>More expensive, complex control system, limited rotation in some types.</td>
+<td>Robotics, CNC machines, camera stabilization, automation.</td>
+</tr>
+<tr>
+<td>Linear Motor</td>
+<td>Direct linear motion without rotary-to-linear conversion.</td>
+<td>Smooth motion, high speed, eliminates backlash.</td>
+<td>Limited range of motion, often high cost.</td>
+<td>Magnetic levitation (MagLev) trains, conveyor systems, robotics.</td>
+</tr>
+<tr>
+<td>Torque Motor</td>
+<td>Produces high torque at low speeds, can stall without overheating.</td>
+<td>Precise control, direct-drive applications, high stability.</td>
+<td>Limited speed range, generally used for specialized tasks.</td>
+<td>Direct-drive turntables, robotics, industrial machinery.</td>
+</tr>
+<tr>
+<td>Hysteresis Motor</td>
+<td>Uses magnetic hysteresis for smooth, synchronous operation.</td>
+<td>Smooth torque, quiet operation, stable.</td>
+<td>Low starting torque, limited applications.</td>
+<td>Clocks, record players, timing devices, tape recorders.</td>
+</tr>
+<tr>
+<td>Pancake (Axial Flux) Motor</td>
+<td>Compact, disk-like design with high power density.</td>
+<td>High efficiency in compact spaces, lightweight.</td>
+<td>Limited torque at low speeds, complex manufacturing.</td>
+<td>Electric vehicles (wheel motors), robotics, drones.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="miscellaneous-actuators">Miscellaneous Actuators</h2>
+<h3 id="hydrostatic-actuation">Hydrostatic Actuation</h3>
+<p>Hydrostatic actuation is a method of actuation that uses pressurized fluid (usually oil or another hydraulic fluid) to create mechanical movement. This type of actuation is commonly seen in heavy machinery, robotics, and aerospace applications where large forces are needed.</p>
+<h4 id="working-principle">Working Principle</h4>
+<ul>
+<li>
+<p><strong>Fluid Transmission</strong>: A hydraulic pump pressurizes fluid, which is then transmitted through hoses or tubes to an actuator (e.g., hydraulic cylinder or motor).</p>
+</li>
+<li>
+<p><strong>Actuator Response</strong>: This pressurized fluid exerts a force on the actuator’s internal components, typically moving a piston within a cylinder or rotating a hydraulic motor.</p>
+</li>
+<li>
+<p><strong>Control</strong>: Valves control the flow of fluid, allowing precise adjustments in movement, force, and speed. By adjusting the pressure and flow rate, you can control the force and velocity of the actuator.</p>
+</li>
+</ul>
+<h4 id="advantages-of-hydrostatic-actuation">Advantages of Hydrostatic Actuation</h4>
+<ul>
+<li>
+<p><strong>High Force Generation</strong>: Hydrostatic systems can generate large forces, ideal for applications requiring significant lifting or pushing power, such as in construction equipment.</p>
+</li>
+<li>
+<p><strong>Smooth and Precise Control</strong>: Fluid systems provide smooth movement and precise control, especially in systems where variable speeds and forces are needed.</p>
+</li>
+<li>
+<p><strong>Load-Holding Capability</strong>: Hydraulic systems can maintain loads without additional energy input, making them efficient for holding heavy loads in place.</p>
+</li>
+</ul>
+<h4 id="disadvantages-of-hydrostatic-actuation">Disadvantages of Hydrostatic Actuation</h4>
+<ul>
+<li>
+<p><strong>Complexity and Maintenance</strong>: These systems require pumps, valves, seals, and hoses, which can lead to complex setups and increased maintenance needs.</p>
+</li>
+<li>
+<p><strong>Potential for Leaks</strong>: Hydraulic systems are prone to fluid leaks, which can cause inefficiency, environmental hazards, and maintenance challenges.</p>
+</li>
+<li>
+<p><strong>Limited Speed for Lightweight Applications</strong>: While hydrostatic systems are ideal for heavy-duty applications, they’re typically not used for very high-speed, low-force tasks.</p>
+</li>
+</ul>
+<h4 id="applications">Applications</h4>
+<ul>
+<li>
+<p><strong>Heavy Machinery</strong>: Excavators, bulldozers, and loaders use hydraulic systems to lift, push, and move heavy loads.</p>
+</li>
+<li>
+<p><strong>Aerospace and Automotive</strong>: Used in flight control systems, brakes, and other components where reliability and power are critical.</p>
+</li>
+<li>
+<p><strong>Industrial Automation and Robotics</strong>: In robotic arms and presses where smooth, controlled force is necessary for precise positioning or manipulation of materials.</p>
+</li>
+</ul>
+<hr />
+<h3 id="piezoelectric-actuators">Piezoelectric Actuators</h3>
+<p>Piezoelectric actuators use the piezoelectric effect to convert electrical energy into precise mechanical movement. When a piezoelectric material (such as quartz or certain ceramics) is subjected to an electric field, it deforms slightly. This deformation, though small, can be leveraged to create very accurate and fast movements, making piezoelectric actuators ideal for applications requiring precision.</p>
+<h4 id="working-principle_1">Working Principle</h4>
+<ul>
+<li>
+<p><strong>Piezoelectric Effect</strong>: Certain materials generate mechanical strain when exposed to an electric field. Conversely, they can generate an electric charge when mechanically stressed.</p>
+</li>
+<li>
+<p><strong>Direct Movement</strong>: Applying voltage causes the piezoelectric material to expand or contract, producing very precise, small movements.</p>
+</li>
+<li>
+<p><strong>Stacking for Greater Displacement</strong>: To achieve more significant displacement, piezoelectric elements are often stacked in layers. The combined effect of multiple layers amplifies the actuator’s total movement range.</p>
+</li>
+</ul>
+<h4 id="advantages_1">Advantages</h4>
+<ul>
+<li>
+<p><strong>High Precision</strong>: Piezoelectric actuators can achieve nanometer-level precision, making them ideal for applications requiring exact positioning.</p>
+</li>
+<li>
+<p><strong>Fast Response Time</strong>: These actuators respond quickly to changes in voltage, making them suitable for high-speed applications.</p>
+</li>
+<li>
+<p><strong>Minimal Mechanical Parts</strong>: With no gears, pistons, or other moving parts, piezoelectric actuators are reliable, with low wear and tear.</p>
+</li>
+<li>
+<p><strong>Quiet Operation</strong>: The lack of moving parts also means they operate very quietly.</p>
+</li>
+</ul>
+<h4 id="disadvantages_1">Disadvantages</h4>
+<ul>
+<li>
+<p><strong>Limited Range of Motion</strong>: The displacement produced is very small (typically in the micrometer range), limiting applications to tasks where only small movements are needed.</p>
+</li>
+<li>
+<p><strong>High Voltage Requirement</strong>: Generating sufficient displacement usually requires high voltage, even though the power consumption is relatively low.</p>
+</li>
+<li>
+<p><strong>Temperature Sensitivity</strong>: Piezoelectric materials can be sensitive to temperature, which can affect performance and reliability.</p>
+</li>
+</ul>
+<h4 id="applications_1">Applications</h4>
+<ul>
+<li>
+<p><strong>Precision Positioning</strong>: Used in scanning probe microscopes, semiconductor manufacturing, and other high-precision equipment.</p>
+</li>
+<li>
+<p><strong>Optics and Photonics</strong>: Applied for lens focusing, mirror positioning, and other tasks in optical systems.</p>
+</li>
+<li>
+<p><strong>Medical Devices</strong>: Used in drug delivery systems, ultrasound equipment, and microsurgery tools where precision is essential.</p>
+</li>
+<li>
+<p><strong>Aerospace and Defense</strong>: Integrated into adaptive structures, vibration dampening, and high-frequency applications.</p>
+</li>
+</ul>
+<p>Piezoelectric actuators are valuable in fields where precision and speed are crucial, but they are generally limited to applications requiring small movements.</p>
+<h4 id="piezoelectric-actuator-configurations">Piezoelectric Actuator Configurations</h4>
+<p>Piezoelectric actuators come in various configurations to suit different applications and maximize the movement capabilities of piezoelectric materials. The main configurations include:</p>
+<ol>
+<li>
+<p><strong>Stack Actuators</strong></p>
+<ul>
+<li>
+<p>Description: Made by stacking multiple thin layers of piezoelectric material. Each layer expands when voltage is applied, producing cumulative displacement.</p>
+</li>
+<li>
+<p>Characteristics: Generates high force with limited movement; compact and efficient.</p>
+</li>
+<li>
+<p>Applications: Precision positioning systems, micro-manipulation, and applications requiring strong, precise force in small displacements.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bending Actuators (Bimorph and Multimorph)</strong></p>
+<ul>
+<li>
+<p>Description: Consist of two or more layers of piezoelectric material bonded together. When voltage is applied, one layer expands while the other contracts, causing the actuator to bend.</p>
+</li>
+<li>
+<p>Characteristics: Provides larger displacements compared to stack actuators, though with lower force.</p>
+</li>
+<li>
+<p>Applications: Valves, pumps, and small actuators in medical devices or optics that require larger, flexible motion.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Tube Actuators</strong></p>
+<ul>
+<li>
+<p>Description: Cylindrical tube structure with a hollow core, where electrodes are placed on the inside and outside surfaces.</p>
+</li>
+<li>
+<p>Characteristics: Capable of simultaneous radial and longitudinal movement, often used for applications needing multi-axis control.</p>
+</li>
+<li>
+<p>Applications: Fiber-optic alignment, scanning microscopy, and laser beam steering, where precise and simultaneous multi-directional control is essential.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Shear Actuators</strong></p>
+<ul>
+<li>
+<p>Description: Utilize shear deformation, where the applied voltage causes the material layers to move laterally relative to each other.</p>
+</li>
+<li>
+<p>Characteristics: Produces a unique lateral or side-to-side motion rather than typical linear expansion, suitable for high-frequency applications.</p>
+</li>
+<li>
+<p>Applications: Vibration control, surface scanning, and acoustic applications requiring rapid oscillatory motion.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Amplified Actuators</strong></p>
+<ul>
+<li>
+<p>Description: Combines piezoelectric elements with mechanical amplifiers (like lever arms or flexures) to increase displacement.</p>
+</li>
+<li>
+<p>Characteristics: Amplifies the actuator’s movement range while maintaining high precision, though with reduced force.</p>
+</li>
+<li>
+<p>Applications: Used where a larger displacement is needed without sacrificing accuracy, such as in micro-positioning systems and adaptive optics.</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="pneumatic-actuators">Pneumatic Actuators</h3>
+<p>Pneumatic actuators are devices that use compressed air to produce mechanical motion. They are commonly used in industrial automation, where they provide quick, powerful, and reliable movements.</p>
+<h4 id="working-principle_2">Working Principle</h4>
+<ul>
+<li>
+<p><strong>Compressed Air</strong>: Pneumatic actuators are powered by compressed air, typically generated by a compressor. This air is delivered through valves and pipes to the actuator.</p>
+</li>
+<li>
+<p><strong>Mechanical Motion</strong>: When pressurized air fills a chamber within the actuator, it pushes against a piston or diaphragm, creating linear or rotary motion depending on the actuator’s design.</p>
+</li>
+<li>
+<p><strong>Exhaust and Control</strong>: Control valves regulate the air supply and exhaust, controlling the actuator’s speed, position, and force.</p>
+</li>
+</ul>
+<h4 id="types-of-pneumatic-actuators">Types of Pneumatic Actuators</h4>
+<ol>
+<li>
+<p><strong>Linear Actuators (Pneumatic Cylinders)</strong>:</p>
+<ul>
+<li>
+<p><strong>Single-Acting Cylinder</strong>: Air is applied on one side of the piston, and a spring or exhaust port returns it to its original position.</p>
+</li>
+<li>
+<p><strong>Double-Acting Cylinder</strong>: Air is applied alternately to both sides of the piston, allowing push-and-pull motion for more versatile movement.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Rotary Actuators</strong>:</p>
+<ul>
+<li>
+<p>Convert compressed air into rotary or circular motion, often using a vane or rack-and-pinion mechanism.</p>
+</li>
+<li>
+<p>Common in applications where components need to rotate back and forth, such as valves or robotic arms.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="advantages-of-pneumatic-actuators">Advantages of Pneumatic Actuators</h4>
+<ul>
+<li>
+<p><strong>Fast Response and High Speed</strong>: They operate quickly due to the low inertia of compressed air, making them suitable for applications that require rapid movements.</p>
+</li>
+<li>
+<p><strong>Simple and Cost-Effective</strong>: Pneumatic systems are generally less complex and cheaper than hydraulic systems.</p>
+</li>
+<li>
+<p><strong>High Force-to-Weight Ratio</strong>: They provide a strong force output relative to their size and weight, making them ideal for tasks that need powerful but compact actuation.</p>
+</li>
+</ul>
+<h4 id="disadvantages-of-pneumatic-actuators">Disadvantages of Pneumatic Actuators</h4>
+<ul>
+<li>
+<p><strong>Limited Precision</strong>: Control over position, speed, and force is less precise compared to electric or hydraulic actuators.</p>
+</li>
+<li>
+<p><strong>Air Compressibility</strong>: The compressibility of air can result in inconsistent force and speed, especially under varying loads.</p>
+</li>
+<li>
+<p><strong>Continuous Supply Required</strong>: Pneumatic systems require a constant supply of compressed air, which can be noisy and costly to maintain.</p>
+</li>
+</ul>
+<h4 id="applications_2">Applications</h4>
+<ul>
+<li>
+<p><strong>Manufacturing and Assembly Lines</strong>: Used for tasks such as pressing, stamping, clamping, and material handling.</p>
+</li>
+<li>
+<p><strong>Automated Systems</strong>: Found in conveyor systems, packaging, and sorting, where quick and repetitive motion is needed.</p>
+</li>
+<li>
+<p><strong>Industrial Valves</strong>: Used to open, close, or control flow in pipelines, especially in industries such as oil and gas, water treatment, and chemical processing.</p>
+</li>
+<li>
+<p><strong>Robotics</strong>: Often used in pneumatic grippers and other robotic end effectors where fast, reliable motion is needed.</p>
+</li>
+</ul>
+<h3 id="relays">Relays</h3>
+<p>Relays are electrically operated switches that use a small electrical signal to control a larger load. They are widely used in control systems, automation, and electronics to isolate low-power control signals from higher-power circuits, allowing safe and effective control of heavy machinery, lighting, motors, and other high-current devices.</p>
+<h4 id="how-relays-work">How Relays Work</h4>
+<ol>
+<li>
+<p><strong>Electromagnetic Coil</strong>: A relay has an electromagnet, or coil, which becomes magnetized when a control current flows through it.</p>
+</li>
+<li>
+<p><strong>Armature</strong>: This is a movable lever connected to the relay’s contacts. When the coil is energized, the magnetic field pulls the armature, causing it to move.</p>
+</li>
+<li>
+<p><strong>Contacts</strong>: Relays have two main contact types:</p>
+<ul>
+<li>
+<p><strong>Normally Open (NO)</strong>: Contacts are open when the relay is inactive and close when it’s activated.</p>
+</li>
+<li>
+<p><strong>Normally Closed (NC)</strong>: Contacts are closed when the relay is inactive and open when activated.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Spring Mechanism</strong>: A spring keeps the contacts in their default state when the coil is not energized.</p>
+</li>
+</ol>
+<p>When the control circuit energizes the coil, it magnetizes the electromagnet, pulling the armature and changing the state of the contacts. This switch can then open or close a separate circuit, allowing control of high-power devices.</p>
+<h4 id="types-of-relays">Types of Relays</h4>
+<ol>
+<li>
+<p><strong>Electromechanical Relays</strong>: Use mechanical movement to switch contacts and are common in many basic applications.</p>
+</li>
+<li>
+<p><strong>Solid-State Relays (SSRs)</strong>: Use semiconductor components to switch without moving parts, offering faster and quieter operation.</p>
+</li>
+<li>
+<p><strong>Reed Relays</strong>: Have contacts in a sealed glass tube with a magnetic reed; they are smaller and used in low-current, high-speed applications.</p>
+</li>
+</ol>
+<h4 id="advantages-of-relays">Advantages of Relays</h4>
+<ul>
+<li>
+<p><strong>Isolation</strong>: They isolate control circuits from power circuits, protecting low-voltage control systems from high-voltage loads.</p>
+</li>
+<li>
+<p><strong>Versatile Control</strong>: Relays allow small control signals to switch large loads, useful for automation and remote control.</p>
+</li>
+<li>
+<p><strong>Reliability and Durability</strong>: Solid-state relays, in particular, are highly durable with no moving parts, reducing wear.</p>
+</li>
+</ul>
+<h4 id="disadvantages-of-relays">Disadvantages of Relays</h4>
+<ul>
+<li>
+<p><strong>Mechanical Wear</strong>: Electromechanical relays can wear out over time due to moving parts, leading to contact degradation.</p>
+</li>
+<li>
+<p><strong>Slower Switching</strong>: Compared to solid-state relays, traditional electromechanical relays are slower.</p>
+</li>
+<li>
+<p><strong>Limited by Load Type</strong>: Some relays are designed for specific types of loads (AC or DC) and may not be versatile across different power types.</p>
+</li>
+</ul>
+<h5 id="applications_3">Applications</h5>
+<ul>
+<li>
+<p><strong>Automation and Control Systems</strong>: Used to control machinery, motors, and other high-power equipment from low-power control circuits.</p>
+</li>
+<li>
+<p><strong>Protective Devices</strong>: Employed in circuit breakers and protective relays to disconnect circuits when faults are detected.</p>
+</li>
+<li>
+<p><strong>Automotive and Home Appliances</strong>: Common in car electronics, washing machines, and HVAC systems for switching various components on and off.</p>
+</li>
+<li>
+<p><strong>Automation and Control Systems</strong>: Used to control machinery, motors, and other high-power equipment from low-power control circuits.</p>
+</li>
+<li>
+<p><strong>Protective Devices</strong>: Employed in circuit breakers and protective relays to disconnect circuits when faults are detected.</p>
+</li>
+<li>
+<p><strong>Automotive and Home Appliances</strong>: Common in car electronics, washing machines, and HVAC systems for switching various components on and off.</p>
+</li>
+</ul>
+<h2 id="summary_1">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Actuator Type</th>
+<th>Overview</th>
+<th>Common Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AC Motors</td>
+<td>Use alternating current to produce rotational motion; ideal for constant-speed applications.</td>
+<td>Industrial equipment (e.g., pumps, fans), HVAC systems, and conveyor belts.</td>
+</tr>
+<tr>
+<td>DC Motors</td>
+<td>Powered by direct current, offering variable speed and torque; used for precise, controlled rotation.</td>
+<td>Robotics, electric vehicles, consumer electronics (e.g., fans), and household appliances.</td>
+</tr>
+<tr>
+<td>Servos</td>
+<td>Provide precise control over position, speed, and torque through closed-loop systems.</td>
+<td>Robotics (e.g., robotic arms), CNC machinery, camera stabilization, and automation systems.</td>
+</tr>
+<tr>
+<td>Hydrostatic Actuators</td>
+<td>Use pressurized fluid to produce powerful linear or rotary motion, often for heavy-duty tasks.</td>
+<td>Construction machinery (e.g., excavators), industrial presses, and aerospace applications.</td>
+</tr>
+<tr>
+<td>Piezoelectric Actuators</td>
+<td>Create precise, small displacements using the piezoelectric effect; fast response and high precision.</td>
+<td>Precision positioning (e.g., optical systems), medical devices, and micro-robotics.</td>
+</tr>
+<tr>
+<td>Pneumatic Actuators</td>
+<td>Operate using compressed air, providing quick, powerful movement, typically in a linear or rotary fashion.</td>
+<td>Factory automation, packaging, sorting systems, and automotive applications.</td>
+</tr>
+</tbody>
+</table>
+<p>Last updated 2024-10-31 10:07:21 -0400</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

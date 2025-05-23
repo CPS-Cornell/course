@@ -1,0 +1,3539 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../Module1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Module 0 - Introduction - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-cyber-physical-systems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 0 - Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../labs/Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cyber-physical-systems-cps-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cyber-Physical Systems (CPS) Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cyber-Physical Systems (CPS) Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-physical-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Physical Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-computational-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Computational Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-network-and-communication-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Network and Communication Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-feedback-and-automation-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Feedback and Automation Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics-of-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics of CPS:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-examples-of-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Examples of CPS:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-importance-of-abstraction-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Importance of Abstraction in CPS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Importance of Abstraction in CPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-physical-system-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Physical System Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-computation-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Computation Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-communication-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Communication Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-control-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Control Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-hierarchical-abstraction-layered-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Hierarchical Abstraction (Layered Approach)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-abstraction-for-cross-domain-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Abstraction for Cross-Domain Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-abstraction-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of Abstraction in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-of-systems-sos" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Of Systems (SoS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Of Systems (SoS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics-of-a-system-of-systems-sos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics of a System of Systems (SoS):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-systems-of-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Systems of Systems:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenges-in-systems-of-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges in Systems of Systems:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-systems-of-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of Systems of Systems:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      In Summary:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cps-architectures-and-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPS Architectures and Frameworks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CPS Architectures and Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-3c-architecture-for-cyber-physical-systems-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 3C Architecture for Cyber-Physical Systems (CPS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 3C Architecture for Cyber-Physical Systems (CPS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Computation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-5c-architecture-for-cyber-physical-systems-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 5C Architecture for Cyber-Physical Systems (CPS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 5C Architecture for Cyber-Physical Systems (CPS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-5c-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of 5C Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components of 5C Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-connection-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Connection Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-conversion-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Conversion Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cyber-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cyber Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cognition-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cognition Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-configuration-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Configuration Layer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-iot-a-internet-of-things-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. IoT-A (Internet of Things Architecture):
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. IoT-A (Internet of Things Architecture):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-iot-a-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of IoT-A Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components of IoT-A Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-device-layer-perception-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Device Layer (Perception Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-network-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Network Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-middleware-layer-processing-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Middleware Layer (Processing Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-application-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Application Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-business-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Business Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-security-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Security Layer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-nist-cyber-physical-systems-cps-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. NIST Cyber-Physical Systems (CPS) Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. NIST Cyber-Physical Systems (CPS) Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Domains
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-facets" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Facets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Facets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-three-main-facets" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Three Main Facets:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-aspects" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Aspects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Aspects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-nine-main-aspects" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nine Main Aspects:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-edge-fog-and-cloud-computing-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Edge, Fog, and Cloud Computing Frameworks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Edge, Fog, and Cloud Computing Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-edge-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Edge Computing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fog-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fog Computing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cloud-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cloud Computing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Differences
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-twin-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Twin Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Digital Twin Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-a-digital-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of a Digital Twin:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-a-digital-twin-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a Digital Twin Works:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-digital-twins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of Digital Twins:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cyber-physical-systems-cps-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cyber-Physical Systems (CPS) Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cyber-Physical Systems (CPS) Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-physical-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Physical Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-computational-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Computational Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-network-and-communication-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Network and Communication Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-feedback-and-automation-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Feedback and Automation Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics-of-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics of CPS:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-examples-of-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Examples of CPS:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-importance-of-abstraction-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Importance of Abstraction in CPS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Importance of Abstraction in CPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-physical-system-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Physical System Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-computation-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Computation Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-communication-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Communication Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-control-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Control Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-hierarchical-abstraction-layered-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Hierarchical Abstraction (Layered Approach)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-abstraction-for-cross-domain-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Abstraction for Cross-Domain Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-abstraction-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of Abstraction in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-of-systems-sos" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Of Systems (SoS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Of Systems (SoS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics-of-a-system-of-systems-sos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics of a System of Systems (SoS):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-systems-of-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Systems of Systems:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenges-in-systems-of-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges in Systems of Systems:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-systems-of-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of Systems of Systems:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      In Summary:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cps-architectures-and-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPS Architectures and Frameworks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CPS Architectures and Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-3c-architecture-for-cyber-physical-systems-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 3C Architecture for Cyber-Physical Systems (CPS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 3C Architecture for Cyber-Physical Systems (CPS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Computation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-5c-architecture-for-cyber-physical-systems-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 5C Architecture for Cyber-Physical Systems (CPS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 5C Architecture for Cyber-Physical Systems (CPS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-5c-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of 5C Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components of 5C Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-connection-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Connection Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-conversion-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Conversion Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cyber-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cyber Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cognition-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cognition Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-configuration-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Configuration Layer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-iot-a-internet-of-things-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. IoT-A (Internet of Things Architecture):
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. IoT-A (Internet of Things Architecture):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-iot-a-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of IoT-A Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components of IoT-A Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-device-layer-perception-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Device Layer (Perception Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-network-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Network Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-middleware-layer-processing-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Middleware Layer (Processing Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-application-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Application Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-business-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Business Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-security-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Security Layer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-nist-cyber-physical-systems-cps-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. NIST Cyber-Physical Systems (CPS) Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. NIST Cyber-Physical Systems (CPS) Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Domains
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-facets" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Facets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Facets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-three-main-facets" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Three Main Facets:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-aspects" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Aspects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Aspects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-nine-main-aspects" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nine Main Aspects:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-edge-fog-and-cloud-computing-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Edge, Fog, and Cloud Computing Frameworks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Edge, Fog, and Cloud Computing Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-edge-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Edge Computing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fog-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fog Computing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cloud-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cloud Computing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Differences
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-twin-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Twin Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Digital Twin Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-a-digital-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of a Digital Twin:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-a-digital-twin-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a Digital Twin Works:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-digital-twins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of Digital Twins:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introduction-to-cyber-physical-systems">Introduction to Cyber-Physical Systems</h1>
+<h2 id="cyber-physical-systems-cps-overview">Cyber-Physical Systems (CPS) Overview</h2>
+<p><strong>Cyber-Physical Systems (CPS)</strong> are integrated systems that combine computational (cyber) and physical elements to interact with the real world in real time. These systems use sensors, actuators, networks, and software to monitor and control physical processes. CPS are designed to process data, make decisions, and execute actions, often autonomously or with minimal human intervention. These systems are comprised of four components:</p>
+<ul>
+<li>
+<p>Physical Components</p>
+</li>
+<li>
+<p>Computational Components</p>
+</li>
+<li>
+<p>Network and Communication Components</p>
+</li>
+<li>
+<p>Feedback Loop and Automation Components</p>
+</li>
+</ul>
+<h3 id="1-physical-components">1. Physical Components</h3>
+<p><strong>Purpose</strong>: These are the real-world elements of the system that interact with the environment and perform physical actions.</p>
+<p><strong>Key Elements</strong><br />
+-   <strong>Sensors</strong>: Devices that collect real-time data from the environment (e.g., temperature, motion, pressure sensors).</p>
+<ul>
+<li>
+<p><strong>Actuators</strong>: Devices that take actions based on commands from the computational components (e.g., motors, valves, robotic arms).</p>
+</li>
+<li>
+<p><strong>Machines and Equipment</strong>: Physical infrastructure like vehicles, robots, or industrial machines that are controlled by CPS.</p>
+</li>
+</ul>
+<p><strong>Examples</strong><br />
+-   In autonomous vehicles, physical components include cameras, LiDAR sensors, and braking systems.</p>
+<ul>
+<li>In smart grids, sensors monitor electricity usage and control power distribution.</li>
+</ul>
+<h3 id="2-computational-components">2. Computational Components</h3>
+<p><strong>Purpose</strong>: These components handle computation associated with data processing, state estimation, and decision making/control algorithms.</p>
+<p><strong>Key Elements</strong><br />
+-   <strong>Data Processing Units</strong>: Microprocessors, GPUs, FPGAs, or cloud servers that receive data from sensors and perform computations.</p>
+<ul>
+<li><strong>Algorithms</strong>: Algorithms that analyze sensor data using signal processing and state estimation, and make decisions or perform control.</li>
+</ul>
+<p><strong>Examples</strong><br />
+-   In healthcare, a CPS might analyze patient vital signs to detect abnormalities and trigger medical alerts.</p>
+<h3 id="3-network-and-communication-components">3. Network and Communication Components</h3>
+<p><strong>Purpose</strong>: These enable communication between physical components and computational systems, often in real-time.</p>
+<p><strong>Key Elements</strong><br />
+-   <strong>Wired and Wireless Networks</strong>: Communication protocols such as Wi-Fi, 5G, ZigBee, and Ethernet that facilitate data exchange between sensors, actuators, and control systems.</p>
+<ul>
+<li>
+<p><strong>Gateways and Routers</strong>: Devices that manage data traffic between local devices and central or cloud-based systems.</p>
+</li>
+<li>
+<p><strong>IoT Protocols</strong>: Protocols like MQTT, CoAP, and HTTP that ensure devices can communicate efficiently, as well as other layers of the ISO model.</p>
+</li>
+</ul>
+<p><strong>Examples</strong><br />
+-   In smart buildings, Wi-Fi or ZigBee networks allow smart thermostats and lighting systems to communicate with central control systems.</p>
+<ul>
+<li>In autonomous drones, 5G networks ensure low-latency communication for remote control and data streaming.</li>
+</ul>
+<h3 id="4-feedback-and-automation-components">4. Feedback and Automation Components</h3>
+<p><strong>Purpose</strong>: These components enable continuous monitoring and automated responses to changing conditions, forming a feedback loop between physical and computational layers.</p>
+<p><strong>Key Elements</strong><br />
+-   <strong>Feedback Loop</strong>: Data from sensors is continuously fed back to the computational systems, allowing for real-time adjustments to actuator commands.</p>
+<ul>
+<li>
+<p><strong>Automated Control</strong>: Systems can automatically adjust parameters based on real-time data (e.g., adjusting temperature, speed, or pressure).</p>
+</li>
+<li>
+<p><strong>Self-Optimization and Learning</strong>: Some CPS incorporate AI to learn from feedback data and optimize performance over time.</p>
+</li>
+</ul>
+<p><strong>Examples</strong><br />
+-   In smart manufacturing, CPS systems automatically adjust machine operations based on sensor feedback to optimize production efficiency.</p>
+<ul>
+<li>In smart cities, traffic signals adjust in real time based on traffic flow data from sensors to optimize vehicle movement and reduce congestion.</li>
+</ul>
+<hr />
+<h3 id="key-characteristics-of-cps">Key Characteristics of CPS:</h3>
+<p>CPS integrates these four critical components to create systems that are responsive, intelligent, and capable of real-time interaction with the physical world. By combining these components, CPS can operate autonomously or semi-autonomously in applications such as autonomous vehicles, smart factories, and smart healthcare systems.</p>
+<ol>
+<li>
+<p><strong>Integration of Physical and Cyber Components</strong>: CPS involves the tight integration of physical processes with computational algorithms, where each influences the other.</p>
+</li>
+<li>
+<p><strong>Real-Time Control and Monitoring</strong>: Sensors collect data from the physical environment, which is processed and analyzed by computational systems to make real-time decisions.</p>
+</li>
+<li>
+<p><strong>Feedback Loops</strong>: Data is continuously exchanged between the physical and cyber components to adjust actions based on environmental changes.</p>
+</li>
+<li>
+<p><strong>Autonomy and Automation</strong>: Many CPS operate autonomously, performing complex tasks with little human involvement.</p>
+</li>
+</ol>
+<h3 id="common-examples-of-cps">Common Examples of CPS:</h3>
+<ul>
+<li>
+<p><strong>Smart Grids</strong>: Real-time monitoring and control of electricity distribution networks.</p>
+</li>
+<li>
+<p><strong>Autonomous Vehicles</strong>: Cars equipped with sensors and AI to drive and navigate without human intervention.</p>
+</li>
+<li>
+<p><strong>Industrial Automation</strong>: Systems that control and monitor factory operations, improving efficiency and safety.</p>
+</li>
+<li>
+<p><strong>Smart Buildings</strong>: Buildings equipped with systems that automatically control heating, lighting, and security based on real-time conditions.</p>
+</li>
+</ul>
+<p>CPS are foundational to many modern innovations, particularly in areas like <strong>Industry 4.0</strong>, <strong>smart cities</strong>, <strong>healthcare</strong>, <strong>transportation</strong>, and <strong>robotics</strong>, where real-time data and control are essential.</p>
+<hr />
+<h2 id="the-importance-of-abstraction-in-cps">The Importance of Abstraction in CPS</h2>
+<p><strong>Abstraction</strong> in the context of cyber-physical systems (CPS) refers to simplifying complex systems by representing them in different levels of detail, focusing on the essential aspects that are relevant to a particular analysis or task while ignoring irrelevant details. This layered approach helps manage the complexity of CPS, which involves tightly integrated physical processes and computational components.</p>
+<h3 id="1-physical-system-abstraction">1. Physical System Abstraction</h3>
+<p>The physical components of CPS (e.g., sensors, actuators, machines) are abstracted as models that represent their behavior, dynamics, and interactions with the environment. For example, instead of working directly with a physical robot, engineers may create a mathematical model of its movements, which simplifies real-world testing and analysis.</p>
+<p>This abstraction allows developers to focus on the system’s key physical behaviors without needing to work directly with all the details of the hardware at every stage.</p>
+<h3 id="2-computation-abstraction">2. Computation Abstraction</h3>
+<p>Computational elements, such as embedded controllers, communication protocols, and software, are also abstracted. Instead of dealing with the complexity of real-time code execution and data management, higher-level abstractions (such as models or flowcharts) allow developers to design, simulate, and analyze the software before it is implemented.</p>
+<p>This layer typically abstracts computation into tasks, algorithms, or services, allowing developers to focus on the behavior of the software, ensuring it interacts properly with the physical system.</p>
+<h3 id="3-communication-abstraction">3. Communication Abstraction</h3>
+<p>Communication in CPS, such as data exchange between sensors, actuators, and control systems, can be abstracted to focus on how information flows through the system rather than the intricate details of network protocols. As long as two components share a similar communication interface, their interactions can be abstracted to concepts such data exchange and transmission rates, while ignoring complexity such as encryption, transmission reliability, or session management.</p>
+<p>This allows designers to model and simulate data flow and message exchanges at a high level, ensuring that critical information is shared in a timely and efficient manner without getting bogged down in low-level details like packet switching or error detection.</p>
+<h3 id="4-control-abstraction">4. Control Abstraction</h3>
+<p>Control systems in CPS (like feedback loops or decision-making algorithms) are often abstracted through models such as state machines, control theory diagrams, or optimization algorithms. These models allow designers to evaluate how the system responds to various inputs and disturbances, focusing on system stability, efficiency, or responsiveness without directly interacting with hardware controllers.</p>
+<p>At a higher abstraction, developers might focus on control objectives (like maintaining temperature or position) rather than the specifics of sensor inputs and motor outputs.</p>
+<h3 id="5-hierarchical-abstraction-layered-approach">5. Hierarchical Abstraction (Layered Approach)</h3>
+<p>CPS is typically broken down into multiple layers, with each layer representing a different level of abstraction. For instance, in a smart factory, you may have: 
+- <strong>Device Level:</strong> Individual sensors and actuators. 
+- <strong>Control Level:</strong> Embedded systems and local controllers. 
+- <strong>System Level:</strong> Integration of multiple devices into subsystems (e.g., robotic arms). 
+- <strong>Enterprise Level:</strong> Coordination and optimization of entire systems (e.g., supply chain management).</p>
+<p>Each level abstracts the details of the lower levels, allowing engineers to focus on specific aspects of the system relevant to their tasks.</p>
+<h3 id="6-abstraction-for-cross-domain-integration">6. Abstraction for Cross-Domain Integration</h3>
+<p>Cyber-physical systems often integrate across multiple domains (e.g., mechanical, electrical, software). Abstraction allows for different domain experts (such as software engineers, mechanical engineers, and network specialists) to work on their respective parts of the system without needing full knowledge of every domain.</p>
+<p>For example, a mechanical engineer can work with an abstract representation of control algorithms, while a software engineer focuses on designing efficient code, both abstracting away details of the other domain.</p>
+<h3 id="benefits-of-abstraction-in-cps">Benefits of Abstraction in CPS</h3>
+<ul>
+<li>
+<p><strong>Simplified Design:</strong> By focusing only on the most relevant aspects at each level, developers can manage the complexity of CPS without being overwhelmed by details.</p>
+</li>
+<li>
+<p><strong>Scalability:</strong> Abstraction allows systems to scale, as engineers can work on different subsystems or components without losing sight of the bigger picture.</p>
+</li>
+<li>
+<p><strong>Modularity:</strong> Components of the system can be abstracted and treated as modular units, which can be developed, tested, and maintained independently.</p>
+</li>
+<li>
+<p><strong>Simulation and Testing:</strong> Abstractions allow for early-stage simulation and testing without needing the complete physical system, saving time and resources.</p>
+</li>
+</ul>
+<p><strong>In Summary</strong>: Abstraction in CPS helps to manage complexity, allowing engineers to design, simulate, and optimize systems at different levels without being overwhelmed by the intricate details of physical, computational, and communication processes. This makes it easier to integrate and manage the cyber and physical components of CPS effectively.</p>
+<hr />
+<h2 id="system-of-systems-sos">System Of Systems (SoS)</h2>
+<p>A <strong>System of Systems (SoS)</strong> refers to a collection of independent systems that collaborate or interact with one another to achieve a common goal. Each individual system within the SoS is typically capable of operating on its own to achieve its own objective, but when combined with other systems, they form a more complex, interconnected, and higher-functioning system. In the context of CSP, these systems of systems have specific characteristics that are important to identify.</p>
+<h3 id="key-characteristics-of-a-system-of-systems-sos">Key Characteristics of a System of Systems (SoS):</h3>
+<ol>
+<li>
+<p><strong>Modularity of Subsystems (Referential Transparency):</strong></p>
+<ul>
+<li>The individual systems within a SoS are autonomous, meaning they are capable of functioning independently. Each subsystem is capable of meeting its own system requirements. Even though these systems work together, they retain the ability to operate independently and fulfill their own goals. If the larger SoS breaks down, the individual systems can continue to function.</li>
+</ul>
+</li>
+<li>
+<p><strong>Managerial Independence:</strong></p>
+<ul>
+<li>Each system is typically managed independently, with its own computational component. This means that each subsystem should have its own state machine, feedback control loop, or local objective, making coordination within the SoS challenging but necessary for achieving higher-level objectives.</li>
+</ul>
+</li>
+<li>
+<p><strong>Emergent Behavior:</strong></p>
+<ul>
+<li>CPS SoS often exhibit emergent behavior, which means that new functionalities or capabilities arise that are not present in the individual systems alone. For example, imagine multiple sensors are communicating with a centralized computer. If one sensor is transmitting data that requires a longer time to process computationally, the computer might drop messages from other sensors in the mean time, limiting the systems capabilities.</li>
+</ul>
+</li>
+<li>
+<p><strong>Evolutionary Development:</strong></p>
+<ul>
+<li>CPS SoS evolve over time as new subsystems are integrated or existing subsystems are modified or removed. They are dynamic and can adapt to new requirements, technologies, and environmental changes. This requires well defined interfaces, and strictly enforced subsystem performance requirements.</li>
+</ul>
+</li>
+</ol>
+<h3 id="example-of-systems-of-systems">Example of Systems of Systems:</h3>
+<p>Imagine the following CSP. A graduate student has trouble keeping their house plant a live so they design a water system with the following features: A soil moisture sensor is placed in the pot and is connected to a Raspberry pi via I2C. If the moisture levels are below a defined threshold, the Raspberry pi can add water the the plant. To water the plant, the Raspberry pi generates a digital signal that engages a motor driver, turning on a stepper motor driven water pump. The Raspberry pi is connected via wifi to a the internet, and uses HTTPS to determine the user-defined moisture level threshold. If the graduate student notices that their plant is looking a little wilted, they lower the threshold using a website on their smartphone to increase the frequency of watering.</p>
+<ol>
+<li>
+<p><strong>Modularity of Subsystems (Referential Transparency):</strong></p>
+<ul>
+<li>If the Raspberry pi failed, the soil sensor would still function to meet its own subsystem requirements: to generate readings of the soil moisture, even if the overall system failed. Note, to generate I2C messages, the sensor must have its own micro processor. This makes the sensor a cyber-physical system in and of itself.</li>
+</ul>
+</li>
+<li>
+<p><strong>Managerial Independence:</strong></p>
+<ul>
+<li>The feedback control loop for the stepper motor is independent of the overall system feedback loop for keeping the plant watered.</li>
+</ul>
+</li>
+<li>
+<p><strong>Emergent Behavior:</strong></p>
+<ul>
+<li>Image that the water pump outlet was set too close to the soil sensor. When moisture levels are too low, the pump is engaged and pour water directly onto the sensor. This immediately raises sensor readings, turning off the water pump. This can result in unexpected jittering or failure to keep the plant water, due to an unexpected interaction between the sensor and the actuator. Perhaps placing the sensor and the pump outlet on opposite sides of the pot will address this issue.</li>
+</ul>
+</li>
+<li>
+<p><strong>Evolutionary Development:</strong></p>
+<ul>
+<li>A year later, a new-and-improved soil moisture sensor is released. As long as this new sensor uses I2C and generates values in the same range and with the same or better accuracy as the previous sensor, no extra work is needed to replace the old sensor with the newer model.</li>
+</ul>
+</li>
+</ol>
+<h3 id="challenges-in-systems-of-systems">Challenges in Systems of Systems:</h3>
+<ul>
+<li>
+<p><strong>Coordination:</strong> Managing interactions between independently operated systems is complex and requires effective communication protocols and interoperability.</p>
+</li>
+<li>
+<p><strong>Security:</strong> SoS involve multiple systems that may have varying levels of security, making the overall system vulnerable if any single component is compromised.</p>
+</li>
+<li>
+<p><strong>Emergent Behavior Management:</strong> The behavior that emerges from system interactions can sometimes be unpredictable or undesirable, requiring continuous monitoring and adjustment.</p>
+</li>
+</ul>
+<h3 id="benefits-of-systems-of-systems">Benefits of Systems of Systems:</h3>
+<ul>
+<li>
+<p><strong>Scalability and Flexibility:</strong> SoS can scale by adding new independent systems without disrupting existing ones. They are also flexible, as individual systems can evolve or be replaced without requiring a complete overhaul of the larger system.</p>
+</li>
+<li>
+<p><strong>Enhanced Capabilities:</strong> SoS provide functionality that would not be possible with isolated systems. By working together, they can solve more complex problems and deliver higher-level services.</p>
+</li>
+<li>
+<p><strong>Resilience:</strong> SoS are often more resilient because the failure of one system may not cripple the entire system, as other systems can continue functioning independently.</p>
+</li>
+</ul>
+<h3 id="in-summary">In Summary:</h3>
+<p>A <strong>System of Systems (SoS)</strong> is an integration of independent, autonomous systems that work together to achieve a common goal while maintaining their individual functionality and independence. Many components that appear to be a sensor, actuator, or computer, can be a cyber-physical system in and of itself. They offer scalability, flexibility, and enhanced capabilities but also present challenges related to coordination, security, and governance.</p>
+<hr />
+<h2 id="cps-architectures-and-frameworks">CPS Architectures and Frameworks</h2>
+<p>There are many high level architectures that can be used to describe the design, function, and operation of cyber-physical systems. The most common are:</p>
+<ol>
+<li>
+<p>3C Architecture</p>
+</li>
+<li>
+<p>5C Architecture</p>
+</li>
+<li>
+<p>IoT-A (Internet of Things Architecture)</p>
+</li>
+<li>
+<p>NIST Architecture</p>
+</li>
+<li>
+<p>Edge/Fog/Cloud Framework</p>
+</li>
+<li>
+<p>Digital Twin Framework</p>
+</li>
+</ol>
+<p>These architectures provide a framework that can be used to understand the taxonomy of a cyber-physical system. No single framework is better in all cases, but selecting the correct framework to understand your system can help provide insight, structure, and uniformity when working on complex systems with large teams of engineers.</p>
+<hr />
+<h3 id="1-3c-architecture-for-cyber-physical-systems-cps">1. 3C Architecture for Cyber-Physical Systems (CPS)</h3>
+<p>The <strong>3C Architecture</strong> for Cyber-Physical Systems (CPS) breaks down CPS into three core components:</p>
+<ul>
+<li>
+<p><strong>Computation</strong>: Data processing and decision-making.</p>
+</li>
+<li>
+<p><strong>Communication</strong>: Data transmission between system components.</p>
+</li>
+<li>
+<p><strong>Control</strong>: Executing actions based on computational analysis to interact with the physical environment.</p>
+</li>
+</ul>
+<h4 id="1-computation">1. Computation</h4>
+<p><strong>Definition</strong>: Computation refers to the data processing and decision-making capabilities of the system. It involves algorithms, control logic, and AI that analyze sensor data and generate commands for the physical system.</p>
+<p><strong>Key Elements</strong><br />
+-   <strong>Data Processing</strong>: Information collected by sensors is analyzed to extract meaningful insights.</p>
+<ul>
+<li>
+<p><strong>Control Algorithms</strong>: Algorithms are used to make decisions based on real-time data and predefined rules.</p>
+</li>
+<li>
+<p><strong>Artificial Intelligence (AI) and Machine Learning (ML)</strong>: Advanced CPS use AI and ML for predictive analysis, optimization, and self-learning.</p>
+</li>
+</ul>
+<p><strong>Role in CPS</strong>: Computation enables the CPS to analyze the data from the physical environment and make intelligent decisions.</p>
+<p><strong>Example</strong>: In autonomous vehicles, computation processes sensor data like camera feeds and LiDAR to make decisions for navigation and object avoidance.</p>
+<h4 id="2-communication">2. Communication</h4>
+<p><strong>Definition</strong>: Communication refers to the transmission of data between the physical and cyber components of the system, as well as between different CPS entities.</p>
+<p><strong>Key Elements</strong><br />
+-   <strong>Wired and Wireless Communication</strong>: Data is transmitted via networks such as Wi-Fi, 5G, ZigBee, and Ethernet.</p>
+<ul>
+<li>
+<p><strong>Protocols</strong>: Communication protocols like MQTT, CoAP, and HTTP ensure standardized data exchange.</p>
+</li>
+<li>
+<p><strong>Latency and Bandwidth</strong>: Ensures fast and reliable data flow in real-time systems.</p>
+</li>
+</ul>
+<p><strong>Role in CPS</strong>: Communication ensures data flow between sensors, computational units, and actuators.</p>
+<p><strong>Example</strong>: In smart grids, communication allows the transmission of data from energy meters to control systems for power distribution adjustments.</p>
+<h4 id="3-control">3. Control</h4>
+<p><strong>Definition</strong>: Control refers to the actions taken by the system to influence the physical world based on computational decisions.</p>
+<p><strong>Key Elements</strong><br />
+-   <strong>Actuators</strong>: Devices that carry out physical changes in the system, such as motors and valves.</p>
+<ul>
+<li>
+<p><strong>Feedback Loops</strong>: Continuous monitoring and adjustment of system behavior based on real-time data.</p>
+</li>
+<li>
+<p><strong>Automation</strong>: Systems operate autonomously with minimal human intervention.</p>
+</li>
+</ul>
+<p><strong>Role in CPS</strong>: Control is responsible for executing decisions, interacting with the physical environment to achieve desired outcomes.</p>
+<p><strong>Example</strong>: In industrial automation, the control system adjusts machine parameters to optimize production based on sensor feedback.</p>
+<hr />
+<h3 id="2-5c-architecture-for-cyber-physical-systems-cps">2. 5C Architecture for Cyber-Physical Systems (CPS)</h3>
+<p>The <strong>5C Architecture</strong> for Cyber-Physical Systems (CPS) is a layered framework developed for smart manufacturing systems and Industry 4.0. It enables the integration of physical and cyber components to collect, analyze, and act on real-time data. The five layers are:</p>
+<ul>
+<li>
+<p><strong>Connection</strong> - foundational layer comprised of sensors and actuators</p>
+</li>
+<li>
+<p><strong>Conversion</strong> - processes and coverts raw data</p>
+</li>
+<li>
+<p><strong>Cyber</strong> - digital representation of physical system</p>
+</li>
+<li>
+<p><strong>Cognition</strong> - interpreting data</p>
+</li>
+<li>
+<p><strong>Configuration</strong> - decisions regarding manipulating the enviroment</p>
+</li>
+</ul>
+<h4 id="key-components-of-5c-architecture">Key Components of 5C Architecture</h4>
+<h5 id="1-connection-layer">1. Connection Layer</h5>
+<p><strong>Purpose</strong>: The foundational layer where data from physical devices is collected, using sensors and actuators to monitor and interact with the physical world.</p>
+<p><strong>Key Functions</strong><br />
+-   Data collection from machines, devices, or equipment.</p>
+<ul>
+<li>
+<p>Sensors monitor conditions such as temperature, pressure, speed, and performance.</p>
+</li>
+<li>
+<p>Actuators execute physical actions based on instructions.</p>
+</li>
+</ul>
+<p><strong>Example</strong>: Sensors attached to a machine collect data on temperature and vibration levels.</p>
+<h5 id="2-conversion-layer">2. Conversion Layer</h5>
+<p><strong>Purpose</strong>: This layer processes and converts raw data into meaningful information by filtering, aggregating, and formatting the data for further analysis.</p>
+<p><strong>Key Functions</strong><br />
+-   Data filtering and preprocessing.</p>
+<ul>
+<li>
+<p>Transformation of raw data into actionable information.</p>
+</li>
+<li>
+<p>Initial data analysis for anomaly detection.</p>
+</li>
+</ul>
+<p><strong>Example</strong>: Machine data is processed to determine if temperature readings are outside normal operating ranges.</p>
+<h5 id="3-cyber-layer">3. Cyber Layer</h5>
+<p><strong>Purpose</strong>: The Cyber layer serves as the digital representation of the physical system, often using digital twin technology and advanced data analytics for real-time monitoring and simulation.</p>
+<p><strong>Key Functions</strong><br />
+-   Advanced data analytics and machine learning.</p>
+<ul>
+<li>
+<p>Digital twin for real-time monitoring and prediction.</p>
+</li>
+<li>
+<p>Cloud or local storage of analyzed data.</p>
+</li>
+</ul>
+<p><strong>Example</strong>: A digital twin of the machine is created to simulate and predict future behavior based on historical data.</p>
+<h5 id="4-cognition-layer">4. Cognition Layer</h5>
+<p><strong>Purpose</strong>: This layer is responsible for interpreting the data collected, identifying patterns, diagnosing issues, and generating actionable insights.</p>
+<p><strong>Key Functions</strong><br />
+-   Pattern recognition and anomaly detection.</p>
+<ul>
+<li>
+<p>Diagnostic and predictive analytics.</p>
+</li>
+<li>
+<p>Insight generation for decision-making.</p>
+</li>
+</ul>
+<p><strong>Example</strong>: The system identifies an abnormal rise in temperature, suggesting the need for preventive maintenance.</p>
+<h5 id="5-configuration-layer">5. Configuration Layer</h5>
+<p><strong>Purpose</strong>: The highest layer enables real-time adjustments and decision-making based on the insights from the Cognition layer, optimizing system performance automatically.</p>
+<p><strong>Key Functions</strong><br />
+-   Automated control and adjustment of physical systems.</p>
+<ul>
+<li>
+<p>Feedback loops for continuous optimization.</p>
+</li>
+<li>
+<p>Dynamic reconfiguration for efficiency and reliability.</p>
+</li>
+</ul>
+<p><strong>Example</strong>: The system reduces machine speed or sends a maintenance alert based on the abnormal temperature rise.</p>
+<hr />
+<h3 id="3-iot-a-internet-of-things-architecture">3. IoT-A (Internet of Things Architecture):</h3>
+<p>The <strong>IoT-A (Internet of Things Architecture)</strong> is a reference architecture designed to provide a standardized approach to developing <strong>Internet of Things (IoT)</strong> systems, which are often an essential component of <strong>cyber-physical systems (CPS)</strong>. It was created as part of a European research project aimed at defining a common architecture to ensure interoperability and scalability across diverse IoT solutions.</p>
+<h4 id="key-components-of-iot-a-architecture">Key Components of IoT-A Architecture</h4>
+<p>The IoT-A architecture is composed of various layers and components that work together to connect the physical world with the digital world, enabling real-time data collection, analysis, and control. Below is a breakdown of its core components:</p>
+<h5 id="1-device-layer-perception-layer">1. Device Layer (Perception Layer)</h5>
+<p><strong>Purpose</strong>: The device layer is where the interaction with the physical world occurs. It includes all the physical devices and sensors that collect data from the environment.</p>
+<p><strong>Key Components</strong><br />
+-   <strong>Sensors</strong>: These gather data about physical phenomena like temperature, humidity, motion, or light.</p>
+<ul>
+<li><strong>Actuators</strong>: These are devices that act upon the environment based on commands, such as turning a machine on/off or adjusting a thermostat.</li>
+</ul>
+<p><strong>Function</strong>: This layer is responsible for sensing and interacting with the physical environment, converting physical signals into digital data, and sending commands to physical devices.</p>
+<h5 id="2-network-layer">2. Network Layer</h5>
+<p><strong>Purpose</strong>: The network layer facilitates communication between IoT devices and the backend systems or cloud infrastructure.</p>
+<p><strong>Key Components</strong><br />
+-   <strong>Communication Protocols</strong>: Common protocols include Wi-Fi, Bluetooth, ZigBee, LoRa, and 5G, depending on the requirements for range, bandwidth, and power consumption.</p>
+<ul>
+<li><strong>Gateways</strong>: These serve as intermediaries between the devices and the internet, aggregating data from local devices and sending it to the cloud.</li>
+</ul>
+<p><strong>Function</strong>: This layer is responsible for reliable transmission of data from devices to cloud or edge services and, in some cases, sending commands back to the devices.</p>
+<h5 id="3-middleware-layer-processing-layer">3. Middleware Layer (Processing Layer)</h5>
+<p><strong>Purpose</strong>: The middleware layer serves as a bridge between the network layer and application layer, handling data aggregation, processing, and management.</p>
+<p><strong>Key Components</strong><br />
+-   <strong>Data Aggregation</strong>: Combines data from multiple sources and formats it for processing.</p>
+<ul>
+<li>
+<p><strong>Data Storage</strong>: Stores large amounts of sensor data either locally or in the cloud.</p>
+</li>
+<li>
+<p><strong>Data Processing</strong>: Performs initial data processing (e.g., filtering or preprocessing) and sometimes provides real-time analytics.</p>
+</li>
+<li>
+<p><strong>Service Management</strong>: Manages the various services that interact with devices, allowing for service discovery, orchestration, and integration.</p>
+</li>
+</ul>
+<p><strong>Function</strong>: This layer enables efficient management and coordination of the large volumes of data generated by IoT devices. It also helps with service orchestration, security, and scalability.</p>
+<h5 id="4-application-layer">4. Application Layer</h5>
+<p><strong>Purpose</strong>: The application layer is responsible for providing end-users or businesses with insights and control over IoT systems through user interfaces or automated services.</p>
+<p><strong>Key Components</strong><br />
+-   <strong>User Applications</strong>: These are the apps or dashboards that users interact with, such as mobile apps for smart homes, industrial control panels, or fleet management systems.</p>
+<ul>
+<li><strong>Analytics Engines</strong>: Performs complex data analytics, applying machine learning, predictive modeling, or optimization algorithms to data from IoT devices.</li>
+</ul>
+<p><strong>Function</strong>: This layer delivers the data and results to users, enabling them to monitor and control the IoT devices, or allowing autonomous control based on pre-defined rules and algorithms.</p>
+<h5 id="5-business-layer">5. Business Layer</h5>
+<p><strong>Purpose</strong>: The business layer defines business logic, policies, and goals that drive the IoT system’s functioning.</p>
+<p><strong>Key Components</strong><br />
+-   <strong>Business Rules and Workflows</strong>: Define how data insights lead to actions or decision-making.</p>
+<ul>
+<li>
+<p><strong>Monetization Strategies</strong>: In the case of IoT products, this layer manages how IoT services and devices can be monetized.</p>
+</li>
+<li>
+<p><strong>Business Process Integration</strong>: Ensures the IoT system aligns with broader enterprise IT systems, such as CRM or ERP systems.</p>
+</li>
+</ul>
+<p><strong>Function</strong>: The business layer ties the IoT solution to the organization’s strategic goals, ensuring that the system delivers value by optimizing operations, generating insights, or providing new revenue streams.</p>
+<h5 id="6-security-layer">6. Security Layer</h5>
+<p><strong>Purpose</strong>: Security is an essential cross-layer component that permeates the entire architecture to ensure the system is protected from cyber threats, unauthorized access, and data breaches.</p>
+<p><strong>Key Components</strong><br />
+-   <strong>Authentication and Authorization</strong>: Verifies the identity of users, devices, and applications to ensure only authorized entities can interact with the IoT system.</p>
+<ul>
+<li>
+<p><strong>Data Encryption</strong>: Protects the confidentiality of data transmitted across the network.</p>
+</li>
+<li>
+<p><strong>Access Control Policies</strong>: Define who can interact with specific devices or data within the system.</p>
+</li>
+<li>
+<p><strong>Intrusion Detection and Prevention</strong>: Monitors for and defends against malicious attacks.</p>
+</li>
+</ul>
+<p><strong>Function</strong>: This layer ensures the confidentiality, integrity, and availability of the system, protecting it from external and internal threats.</p>
+<hr />
+<h3 id="4-nist-cyber-physical-systems-cps-framework">4. NIST Cyber-Physical Systems (CPS) Framework</h3>
+<p>The <strong>NIST Cyber-Physical Systems (CPS) Framework</strong> is structured around three core concepts: <strong>domains</strong>, <strong>facets</strong>, and <strong>aspects</strong>. These concepts help in analyzing and designing CPS across multiple domains such as healthcare, transportation, manufacturing, and smart cities.</p>
+<h4 id="1-domains">1. Domains</h4>
+<p><strong>Definition</strong>: Domains refer to specific application areas or environments where CPS are deployed. These are typically industries or sectors where CPS technology is implemented.</p>
+<p><strong>Examples</strong><br />
+-   Smart cities</p>
+<ul>
+<li>
+<p>Manufacturing</p>
+</li>
+<li>
+<p>Transportation</p>
+</li>
+<li>
+<p>Healthcare</p>
+</li>
+<li>
+<p>Energy</p>
+</li>
+</ul>
+<p><strong>Purpose</strong>: Domains represent the specific context or field of CPS deployment, helping stakeholders understand the specialized needs, requirements, and goals of a CPS in that domain.</p>
+<h4 id="2-facets">2. Facets</h4>
+<p><strong>Definition</strong>: Facets are the primary perspectives through which CPS systems are analyzed. They encompass the stages of the system engineering process and capture different aspects of CPS development and deployment.</p>
+<h5 id="the-three-main-facets">The Three Main Facets:</h5>
+<ol>
+<li>
+<p><strong>Conceptualization</strong> - Focuses on the early-stage activities such as defining high-level goals, functional requirements, and the organization of a CPS.</p>
+<ul>
+<li><strong>Output</strong>: Conceptual models and functional decomposition of the CPS.</li>
+</ul>
+</li>
+<li>
+<p><strong>Realization</strong> - Encompasses the detailed engineering design, production, implementation, and operational activities that create the actual CPS.</p>
+<ul>
+<li><strong>Output</strong>: Detailed designs, simulations, and trade-off analyses that lead to the actual deployment of the system.</li>
+</ul>
+</li>
+<li>
+<p><strong>Assurance</strong> - Ensures that the CPS functions as intended by verifying and validating that it meets design goals and requirements.</p>
+<ul>
+<li><strong>Output</strong>: Evidence-based assurance through testing, validation, and compliance with standards, laws, and regulations.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Purpose</strong>: These facets guide the complete CPS lifecycle from conception to realization and verification, ensuring each phase addresses key requirements.</p>
+<h4 id="3-aspects">3. Aspects</h4>
+<p><strong>Definition</strong>: Aspects are cross-cutting concerns that impact multiple domains and facets of CPS. These are areas of interest that must be addressed across the entire CPS lifecycle, and they often overlap with one another.</p>
+<h5 id="the-nine-main-aspects">The Nine Main Aspects:</h5>
+<ol>
+<li>
+<p><strong>Functional</strong>: Concerns about the functionality, sensing, actuation, control, and communications of the CPS.</p>
+</li>
+<li>
+<p><strong>Business</strong>: Relates to business factors such as cost, time-to-market, regulations, and enterprise objectives.</p>
+</li>
+<li>
+<p><strong>Human</strong>: Focuses on human interaction with the CPS, including usability and ergonomics.</p>
+</li>
+<li>
+<p><strong>Trustworthiness</strong>: Covers security, privacy, safety, reliability, and resilience of the CPS.</p>
+</li>
+<li>
+<p><strong>Timing</strong>: Addresses timing issues like synchronization, latency, and real-time performance.</p>
+</li>
+<li>
+<p><strong>Data</strong>: Involves concerns around data handling, interoperability, metadata, and data fusion.</p>
+</li>
+<li>
+<p><strong>Boundaries</strong>: Refers to the boundaries between different CPS components or between CPS and external systems.</p>
+</li>
+<li>
+<p><strong>Composition</strong>: Deals with the ability to compose CPS from different components and ensure they function cohesively.</p>
+</li>
+<li>
+<p><strong>Lifecycle</strong>: Addresses the entire lifecycle of the CPS, including development, operation, and decommissioning.</p>
+</li>
+</ol>
+<p>For more information on the NIST CPS framework, see this PDF.</p>
+<hr />
+<h3 id="5-edge-fog-and-cloud-computing-frameworks">5. Edge, Fog, and Cloud Computing Frameworks</h3>
+<p><strong>Edge</strong>, <strong>Fog</strong>, and <strong>Cloud Computing</strong> are different approaches to processing, storing, and analyzing data in a network. They vary based on where the data is processed and the proximity to the devices generating the data.</p>
+<ul>
+<li>
+<p><strong>Edge Computing:</strong> Real-time processing is crucial (e.g., autonomous vehicles, smart grids, industrial robots).</p>
+</li>
+<li>
+<p><strong>Fog Computing:</strong> A balance between local real-time processing and large-scale analytics (e.g., smart city infrastructure, connected healthcare systems).</p>
+</li>
+<li>
+<p><strong>Cloud Computing:</strong> Large-scale data storage, analysis, and machine learning (e.g., e-commerce platforms, social media, big data analytics).</p>
+</li>
+</ul>
+<h4 id="1-edge-computing">1. Edge Computing</h4>
+<p><strong>Location of Processing:</strong> Data is processed <strong>at or near the source</strong> of data generation (i.e., at the "edge" of the network).</p>
+<p><strong>Description:</strong> Edge computing brings computation and data storage closer to the devices or sensors collecting the data. It minimizes the need to send large amounts of data to a centralized cloud for processing.</p>
+<p><strong>Benefits:</strong><br />
+-   <strong>Low Latency:</strong> Real-time data processing with minimal delay since data doesn’t travel far.</p>
+<ul>
+<li>
+<p><strong>Bandwidth Efficiency:</strong> Reduces the amount of data sent to the cloud, saving network bandwidth.</p>
+</li>
+<li>
+<p><strong>Security &amp; Privacy:</strong> Sensitive data can be processed locally, reducing exposure to network attacks.</p>
+</li>
+</ul>
+<p><strong>Use Cases:</strong> Autonomous vehicles, industrial automation, smart cameras, IoT devices that require real-time responses.</p>
+<h4 id="2-fog-computing">2. Fog Computing</h4>
+<p><strong>Location of Processing:</strong> Data is processed <strong>at intermediate layers</strong> between the edge and the cloud, often at local gateways or routers.</p>
+<p><strong>Description:</strong> Fog computing extends cloud services closer to the edge but not as close as edge computing. It creates a distributed computing infrastructure that connects the edge devices to the cloud. It acts as a middle layer, processing some data locally while sending other data to the cloud for further analysis.</p>
+<p><strong>Benefits:</strong><br />
+-   <strong>Scalability:</strong> Allows data processing at multiple layers (edge, fog, and cloud) depending on the needs of the system.</p>
+<ul>
+<li>
+<p><strong>Distributed Processing:</strong> Can offload heavy computational tasks from edge devices and still reduce latency compared to cloud computing.</p>
+</li>
+<li>
+<p><strong>Enhanced Security:</strong> Fog nodes can filter sensitive data before it reaches the cloud, adding an extra layer of privacy.</p>
+</li>
+</ul>
+<p><strong>Use Cases:</strong> Smart cities, connected healthcare, large-scale IoT networks, where both real-time and large-scale data processing are required.</p>
+<h4 id="3-cloud-computing">3. Cloud Computing</h4>
+<p><strong>Location of Processing:</strong> Data is processed and stored <strong>in centralized data centers</strong> (the "cloud"), often far from the source of the data.</p>
+<p><strong>Description:</strong> Cloud computing provides on-demand access to computational resources (such as servers, storage, and applications) over the internet. It centralizes data storage and heavy processing, allowing users to scale resources as needed.</p>
+<p><strong>Benefits:</strong><br />
+-   <strong>Resource Scalability:</strong> Almost infinite scalability in storage and processing power.</p>
+<ul>
+<li>
+<p><strong>Cost Efficiency:</strong> Users can avoid investing in expensive hardware and pay only for the resources they use.</p>
+</li>
+<li>
+<p><strong>Global Accessibility:</strong> Accessible from anywhere with an internet connection.</p>
+</li>
+</ul>
+<p><strong>Use Cases:</strong> Big data analytics, machine learning model training, enterprise-level applications, video streaming, and online services.</p>
+<h4 id="key-differences">Key Differences</h4>
+<ol>
+<li>
+<p><strong>Proximity to Data Source:</strong></p>
+<ul>
+<li>
+<p><strong>Edge:</strong> Closest to the data source (e.g., sensors, devices).</p>
+</li>
+<li>
+<p><strong>Fog:</strong> Between the edge and the cloud, at network gateways or routers.</p>
+</li>
+<li>
+<p><strong>Cloud:</strong> Furthest from the data source, in remote data centers.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Latency:</strong></p>
+<ul>
+<li>
+<p><strong>Edge:</strong> Lowest latency (real-time or near real-time responses).</p>
+</li>
+<li>
+<p><strong>Fog:</strong> Moderate latency (data processed closer than the cloud but not at the edge).</p>
+</li>
+<li>
+<p><strong>Cloud:</strong> Higher latency due to data transmission over long distances.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Processing:</strong></p>
+<ul>
+<li>
+<p><strong>Edge:</strong> Processes data locally on the devices or nearby servers.</p>
+</li>
+<li>
+<p><strong>Fog:</strong> Processes data partially, filtering or aggregating before sending it to the cloud.</p>
+</li>
+<li>
+<p><strong>Cloud:</strong> Centralized processing in large-scale data centers.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Volume:</strong></p>
+<ul>
+<li>
+<p><strong>Edge:</strong> Handles smaller volumes of data (localized).</p>
+</li>
+<li>
+<p><strong>Fog:</strong> Handles intermediate volumes of data.</p>
+</li>
+<li>
+<p><strong>Cloud:</strong> Designed to handle large volumes of data for in-depth analysis and storage.</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="digital-twin-framework">Digital Twin Framework</h3>
+<p>A <strong>digital twin</strong> is a highly detailed virtual model of a physical object, system, or process, continuously updated with real-time data to reflect its real-world counterpart’s state and behavior. This connection enables organizations to monitor, simulate, and analyze the performance of the physical entity throughout its entire lifecycle, from design and development to operation and maintenance.</p>
+<p>A digital twin acts as a bridge between the physical and digital worlds, providing an up-to-date, dynamic model that can be used for monitoring, simulation, and optimization. By offering real-time insights and predictive analytics, digital twins help organizations enhance performance, improve reliability, and reduce costs.</p>
+<h4 id="key-components-of-a-digital-twin">Key Components of a Digital Twin:</h4>
+<ol>
+<li>
+<p><strong>Physical Entity:</strong> The actual object or system being represented, such as a machine, building, or even a person.</p>
+</li>
+<li>
+<p><strong>Virtual Model:</strong> A digital replica that mirrors the physical entity. This model is typically constructed using advanced simulations, algorithms, machine learning, and real-time data from sensors attached to the physical object.</p>
+</li>
+<li>
+<p><strong>Data Flow:</strong> Continuous data exchange between the physical and virtual twin, enabled by sensors, networks, and IoT devices. This data includes real-time performance metrics, environmental conditions, and historical data.</p>
+</li>
+</ol>
+<h4 id="how-a-digital-twin-works">How a Digital Twin Works:</h4>
+<p>The digital twin continuously synchronizes with its physical counterpart through sensors and connected devices, capturing real-time data on various parameters like temperature, pressure, or movement. This data is fed into the virtual model, enabling it to reflect the current state of the physical object. Advanced algorithms and simulations within the digital twin allow it to:</p>
+<ul>
+<li>
+<p><strong>Monitor:</strong> Track the real-time status and performance of the physical object.</p>
+</li>
+<li>
+<p><strong>Simulate:</strong> Predict future states based on current conditions, run “what-if” scenarios, and evaluate potential outcomes.</p>
+</li>
+<li>
+<p><strong>Analyze:</strong> Identify potential issues or inefficiencies, offering insights for optimization.</p>
+</li>
+<li>
+<p><strong>Optimize:</strong> Provide recommendations for improving performance or preemptively address maintenance needs.</p>
+</li>
+</ul>
+<h4 id="benefits-of-digital-twins">Benefits of Digital Twins:</h4>
+<ul>
+<li>
+<p><strong>Predictive Maintenance:</strong> By continuously monitoring the physical object, digital twins can predict when components will fail, allowing for maintenance to be scheduled proactively, reducing downtime.</p>
+</li>
+<li>
+<p><strong>Improved Design &amp; Testing:</strong> During the design phase, engineers can use the digital twin to simulate different conditions and designs, reducing the need for physical prototypes and testing.</p>
+</li>
+<li>
+<p><strong>Operational Efficiency:</strong> Real-time insights allow organizations to optimize operations by making informed decisions about performance, energy usage, and resource allocation.</p>
+</li>
+<li>
+<p><strong>Enhanced Decision-Making:</strong> Digital twins enable data-driven decision-making, as they provide a comprehensive view of the current state, future potential issues, and opportunities for improvement.</p>
+</li>
+</ul>
+<h4 id="use-cases">Use Cases:</h4>
+<ul>
+<li>
+<p><strong>Manufacturing:</strong> Digital twins of production lines allow manufacturers to simulate and optimize factory processes, reducing waste and improving productivity.</p>
+</li>
+<li>
+<p><strong>Healthcare:</strong> Patient-specific digital twins are used to personalize treatment plans and simulate potential medical interventions.</p>
+</li>
+<li>
+<p><strong>Smart Cities:</strong> Cities like Singapore have digital twins of urban infrastructure, enabling better planning, traffic management, and sustainability efforts.</p>
+</li>
+<li>
+<p><strong>Aerospace:</strong> Companies like Boeing use digital twins of aircraft to track and optimize performance, safety, and maintenance schedules.</p>
+</li>
+</ul>
+<p>Last updated 2024-11-12 19:22:16 -0500</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

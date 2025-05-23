@@ -1,0 +1,4206 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Module3/">
+      
+      
+        <link rel="next" href="../Module5/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Module 4 - Wireless Communication Protocols - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wireless-communication-protocols" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 4 - Wireless Communication Protocols
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../labs/Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wireless-communication-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wireless Communication Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wireless Communication Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparison-of-wireless-communication-technologies-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison of Wireless Communication Technologies in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of Bluetooth
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of Bluetooth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-bluetooth-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Bluetooth Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bluetooth Versions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bluetooth Profiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Bluetooth
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Bluetooth
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wifi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wifi
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wifi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-wi-fi-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Wi-Fi Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wi-fi-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wi-Fi Standards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features-of-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features of Wi-Fi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Wi-Fi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Wi-Fi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-use-cases_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireless-protocols-for-home-automation-and-industrial-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wireless Protocols for Home Automation and Industrial Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wireless Protocols for Home Automation and Industrial Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zigbee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zigbee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#z-wave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Wave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellular" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cellular
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cellular">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5g-fifth-generation-cellular-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      5G (Fifth Generation Cellular Network)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5G (Fifth Generation Cellular Network)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4g-lte-long-term-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      4G LTE (Long-Term Evolution)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4G LTE (Long-Term Evolution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellular-v2x-vehicle-to-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cellular V2X (Vehicle-to-Everything)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cellular V2X (Vehicle-to-Everything)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Key Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpwan-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      LPWAN Technologies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LPWAN Technologies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sigfox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sigfox
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sigfox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lorawan-long-range-wide-area-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoRaWAN (Long Range Wide Area Network)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LoRaWAN (Long Range Wide Area Network)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nb-iot-narrowband-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      NB-IoT (Narrowband IoT)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NB-IoT (Narrowband IoT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-lpwan-technologies-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of LPWAN Technologies in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ultra-wideband-uwb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ultra-Wideband (UWB)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ultra-Wideband (UWB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features-of-uwb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features of UWB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-of-uwb-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications of UWB in CPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-uwb-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of UWB in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radio-frequency-identification-rfid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radio Frequency Identification (RFID)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Radio Frequency Identification (RFID)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-rfid-types-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of RFID Types in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wireless-communication-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wireless Communication Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wireless Communication Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparison-of-wireless-communication-technologies-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison of Wireless Communication Technologies in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of Bluetooth
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of Bluetooth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-bluetooth-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Bluetooth Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bluetooth Versions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bluetooth Profiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Bluetooth
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Bluetooth
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wifi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wifi
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wifi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-wi-fi-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Wi-Fi Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wi-fi-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wi-Fi Standards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features-of-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features of Wi-Fi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Wi-Fi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages of Wi-Fi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-use-cases_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireless-protocols-for-home-automation-and-industrial-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wireless Protocols for Home Automation and Industrial Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wireless Protocols for Home Automation and Industrial Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zigbee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zigbee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#z-wave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Wave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellular" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cellular
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cellular">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5g-fifth-generation-cellular-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      5G (Fifth Generation Cellular Network)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5G (Fifth Generation Cellular Network)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4g-lte-long-term-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      4G LTE (Long-Term Evolution)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4G LTE (Long-Term Evolution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellular-v2x-vehicle-to-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cellular V2X (Vehicle-to-Everything)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cellular V2X (Vehicle-to-Everything)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Key Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpwan-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      LPWAN Technologies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LPWAN Technologies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sigfox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sigfox
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sigfox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lorawan-long-range-wide-area-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoRaWAN (Long Range Wide Area Network)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LoRaWAN (Long Range Wide Area Network)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nb-iot-narrowband-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      NB-IoT (Narrowband IoT)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NB-IoT (Narrowband IoT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-cps_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-lpwan-technologies-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of LPWAN Technologies in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ultra-wideband-uwb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ultra-Wideband (UWB)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ultra-Wideband (UWB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features-of-uwb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features of UWB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-of-uwb-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications of UWB in CPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-uwb-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of UWB in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radio-frequency-identification-rfid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radio Frequency Identification (RFID)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Radio Frequency Identification (RFID)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-rfid-types-in-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of RFID Types in CPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="wireless-communication-protocols">Wireless Communication Protocols</h1>
+<h2 id="wireless-communication-overview">Wireless Communication Overview</h2>
+<p>The choice of electromagnetic frequency band for wireless communication depends on the specific application, considering factors like range, data rate, and susceptibility to interference. Lower frequencies (below 1 GHz) are favored for long-range communication with low power consumption, while higher frequencies (like SHF and EHF) provide much faster data rates but are limited in range and line-of-sight. ISM (Industrial, Scientific, Medical) bands are widely used for consumer electronics due to their unlicensed nature.</p>
+<table>
+<thead>
+<tr>
+<th>Band</th>
+<th>Range (MHz/GHz)</th>
+<th>Common Uses</th>
+<th>Characteristics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VLF</td>
+<td>3 kHz - 30 kHz</td>
+<td>Military, maritime communication</td>
+<td>Very long-range, low data rates</td>
+</tr>
+<tr>
+<td>LF</td>
+<td>30 kHz - 300 kHz</td>
+<td>RFID, navigation, long-wave AM radio</td>
+<td>Long-range, low power, low data rates</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>300 kHz - 3 MHz</td>
+<td>AM radio, maritime communication</td>
+<td>Decent range, primarily analog audio transmission</td>
+</tr>
+<tr>
+<td>HF</td>
+<td>3 MHz - 30 MHz</td>
+<td>Shortwave radio, amateur radio</td>
+<td>Long-distance, reflection off the ionosphere, limited data</td>
+</tr>
+<tr>
+<td>VHF</td>
+<td>30 MHz - 300 MHz</td>
+<td>FM radio, TV, public safety, aircraft communication</td>
+<td>Moderate range, higher data rates, line-of-sight</td>
+</tr>
+<tr>
+<td>UHF</td>
+<td>300 MHz - 3 GHz</td>
+<td>Wi-Fi, Bluetooth, cellular, TV broadcasting</td>
+<td>Popular for short-to-medium range, moderate data rates</td>
+</tr>
+<tr>
+<td>SHF</td>
+<td>3 GHz - 30 GHz</td>
+<td>Wi-Fi (5GHz), satellite, radar, 5G</td>
+<td>High-speed, short range, more attenuation</td>
+</tr>
+<tr>
+<td>EHF</td>
+<td>30 GHz - 300 GHz</td>
+<td>5G (mmWave), satellite, radar</td>
+<td>Ultra-high-speed, short-range</td>
+</tr>
+<tr>
+<td>Sub-GHz</td>
+<td>300 MHz - 1 GHz</td>
+<td>LoRa, Sigfox, long-range IoT, rural communication</td>
+<td>Long-range, low power consumption</td>
+</tr>
+<tr>
+<td>ISM</td>
+<td>2.4 GHz, 5 GHz, 433 MHz</td>
+<td>Wi-Fi, Bluetooth, Zigbee, RFID, IoT</td>
+<td>Unlicensed bands, consumer devices, prone to interference</td>
+</tr>
+<tr>
+<td>mmWave</td>
+<td>24 GHz - 100 GHz</td>
+<td>5G, radar, high-speed short-range communication</td>
+<td>High-speed, very short-range, used for dense areas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comparison-of-wireless-communication-technologies-in-cps">Comparison of Wireless Communication Technologies in CPS</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Technology</strong></th>
+<th><strong>Range</strong></th>
+<th><strong>Operating Band</strong></th>
+<th><strong>Data Transfer Speeds</strong></th>
+<th><strong>Common Applications</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bluetooth</strong></td>
+<td>10–100 meters (Class 1 &amp; 2)</td>
+<td>2.4 GHz</td>
+<td>1–3 Mbps (Classic) / 125 kbps to 2 Mbps (BLE)</td>
+<td>Audio streaming, wearable devices, smart home peripherals</td>
+</tr>
+<tr>
+<td><strong>Wi-Fi</strong></td>
+<td>30–100 meters (depending on frequency)</td>
+<td>2.4 GHz, 5 GHz, 6 GHz (Wi-Fi 6E)</td>
+<td>600 Mbps to 9.6 Gbps (Wi-Fi 6)</td>
+<td>Internet connectivity, smart home devices, high-speed data transfer</td>
+</tr>
+<tr>
+<td><strong>Zigbee</strong></td>
+<td>10–100 meters</td>
+<td>2.4 GHz (globally), 868 MHz (EU), 915 MHz (NA)</td>
+<td>Up to 250 kbps</td>
+<td>Smart lighting, home automation, sensor networks</td>
+</tr>
+<tr>
+<td><strong>Z-Wave</strong></td>
+<td>30–100 meters</td>
+<td>868 MHz (EU), 908 MHz (NA)</td>
+<td>Up to 100 kbps</td>
+<td>Smart home security, automation, HVAC control</td>
+</tr>
+<tr>
+<td><strong>Matter</strong></td>
+<td>30–100 meters</td>
+<td>2.4 GHz (Wi-Fi, Thread), Ethernet</td>
+<td>Varies by underlying protocol</td>
+<td>Cross-platform smart home devices (lights, locks, appliances)</td>
+</tr>
+<tr>
+<td><strong>5G</strong></td>
+<td>Up to 10 km (urban), 500+ meters (mmWave)</td>
+<td>Sub-1 GHz, 1-6 GHz (mid-band), 24 GHz+ (mmWave)</td>
+<td>Up to 10 Gbps</td>
+<td>Autonomous vehicles, industrial IoT, smart cities, mobile broadband</td>
+</tr>
+<tr>
+<td><strong>4G LTE</strong></td>
+<td>Up to 10 km</td>
+<td>600 MHz to 3.5 GHz</td>
+<td>Up to 300 Mbps</td>
+<td>IoT devices, remote monitoring, consumer mobile devices</td>
+</tr>
+<tr>
+<td><strong>NB-IoT</strong> (LPWAN)</td>
+<td>Several km (urban)</td>
+<td>Licensed spectrum (LTE bands)</td>
+<td>Up to 250 kbps</td>
+<td>Smart metering, healthcare, smart infrastructure</td>
+</tr>
+<tr>
+<td><strong>Sigfox</strong> (LPWAN)</td>
+<td>Up to 50 km (rural)</td>
+<td>Sub-GHz (868/915 MHz)</td>
+<td>100 bps</td>
+<td>Asset tracking, smart city sensors, industrial monitoring</td>
+</tr>
+<tr>
+<td><strong>LoRaWAN</strong> (LPWAN)</td>
+<td>Up to 15 km (rural), 2-5 km (urban)</td>
+<td>Sub-GHz (868/915 MHz)</td>
+<td>0.3 kbps – 50 kbps</td>
+<td>Smart agriculture, utility metering, environmental monitoring</td>
+</tr>
+<tr>
+<td><strong>UWB</strong> (Ultra-Wideband)</td>
+<td>10–100 meters</td>
+<td>3.1 GHz – 10.6 GHz</td>
+<td>Up to 480 Mbps</td>
+<td>Precision location tracking, real-time location systems, secure access</td>
+</tr>
+<tr>
+<td><strong>LF RFID</strong></td>
+<td>10 cm – 1 meter</td>
+<td>30 kHz – 300 kHz</td>
+<td>Low (close-range data exchange)</td>
+<td>Access control, livestock tracking, industrial automation</td>
+</tr>
+<tr>
+<td><strong>HF RFID</strong></td>
+<td>10 cm – 1.5 meters</td>
+<td>3 MHz – 30 MHz</td>
+<td>Moderate (higher than LF)</td>
+<td>Smart cards, inventory tracking, healthcare</td>
+</tr>
+<tr>
+<td><strong>UHF RFID</strong></td>
+<td>Up to 12 meters (passive), 100 meters (active)</td>
+<td>300 MHz – 3 GHz</td>
+<td>High (compared to LF/HF)</td>
+<td>Supply chain logistics, vehicle tracking, inventory management</td>
+</tr>
+<tr>
+<td><strong>Microwave RFID</strong></td>
+<td>Up to 30 meters</td>
+<td>2.4 GHz and above</td>
+<td>Very High</td>
+<td>Real-time location tracking, toll collection, aerospace and defense</td>
+</tr>
+</tbody>
+</table>
+<h2 id="communication-protocols">Communication Protocols</h2>
+<h3 id="overview-of-bluetooth">Overview of Bluetooth</h3>
+<p><strong>Bluetooth</strong> is a wireless communication technology designed for short-range data exchange between devices using low-power radio waves. It operates in the 2.4 GHz ISM (Industrial, Scientific, and Medical) band and is widely used in personal area networks (PANs) to enable data exchange and connectivity between mobile devices, computers, wearables, IoT devices, and more.</p>
+<h4 id="key-characteristics">Key Characteristics</h4>
+<ul>
+<li>
+<p><strong>Frequency Band</strong>: Bluetooth operates in the 2.4 GHz ISM (Industrial, Scientific, and Medical) band.</p>
+</li>
+<li>
+<p><strong>Range</strong>: Bluetooth devices typically have a range of 10 meters (Class 2) but can extend to up to 100 meters (Class 1) in some applications.</p>
+</li>
+<li>
+<p><strong>Data Rates</strong>: Ranges from 1 Mbps (Bluetooth Classic) to 2 Mbps (Bluetooth Low Energy, BLE 5.0 and later).</p>
+</li>
+<li>
+<p><strong>Topology</strong>: Supports point-to-point, point-to-multipoint (piconets), and mesh networks (Bluetooth Mesh).</p>
+</li>
+</ul>
+<h4 id="how-bluetooth-works">How Bluetooth Works</h4>
+<ol>
+<li>
+<p><strong>Pairing</strong>: Devices need to be paired before they can communicate. During this process, they exchange security keys to establish a trusted connection.</p>
+</li>
+<li>
+<p><strong>Communication</strong>: Once paired, Bluetooth uses either a master-slave or peer-to-peer relationship. One device (the master) controls communication, while others (slaves) respond. In Bluetooth Low Energy (BLE), devices can communicate with minimal power consumption.</p>
+</li>
+<li>
+<p><strong>Data Transmission</strong>: Bluetooth transmits data in small packets over short distances (usually within 10 meters). It supports various profiles for different applications, such as audio streaming (A2DP), file transfer, or device control (HID).</p>
+</li>
+<li>
+<p><strong>Frequency Hopping</strong>: To avoid interference, Bluetooth uses a technique called frequency hopping, which quickly switches between different frequencies within the 2.4 GHz band, reducing the chance of interference from other wireless devices.</p>
+</li>
+</ol>
+<h4 id="bluetooth-versions">Bluetooth Versions</h4>
+<p>Bluetooth has evolved over time, with several versions that introduce new features and improvements:</p>
+<ol>
+<li>
+<p><strong>Bluetooth 2.0 + EDR (Enhanced Data Rate)</strong>:</p>
+<ul>
+<li>
+<p>Improved data rate up to 3 Mbps.</p>
+</li>
+<li>
+<p>Commonly used for wireless headsets, keyboards, and mice.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bluetooth 4.0 (Bluetooth Low Energy, BLE)</strong>:</p>
+<ul>
+<li>
+<p>Introduced BLE, a low-power variant of Bluetooth.</p>
+</li>
+<li>
+<p>Ideal for IoT devices, fitness trackers, and other battery-powered devices.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bluetooth 5.0</strong>:</p>
+<ul>
+<li>
+<p>Extended range and increased data transfer rates.</p>
+</li>
+<li>
+<p>Supports mesh networking for larger, decentralized device networks.</p>
+</li>
+<li>
+<p>Improved speed for BLE and enhanced coexistence with other wireless technologies like Wi-Fi.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bluetooth 5.1</strong> and <strong>5.2</strong>:</p>
+<ul>
+<li>
+<p>Introduced direction-finding features, allowing more precise location tracking.</p>
+</li>
+<li>
+<p>Enhancements for audio quality and reduced latency, especially for BLE audio devices.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="bluetooth-profiles">Bluetooth Profiles</h4>
+<p>Bluetooth uses <strong>profiles</strong> to define how devices communicate for specific tasks. These profiles standardize the functionality and ensure compatibility across devices. Common Bluetooth profiles include:</p>
+<ul>
+<li>
+<p><strong>Advanced Audio Distribution Profile</strong> (A2DP) - Transmits stereo-quality audio between devices.</p>
+</li>
+<li>
+<p><strong>Audio/Video Remote Control Profile</strong> (AVRCP) - Provides remote control over media playback.</p>
+</li>
+<li>
+<p><strong>Hands-Free Profile</strong> (HFP) - Allows hands-free operation of mobile phones.</p>
+</li>
+<li>
+<p><strong>Headset Profile</strong> (HSP) - Enables basic functionality for Bluetooth headsets, including making and receiving calls.</p>
+</li>
+<li>
+<p><strong>Human Interface Device Profile</strong> (HID) - Supports the use of human interface devices like keyboards, mice, and game controllers.</p>
+</li>
+<li>
+<p><strong>Generic Attribute Profile</strong> (GATT) - Manages the communication between Bluetooth Low Energy (BLE) devices.</p>
+</li>
+<li>
+<p><strong>Personal Area Networking Profile</strong> (PAN) - Allows networking between devices using Bluetooth.</p>
+</li>
+<li>
+<p><strong>File Transfer Profile</strong> (FTP) - Allows browsing, manipulating, and transferring files between Bluetooth devices.</p>
+</li>
+<li>
+<p><strong>Object Push Profile</strong> (OPP) - Enables simple file transfers like contacts or images between Bluetooth devices.</p>
+</li>
+<li>
+<p><strong>Message Access Profile</strong> (MAP) - Provides access to text messages and email messages on a mobile device.</p>
+</li>
+<li>
+<p><strong>Phone Book Access Profile</strong> (PBAP) - Allows access to phonebook information from a connected device.</p>
+</li>
+<li>
+<p><strong>Serial Port Profile</strong> (SPP) - Enables serial communication between Bluetooth devices.</p>
+</li>
+<li>
+<p><strong>Health Device Profile</strong> (HDP) - Supports medical devices for transmitting health-related data.</p>
+</li>
+<li>
+<p><strong>Device ID Profile</strong> (DIP) - Provides information about a Bluetooth device’s manufacturer, product ID, and version number.</p>
+</li>
+<li>
+<p><strong>Wireless Application Protocol</strong> (WAP) - Allows devices to use WAP for browsing web content.</p>
+</li>
+<li>
+<p><strong>Basic Imaging Profile</strong> (BIP) - Facilitates image transfer between Bluetooth devices.</p>
+</li>
+<li>
+<p><strong>Basic Printing Profile</strong> (BPP) - Enables printing from Bluetooth devices.</p>
+</li>
+</ul>
+<h4 id="advantages-of-bluetooth">Advantages of Bluetooth</h4>
+<ul>
+<li>
+<p><strong>Low Power Consumption</strong>: Especially in BLE mode, Bluetooth is optimized for energy efficiency, making it ideal for battery-powered devices.</p>
+</li>
+<li>
+<p><strong>Global Standard</strong>: Bluetooth is universally supported by a wide variety of consumer electronics, ensuring compatibility.</p>
+</li>
+<li>
+<p><strong>Secure</strong>: Offers encryption and authentication mechanisms to ensure data is protected during transmission.</p>
+</li>
+<li>
+<p><strong>Easy Pairing</strong>: Simple setup and pairing processes, even for non-technical users.</p>
+</li>
+</ul>
+<h4 id="disadvantages-of-bluetooth">Disadvantages of Bluetooth</h4>
+<ul>
+<li>
+<p><strong>Limited Range</strong>: Standard Bluetooth range is typically 10 meters (33 feet), although Bluetooth 5.0 can extend this to around 240 meters (in ideal conditions).</p>
+</li>
+<li>
+<p><strong>Lower Data Rates</strong>: While suitable for most peripheral devices, Bluetooth offers lower data rates compared to other wireless technologies like Wi-Fi.</p>
+</li>
+<li>
+<p><strong>Interference</strong>: Operating in the crowded 2.4 GHz band means Bluetooth can experience interference from other devices, such as Wi-Fi networks or microwaves.</p>
+</li>
+</ul>
+<h4 id="common-use-cases">Common Use Cases</h4>
+<ul>
+<li>
+<p><strong>Audio Streaming</strong>: Connecting wireless headphones, speakers, and hearing aids.</p>
+</li>
+<li>
+<p><strong>Peripheral Devices</strong>: Wireless keyboards, mice, game controllers, and printers.</p>
+</li>
+<li>
+<p><strong>Health and Fitness</strong>: BLE devices like fitness trackers, heart rate monitors, and smartwatches.</p>
+</li>
+<li>
+<p><strong>Smart Home</strong>: IoT devices such as smart lights, door locks, and environmental sensors.</p>
+</li>
+<li>
+<p><strong>File Transfer</strong>: Sending files and contacts between smartphones, tablets, and computers.</p>
+</li>
+</ul>
+<h3 id="wifi">Wifi</h3>
+<p>Wi-Fi is a wireless communication technology that allows devices to connect to a local area network (LAN) using radio waves, providing wireless internet access and data sharing within a specific area. Wi-Fi operates under the IEEE 802.11 standards and is widely used in homes, offices, public places, and businesses to enable wireless networking.</p>
+<h4 id="key-characteristics_1">Key Characteristics</h4>
+<ul>
+<li>
+<p><strong>Frequency Band</strong>: WiFi can operate in the 2.4 GHz, 5 GHz, 6 GHz (Wi-Fi 6E) bands.</p>
+</li>
+<li>
+<p><strong>Range</strong>: WiFI devices typically have a range of 30–50 meters indoors, up to 100+ meters outdoors depending on the standard.</p>
+</li>
+<li>
+<p><strong>Data Rates</strong>: From 11 Mbps (802.11b) to 9.6 Gbps (Wi-Fi 6, 802.11ax)</p>
+</li>
+<li>
+<p><strong>Topology</strong>: Supports star (infrastructure), peer-to-peer (ad-hoc), and mesh networks to cover a large area.</p>
+</li>
+</ul>
+<h4 id="how-wi-fi-works">How Wi-Fi Works</h4>
+<ol>
+<li>
+<p><strong>Wireless Access Points (WAPs)</strong>:</p>
+<ul>
+<li>
+<p>A Wi-Fi network is typically created by a <strong>wireless access point (AP)</strong> or <strong>router</strong>, which transmits and receives data using radio waves.</p>
+</li>
+<li>
+<p>Devices (clients) like smartphones, laptops, and tablets communicate with the access point, which acts as a bridge to the wired network or the internet.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Radio Waves</strong>:</p>
+<ul>
+<li>
+<p>Wi-Fi operates on radio frequencies in the <strong>2.4 GHz</strong> and <strong>5 GHz</strong> bands. Newer Wi-Fi versions, such as Wi-Fi 6E, also operate in the <strong>6 GHz</strong> band.</p>
+</li>
+<li>
+<p>The radio signal from the router can be picked up by any device within range that has a Wi-Fi adapter.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>SSID (Service Set Identifier)</strong>:</p>
+<ul>
+<li>
+<p>Wi-Fi networks are identified by an <strong>SSID</strong>, which is the network name that devices use to connect to the access point.</p>
+</li>
+<li>
+<p>A user can select the SSID from a list of available networks and enter a password (if security is enabled) to connect.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Transmission</strong>:</p>
+<ul>
+<li>
+<p>Wi-Fi uses a modulation technique called <strong>Orthogonal Frequency Division Multiplexing (OFDM)</strong> to transmit data efficiently over different frequencies.</p>
+</li>
+<li>
+<p>Data is broken into smaller packets and transmitted wirelessly between devices and the access point.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Security</strong>:</p>
+<ul>
+<li>
+<p>Wi-Fi networks are secured using various encryption methods to protect the data being transmitted. Common security protocols include:</p>
+<ul>
+<li>
+<p><strong>WEP (Wired Equivalent Privacy)</strong>: Older and less secure.</p>
+</li>
+<li>
+<p><strong>WPA (Wi-Fi Protected Access)</strong>: More secure than WEP but has been replaced by WPA2.</p>
+</li>
+<li>
+<p><strong>WPA2 and WPA3</strong>: The current standard for securing Wi-Fi networks, with WPA3 offering the latest improvements in encryption and security.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="wi-fi-standards">Wi-Fi Standards</h4>
+<p>Wi-Fi operates under a family of IEEE 802.11 standards. The most common ones are:</p>
+<ul>
+<li>
+<p><strong>802.11b</strong> (1999):</p>
+<ul>
+<li>
+<p>Operates in the 2.4 GHz band.</p>
+</li>
+<li>
+<p>Maximum data rate: 11 Mbps.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>802.11g</strong> (2003):</p>
+<ul>
+<li>
+<p>Operates in the 2.4 GHz band.</p>
+</li>
+<li>
+<p>Maximum data rate: 54 Mbps.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>802.11n (Wi-Fi 4)</strong> (2009):</p>
+<ul>
+<li>
+<p>Operates in both 2.4 GHz and 5 GHz bands.</p>
+</li>
+<li>
+<p>Maximum data rate: 600 Mbps (with multiple-input multiple-output, MIMO technology).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>802.11ac (Wi-Fi 5)</strong> (2014):</p>
+<ul>
+<li>
+<p>Operates in the 5 GHz band.</p>
+</li>
+<li>
+<p>Maximum data rate: Up to 3.5 Gbps (with MIMO and beamforming).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>802.11ax (Wi-Fi 6)</strong> (2019):</p>
+<ul>
+<li>
+<p>Operates in both 2.4 GHz and 5 GHz bands (with 6 GHz in Wi-Fi 6E).</p>
+</li>
+<li>
+<p>Maximum data rate: Up to 9.6 Gbps.</p>
+</li>
+<li>
+<p>Introduces technologies like Orthogonal Frequency-Division Multiple Access (OFDMA) and Target Wake Time (TWT) for efficiency in dense environments.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="key-features-of-wi-fi">Key Features of Wi-Fi</h4>
+<ol>
+<li>
+<p><strong>Carrier Sense Multiple Access with Collision Avoidance</strong> (CSMA/CA)</p>
+<ul>
+<li>
+<p>CSMA/CA is a network protocol used in Wi-Fi (IEEE 802.11 standards) to manage how devices share the wireless medium and avoid collisions when transmitting data.</p>
+</li>
+<li>
+<p>In Wi-Fi, CSMA/CA prevents data collisions by having devices "listen" to the channel before transmitting.</p>
+</li>
+<li>
+<p>If the channel is busy, the device waits for a random backoff period before trying again.</p>
+</li>
+<li>
+<p>Once the channel is clear, the device transmits data, and the receiving device sends an acknowledgment (ACK) to confirm receipt.</p>
+</li>
+<li>
+<p>If no ACK is received, the data is retransmitted.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Multiple Input, Multiple Output</strong> (MIMO)</p>
+<ul>
+<li>
+<p>MIMO is a technology that uses multiple antennas at both the transmitter and receiver to send and receive multiple data streams simultaneously.</p>
+</li>
+<li>
+<p>This increases the data throughput and improves signal reliability, especially in environments with obstacles or interference.</p>
+</li>
+<li>
+<p>MIMO is commonly used in Wi-Fi 4 (802.11n) and later standards.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Beamforming</strong></p>
+<ul>
+<li>
+<p>Beamforming focuses the Wi-Fi signal in the direction of the connected device, rather than broadcasting it in all directions.</p>
+</li>
+<li>
+<p>This improves signal strength, range, and data rates by directing energy toward the device, reducing interference and enhancing overall performance.</p>
+</li>
+<li>
+<p>Beamforming is supported in Wi-Fi 5 (802.11ac) and Wi-Fi 6 (802.11ax).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Mesh Networking</strong></p>
+<ul>
+<li>
+<p>Mesh networking uses multiple access points (nodes) that work together to provide seamless Wi-Fi coverage across larger areas.</p>
+</li>
+<li>
+<p>In a mesh network, devices can automatically switch between nodes for the best connection, making it ideal for large homes, offices, or outdoor spaces.</p>
+</li>
+<li>
+<p>This reduces dead zones and enhances Wi-Fi performance.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Orthogonal Frequency-Division Multiple Access</strong> (OFDMA)</p>
+<ul>
+<li>
+<p>OFDMA is a Wi-Fi 6 (802.11ax) feature that divides the wireless channel into smaller subchannels, allowing multiple devices to share the same channel simultaneously.</p>
+</li>
+<li>
+<p>This improves efficiency, reduces latency, and optimizes performance in environments with many connected devices, such as offices or public hotspots.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="advantages-of-wi-fi">Advantages of Wi-Fi</h4>
+<ul>
+<li>
+<p><strong>Convenience</strong>: Provides wireless connectivity, eliminating the need for cables.</p>
+</li>
+<li>
+<p><strong>Mobility</strong>: Users can move around within the network’s range and remain connected.</p>
+</li>
+<li>
+<p><strong>Flexibility</strong>: Easily scalable and can support a wide range of devices and applications.</p>
+</li>
+<li>
+<p><strong>Cost-Effective</strong>: Lower installation and maintenance costs compared to wired networks.</p>
+</li>
+</ul>
+<h4 id="disadvantages-of-wi-fi">Disadvantages of Wi-Fi</h4>
+<ul>
+<li>
+<p><strong>Interference</strong>: Wi-Fi signals are prone to interference from other wireless devices, physical obstacles, and even microwave ovens, especially in the 2.4 GHz band.</p>
+</li>
+<li>
+<p><strong>Security Risks</strong>: Without proper encryption (WPA2/WPA3), Wi-Fi networks can be vulnerable to hacking.</p>
+</li>
+<li>
+<p><strong>Performance Degradation</strong>: Speed and signal strength decrease with distance and obstacles. Congested networks with many devices can experience reduced performance.</p>
+</li>
+</ul>
+<h4 id="common-use-cases_1">Common Use Cases</h4>
+<ul>
+<li>
+<p><strong>Home Networking</strong>: Connecting devices like laptops, smartphones, tablets, smart TVs, and IoT devices to the internet.</p>
+</li>
+<li>
+<p><strong>Public Wi-Fi</strong>: Providing internet access in public spaces like cafes, airports, and hotels.</p>
+</li>
+<li>
+<p><strong>Office and Enterprise</strong>: Supporting internal networks in workplaces, enabling communication and resource sharing among employees.</p>
+</li>
+<li>
+<p><strong>Mobile Devices</strong>: Wi-Fi provides an alternative to cellular data for mobile devices, allowing high-speed internet access in Wi-Fi zones.</p>
+</li>
+</ul>
+<h3 id="wireless-protocols-for-home-automation-and-industrial-control">Wireless Protocols for Home Automation and Industrial Control</h3>
+<h4 id="zigbee">Zigbee</h4>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Zigbee is a low-power, low-data-rate wireless communication protocol designed for short-range communication, primarily in smart home and IoT devices.</p>
+</li>
+<li>
+<p><strong>Features</strong></p>
+<ul>
+<li>
+<p>Frequency Band: Operates in the 2.4 GHz ISM band globally, and in some regions, 868 MHz (Europe) and 915 MHz (North America).</p>
+</li>
+<li>
+<p>Range: Typically 10-100 meters indoors, depending on obstacles and environmental factors.</p>
+</li>
+<li>
+<p>Topology: Mesh network, where devices (nodes) can communicate with each other directly or through intermediate devices (routers). This improves coverage and redundancy, as the signal can "hop" between devices.</p>
+</li>
+<li>
+<p>Data Rate: Up to 250 kbps.</p>
+</li>
+<li>
+<p>Power Consumption: Very low, designed for battery-powered devices.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>ISO Model Layer</strong>: uses IEEE 802.15.4 (physical and datalink layers), but defines its own network, transport, and application layers.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Smart lighting, door locks, sensors, thermostats, and other home automation devices.</p>
+</li>
+<li>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>
+<p>Low power consumption.</p>
+</li>
+<li>
+<p>Strong mesh networking support, which extends range and reliability.</p>
+</li>
+<li>
+<p>Open standard, supported by a wide range of devices from various manufacturers.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>Operates in the crowded 2.4 GHz band, which may face interference from Wi-Fi and other devices.</li>
+</ul>
+</li>
+</ul>
+<h4 id="z-wave">Z-Wave</h4>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Z-Wave is a wireless communication protocol developed specifically for smart home applications, focused on reliability, low power consumption, and ease of use.</p>
+</li>
+<li>
+<p><strong>Features</strong></p>
+<ul>
+<li>
+<p>Frequency Band: Operates in sub-GHz frequencies, such as 908.42 MHz in the US and 868.42 MHz in Europe. Different regions use slightly different frequencies to avoid interference.</p>
+</li>
+<li>
+<p>Range: Typically 30-100 meters indoors, with better penetration through walls than Zigbee, thanks to its lower frequency.</p>
+</li>
+<li>
+<p>Topology: Mesh network, like Zigbee, where devices can relay signals through other nodes to extend the network range.</p>
+</li>
+<li>
+<p>Data Rate: Up to 100 kbps.</p>
+</li>
+<li>
+<p>Power Consumption: Very low, similar to Zigbee, ideal for battery-powered devices.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>ISO Model Layer</strong>: uses IEEE 802.15.4 (physical and datalink layers) and IPV6 and TCP/UDP (network and transport layers), but defines its own application layer.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Smart home devices like lighting, security systems, door locks, and other home automation products.</p>
+</li>
+<li>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>
+<p>Operates in a less crowded frequency band, reducing interference.</p>
+</li>
+<li>
+<p>Strong mesh networking capability for extended range and reliability.</p>
+</li>
+<li>
+<p>Focused on smart home applications with standardized device compatibility.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>
+<p>Proprietary protocol (though widely adopted by various manufacturers).</p>
+</li>
+<li>
+<p>Lower data rate compared to Zigbee.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="matter">Matter</h4>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Matter (formerly known as Project CHIP – Connected Home over IP) is an emerging, open-source standard that aims to unify smart home ecosystems, making devices interoperable across different platforms like Amazon Alexa, Apple HomeKit, Google Home, and others.</p>
+</li>
+<li>
+<p><strong>Features</strong></p>
+<ul>
+<li>
+<p>Frequency Band: Primarily operates over Wi-Fi (2.4 GHz), Ethernet, and Thread (802.15.4-based, similar to Zigbee). Thread uses the 2.4 GHz band but is more focused on IP-based communication.</p>
+</li>
+<li>
+<p>Range: Wi-Fi (up to 100 meters indoors), Thread (similar to Zigbee, about 10-100 meters, depending on the environment).</p>
+</li>
+<li>
+<p>Topology: Mesh network support via Thread, and traditional star topology via Wi-Fi.</p>
+</li>
+<li>
+<p>Data Rate: Varies depending on the underlying network (Wi-Fi provides much higher data rates than Thread).</p>
+</li>
+<li>
+<p>Power Consumption: Thread is designed to be energy-efficient, suitable for battery-operated devices, while Wi-Fi consumes more power.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>ISO Model Layer</strong>: defines its own lower frequency physical layers and datalink layers (but leverages MAC addressing), and defines its own network, transport, and application layer independent of TCP/UDP/IP.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Smart home devices such as lights, locks, security systems, thermostats, and appliances. Matter’s key advantage is unifying these devices across different platforms.</p>
+</li>
+<li>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>
+<p>Interoperability: Designed to work across multiple ecosystems (Apple, Google, Amazon, etc.).</p>
+</li>
+<li>
+<p>Open-source standard: Backed by major industry players, promoting widespread adoption.</p>
+</li>
+<li>
+<p>Supports both IP-based (Wi-Fi, Ethernet) and low-power (Thread) networking.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>Still an emerging standard, with ongoing development and adoption by manufacturers.</li>
+</ul>
+</li>
+</ul>
+<h4 id="applications">Applications</h4>
+<ul>
+<li>
+<p><strong>Smart Homes</strong> - Applications such as smart lights, smart plugs, sensors, and voice assistant integration commonly leverage these protocols.</p>
+</li>
+<li>
+<p><strong>Agriculture and Farming</strong> - Agricultural environments require monitoring soil conditions, automated irrigation systems, and tracking livestock.</p>
+</li>
+<li>
+<p><strong>Smart Energy and Utilities</strong> - These protocols are employed in energy management systems for smart grids, remote metering (electricity, gas, water), and demand response programs, improving the efficiency of energy distribution and consumption.</p>
+</li>
+</ul>
+<h4 id="summary-table">Summary Table</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Protocol</strong></th>
+<th><strong>Frequency Band</strong></th>
+<th><strong>Range</strong></th>
+<th><strong>Data Rate</strong></th>
+<th><strong>Topology</strong></th>
+<th><strong>Use Cases</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zigbee</strong></td>
+<td>2.4 GHz (globally), 868/915 MHz (regionally)</td>
+<td>10-100 meters</td>
+<td>Up to 250 kbps</td>
+<td>Mesh</td>
+<td>Smart home, IoT devices (sensors, lights)</td>
+</tr>
+<tr>
+<td><strong>Z-Wave</strong></td>
+<td>Sub-GHz (868-915 MHz)</td>
+<td>30-100 meters</td>
+<td>Up to 100 kbps</td>
+<td>Mesh</td>
+<td>Smart home devices (locks, security)</td>
+</tr>
+<tr>
+<td><strong>Matter</strong></td>
+<td>2.4 GHz (Wi-Fi, Thread)</td>
+<td>100 meters (Wi-Fi), 10-100 meters (Thread)</td>
+<td>Varies (Wi-Fi/Thread)</td>
+<td>Mesh (Thread), Star (Wi-Fi)</td>
+<td>Cross-platform smart home devices</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="cellular">Cellular</h3>
+<p>Cellular networks are considered Wide Area Networks (WANs). A WAN is a type of network that covers large geographic areas, often spanning cities, countries, or even continents. Cellular networks rely on a distributed infrastructure of cell towers and base stations to provide wireless communication over long distances, allowing users to maintain connectivity while moving between different locations. <strong>5G</strong> brings ultra-high-speed, low-latency communication critical for real-time, high-reliability applications in <strong>cyber-physical systems</strong> like smart cities, industrial automation, and autonomous vehicles. <strong>4G LTE</strong> provides a robust backbone for general IoT applications and cellular communication, though its higher latency limits its use in time-sensitive applications. <strong>Cellular V2X (C-V2X)</strong> is integral to the future of autonomous vehicles and smart transportation systems, with 5G enabling high-speed, low-latency communication for safer and more efficient vehicle interactions.</p>
+<p>These protocols are vital for building interconnected, intelligent systems that enable real-time decision-making, automation, and enhanced safety in modern cyber-physical environments.</p>
+<h4 id="5g-fifth-generation-cellular-network">5G (Fifth Generation Cellular Network)</h4>
+<h5 id="overview">Overview</h5>
+<ul>
+<li>
+<p>5G is the latest generation of cellular networks, offering significantly higher data rates, lower latency, and more device connectivity compared to previous generations.</p>
+</li>
+<li>
+<p>Operates on three main frequency bands:</p>
+<ul>
+<li>
+<p><strong>Low-band</strong> (&lt; 1 GHz) for wider coverage but lower speeds.</p>
+</li>
+<li>
+<p><strong>Mid-band</strong> (1 GHz - 6 GHz) for balanced speed and coverage.</p>
+</li>
+<li>
+<p><strong>High-band (mmWave)</strong> (&gt; 24 GHz) for ultra-fast speeds but with limited range.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="key-features">Key Features</h5>
+<ul>
+<li>
+<p><strong>High Data Rates</strong>: Up to 10 Gbps, enabling real-time communication for data-intensive applications.</p>
+</li>
+<li>
+<p><strong>Low Latency</strong>: Ultra-low latency (as low as 1 ms) allows real-time interaction, critical for applications like autonomous vehicles, industrial automation, and remote surgeries.</p>
+</li>
+<li>
+<p><strong>Massive IoT Connectivity</strong>: Supports up to 1 million devices per square kilometer, essential for smart cities and large-scale IoT deployments.</p>
+</li>
+<li>
+<p><strong>Network Slicing</strong>: 5G can divide network resources into “slices,” optimized for different applications (e.g., high-reliability for autonomous vehicles, low-power for IoT sensors).</p>
+</li>
+</ul>
+<h5 id="role-in-cps">Role in CPS</h5>
+<ul>
+<li>
+<p><strong>Real-Time Control</strong>: 5G enables real-time communication and control in CPS, ideal for applications that require immediate responses such as <strong>industrial automation</strong>, <strong>robotics</strong>, and <strong>autonomous systems</strong>.</p>
+</li>
+<li>
+<p><strong>Smart Cities</strong>: Powers smart infrastructure, enabling real-time monitoring and control of energy systems, transportation networks, and environmental systems.</p>
+</li>
+<li>
+<p><strong>Autonomous Vehicles</strong>: Ultra-low latency and high-reliability features are critical for communication and coordination of autonomous vehicles with infrastructure (V2X).</p>
+</li>
+</ul>
+<h4 id="4g-lte-long-term-evolution">4G LTE (Long-Term Evolution)</h4>
+<h5 id="overview_1">Overview</h5>
+<ul>
+<li>
+<p>4G LTE is the fourth generation of cellular networks, providing high-speed mobile internet and supporting a wide range of applications.</p>
+</li>
+<li>
+<p>Operates in frequency bands between 600 MHz and 3.5 GHz.</p>
+</li>
+</ul>
+<h5 id="key-features_1">Key Features</h5>
+<ul>
+<li>
+<p><strong>Data Rates</strong>: Peak download speeds of up to 300 Mbps, with real-world speeds ranging from 10-100 Mbps.</p>
+</li>
+<li>
+<p><strong>Latency</strong>: Latency ranges from 30 ms to 50 ms, which is adequate for most consumer applications but not low enough for critical real-time CPS operations.</p>
+</li>
+<li>
+<p><strong>Wide Coverage</strong>: Extensive global deployment with solid coverage for mobile broadband and IoT devices.</p>
+</li>
+</ul>
+<h5 id="role-in-cps_1">Role in CPS</h5>
+<ul>
+<li>
+<p><strong>IoT Applications</strong>: 4G LTE supports a wide range of IoT devices, including <strong>wearable technology</strong>, <strong>smart meters</strong>, and <strong>connected appliances</strong>.</p>
+</li>
+<li>
+<p><strong>Remote Monitoring and Control</strong>: Used for remote monitoring of industrial equipment and smart grid technologies, though latency limits its use for highly time-sensitive applications.</p>
+</li>
+<li>
+<p><strong>V2X Communications</strong>: LTE provides a foundation for <strong>Cellular V2X</strong>, though 5G is better suited for real-time vehicular applications.</p>
+</li>
+</ul>
+<h4 id="cellular-v2x-vehicle-to-everything">Cellular V2X (Vehicle-to-Everything)</h4>
+<h5 id="overview_2">Overview</h5>
+<ul>
+<li>
+<p><strong>Cellular V2X (C-V2X)</strong> is a communication protocol designed to enable vehicles to communicate with each other (V2V), infrastructure (V2I), pedestrians (V2P), and networks (V2N).</p>
+</li>
+<li>
+<p>Initially based on LTE, C-V2X is evolving with <strong>5G</strong> to meet the needs of <strong>autonomous driving</strong> and <strong>intelligent transportation systems</strong>.</p>
+</li>
+</ul>
+<h5 id="key-features_2">Key Features</h5>
+<ul>
+<li>
+<p><strong>Two Modes</strong>:</p>
+<ul>
+<li>
+<p><strong>Direct Communication</strong>: Vehicles communicate directly with each other or with road infrastructure without relying on the cellular network, improving safety in areas with poor network coverage.</p>
+</li>
+<li>
+<p><strong>Network-Based Communication</strong>: Vehicles connect through the cellular network for long-distance communication and advanced cloud-based services (e.g., real-time traffic updates).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Safety and Efficiency</strong>: Aims to improve road safety by enabling vehicles to share critical information (e.g., speed, location) and enhance traffic management.</p>
+</li>
+<li>
+<p><strong>Variants</strong></p>
+<ul>
+<li>
+<p>V2V - vehicle-to-vehicle, transmits speed, direction, location, to prevent accidents and coordinate traffic</p>
+</li>
+<li>
+<p>V2I - vehicle-to-infrastructure, transmits to roadside infrastructure like traffic lights, road signs, and traffic management systems</p>
+</li>
+<li>
+<p>V2P - vehicle-to-pedestrian, communicates to pedestrians equipped with smartphones, to avoid accidents with cycles and other pedestrians</p>
+</li>
+<li>
+<p>V2N - vehicle-to-network, allows for connection with broader mobile network to access real-time data a services</p>
+</li>
+<li>
+<p>Direct communication - V2V, V2I, V2P communication can occur directly, without the need for a cellular network, using unicast or broadcast, leverages 5.9 Ghz ITS band</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="role-in-cps_2">Role in CPS</h5>
+<ul>
+<li>
+<p><strong>Autonomous Driving</strong>: Allows vehicles to communicate with one another and the environment for real-time decisions, a key component of autonomous and semi-autonomous vehicles.</p>
+</li>
+<li>
+<p><strong>Smart Transportation Systems</strong>: Integrates with smart city infrastructure for coordinated traffic control, reducing accidents, improving fuel efficiency, and optimizing traffic flow.</p>
+</li>
+<li>
+<p><strong>Critical Communications</strong>: 5G-enabled C-V2X can handle <strong>mission-critical communications</strong>, improving safety in collision avoidance and cooperative driving scenarios.</p>
+</li>
+</ul>
+<h5 id="summary-of-key-features">Summary of Key Features</h5>
+<table>
+<thead>
+<tr>
+<th><strong>Protocol</strong></th>
+<th><strong>Frequency Bands</strong></th>
+<th><strong>Data Rate</strong></th>
+<th><strong>Latency</strong></th>
+<th><strong>Use Cases in CPS</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5G</strong></td>
+<td>Low (&lt;1 GHz), Mid (1-6 GHz), High (&gt;24 GHz)</td>
+<td>Up to 10 Gbps</td>
+<td>As low as 1 ms</td>
+<td>Real-time control, smart cities, autonomous vehicles, industrial IoT</td>
+</tr>
+<tr>
+<td><strong>4G LTE</strong></td>
+<td>600 MHz to 3.5 GHz</td>
+<td>Up to 300 Mbps</td>
+<td>30-50 ms</td>
+<td>IoT, remote monitoring, connected vehicles, consumer applications</td>
+</tr>
+<tr>
+<td><strong>C-V2X</strong></td>
+<td>Sub-GHz to 5 GHz (5G for evolution)</td>
+<td>Varies (LTE-based and 5G)</td>
+<td>1-50 ms</td>
+<td>Autonomous driving, vehicle-to-everything communications (V2X)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="lpwan-technologies">LPWAN Technologies</h3>
+<p>Low-Power Wide-Area Networks (<strong>LPWANs</strong>) are wireless communication technologies designed to provide long-range communication at low power consumption. These technologies are ideal for <strong>IoT (Internet of Things)</strong> applications, where devices need to transmit small amounts of data over long distances while maintaining long battery life. In the context of <strong>cyber-physical systems (CPS)</strong>, LPWANs play a crucial role in connecting large numbers of distributed devices and sensors that require extended coverage, low energy usage, and infrequent data transmission.</p>
+<p>In <strong>cyber-physical systems (CPS)</strong>, LPWAN technologies such as Sigfox, LoRaWAN, and NB-IoT enable low-power, long-range communication across a wide range of applications, including smart cities, industrial automation, agriculture, and healthcare. Each technology has distinct strengths depending on the data rate, power consumption, and range requirements of the specific CPS application.</p>
+<p>Sigfox and LoRaWAN excel in ultra-low-power, low-data-rate applications, making them ideal for large-scale IoT deployments where long battery life is critical. NB-IoT, leveraging cellular networks, provides broader coverage and higher data rates, making it suitable for real-time monitoring and communication in infrastructure and healthcare sectors.</p>
+<h4 id="sigfox">Sigfox</h4>
+<h5 id="overview_3">Overview</h5>
+<ul>
+<li>
+<p>Sigfox is a proprietary LPWAN protocol that focuses on ultra-narrowband (UNB) technology to provide long-range communication with very low power consumption.</p>
+</li>
+<li>
+<p>It operates primarily in the sub-GHz ISM (Industrial, Scientific, and Medical) bands (868 MHz in Europe, 915 MHz in North America).</p>
+</li>
+</ul>
+<h5 id="key-features_3">Key Features</h5>
+<ul>
+<li>
+<p><strong>Range</strong>: Up to 50 km in rural areas and up to 10 km in urban areas.</p>
+</li>
+<li>
+<p><strong>Data Rate</strong>: Very low (100 bps), designed for transmitting small amounts of data infrequently.</p>
+</li>
+<li>
+<p><strong>Power Consumption</strong>: Extremely low, enabling battery life of up to 10 years for some devices.</p>
+</li>
+<li>
+<p><strong>Topology</strong>: Star topology, where devices communicate directly with base stations that send data to the cloud.</p>
+</li>
+</ul>
+<h5 id="role-in-cps_3">Role in CPS</h5>
+<ul>
+<li>
+<p><strong>Asset Tracking and Monitoring</strong>: Sigfox is ideal for low-power devices used in asset tracking, environmental monitoring, and utility metering, such as water, electricity, and gas meters.</p>
+</li>
+<li>
+<p><strong>Smart Cities</strong>: In smart city applications, Sigfox can connect thousands of devices over a wide area, enabling remote monitoring of infrastructure like streetlights, waste management, and pollution control.</p>
+</li>
+<li>
+<p><strong>Industrial IoT</strong>: Sigfox is used in industrial environments for monitoring and predictive maintenance of machines and systems that do not require real-time data transmission but need reliable long-range communication.</p>
+</li>
+</ul>
+<h4 id="lorawan-long-range-wide-area-network">LoRaWAN (Long Range Wide Area Network)</h4>
+<h5 id="overview_4">Overview</h5>
+<ul>
+<li>LoRaWAN is an open standard LPWAN protocol built on LoRa (Long Range), a modulation technique developed by Semtech. LoRaWAN operates in unlicensed spectrum, primarily in the sub-GHz ISM bands (868 MHz in Europe, 915 MHz in the Americas).</li>
+</ul>
+<h5 id="key-features_4">Key Features</h5>
+<ul>
+<li>
+<p><strong>Range</strong>: Up to 15 km in rural areas and 2-5 km in urban areas.</p>
+</li>
+<li>
+<p><strong>Data Rate</strong>: Variable, from 0.3 kbps to 50 kbps, depending on the distance and communication conditions.</p>
+</li>
+<li>
+<p><strong>Power Consumption</strong>: Very low, allowing devices to operate on batteries for years.</p>
+</li>
+<li>
+<p><strong>Topology</strong>: Star topology, with gateways connecting devices to a central network server, which processes data from multiple devices.</p>
+</li>
+</ul>
+<h5 id="role-in-cps_4">Role in CPS</h5>
+<ul>
+<li>
+<p><strong>Smart Agriculture</strong>: LoRaWAN is commonly used in agriculture for precision farming, where sensors monitor soil conditions, crop health, and environmental factors, allowing for data-driven decisions and optimization.</p>
+</li>
+<li>
+<p><strong>Smart Cities and Utilities</strong>: LoRaWAN is widely used in smart city applications like smart parking, air quality monitoring, and utility management (water and gas metering).</p>
+</li>
+<li>
+<p><strong>Industrial Automation</strong>: LoRaWAN enables connectivity for sensors in industrial environments to monitor equipment performance, enabling predictive maintenance and reducing downtime.</p>
+</li>
+</ul>
+<h4 id="nb-iot-narrowband-iot">NB-IoT (Narrowband IoT)</h4>
+<h5 id="overview_5">Overview</h5>
+<ul>
+<li><strong>NB-IoT</strong> is a cellular-based LPWAN technology standardized by 3GPP (3rd Generation Partnership Project) and operates in licensed spectrum. Unlike Sigfox and LoRaWAN, which use unlicensed spectrum, NB-IoT utilizes existing LTE (4G) infrastructure, enabling broader adoption by mobile network operators.</li>
+</ul>
+<h5 id="key-features_5">Key Features</h5>
+<ul>
+<li>
+<p><strong>Range</strong>: Similar to LTE coverage (several kilometers), with excellent penetration in indoor and underground environments.</p>
+</li>
+<li>
+<p><strong>Data Rate</strong>: Moderate, up to 250 kbps, suitable for applications that require slightly higher data rates than other LPWANs.</p>
+</li>
+<li>
+<p><strong>Power Consumption</strong>: Optimized for long battery life, with the potential for devices to last up to 10 years on a single battery.</p>
+</li>
+<li>
+<p><strong>Topology</strong>: Cellular-based star topology, where devices communicate with nearby cellular base stations and data is transmitted to the cloud over cellular networks.</p>
+</li>
+</ul>
+<h5 id="role-in-cps_5">Role in CPS</h5>
+<ul>
+<li>
+<p><strong>Smart Metering</strong>: NB-IoT is often used in utility sectors for remote monitoring of water, gas, and electricity meters, providing real-time data on consumption and enabling efficient resource management.</p>
+</li>
+<li>
+<p><strong>Healthcare and Wearables</strong>: NB-IoT is suited for healthcare applications where low-power devices like wearable health monitors can provide continuous data without frequent battery replacement.</p>
+</li>
+<li>
+<p><strong>Smart Infrastructure</strong>: NB-IoT supports large-scale infrastructure projects like smart lighting, building automation, and smart grids by providing reliable communication between distributed devices.</p>
+</li>
+</ul>
+<h4 id="summary-of-lpwan-technologies-in-cps">Summary of LPWAN Technologies in CPS</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Technology</strong></th>
+<th><strong>Frequency Band</strong></th>
+<th><strong>Range</strong></th>
+<th><strong>Data Rate</strong></th>
+<th><strong>Power Consumption</strong></th>
+<th><strong>Use Cases in CPS</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sigfox</strong></td>
+<td>Sub-GHz ISM (868/915 MHz)</td>
+<td>Up to 50 km (rural)</td>
+<td>100 bps</td>
+<td>Ultra-low</td>
+<td>Asset tracking, smart cities, industrial monitoring</td>
+</tr>
+<tr>
+<td><strong>LoRaWAN</strong></td>
+<td>Sub-GHz ISM (868/915 MHz)</td>
+<td>Up to 15 km (rural)</td>
+<td>0.3 kbps - 50 kbps</td>
+<td>Very low</td>
+<td>Smart agriculture, smart cities, industrial automation</td>
+</tr>
+<tr>
+<td><strong>NB-IoT</strong></td>
+<td>Licensed spectrum (LTE bands)</td>
+<td>Similar to LTE</td>
+<td>Up to 250 kbps</td>
+<td>Low</td>
+<td>Smart metering, healthcare, smart infrastructure</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="ultra-wideband-uwb">Ultra-Wideband (UWB)</h3>
+<p><strong>Ultra-Wideband (UWB)</strong> is a short-range wireless technology that uses a wide frequency range (3.1 GHz to 10.6 GHz) to transmit data with high precision and low power. UWB’s centimeter-level accuracy and low power consumption make it ideal for CPS applications requiring precise location tracking, secure communication, and proximity sensing. Its low power consumption and resistance to interference make it an ideal solution for industries like healthcare, manufacturing, and logistics, where precision is critical.</p>
+<h4 id="key-features-of-uwb">Key Features of UWB</h4>
+<ul>
+<li>
+<p><strong>High Precision</strong>: Centimeter-level accuracy.</p>
+</li>
+<li>
+<p><strong>Low Power</strong>: Long battery life, ideal for IoT and CPS devices.</p>
+</li>
+<li>
+<p><strong>Short Range</strong>: Typically up to 10-100 meters.</p>
+</li>
+<li>
+<p><strong>High Data Rate</strong>: Capable of supporting hundreds of Mbps.</p>
+</li>
+</ul>
+<h4 id="applications-of-uwb-in-cps">Applications of UWB in CPS</h4>
+<ol>
+<li>
+<p><strong>Precision Indoor Positioning</strong>: UWB enables real-time location tracking in industrial settings, factories, and warehouses.</p>
+</li>
+<li>
+<p><strong>Proximity Sensing and Secure Access</strong>: Used in automotive keyless entry systems and secure access control.</p>
+</li>
+<li>
+<p><strong>Industrial Automation</strong>: UWB provides accurate positioning for robotics, enabling precise navigation and coordination.</p>
+</li>
+<li>
+<p><strong>Asset Tracking</strong>: Used in logistics and healthcare for tracking equipment, staff, and goods with high accuracy.</p>
+</li>
+<li>
+<p><strong>Augmented Reality (AR)</strong>: UWB enables real-time interaction and positioning in AR/VR systems.</p>
+</li>
+</ol>
+<h4 id="advantages-of-uwb-in-cps">Advantages of UWB in CPS</h4>
+<ul>
+<li>
+<p><strong>High-Precision Localization</strong>: Ideal for asset tracking and robotics.</p>
+</li>
+<li>
+<p><strong>Low Interference</strong>: Reliable operation in environments crowded with wireless signals.</p>
+</li>
+<li>
+<p><strong>Enhanced Security</strong>: Accurate proximity sensing improves security in access control.</p>
+</li>
+<li>
+<p><strong>Energy Efficiency</strong>: Supports long-lasting, battery-powered devices.</p>
+</li>
+</ul>
+<hr />
+<h3 id="radio-frequency-identification-rfid">Radio Frequency Identification (RFID)</h3>
+<p><strong>Radio Frequency Identification (RFID)</strong> is a wireless technology that uses electromagnetic fields to automatically identify and track tags attached to objects. In <strong>cyber-physical systems (CPS)</strong>, RFID is widely used for tracking, asset management, inventory control, and automation. RFID operates across different frequency bands—<strong>Low-Frequency (LF)</strong>, <strong>High-Frequency (HF)</strong>, <strong>Ultra-High Frequency (UHF)</strong>, and <strong>Microwave</strong>—each offering unique capabilities suited to specific CPS use cases.</p>
+<ol>
+<li>
+<p><strong>Low-Frequency</strong> (LF) RFID (30 kHz to 300 kHz)</p>
+<ul>
+<li>
+<p><strong>Range</strong>: Typically between 10 cm to 1 meter.</p>
+</li>
+<li>
+<p><strong>Data Rate</strong>: Low, suitable for simple identification tasks.</p>
+</li>
+<li>
+<p><strong>Penetration</strong>: Strong penetration through non-metallic materials such as water, wood, and certain plastics, making it ideal for challenging environments.</p>
+</li>
+<li>
+<p><strong>Applications in CPS</strong>: Used for <strong>access control</strong> (keycards, badges) and <strong>animal tagging</strong> (livestock tracking), as well as <strong>tool tracking</strong> in industrial environments.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>High-Frequency</strong> (HF) RFID (3 MHz to 30 MHz)</p>
+<ul>
+<li>
+<p><strong>Range</strong>: Typically 10 cm to 1.5 meters.</p>
+</li>
+<li>
+<p><strong>Data Rate</strong>: Moderate, with faster data transmission compared to LF RFID.</p>
+</li>
+<li>
+<p><strong>Penetration</strong>: Good penetration but can be affected by metals and water.</p>
+</li>
+<li>
+<p><strong>Applications in CPS</strong>: Commonly used for <strong>contactless payments</strong>, <strong>inventory tracking</strong> in supply chains, and <strong>medical equipment tracking</strong> in healthcare.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Ultra-High Frequency</strong> (UHF) RFID (300 MHz to 3 GHz)</p>
+<ul>
+<li>
+<p><strong>Range</strong>: Typically up to 12 meters for passive tags, and up to 100 meters for active tags.</p>
+</li>
+<li>
+<p><strong>Data Rate</strong>: High, supporting faster data transfer and larger read ranges compared to LF and HF RFID.</p>
+</li>
+<li>
+<p><strong>Penetration</strong>: More affected by water and metals, requiring specialized tags for use in these environments.</p>
+</li>
+<li>
+<p><strong>Applications in CPS</strong>: Ideal for <strong>supply chain logistics</strong>, <strong>warehouse management</strong>, and <strong>vehicle tracking</strong> due to its long-range capabilities.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Microwave</strong> RFID (2.4 GHz and above)</p>
+<ul>
+<li>
+<p><strong>Range</strong>: Up to 30 meters for active tags, with more limited range for passive tags.</p>
+</li>
+<li>
+<p><strong>Data Rate</strong>: Very high, supporting real-time, large-scale data transfers.</p>
+</li>
+<li>
+<p><strong>Penetration</strong>: More susceptible to interference from metals and liquids, but effective in environments with minimal obstacles.</p>
+</li>
+<li>
+<p><strong>Applications in CPS</strong>: Used for <strong>real-time location systems (RTLS)</strong>, <strong>automated toll collection</strong>, and <strong>high-value asset tracking</strong> in industries like aerospace and defense.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="summary-of-rfid-types-in-cps">Summary of RFID Types in CPS</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Frequency Band</strong></th>
+<th><strong>Range</strong></th>
+<th><strong>Data Rate</strong></th>
+<th><strong>Penetration</strong></th>
+<th><strong>Applications in CPS</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Low-Frequency (LF)</strong></td>
+<td>10 cm to 1 meter</td>
+<td>Low</td>
+<td>Strong penetration through materials</td>
+<td>Access control, livestock tracking, industrial automation</td>
+</tr>
+<tr>
+<td><strong>High-Frequency (HF)</strong></td>
+<td>10 cm to 1.5 meters</td>
+<td>Moderate</td>
+<td>Good but affected by metals/water</td>
+<td>Smart cards, inventory tracking, healthcare</td>
+</tr>
+<tr>
+<td><strong>Ultra-High Frequency (UHF)</strong></td>
+<td>Up to 12 meters (passive) / 100 meters (active)</td>
+<td>High</td>
+<td>Affected by metals/water but suitable for long-range tracking</td>
+<td>Supply chain, logistics, vehicle tracking</td>
+</tr>
+<tr>
+<td><strong>Microwave RFID</strong></td>
+<td>Up to 30 meters</td>
+<td>Very High</td>
+<td>Susceptible to interference</td>
+<td>Real-time location systems (RTLS), high-value asset tracking</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

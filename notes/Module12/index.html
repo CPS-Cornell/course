@@ -1,0 +1,3610 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Module9/">
+      
+      
+        <link rel="next" href="../../pages/LectureSlides/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Module 12 - Systems of Sensors and Actuators - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#systems-of-sensors-and-actuators" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 12 - Systems of Sensors and Actuators
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../labs/Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#noise-modeling-and-reduction-in-sensor-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Noise Modeling and Reduction in Sensor Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Noise Modeling and Reduction in Sensor Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mitigating-sensor-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mitigating Sensor Noise
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overcoming-environmental-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overcoming Environmental Factors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#increasing-reliability-and-redundancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Increasing Reliability and Redundancy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Increasing Reliability and Redundancy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-sensor-systems-are-critical-for-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Sensor Systems are Critical for Reliability:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulating-sensor-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulating Sensor Interfaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulating Sensor Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-modeling-the-system-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Modeling the System Dynamics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Modeling the System Dynamics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-the-physical-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define the Physical Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-numerical-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Numerical Simulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-modeling-the-sensor-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Modeling the Sensor Noise
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Modeling the Sensor Noise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identify-sensor-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identify Sensor Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-noise-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Noise Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-noisy-sensor-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate Noisy Sensor Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-simulating-the-communication-interface-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Simulating the Communication Interface (Optional)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Simulating the Communication Interface (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understand-the-communication-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understand the Communication Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-protocol-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Protocol Simulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulate-communication-timing-and-behavior-for-features-not-handled-by-the-communication-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulate Communication Timing and Behavior (for features not handled by the communication protocol)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrate-with-sensor-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrate with Sensor Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing and Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability-and-redundancy-in-cyber-physical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reliability and Redundancy in Cyber-Physical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reliability and Redundancy in Cyber-Physical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reliability-availability-maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reliability, Availability, Maintainability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failure Modes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mean-time-to-failure-mttf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mean Time to Failure (MTTF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mean-time-between-failures-mtbf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mean Time Between Failures (MTBF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-rate-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failure Rate \(\lambda\)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probabilistic-modeling-of-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Probabilistic Modeling of Reliability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Probabilistic Modeling of Reliability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-failure-rate-reliability-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constant Failure Rate Reliability Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constant Failure Rate Reliability Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-estimating-the-probability-of-sensor-failure-within-5-years" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Estimating the Probability of Sensor Failure Within 5 Years
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: Estimating the Probability of Sensor Failure Within 5 Years">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Calculation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-dependent-failure-rate-reliability-function-weibull-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time-dependent Failure Rate Reliability Function (Weibull Distribution)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Time-dependent Failure Rate Reliability Function (Weibull Distribution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-weibull-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Weibull Distribution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeling-reliability-in-cyber-physical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modeling Reliability in Cyber-Physical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modeling Reliability in Cyber-Physical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#series-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Series Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-out-of-n-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      k-out-of-n Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implications-for-systems-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implications for Systems Modeling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implications for Systems Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-series-and-parallel-systems-in-reliability-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples of Series and Parallel Systems in Reliability Engineering
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples of Series and Parallel Systems in Reliability Engineering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actuators-in-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actuators in Series
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensors-in-parallel-redundant-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensors in Parallel (Redundant Sensors)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-chicken-barn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Chicken Barn
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: Chicken Barn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assumptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculation Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation-steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculation Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#noise-modeling-and-reduction-in-sensor-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Noise Modeling and Reduction in Sensor Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Noise Modeling and Reduction in Sensor Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mitigating-sensor-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mitigating Sensor Noise
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overcoming-environmental-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overcoming Environmental Factors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#increasing-reliability-and-redundancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Increasing Reliability and Redundancy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Increasing Reliability and Redundancy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-sensor-systems-are-critical-for-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Sensor Systems are Critical for Reliability:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulating-sensor-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulating Sensor Interfaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulating Sensor Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-modeling-the-system-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Modeling the System Dynamics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Modeling the System Dynamics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-the-physical-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define the Physical Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-numerical-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Numerical Simulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-modeling-the-sensor-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Modeling the Sensor Noise
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Modeling the Sensor Noise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identify-sensor-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identify Sensor Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-noise-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Noise Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-noisy-sensor-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate Noisy Sensor Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-simulating-the-communication-interface-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Simulating the Communication Interface (Optional)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Simulating the Communication Interface (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understand-the-communication-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understand the Communication Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-protocol-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Protocol Simulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulate-communication-timing-and-behavior-for-features-not-handled-by-the-communication-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulate Communication Timing and Behavior (for features not handled by the communication protocol)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrate-with-sensor-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrate with Sensor Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing and Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability-and-redundancy-in-cyber-physical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reliability and Redundancy in Cyber-Physical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reliability and Redundancy in Cyber-Physical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reliability-availability-maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reliability, Availability, Maintainability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failure Modes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mean-time-to-failure-mttf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mean Time to Failure (MTTF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mean-time-between-failures-mtbf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mean Time Between Failures (MTBF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-rate-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failure Rate \(\lambda\)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probabilistic-modeling-of-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Probabilistic Modeling of Reliability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Probabilistic Modeling of Reliability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-failure-rate-reliability-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constant Failure Rate Reliability Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constant Failure Rate Reliability Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-estimating-the-probability-of-sensor-failure-within-5-years" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Estimating the Probability of Sensor Failure Within 5 Years
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: Estimating the Probability of Sensor Failure Within 5 Years">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Calculation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-dependent-failure-rate-reliability-function-weibull-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time-dependent Failure Rate Reliability Function (Weibull Distribution)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Time-dependent Failure Rate Reliability Function (Weibull Distribution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-weibull-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Weibull Distribution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeling-reliability-in-cyber-physical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modeling Reliability in Cyber-Physical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modeling Reliability in Cyber-Physical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#series-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Series Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-out-of-n-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      k-out-of-n Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implications-for-systems-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implications for Systems Modeling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implications for Systems Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-series-and-parallel-systems-in-reliability-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples of Series and Parallel Systems in Reliability Engineering
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples of Series and Parallel Systems in Reliability Engineering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actuators-in-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actuators in Series
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensors-in-parallel-redundant-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensors in Parallel (Redundant Sensors)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-chicken-barn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Chicken Barn
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: Chicken Barn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assumptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculation Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation-steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculation Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="systems-of-sensors-and-actuators">Systems of Sensors and Actuators</h1>
+<h2 id="noise-modeling-and-reduction-in-sensor-systems">Noise Modeling and Reduction in Sensor Systems</h2>
+<p>Sensor networks consist of multiple interconnected sensors that work together to collect, process, and communicate data about physical environments. By providing real-time insights and facilitating data-driven decision-making, sensor networks play a key role in improving efficiency, reliability, and responsiveness in various cyber-physical systems. Sensors are important for three main reasons: mitigating sensor noise, overcoming environmental factors, and increasing reliability and redundancy.</p>
+<h3 id="mitigating-sensor-noise">Mitigating Sensor Noise</h3>
+<p>Mitigating noise is essential for ensuring that sensor readings are accurate and reliable. Noise can come from various sources, such as electrical interference or thermal fluctuations, and can significantly affect data quality.</p>
+<ul>
+<li>
+<p><strong>Importance of Sensor Noise Models</strong>: a sensor noise model allows you to know how much you can rely on a sensor reading.</p>
+</li>
+<li>
+<p><strong>Sensor Noise Models:</strong></p>
+</li>
+<li>
+<p><strong>Gaussian Noise</strong>: The most common noise model, assuming that noise follows a normal distribution.</p>
+</li>
+<li>
+<p><strong>Uniform Noise</strong>: Describes noise with a constant probability distribution over a specific range.</p>
+</li>
+<li>
+<p><strong>Poisson Noise</strong>: Used for sensors that count events, such as photon sensors, particularly when measuring low-intensity signals.</p>
+</li>
+<li>
+<p><strong>Shot Noise</strong>: Occurs due to discrete charge carriers, often seen in electronic components and photon detection, especially in weak signals.</p>
+</li>
+<li>
+<p><strong>Quantization Noise</strong>: Results from analog-to-digital conversion and is influenced by the precision of the digital representation.</p>
+</li>
+<li>
+<p><strong>1/f Noise (Pink Noise)</strong>: A type of noise where power decreases as frequency increases, commonly seen in electronic circuits and long-term measurements.</p>
+</li>
+<li>
+<p><strong>White Noise</strong>: Characterized by a flat spectral density, affecting all frequencies equally and representing random, uncorrelated noise.</p>
+</li>
+<li>
+<p><strong>Fusing Data Based on Sensor Noise</strong>: If you have multiple independent sensor readings, as long as the variance of each reading is finite, the variance of the average of those readings will decrease. Mathematically, if each sensor has a variance \\sigma^2\, the variance of the average of independent sensor readings is given by:</p>
+</li>
+</ul>
+<div class="arithmatex">\[\sigma^2_{avg} = \frac{\sigma^2}{N}\]</div>
+<p>Where <span class="arithmatex">\(\sigma^2_{avg}\)</span> is the variance of the average of the sensor readings, and \N\ is the number of sensors.</p>
+<h3 id="overcoming-environmental-factors">Overcoming Environmental Factors</h3>
+<p>Environmental conditions, like temperature, humidity, or electromagnetic interference, can impact sensor performance. Properly designed sensor networks can adapt to and compensate for these factors to maintain accurate data collection. It is important to consider <strong>complementary sensors</strong>, or sets of sensors that aren’t impacted by the same environmental variables.</p>
+<p>Examples:</p>
+<ul>
+<li>
+<p>Example 1: Consider <strong>ultrasonic</strong> and <strong>infrared</strong> proximity sensors. Ultrasonic sensors are susceptible to the texture of an object (due to sound absorption), and infrared sensors are susceptible to the color of an object (due to light absorption). Relying on both can reduce failure modes of the system.</p>
+</li>
+<li>
+<p>Example 2: Many driverless cars use both <strong>LiDAR</strong> and <strong>computer vision</strong>. LiDAR is effective for creating detailed 3D maps, but can be less reliable in heavy rain or fog, while computer vision can be affected by lighting conditions such as shadows or glare. By combining both technologies, the system can compensate for each sensor’s limitations. </p>
+</li>
+</ul>
+<p>Key Takeaways:</p>
+<ul>
+<li>
+<p><strong>Sensors Measurement Independence:</strong> If two sensors are impacted by the same environmental factors, <strong>their measurement noise cannot be considered independent</strong>.</p>
+</li>
+<li>
+<p><strong>Sensor Selection:</strong> it is critical to select sensors that are not susceptible to the same environmental factors.</p>
+</li>
+</ul>
+<h3 id="increasing-reliability-and-redundancy">Increasing Reliability and Redundancy</h3>
+<p>Reliability and redundancy are crucial in sensor networks to prevent data loss or system failures. By using multiple sensors for the same measurement, systems can ensure continued operation even if some sensors fail.</p>
+<h4 id="why-sensor-systems-are-critical-for-reliability">Why Sensor Systems are Critical for Reliability:</h4>
+<ol>
+<li>
+<p><strong>Sensor Vs Actuator Failure</strong>: It tends to be easier to engineer reliability into an actuator by using more robust materials and mechanical designs than it is to engineer reliability into a sensor because many sensors require delicate physical mechanism for proper sensitivity.</p>
+<ul>
+<li>
+<p>For many systems, actuation failure is not as critical as sensor failure.</p>
+</li>
+<li>
+<p>Example from Agriculture: In climate control systems, such as used in livestock housing or crop storage, a failure of the heating or cooling element could be detected and reported by the temperature sensor leading to rapid repair. Alternatively, a faulty temperature sensor that is off by a few degrees could be difficult to detect until after the livestock or crop is damaged or killed.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Failure Detection</strong>: Sensors can often report actuator failures, but not vise versa. Multiple sensors are needed in order to be able to detect anomalies due to failure in a single sensor.</p>
+</li>
+</ol>
+<h2 id="simulating-sensor-interfaces">Simulating Sensor Interfaces</h2>
+<p>Simulating sensor interfaces in the design of cyber-physical systems is crucial for testing and validating algorithms, such as sensor fusion techniques, before deploying them on actual hardware. This process can be broken down into three main steps:</p>
+<h3 id="1-modeling-the-system-dynamics">1. Modeling the System Dynamics</h3>
+<p><strong>Objective</strong>: Create a mathematical representation of the physical system to generate realistic data that sensors would detect.</p>
+<h4 id="define-the-physical-model">Define the Physical Model</h4>
+<ul>
+<li>
+<p><strong>Kinematics and Dynamics</strong>: Establish equations of motion for the system (e.g., Newton’s laws for linear motion, rotational dynamics for angular motion).</p>
+</li>
+<li>
+<p><strong>State Variables</strong>: Identify key variables such as position, velocity, acceleration, orientation, and angular velocity.</p>
+</li>
+<li>
+<p><strong>External Forces</strong>: Include forces like gravity, friction, and control inputs that affect the system’s movement.</p>
+</li>
+</ul>
+<h4 id="implement-numerical-simulation">Implement Numerical Simulation</h4>
+<ul>
+<li>
+<p><strong>Time Discretization</strong>: Choose a suitable time step (<code>dt</code>) for the simulation to balance accuracy and computational efficiency.</p>
+</li>
+<li>
+<p><strong>Integration Methods</strong>: Use numerical integration techniques (e.g., Euler, Runge-Kutta methods) to update the state variables over time.</p>
+</li>
+<li>
+<p><strong>Scenario Design</strong>: Define specific movements or maneuvers (e.g., straight-line motion, rotations) that the system will perform during the simulation.</p>
+</li>
+</ul>
+<h4 id="validation">Validation</h4>
+<ul>
+<li>
+<p><strong>Sanity Checks</strong>: Ensure the simulated motion adheres to physical laws and expected behavior.</p>
+</li>
+<li>
+<p><strong>Visualization</strong>: Plot trajectories and state variables to visually inspect the system’s dynamics.</p>
+</li>
+</ul>
+<h3 id="2-modeling-the-sensor-noise">2. Modeling the Sensor Noise</h3>
+<p><strong>Objective</strong>: Simulate realistic sensor outputs by adding noise and imperfections to the ideal measurements.</p>
+<h4 id="identify-sensor-characteristics">Identify Sensor Characteristics</h4>
+<ul>
+<li>
+<p><strong>Sensor Types</strong>: Determine which sensors are being simulated (e.g., accelerometers, gyroscopes).</p>
+</li>
+<li>
+<p><strong>Specifications</strong>: Gather data on sensor specifications such as range, sensitivity, resolution, and noise characteristics from datasheets.</p>
+</li>
+</ul>
+<h4 id="implement-noise-models">Implement Noise Models</h4>
+<ul>
+<li>
+<p><strong>Random Noise</strong>:</p>
+<ul>
+<li>
+<p><strong>Gaussian Noise</strong>: Add zero-mean Gaussian noise to simulate white noise commonly present in sensors.</p>
+</li>
+<li>
+<p><strong>Standard Deviation</strong>: Set the noise level based on the sensor’s noise density specification.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bias and Drift</strong>:</p>
+<ul>
+<li>
+<p><strong>Constant Bias</strong>: Include a fixed offset that represents calibration errors.</p>
+</li>
+<li>
+<p><strong>Temperature Effects</strong>: Model drift that can occur due to temperature changes over time.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Quantization Error</strong>:</p>
+<ul>
+<li><strong>Resolution Limitations</strong>: Simulate the effects of finite sensor resolution by quantizing the sensor outputs.</li>
+</ul>
+</li>
+<li>
+<p><strong>Other Noise Types</strong>:</p>
+<ul>
+<li>A more extensive list of noise models is given in Mitigating Sensor Noise section.</li>
+</ul>
+</li>
+</ul>
+<h4 id="generate-noisy-sensor-data">Generate Noisy Sensor Data</h4>
+<ul>
+<li>
+<p><strong>Transform True States</strong>: Convert the system dynamics into sensor measurements (e.g., acceleration, angular velocity) in the sensor’s frame of reference.</p>
+</li>
+<li>
+<p><strong>Apply Noise</strong>: Add the modeled noise to the ideal sensor readings to obtain simulated measurements.</p>
+</li>
+<li>
+<p><strong>Environmental Factors</strong>: Optionally include effects like vibrations or electromagnetic interference if relevant.</p>
+</li>
+</ul>
+<h4 id="validation_1">Validation</h4>
+<ul>
+<li>
+<p><strong>Statistical Analysis</strong>: Check that the noise-added data matches expected statistical properties.</p>
+</li>
+<li>
+<p><strong>Comparison with Real Data</strong>: If possible, compare simulated sensor data with real-world measurements for accuracy.</p>
+</li>
+</ul>
+<h3 id="3-simulating-the-communication-interface-optional">3. Simulating the Communication Interface (Optional)</h3>
+<p><strong>Objective</strong>: Emulate the data transmission between sensors and processing units, including communication protocols.</p>
+<h4 id="understand-the-communication-protocol">Understand the Communication Protocol</h4>
+<ul>
+<li>
+<p><strong>Protocol Specifications</strong>: Familiarize yourself with the communication protocol used by the sensors (e.g., I²C, SPI) and all relevant factors, for example:</p>
+<ul>
+<li>
+<p><strong>Addressing</strong>: Know how sensors are addressed on the bus.</p>
+</li>
+<li>
+<p><strong>Data Format</strong>: Understand how data is formatted and transmitted.</p>
+</li>
+<li>
+<p><strong>Clock Speed</strong>: Determine the clock frequency and data rate of the communication.</p>
+</li>
+<li>
+<p><strong>Timings</strong>: Be aware of the timing requirements for start/stop conditions and data transfer.</p>
+</li>
+<li>
+<p><strong>Other Sensors</strong>: If multiple sensors are involved, understand how they interact on the bus, including impacts on data throughput.</p>
+</li>
+<li>
+<p><strong>Master-Slave Architecture</strong>: Recognize the roles of master and slave devices in communication.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="implement-protocol-simulation">Implement Protocol Simulation</h4>
+<ul>
+<li>
+<p><strong>Software Simulation</strong>:</p>
+</li>
+<li>
+<p><strong>Libraries and Tools</strong>: Use programming libraries or simulation tools to emulate the communication protocol.</p>
+</li>
+<li>
+<p><strong>Virtual Devices</strong>: Create virtual sensor devices that behaves as if it were the real sensor.</p>
+</li>
+<li>
+<p><strong>Data Packaging</strong>:</p>
+</li>
+<li>
+<p><strong>Registers and Buffers</strong>: Simulate sensor registers where data is stored and retrieved.</p>
+</li>
+<li>
+<p><strong>Data Formats</strong>: Ensure data is formatted correctly (e.g., two’s complement, bit packing, endianess).</p>
+</li>
+</ul>
+<h4 id="simulate-communication-timing-and-behavior-for-features-not-handled-by-the-communication-protocol">Simulate Communication Timing and Behavior (for features not handled by the communication protocol)</h4>
+<ul>
+<li>
+<p><strong>Clock Synchronization</strong>: Emulate the clock signals and ensure proper timing between the master and slave.</p>
+</li>
+<li>
+<p><strong>Start/Stop Conditions</strong>: Implement the start and stop conditions as per the protocol.</p>
+</li>
+<li>
+<p><strong>Acknowledgment Bits</strong>: Handle acknowledgments after each byte transferred.</p>
+</li>
+<li>
+<p><strong>Error Handling</strong>: Simulate potential communication errors, such as NACK responses or bus contention.</p>
+</li>
+</ul>
+<h4 id="integrate-with-sensor-data">Integrate with Sensor Data</h4>
+<ul>
+<li>
+<p><strong>Data Retrieval</strong>: Program the virtual sensor to provide the noisy sensor data upon request.</p>
+</li>
+<li>
+<p><strong>Command Processing</strong>: Implement handling of specific commands or configurations sent over the interface.</p>
+</li>
+</ul>
+<h4 id="testing-and-validation">Testing and Validation</h4>
+<ul>
+<li>
+<p><strong>Protocol Analyzers</strong>: Use software tools to monitor and verify the correctness of the simulated communication.</p>
+</li>
+<li>
+<p><strong>Integration Testing</strong>: Connect the simulated interface with the sensor fusion algorithm to test end-to-end functionality.</p>
+</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>By following these three steps, you create a comprehensive simulation environment that allows you to:</p>
+<ul>
+<li>
+<p><strong>Test Algorithms</strong>: Evaluate sensor fusion or data processing algorithms using realistic sensor data and communication protocols.</p>
+</li>
+<li>
+<p><strong>Identify Issues Early</strong>: Detect and correct potential problems in the system design before hardware implementation.</p>
+</li>
+<li>
+<p><strong>Optimize Performance</strong>: Experiment with different system parameters, sensor specifications, and communication settings to optimize system performance.</p>
+</li>
+</ul>
+<h4 id="additional-tips">Additional Tips</h4>
+<ul>
+<li>
+<p><strong>Modular Design</strong>: Keep the simulation components modular to allow easy updates and reuse in different projects.</p>
+</li>
+<li>
+<p><strong>Documentation</strong>: Document your models and assumptions thoroughly to aid in debugging and future development.</p>
+</li>
+<li>
+<p><strong>Collaboration</strong>: If working in a team, ensure that interfaces between modules are well-defined to facilitate collaboration.</p>
+</li>
+</ul>
+<h2 id="reliability-and-redundancy-in-cyber-physical-systems">Reliability and Redundancy in Cyber-Physical Systems</h2>
+<h3 id="terminology">Terminology</h3>
+<p>The reliability of cyber-physical systems is paramount, especially in applications like autonomous vehicles, medical devices, and industrial automation. This module explores how to model and enhance the reliability and redundancy of CPS using probabilistic methods and system architecture considerations.</p>
+<h4 id="reliability-availability-maintainability">Reliability, Availability, Maintainability</h4>
+<ul>
+<li>
+<p><strong>Reliability <span class="arithmatex">\(R\)</span></strong>: The probability that a system or component performs its required functions under stated conditions for a specified period.</p>
+</li>
+<li>
+<p><strong>Availability <span class="arithmatex">\(A\)</span></strong>: The proportion of time a system is in a functioning condition. It considers both reliability and maintainability.</p>
+</li>
+<li>
+<p><strong>Maintainability <span class="arithmatex">\(M\)</span></strong>: The probability that a failed system will be restored to operational effectiveness within a given period.</p>
+</li>
+</ul>
+<h4 id="failure-modes">Failure Modes</h4>
+<p>Understanding how components can fail is crucial for modeling reliability.</p>
+<ul>
+<li>
+<p><strong>Hardware Failures</strong>: Physical component degradation or sudden breakdown.</p>
+</li>
+<li>
+<p><strong>Software Failures</strong>: Bugs, errors in code logic, or unexpected inputs leading to crashes.</p>
+</li>
+<li>
+<p><strong>Network Failures</strong>: Communication breakdowns, latency issues, or data loss.</p>
+</li>
+</ul>
+<h4 id="mean-time-to-failure-mttf">Mean Time to Failure (MTTF)</h4>
+<ul>
+<li>
+<p><strong>Definition</strong>: The average expected time to the first failure of a non-repairable system.</p>
+</li>
+<li>
+<p><strong>Calculation</strong>: For a large number of identical components:</p>
+</li>
+</ul>
+<div class="arithmatex">\[MTTF = \frac{Total\ operational\ time}{Number\ of\ failures}\]</div>
+<h4 id="mean-time-between-failures-mtbf">Mean Time Between Failures (MTBF)</h4>
+<ul>
+<li>
+<p><strong>Definition</strong>: The average time between consecutive failures in a repairable system.</p>
+</li>
+<li>
+<p><strong>Calculation</strong>: <span class="arithmatex">\(MTBF = MTTF + MTTR\)</span> (Mean Time to Repair), but often <span class="arithmatex">\(MTTR\)</span> is negligible.</p>
+</li>
+</ul>
+<h4 id="failure-rate-lambda">Failure Rate <span class="arithmatex">\(\lambda\)</span></h4>
+<ul>
+<li>
+<p><strong>Definition</strong>: The frequency with which an engineered system or component fails, expressed in failures per unit of time.</p>
+</li>
+<li>
+<p><strong>Relation to <span class="arithmatex">\(MTTF\)</span></strong>: <span class="arithmatex">\(\lambda = \frac{1}{MTTF}\)</span>.</p>
+</li>
+</ul>
+<h2 id="probabilistic-modeling-of-reliability">Probabilistic Modeling of Reliability</h2>
+<p>Failure and Reliability functions are can use different distributions to model the behavior of components and systems. The most common models for reliability are based on constant failure rates or time-dependent failure rates. 
+- <strong>Constant Failure Rate</strong>: Assumes that the failure rate <span class="arithmatex">\(\lambda\)</span> is constant over time (exponential distribution). 
+- <strong>Time-Dependent Failure Rate</strong>: Uses distributions like Weibull to model systems where failure rates change over time.</p>
+<h3 id="constant-failure-rate-reliability-function">Constant Failure Rate Reliability Function</h3>
+<p>The failure rate, <span class="arithmatex">\(\lambda\)</span>, is the reciprocal of the MTTF, and is assumed to be constant over time. We use an exponential distribution to model the probability that a component survives until time <span class="arithmatex">\(t\)</span> without failure.</p>
+<ul>
+<li>
+<p><strong>Reliability Function <span class="arithmatex">\(R(t)\)</span></strong>: The probability that a component survives until time <span class="arithmatex">\(t\)</span> without failure.</p>
+<div class="arithmatex">\[R(t) = e^{-\lambda t}\]</div>
+</li>
+<li>
+<p><strong>Failure Function <span class="arithmatex">\(F(t)\)</span></strong>: The probability that a component fails by time t.</p>
+<div class="arithmatex">\[F(t) = 1 - R(t) = 1 - e^{-\lambda t}\]</div>
+</li>
+<li>
+<p><strong>Probability Density Function <span class="arithmatex">\(f(t)\)</span></strong>: The rate at which failures occur at time t.</p>
+</li>
+</ul>
+<h4 id="example-estimating-the-probability-of-sensor-failure-within-5-years">Example: Estimating the Probability of Sensor Failure Within 5 Years</h4>
+<p>To estimate the probability that a sensor will fail within 5 years when its mean time to failure (MTTF) is 12 years, we can use the exponential reliability function, which is commonly used for electronic components with a constant failure rate.</p>
+<h5 id="step-by-step-calculation">Step-by-Step Calculation</h5>
+<ol>
+<li>
+<p><strong>Calculate the Failure Rate (<span class="arithmatex">\(\lambda\)</span>):</strong></p>
+<ul>
+<li>The failure rate <span class="arithmatex">\(\lambda\)</span> is the reciprocal of the MTTF.</li>
+</ul>
+<div class="arithmatex">\[\lambda = \frac{1}{\text{MTTF}} = \frac{1}{12 \text{ years}} \approx 0.08333 \text{ failures/year}\]</div>
+</li>
+<li>
+<p><strong>Use the Reliability Function:</strong></p>
+<ul>
+<li>The reliability function for an exponential distribution is:</li>
+</ul>
+<div class="arithmatex">\[R(t) = e^{-\lambda t}\]</div>
+<ul>
+<li>Where:<ul>
+<li><span class="arithmatex">\(R(t)\)</span> is the probability that the sensor <strong>survives</strong> up to time <span class="arithmatex">\(t\)</span>.</li>
+<li><span class="arithmatex">\(t\)</span> is the time in years.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Calculate the Reliability at <span class="arithmatex">\(t = 5\)</span> Years:</strong></p>
+<div class="arithmatex">\[R(5) = e^{-0.08333 \times 5} = e^{-0.41665} \approx 0.65924\]</div>
+<ul>
+<li>This means there’s approximately a 65.92% chance the sensor will <strong>survive</strong> for 5 years.</li>
+</ul>
+</li>
+<li>
+<p><strong>Calculate the Probability of Failure Within 5 Years:</strong></p>
+<ul>
+<li>The probability that the sensor <strong>fails</strong> within 5 years is:</li>
+</ul>
+<div class="arithmatex">\[P(\text{Failure within 5 years}) = 1 - R(5) = 1 - 0.65924 = 0.34076 = \boxed{34.08\%}\]</div>
+<ul>
+<li>So there’s approximately a <strong>34.08%</strong> chance the sensor will fail within 5 years.</li>
+</ul>
+</li>
+</ol>
+<h3 id="time-dependent-failure-rate-reliability-function-weibull-distribution">Time-dependent Failure Rate Reliability Function (Weibull Distribution)</h3>
+<p>The failure rate <span class="arithmatex">\(\lambda(t)\)</span> is a function of time, allowing for varying failure rates over the lifetime of a component. The <strong>Weibull distribution</strong> is commonly used to model such behavior. It is particularly useful because it can represent increasing, decreasing, or constant failure rates, which correspond to different phases of a product’s lifecycle.</p>
+<h4 id="key-parameters">Key Parameters</h4>
+<ol>
+<li>
+<p><strong>Shape Parameter (<span class="arithmatex">\(\beta\)</span>)</strong></p>
+<ul>
+<li>
+<p><strong>Interpretation:</strong> Determines how the failure rate changes over time.</p>
+</li>
+<li>
+<p><strong>Values and Implications:</strong></p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\beta &lt; 1\)</span>: Decreasing failure rate</p>
+<ul>
+<li>
+<p><strong>Implications:</strong> Early-life failures or "infant mortality."</p>
+</li>
+<li>
+<p><strong>Causes:</strong> Manufacturing defects or early wear-in issues.</p>
+</li>
+<li>
+<p><strong>Failure Rate Behavior:</strong> Decreases over time.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="arithmatex">\(\beta = 1\)</span>: Constant failure rate</p>
+<ul>
+<li>
+<p><strong>Implications:</strong> Random failures, no aging effect.</p>
+</li>
+<li>
+<p><strong>Causes:</strong> External random events, constant risk over time.</p>
+</li>
+<li>
+<p><strong>Failure Rate Behavior:</strong> Remains constant.</p>
+</li>
+<li>
+<p><strong>Note:</strong> Weibull distribution reduces to the exponential distribution.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="arithmatex">\(\beta &gt; 1\)</span>: Increasing failure rate</p>
+<ul>
+<li>
+<p><strong>Implications:</strong> Wear-out failures or aging products.</p>
+</li>
+<li>
+<p><strong>Causes:</strong> Material fatigue, wear and tear, degradation.</p>
+</li>
+<li>
+<p><strong>Failure Rate Behavior:</strong> Increases over time.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Scale Parameter (<span class="arithmatex">\(\eta\)</span>)</strong></p>
+<ul>
+<li>
+<p><strong>Implications:</strong> A scale factor that stretches or compresses the distribution along the time axis.</p>
+</li>
+<li>
+<p><strong>Higher <span class="arithmatex">\(\eta\)</span>:</strong> Longer life products.</p>
+</li>
+<li>
+<p><strong>Lower <span class="arithmatex">\(\eta\)</span>:</strong> Shorter life products.</p>
+</li>
+<li>
+<p><strong>Note</strong>: when <span class="arithmatex">\(\beta = 1\)</span>, the Weibull distribution reduces to the exponential distribution with <span class="arithmatex">\(\lambda = \frac{1}{\eta}\)</span>.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="mathematical-functions">Mathematical Functions</h4>
+<ul>
+<li>
+<p><strong>Reliability Function</strong>: The probability that a unit will survive beyond time <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[R(t) = e^{-\left(\frac{t}{\eta}\right)^\beta}\]</div>
+</li>
+<li>
+<p><strong>Failure Function <span class="arithmatex">\(F(t)\)</span></strong>: The probability that a component fails by time <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[F(t) = 1 - e^{-\left( \frac{t}{\eta}\right)^\beta }\]</div>
+</li>
+<li>
+<p><strong>Probability Density Function (PDF)</strong>: The likelihood of failure at a specific time <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[f(t) = \frac{\beta}{\eta} \left( \frac{t}{\eta}\right)^{\beta - 1} e^{-\left( \frac{t}{\eta}\right)^\beta }\]</div>
+</li>
+<li>
+<p><strong>Hazard Function</strong> (Failure Rate Function): The instantaneous failure rate at time <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[h(t) = \frac{f(t)}{R(t)} = \frac{\beta}{\eta} \left( \frac{t}{\eta} \right)^{\beta - 1}\]</div>
+</li>
+</ul>
+<h4 id="example">Example</h4>
+<p><strong>Scenario:</strong> Suppose you have collected failure data for a type of sensor and estimated the Weibull parameters as <span class="arithmatex">\(\beta = 1.5\)</span> and <span class="arithmatex">\(\eta = 1,000\)</span> hours.</p>
+<p><strong>Calculations:</strong></p>
+<ol>
+<li>
+<p><strong>Reliability:</strong> Calculate the reliability of a sensor at <span class="arithmatex">\(t = 500\)</span> hours.</p>
+<div class="arithmatex">\[R(500) = e^{- \left( \frac{500}{1,000} \right)^{1.5}} = e^{- \left( 0.5 \right)^{1.5}} = e^{-0.3536} \approx 0.7022\]</div>
+<p><strong>Interpretation:</strong> Approximately 70.22% of sensors are expected to survive beyond 500 hours.</p>
+</li>
+<li>
+<p><strong>Probability of Failure:</strong> Calculate the probability that a sensor will fail by <span class="arithmatex">\(t = 1,500\)</span> hours.</p>
+<div class="arithmatex">\[F(1,500) = 1 - e^{- \left( \frac{1,500}{1,000} \right)^{1.5}} = 1 - e^{- \left( 1.5 \right)^{1.5}} = 1 - e^{-1.8371} \approx 1 - 0.1590 = 0.8410\]</div>
+<p><strong>Interpretation:</strong> Approximately 84.10% of sensors are expected to fail by 1,500 hours.</p>
+</li>
+<li>
+<p><strong>Hazard Function:</strong> Calculate the effective failure rate at <span class="arithmatex">\(t = 1,000\)</span> hours.</p>
+<div class="arithmatex">\[h(1,000) = \frac{1.5}{1,000} \left( \frac{1,000}{1,000} \right)^{1.5 - 1} = \frac{1.5}{1,000} (1)^{0.5} = 0.0015 \text{ failures/hour}\]</div>
+<p><strong>Interpretation:</strong> The instantaneous failure rate at 1,000 hours is 0.0015 failures per hour.</p>
+</li>
+</ol>
+<h3 id="visual-representation">Visual Representation</h3>
+<p>While we cannot display graphs here, in practice, you can plot:</p>
+<ul>
+<li>
+<p><strong>PDF:</strong> Shows the distribution of failure times.</p>
+</li>
+<li>
+<p><strong>CDF:</strong> Illustrates the cumulative probability of failure over time.</p>
+</li>
+<li>
+<p><strong>Reliability Function R(t):</strong> Depicts the probability of survival over time.</p>
+</li>
+<li>
+<p><strong>Hazard Function h(t):</strong> Visualizes how the failure rate changes with time.</p>
+</li>
+</ul>
+<h3 id="when-to-use-weibull-distribution">When to Use Weibull Distribution</h3>
+<p>When purchasing parts from a distributer, you may often receive information on the mean time to failure. You can use the constant failure rate model to calculate how the reliability of the part decreases with wear and tear, but <strong>you can not account for early failure due to manufacturing defects</strong>. However, the Weibull distribution can account for changing failure rates over time, which can be useful in the following scenarios:</p>
+<ul>
+<li>
+<p>If a component has a high failure rate at the beginning of its life, you may want to add a "burn-in" period to your testing procedures to weed out faulty components before shipping the product to the customer.</p>
+</li>
+<li>
+<p>If you are designing a maintenance testing schedule, you may want add additional calibration and testing earlier in the life of the component to catch any early failures, and then reduce the frequency of testing after a certain age, until it reaches the end of its life where you may want to begin testing more frequently again.</p>
+</li>
+<li>
+<p>When designing warranty policies, you may want the policy to cover the period of time where the components are most likely to prematurely fail due to manufacturing defects, but not cover the period of time where the component is most likely to fail due to wear and tear.</p>
+</li>
+</ul>
+<p>Generally, if you are collecting data to characterize the reliability of a component, it is best to also account for manufacturing defects and early life failures by using the Weibull distribution. If you are using a component that has already been characterized by the manufacturer and only the mean time to failure is provided, you can use the constant failure rate model to estimate the reliability of the component over time.</p>
+<h2 id="modeling-reliability-in-cyber-physical-systems">Modeling Reliability in Cyber-Physical Systems</h2>
+<p>Understanding <strong>series</strong> and <strong>parallel systems</strong> is fundamental in reliability engineering, as it helps in designing systems with desired reliability levels. This document explains these concepts in detail and provides examples of how sensors or actuators can be configured in series or parallel to affect system reliability.</p>
+<h3 id="series-systems">Series Systems</h3>
+<ul>
+<li>
+<p><strong>Definition</strong>: The system fails if any component fails.</p>
+</li>
+<li>
+<p><strong>Reliability Calculation</strong>:</p>
+<div class="arithmatex">\[R_{\text{series}} = \prod_{i=1}^{n} R_i\]</div>
+</li>
+<li>
+<p><strong>Interpretation</strong>: Reliability decreases as more components are added in series.</p>
+</li>
+</ul>
+<h3 id="parallel-systems">Parallel Systems</h3>
+<ul>
+<li>
+<p><strong>Definition</strong>: The system functions as long as at least one component functions.</p>
+</li>
+<li>
+<p><strong>Reliability Calculation</strong>:</p>
+<div class="arithmatex">\[R_{\text{parallel}} = 1 - \prod_{i=1}^{n} (1 - R_i)\]</div>
+</li>
+<li>
+<p><strong>Interpretation</strong>: Adding components in parallel increases system reliability.</p>
+</li>
+</ul>
+<h3 id="k-out-of-n-systems">k-out-of-n Systems</h3>
+<ul>
+<li>
+<p><strong>Definition</strong>: The system functions if at least <span class="arithmatex">\(k\)</span> out of <span class="arithmatex">\(n\)</span> components function.</p>
+</li>
+<li>
+<p><strong>Reliability Calculation</strong>:</p>
+<div class="arithmatex">\[R = \sum_{i=k}^{n} \binom{n}{i} R_i^i (1 - R_i)^{n - i}\]</div>
+</li>
+<li>
+<p><strong>Interpretation</strong>: Adding more components than is needed to operate the system increases reliability, and allows for broken components to be replaced without system failure.</p>
+</li>
+</ul>
+<h2 id="implications-for-systems-modeling">Implications for Systems Modeling</h2>
+<p>The calculations show that the system maintains high reliability over the first two years, primarily due to the redundancy in both the temperature sensors and heating elements.</p>
+<p><strong>Recommendations to Maintain High System Reliability:</strong></p>
+<ol>
+<li>
+<p><strong>Regular Maintenance:</strong></p>
+<ul>
+<li>Schedule periodic inspections to identify and replace any failing components.</li>
+</ul>
+</li>
+<li>
+<p><strong>Monitoring Systems:</strong></p>
+<ul>
+<li>Install real-time monitoring to detect early signs of component degradation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Environmental Controls:</strong></p>
+<ul>
+<li>Ensure optimal operating conditions to minimize stress on components.</li>
+</ul>
+</li>
+<li>
+<p><strong>Future Planning:</strong></p>
+<ul>
+<li>As time progresses beyond two years, consider strategies to address the gradual decline in reliability, such as proactive replacements or increased redundancy.</li>
+</ul>
+</li>
+</ol>
+<h3 id="examples-of-series-and-parallel-systems-in-reliability-engineering">Examples of Series and Parallel Systems in Reliability Engineering</h3>
+<h4 id="actuators-in-series">Actuators in Series</h4>
+<ul>
+<li>
+<p><strong>Scenario:</strong> Consider a robotic arm with multiple joints, each powered by an actuator. The proper functioning of the robotic arm requires all actuators to operate correctly.</p>
+</li>
+<li>
+<p><strong>System Requirement:</strong> Failure of any actuator leads to failure of the entire robotic arm’s operation.</p>
+</li>
+<li>
+<p><strong>Reliability Calculation:</strong> Assuming each actuator has reliability <span class="arithmatex">\(R_a(t)\)</span>:</p>
+</li>
+<li>
+<p><strong>Total System Reliability for <em>N</em> Actuators in Series:</strong></p>
+<div class="arithmatex">\[R_{\text{system}}(t) = [R_a(t)]^N\]</div>
+</li>
+<li>
+<p><strong>Example Calculation:</strong> If each actuator has a reliability of 95% (<span class="arithmatex">\(R_a(t) = 0.95\)</span>):</p>
+</li>
+<li>
+<p><strong>With 3 Actuators in Series:</strong> The system reliability is about 85.74%.</p>
+<div class="arithmatex">\[R_{\text{system}}(t) = (0.95)^3 = 0.8574\]</div>
+</li>
+<li>
+<p><strong>Implication:</strong> The more actuators connected in series, the lower the overall system reliability.</p>
+</li>
+</ul>
+<h4 id="sensors-in-parallel-redundant-sensors">Sensors in Parallel (Redundant Sensors)</h4>
+<ul>
+<li>
+<p><strong>Scenario:</strong> You have multiple sensors measuring the same parameter, and the system requires only one functioning sensor to operate. This is common in critical systems where sensor failure can have significant consequences (e.g., in aerospace or medical devices).</p>
+</li>
+<li>
+<p><strong>System Configuration:</strong></p>
+<ul>
+<li>Primary Sensor</li>
+<li>Redundant Backup Sensors</li>
+</ul>
+</li>
+<li>
+<p><strong>Reliability Calculation:</strong> If each sensor has reliability <span class="arithmatex">\(R_s(t)\)</span>:</p>
+<ul>
+<li>
+<p><strong>Total System Reliability with <em>N</em> Sensors:</strong></p>
+<div class="arithmatex">\[R_{\text{system}}(t) = 1 - [1 - R_s(t)]^N\]</div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Example Calculation:</strong> Suppose each sensor has a reliability of 90% (<span class="arithmatex">\(R_s(t) = 0.9\)</span>) over a mission time.</p>
+<ul>
+<li>
+<p><strong>With 1 Sensor:</strong></p>
+<div class="arithmatex">\[R_{\text{system}}(t) = R_s(t) = 0.9\]</div>
+</li>
+<li>
+<p><strong>With 2 Sensors in Parallel:</strong> The system reliability increases to 99% with one redundant sensor.</p>
+<div class="arithmatex">\[R_{\text{system}}(t) = 1 - [1 - 0.9]^2 = 1 - (0.1)^2 = 1 - 0.01 = 0.99\]</div>
+</li>
+<li>
+<p><strong>With 3 Sensors in Parallel:</strong> The system reliability increases to 99.9% with two redundant sensors.</p>
+<div class="arithmatex">\[R_{\text{system}}(t) = 1 - [1 - 0.9]^3 = 1 - (0.1)^3 = 1 - 0.001 = 0.999\]</div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Implication:</strong> Adding redundant sensors in parallel significantly increases system reliability.</p>
+</li>
+</ul>
+<h4 id="example-chicken-barn">Example: Chicken Barn</h4>
+<p>A chicken barn has four temperature sensors and 15 heating elements to keep the chickens warm. The system needs at least two temperature sensors and 10 heating elements to fully work. The mean time between failures for the temperature sensors is 15 years and the mean time between failures for the heating elements is 10 years. Calculate the probability that the system will fail within one year and two years of operation.</p>
+<h5 id="system-overview">System Overview</h5>
+<ul>
+<li>
+<p><strong>Temperature Sensors:</strong></p>
+<ul>
+<li>
+<p>Quantity: <strong>4</strong></p>
+</li>
+<li>
+<p>Requirement: At least <strong>2</strong> must be operational.</p>
+</li>
+<li>
+<p>Mean Time Between Failures (MTBF): <strong>15 years</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Heating Elements:</strong></p>
+<ul>
+<li>
+<p>Quantity: <strong>15</strong></p>
+</li>
+<li>
+<p>Requirement: At least <strong>10</strong> must be operational.</p>
+</li>
+<li>
+<p>Mean Time Between Failures (MTBF): <strong>10 years</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="assumptions">Assumptions</h5>
+<ol>
+<li>
+<p>Constant Failure Rate: The failure rates are constant over time (exponential distribution).</p>
+</li>
+<li>
+<p>Independence: Failures are independent events.</p>
+</li>
+<li>
+<p>Binary State Components: Components are either fully operational or failed (no partial failures).</p>
+</li>
+</ol>
+<h5 id="calculation-steps">Calculation Steps</h5>
+<h5 id="calculation-steps_1">Calculation Steps</h5>
+<ol>
+<li><strong>Calculate Failure Rates (<span class="arithmatex">\(\lambda\)</span>)</strong></li>
+</ol>
+<p>The failure rate <span class="arithmatex">\(\lambda\)</span> is the reciprocal of the MTBF:</p>
+<ul>
+<li>
+<p>Temperature Sensors:
+    <span class="arithmatex">\(<span class="arithmatex">\(\lambda_{\text{sensor}} = \frac{1}{\text{MTBF}_{\text{sensor}}} = \frac{1}{15} \approx 0.0667 \text{ failures/year}\)</span>\)</span></p>
+</li>
+<li>
+<p>Heating Elements:
+    <span class="arithmatex">\(<span class="arithmatex">\(\lambda_{\text{element}} = \frac{1}{\text{MTBF}_{\text{element}}} = \frac{1}{10} = 0.1 \text{ failures/year}\)</span>\)</span></p>
+</li>
+<li>
+<p><strong>Compute Individual Component Reliability (<span class="arithmatex">\(R(t)\)</span>)</strong></p>
+</li>
+</ul>
+<p>The reliability function for an exponential distribution is:
+<span class="arithmatex">\(<span class="arithmatex">\(R(t) = e^{-\lambda t}\)</span>\)</span></p>
+<ul>
+<li>
+<p>At <span class="arithmatex">\(t = 1\)</span> Year:</p>
+<ul>
+<li>Temperature Sensors:
+    <span class="arithmatex">\(<span class="arithmatex">\(R_{\text{sensor}}(1) = e^{-0.0667 \times 1} = e^{-0.0667} \approx 0.9355\)</span>\)</span></li>
+<li>Heating Elements:
+    <span class="arithmatex">\(<span class="arithmatex">\(R_{\text{element}}(1) = e^{-0.1 \times 1} = e^{-0.1} \approx 0.9048\)</span>\)</span></li>
+</ul>
+</li>
+<li>
+<p>At <span class="arithmatex">\(t = 2\)</span> Years:</p>
+<ul>
+<li>Temperature Sensors:
+    <span class="arithmatex">\(<span class="arithmatex">\(R_{\text{sensor}}(2) = e^{-0.0667 \times 2} = e^{-0.1334} \approx 0.8752\)</span>\)</span></li>
+<li>Heating Elements:
+    <span class="arithmatex">\(<span class="arithmatex">\(R_{\text{element}}(2) = e^{-0.1 \times 2} = e^{-0.2} \approx 0.8187\)</span>\)</span></li>
+</ul>
+</li>
+<li>
+<p><strong>Calculate Probabilities for Components</strong></p>
+</li>
+</ul>
+<p><strong>Temperature Sensors</strong>: We need the probability that at least 2 out of 4 sensors are operational.</p>
+<p>Let:
+- <span class="arithmatex">\(p_s = R_{\text{sensor}}(t)\)</span> (probability a sensor is operational)
+- <span class="arithmatex">\(q_s = 1 - p_s\)</span> (probability a sensor has failed)</p>
+<p>Possible Successful Scenarios:
+1. Exactly 2 Sensors Operational:
+     <span class="arithmatex">\(<span class="arithmatex">\(P(\text{2 working}) = {4 \choose 2} p_s^2 q_s^2 = 6 p_s^2 q_s^2\)</span>\)</span>
+2. Exactly 3 Sensors Operational:
+     <span class="arithmatex">\(<span class="arithmatex">\(P(\text{3 working}) = {4 \choose 3} p_s^3 q_s = 4 p_s^3 q_s\)</span>\)</span>
+3. Exactly 4 Sensors Operational:
+     <span class="arithmatex">\(<span class="arithmatex">\(P(\text{4 working}) = {4 \choose 4} p_s^4 = p_s^4\)</span>\)</span></p>
+<p>Total Probability:
+<span class="arithmatex">\(<span class="arithmatex">\(P_{\text{sensor}}(t) = P(\text{2 working}) + P(\text{3 working}) + P(\text{4 working})\)</span>\)</span></p>
+<p><strong>Heating Elements</strong>: We need the probability that at least 10 out of 15 elements are operational.</p>
+<p>Let:
+- <span class="arithmatex">\(p_e = R_{\text{element}}(t)\)</span> (probability an element is operational)
+- <span class="arithmatex">\(q_e = 1 - p_e\)</span> (probability an element has failed)</p>
+<p>Total Probability:
+<span class="arithmatex">\(<span class="arithmatex">\(P_{\text{element}}(t) = \sum_{k=10}^{15} {15 \choose k} p_e^k q_e^{15 - k}\)</span>\)</span></p>
+<ol>
+<li><strong>Calculate System Reliability</strong></li>
+</ol>
+<p>The system functions only if both the sensors and heating elements meet their operational requirements.
+<span class="arithmatex">\(<span class="arithmatex">\(R_{\text{system}}(t) = P_{\text{sensor}}(t) \cdot P_{\text{element}}(t)\)</span>\)</span></p>
+<p><strong>Temperature Sensors At <span class="arithmatex">\(t = 1\)</span> Year</strong>:
+- Values:
+    - <span class="arithmatex">\(p_s = 0.9355\)</span>
+    - <span class="arithmatex">\(q_s = 1 - 0.9355 = 0.0645\)</span></p>
+<p>Calculations:
+1. <span class="arithmatex">\(P(\text{2 working}) = 6 \times (0.9355)^2 \times (0.0645)^2 \approx 0.0218\)</span>
+2. <span class="arithmatex">\(P(\text{3 working}) = 4 \times (0.9355)^3 \times 0.0645 \approx 0.2114\)</span>
+3. <span class="arithmatex">\(P(\text{4 working}) = (0.9355)^4 \approx 0.7659\)</span></p>
+<p>Total Probability:
+<span class="arithmatex">\(<span class="arithmatex">\(P_{\text{sensor}}(1) = 0.0218 + 0.2114 + 0.7659 = 0.9991\)</span>\)</span></p>
+<p><strong>Heating Elements At <span class="arithmatex">\(t = 1\)</span> Year</strong>:
+- Values:
+    - <span class="arithmatex">\(p_e = 0.9048\)</span>
+    - <span class="arithmatex">\(q_e = 1 - 0.9048 = 0.0952\)</span></p>
+<p>Calculations:
+<span class="arithmatex">\(<span class="arithmatex">\(P_{\text{element}}(1) = \sum_{k=10}^{15} {15 \choose k} p_e^k q_e^{15 - k}\)</span>\)</span></p>
+<p>Compute Individual Probabilities:
+1. <span class="arithmatex">\(P(\text{10 working}) = {15 \choose 10} p_e^{10} q_e^5 \approx 0.0087\)</span>
+2. <span class="arithmatex">\(P(\text{11 working}) = {15 \choose 11} p_e^{11} q_e^4 \approx 0.0373\)</span>
+3. <span class="arithmatex">\(P(\text{12 working}) = {15 \choose 12} p_e^{12} q_e^3 \approx 0.1181\)</span>
+4. <span class="arithmatex">\(P(\text{13 working}) = {15 \choose 13} p_e^{13} q_e^2 \approx 0.2593\)</span>
+5. <span class="arithmatex">\(P(\text{14 working}) = {15 \choose 14} p_e^{14} q_e \approx 0.3521\)</span>
+6. <span class="arithmatex">\(P(\text{15 working}) = (0.9048)^{15} \approx 0.2231\)</span></p>
+<p>Total Probability:
+<span class="arithmatex">\(<span class="arithmatex">\(P_{\text{element}}(1) = 0.0087 + 0.0373 + 0.1181 + 0.2593 + 0.3521 + 0.2231 = 0.9985\)</span>\)</span></p>
+<p><strong>System Reliability at 1 Year</strong>:
+<span class="arithmatex">\(<span class="arithmatex">\(R_{\text{system}}(1) = P_{\text{sensor}}(1) \cdot P_{\text{element}}(1) \approx 0.9991 \times 0.9985 \approx 0.9976\)</span>\)</span></p>
+<p><strong>Probability of Failure at 1 Year</strong>:
+<span class="arithmatex">\(<span class="arithmatex">\(P_{\text{failure}}(1) = 1 - R_{\text{system}}(1) \approx 1 - 0.9976 = 0.0024 = \boxed{0.24\%}\)</span>\)</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

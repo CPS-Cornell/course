@@ -1,0 +1,2247 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Lab5/Lab5/">
+      
+      
+        <link rel="next" href="../../Lab7/Lab7/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Lab 6 - Computer Vision - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-6-computer-vision" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 6 - Computer Vision
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notes/Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream_datapy-raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      stream_data.py (Raspberry Pi)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_videopy-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      process_video.py (Laptop)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test_degirumpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_degirum.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-ensure-viability-of-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Ensure Viability of Object
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-2-image-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Image Resolution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-degirum-performance-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3: DeGirum Performance Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-4-putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 4: Putting it all together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Questions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream_datapy-raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      stream_data.py (Raspberry Pi)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_videopy-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      process_video.py (Laptop)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test_degirumpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_degirum.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-ensure-viability-of-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Ensure Viability of Object
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-2-image-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Image Resolution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-degirum-performance-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3: DeGirum Performance Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-4-putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 4: Putting it all together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Questions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab-6-computer-vision">Lab 6 - Computer Vision</h1>
+<h2 id="code-explanation">Code Explanation</h2>
+<p>This lab involves two Python scripts: <code>stream_data.py</code> which runs on the Raspberry Pi Zero 2 W, and <code>process_video.py</code> which runs on your laptop. Together, they stream video from the Pi's camera to the laptop, detect QR codes in the video stream, analyze their shape, and display the annotated video feed.</p>
+<h3 id="stream_datapy-raspberry-pi"><a href="../code/zero/stream_data.py"><code>stream_data.py</code></a> (Raspberry Pi)</h3>
+<p>This script is responsible for capturing images from the Pi camera, processing them to find QR codes, and streaming the video feed over the network to the laptop.</p>
+<ol>
+<li>
+<p><strong>Imports:</strong></p>
+<ul>
+<li><code>socket</code>: Used to get the Raspberry Pi's hostname, which helps identify the video stream source on the laptop.</li>
+<li><code>time</code>: Used for pausing execution (e.g., <code>time.sleep()</code>) to allow the camera to warm up and to throttle the frame rate.</li>
+<li><code>picamera2</code>: The library for controlling the Raspberry Pi Camera Module 3.</li>
+<li><code>imagezmq</code>: A library specifically designed for sending OpenCV images over ZeroMQ, a high-performance asynchronous messaging library. This handles the network streaming efficiently.</li>
+<li><code>cv2</code> (OpenCV): The computer vision library used for image processing, specifically QR code detection and drawing annotations.</li>
+<li><code>numpy</code>: A fundamental package for numerical computation in Python, used here for handling image data (arrays) and geometric calculations.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>squareness(bbox)</code> Function:</strong></p>
+<ul>
+<li>This function takes the bounding box (<code>bbox</code>) of a detected QR code as input. The <code>bbox</code> is an array of four corner points.</li>
+<li>It calculates the lengths of the four sides of the bounding box using <code>np.linalg.norm</code> (Euclidean distance).</li>
+<li>It then finds the ratio of the shortest side length to the longest side length.</li>
+<li>A perfect square would have a ratio of 1.0. This function helps determine how distorted the QR code appears in the image (e.g., due to perspective). It returns 0 if the <code>bbox</code> is invalid or has zero-length sides.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>main()</code> Function:</strong></p>
+<ul>
+<li><strong>Initialization:</strong><ul>
+<li><code>cv2.QRCodeDetector()</code>: Creates an object capable of detecting and decoding QR codes in images.</li>
+<li><code>imagezmq.ImageSender()</code>: Sets up the client side of the image streaming. It needs the <code>connect_to</code> address, which should be the IP address and port of the laptop running <code>process_video.py</code> (e.g., <code>tcp://LAPTOP_IP:5555</code>).</li>
+<li><code>socket.gethostname()</code>: Gets the Pi's hostname (e.g., "raspberrypi") to send along with the images.</li>
+<li><code>Picamera2()</code>: Initializes the camera object.</li>
+<li><code>picam2.create_preview_configuration()</code>: Configures the camera stream resolution (640x480).</li>
+<li><code>picam2.configure()</code> and <code>picam2.start()</code>: Applies the configuration and starts the camera.</li>
+<li><code>time.sleep(2)</code>: Pauses briefly to let the camera sensor stabilize.</li>
+</ul>
+</li>
+<li><strong>Main Loop (<code>while True</code>):</strong><ul>
+<li><code>picam2.capture_array()</code>: Captures a single frame from the camera as a NumPy array (OpenCV format).</li>
+<li><code>detector.detectAndDecode(frame)</code>: Attempts to find and decode a QR code within the captured <code>frame</code>. It returns the decoded data (string), the bounding box coordinates (<code>bbox</code>), and a rectified QR code image (which we ignore with <code>_</code>).</li>
+<li><strong>If a QR code is detected (<code>if data:</code>):</strong><ul>
+<li>The decoded <code>data</code> is printed to the Pi's console.</li>
+<li>If <code>bbox</code> is not <code>None</code>:<ul>
+<li>The corner points are extracted (<code>points = bbox[0].astype(int)</code>).</li>
+<li>A small red circle (<code>cv2.circle</code>) is drawn at the top-left corner (<code>points[0]</code>) of the QR code.</li>
+<li>The <code>squareness</code> function is called with the <code>bbox</code>.</li>
+<li>If the squareness ratio is high (&gt; 0.8), the bounding box is drawn in green (<code>cv2.polylines</code>). Otherwise (indicating more distortion), it's drawn in red.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>sender.send_image(rpi_name, frame)</code>: Sends the Pi's hostname and the (potentially annotated) <code>frame</code> to the laptop via ImageZMQ. This call blocks until the laptop acknowledges receipt (via <code>image_hub.send_reply(b"OK")</code> in <code>process_video.py</code>).</li>
+<li><code>time.sleep(0.1)</code>: A small delay is added to limit the frame rate, reducing network and processing load.</li>
+<li><strong>If no QR code is detected (<code>else:</code>):</strong><ul>
+<li>The raw, unannotated frame is still sent to the laptop using <code>sender.send_image()</code>.</li>
+<li>The same <code>time.sleep(0.1)</code> delay is applied.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Shutdown (<code>except KeyboardInterrupt</code>, <code>finally</code>):</strong><ul>
+<li>Allows you to stop the script gracefully using Ctrl+C.</li>
+<li><code>picam2.stop()</code>: Stops the camera.</li>
+<li><code>sender.close()</code>: Closes the ImageZMQ connection.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="process_videopy-laptop"><a href="../code/local/process_video.py"><code>process_video.py</code></a> (Laptop)</h3>
+<p>This script runs on the laptop and acts as the server, receiving and displaying the video stream sent by the Raspberry Pi.</p>
+<ol>
+<li>
+<p><strong>Imports:</strong></p>
+<ul>
+<li><code>cv2</code> (OpenCV): Used here primarily for displaying the received images (<code>cv2.imshow</code>) and handling user input (<code>cv2.waitKey</code>).</li>
+<li><code>imagezmq</code>: Used to create the <code>ImageHub</code>, which listens for and receives images from ImageZMQ senders.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>main()</code> Function:</strong></p>
+<ul>
+<li><strong>Initialization:</strong><ul>
+<li><code>imagezmq.ImageHub(open_port="tcp://*:5555")</code>: Creates the server hub. <code>tcp://*:5555</code> means it listens on port 5555 on all available network interfaces of the laptop.</li>
+</ul>
+</li>
+<li><strong>Main Loop (<code>while True</code>):</strong><ul>
+<li><code>image_hub.recv_image()</code>: Waits to receive an image. When an image arrives, it returns the sender's name (<code>rpi_name</code>, sent by <code>stream_data.py</code>) and the image <code>frame</code>. This call blocks until an image is received.</li>
+<li><code>cv2.imshow(rpi_name, frame)</code>: Displays the received <code>frame</code> in an OpenCV window. The window title is set to the <code>rpi_name</code>, making it easy to identify which Pi the stream is coming from if multiple Pis were connected.</li>
+<li><code>image_hub.send_reply(b"OK")</code>: Sends a simple "OK" reply back to the sender (the Pi). This is crucial because the <code>sender.send_image()</code> on the Pi blocks until it receives this reply. This mechanism prevents the Pi from overwhelming the laptop or network by sending frames faster than they can be processed.</li>
+<li><code>cv2.waitKey(1) &amp; 0xFF == ord("q")</code>: Checks if the 'q' key has been pressed in the OpenCV display window. <code>cv2.waitKey(1)</code> waits for 1ms for a key press. If 'q' is pressed, the loop breaks.</li>
+</ul>
+</li>
+<li><strong>Shutdown (<code>except KeyboardInterrupt</code>, <code>finally</code>):</strong><ul>
+<li>Allows stopping the script with Ctrl+C in the terminal.</li>
+<li><code>cv2.destroyAllWindows()</code>: Closes the OpenCV display window.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>In summary, <code>stream_data.py</code> captures video, looks for QR codes, annotates the video frame with bounding boxes (colored based on squareness) and a corner marker, and sends the frames over the network using <code>imagezmq</code>. <code>process_video.py</code> receives these frames using <code>imagezmq</code>, displays them in a window, and sends back acknowledgments to regulate the stream.</p>
+<h3 id="test_degirumpy"><a href="../code/test_degirum.py"><code>test_degirum.py</code></a></h3>
+<p>This script demonstrates how to use the DeGirum SDK to perform object detection using a pre-trained model (YOLOv5 in this case) both locally and on the DeGirum cloud platform.</p>
+<ol>
+<li><strong>Imports:</strong><ul>
+<li><code>degirum as dg</code>: The DeGirum SDK for AI inference.</li>
+<li><code>cv2</code> (OpenCV): Used for displaying the resulting image with detections.</li>
+<li><code>time</code>: Used to measure the inference time.</li>
+</ul>
+</li>
+<li><strong>Token:</strong><ul>
+<li>A placeholder <code>token = "&lt;your_token_here&gt;"</code> is defined. You need to replace this with your actual DeGirum API token to authenticate with the cloud service.</li>
+</ul>
+</li>
+<li><strong>Connect to Zoo:</strong><ul>
+<li><code>dg.connect()</code> establishes a connection to the DeGirum cloud model zoo, specifying the cloud URL and providing the token.</li>
+</ul>
+</li>
+<li><strong>Load Models:</strong><ul>
+<li><code>dg.load_model()</code> is called twice to load the same object detection model (<code>yolov5m_relu6_coco...</code>):<ul>
+<li><code>model_cloud</code>: Configured to run inference on the DeGirum cloud (<code>inference_host_address="@cloud"</code>).</li>
+<li><code>model_local</code>: Configured to run inference on the local machine (<code>inference_host_address="@local"</code>), assuming the necessary DeGirum runtime and model files are installed locally.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Perform Inference:</strong><ul>
+<li>The script loads a sample image (<code>cow.jpg</code>).</li>
+<li>It calls <code>model_local("cow.jpg")</code> to run inference locally and measures the time taken.</li>
+<li>It then calls <code>model_cloud("cow.jpg")</code> to run inference on the cloud and measures the time taken.</li>
+<li>The inference times are printed to the console.</li>
+</ul>
+</li>
+<li><strong>Display Result:</strong><ul>
+<li><code>result.image_overlay</code> contains the original image with bounding boxes drawn around detected objects.</li>
+<li><code>cv2.imshow()</code> displays this image in a window titled "Detection Result".</li>
+<li><code>cv2.waitKey(0)</code> keeps the window open until a key is pressed.</li>
+<li><code>cv2.destroyAllWindows()</code> closes the display window.</li>
+</ul>
+</li>
+</ol>
+<p>This script serves as a basic example to verify your DeGirum setup, test connectivity, compare local vs. cloud inference performance, and understand how to load models and process results using the SDK.</p>
+<h2 id="task-1-ensure-viability-of-object">Task 1: Ensure Viability of Object</h2>
+<p>The goal of this task is to determine if a object image, placed to the right of the QR code, is fully visible within the camera's field of view. Since we know the approximate size and relative position of the object (similar size to the QR code, immediately to its right), we can use the detected QR code's geometry to estimate the object's position.</p>
+<p><strong>Approach:</strong></p>
+<ol>
+<li><strong>Get QR Code Geometry:</strong> When a QR code is detected, the <code>detector.detectAndDecode</code> function returns its bounding box (<code>bbox</code>), which contains the coordinates of its four corners.</li>
+<li><strong>Estimate QR Code Width:</strong> Calculate the width of the QR code. A simple approximation is the distance between the top-left and top-right corners, or the bottom-left and bottom-right corners. Averaging these might give a more robust estimate, especially if the QR code is viewed at an angle.</li>
+<li><strong>Find Rightmost Edge of QR Code:</strong> Determine the maximum x-coordinate among the QR code's corner points. This represents the right edge of the QR code in the image.</li>
+<li><strong>Estimate objects's Right Edge:</strong> Since the object is to the right of the QR code and roughly the same width, estimate the position of the object's right edge by adding the estimated QR code width to the QR code's rightmost x-coordinate.</li>
+<li><strong>Check Frame Bounds:</strong> Compare the estimated x-coordinate of the object's right edge against the width of the camera frame (640 pixels in our configuration). If the estimated coordinate is less than the frame width, we can assume the object is likely within the frame horizontally. (We assume vertical alignment is sufficient if the QR code itself is fully visible).</li>
+</ol>
+<p><strong>Implementation:</strong></p>
+<p>You need to implement the <code>object_is_visible(qr_bbox, frame_width)</code> function in <code>stream_data.py</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>FUNCTION object_is_visible(qr_bounding_box, frame_width):
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    IF qr_bounding_box is NOT valid THEN
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        RETURN FALSE // Cannot estimate without QR code
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ENDIF
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    Get the corner points from qr_bounding_box
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    // Basic check: If any QR code corner is outside the frame, assume object is also out.
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    IF any corner point&#39;s x-coordinate &gt;= frame_width OR any corner point&#39;s coordinate &lt; 0 THEN
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        RETURN FALSE
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    ENDIF
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    // Estimate the width of the QR code
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    Calculate distance between top-left and top-right corners (top_width)
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    Calculate distance between bottom-left and bottom-right corners (bottom_width)
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    IF top_width &lt;= 0 OR bottom_width &lt;= 0 THEN
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        RETURN FALSE // Invalid width calculation
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    ENDIF
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    qr_estimated_width = AVERAGE(top_width, bottom_width)
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    // Find the rightmost edge of the QR code
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    qr_rightmost_x = some code that gets the rightmost edge
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    // Estimate the position of the object&#39;s right edge
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    // Assumes object is right next to QR code and is the width of the qr code times
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    // some factor
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    estimated_object_right_x = qr_rightmost_x + (qr_estimated_width*some factor)
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    // Check if the estimated object edge is within the frame
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    IF estimated_object_right_x &lt; frame_width THEN
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>        RETURN TRUE
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>    ELSE
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>        RETURN FALSE
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>    ENDIF
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>END FUNCTION
+</span></code></pre></div>
+<p><strong>Integration:</strong></p>
+<ol>
+<li><strong>Pass Frame Width:</strong> Modify the <code>main</code> function to get the frame width. Since we configure it as 640x480, this should be <code>frame_width = 640</code>, however if you want to change the frame size in the future you should get it dynamically from the <code>frame</code> shape (<code>frame.shape[1]</code>).</li>
+<li><strong>Call the Function:</strong> Inside the <code>if data:</code> block in <code>main</code>, after successfully detecting a QR code and getting a valid <code>bbox</code>, call <code>object_is_visible(bbox, frame_width)</code>.</li>
+<li><strong>Use the Result:</strong> You can use the boolean result to modify the visualization. For example, you could change the color of the bounding box or print a status message indicating whether the object is considered visible.</li>
+</ol>
+<p>Example call within <code>main</code> (inside <code>if data:</code> and <code>if bbox is not None:</code>):</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>                <span class="c1"># ... (inside if data: and if bbox is not None:)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                <span class="n">frame_width</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Get frame width</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                <span class="n">object_in_view</span> <span class="o">=</span> <span class="n">object_is_visible</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span> <span class="n">frame_width</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                <span class="c1"># Draw the bounding box - color based on visibility AND squareness</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                <span class="n">points</span> <span class="o">=</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                <span class="n">is_square</span> <span class="o">=</span> <span class="n">squareness</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.8</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                <span class="k">if</span> <span class="n">object_in_view</span> <span class="ow">and</span> <span class="n">is_square</span><span class="p">:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                    <span class="n">box_color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Green: Square and object Visible</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QR Code detected: </span><span class="si">{}</span><span class="s2"> - Object Visible: Yes&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                <span class="k">elif</span> <span class="n">Object_in_view</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_square</span><span class="p">:</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                     <span class="n">box_color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="c1"># Yellow: Distorted but object Visible</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QR Code detected: </span><span class="si">{}</span><span class="s2"> - Object Visible: Yes (Distorted)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                <span class="k">elif</span> <span class="ow">not</span> <span class="n">object_in_view</span> <span class="ow">and</span> <span class="n">is_square</span><span class="p">:</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                    <span class="n">box_color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="c1"># Orange: Square but object NOT Visible</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QR Code detected: </span><span class="si">{}</span><span class="s2"> - Object Visible: No&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                <span class="k">else</span><span class="p">:</span> <span class="c1"># not object_in_view and not is_square</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>                    <span class="n">box_color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="c1"># Red: Distorted and object NOT Visible</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QR Code detected: </span><span class="si">{}</span><span class="s2"> - Object Visible: No (Distorted)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>                <span class="n">cv2</span><span class="o">.</span><span class="n">polylines</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="p">[</span><span class="n">points</span><span class="p">],</span> <span class="n">isClosed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">box_color</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>                <span class="c1"># Draw red dot at top-left corner regardless</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>                <span class="n">upper_left</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>                <span class="n">cv2</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">upper_left</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>            <span class="k">else</span><span class="p">:</span> <span class="c1"># bbox is None</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QR Code detected: </span><span class="si">{}</span><span class="s2"> - BBox is None&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>        <span class="c1"># ... rest of the loop ...</span>
+</span></code></pre></div>
+<p>Remember to adjust the print statements and color logic as needed for your specific requirements.</p>
+<h2 id="task-2-image-resolution">Task 2: Image Resolution</h2>
+<p>The goal of this task is to increase the resolution of the video stream captured by the Raspberry Pi camera from 640x480 to 1920x1080 (Full HD). This will provide a much clearer image but will also increase the processing and network load.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Locate the relevant code:</strong> Open the <code>stream_data.py</code> script, which runs on the Raspberry Pi. Find the <code>main()</code> function.</li>
+<li>
+<p><strong>Identify the configuration line:</strong> Inside <code>main()</code>, look for the line where the camera configuration is created:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">picam2</span><span class="o">.</span><span class="n">create_preview_configuration</span><span class="p">(</span><span class="n">main</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)})</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Modify the resolution:</strong> Change the <code>size</code> tuple from <code>(640, 480)</code> to <code>(1920, 1080)</code>. The modified line should look like this:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">picam2</span><span class="o">.</span><span class="n">create_preview_configuration</span><span class="p">(</span><span class="n">main</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">)})</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Save the changes:</strong> Save the modified <code>stream_data.py</code> file.</p>
+</li>
+<li><strong>Run the scripts:</strong> Execute <code>stream_data.py</code> on the Raspberry Pi and <code>process_video.py</code> on your laptop as before.</li>
+</ol>
+<p><strong>Observations:</strong></p>
+<ul>
+<li>The video displayed on the laptop should now be significantly larger and more detailed.</li>
+<li>Notice the potential impact on performance:</li>
+<li>The frame rate might be lower due to the increased amount of data being captured, processed (especially QR code detection on a larger image), and sent over the network.</li>
+<li>The Raspberry Pi's CPU usage might increase.</li>
+<li>Network latency could become more noticeable.</li>
+<li>The <code>process_video.py</code> script on the laptop does not require any changes, as <code>imagezmq</code> and <code>cv2.imshow</code> handle variable frame sizes automatically. However, displaying the larger video window will consume more resources on the laptop as well.</li>
+</ul>
+<p>Experiment with this higher resolution and observe how it affects the system's performance and the QR code detection process.</p>
+<h2 id="task-3-degirum-performance-testing">Task 3: DeGirum Performance Testing</h2>
+<p>The goal of this task is to measure and compare the inference performance of the DeGirum AI platform under different conditions. You will use the provided <code>test_degirum.py</code> script as a basis to test object detection inference time locally versus on the cloud, on both your laptop and the Raspberry Pi, using images of different resolutions.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Find a Test Image:</strong> Download a reasonably high-resolution image (e.g., &gt; 1920x1080 pixels) from the internet. A JPG or PNG image containing various objects would be suitable. Save it in the same directory as your test script.</li>
+<li>
+<p><strong>Modify <code>test_degirum.py</code> (or create a new script):</strong></p>
+<ul>
+<li>
+<p><strong>Load Image:</strong> Replace <code>cow.jpg</code> with the filename of your chosen image. Use <code>cv2.imread()</code> to load it into a NumPy array.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">image_path</span> <span class="o">=</span> <span class="s2">&quot;your_image_name.jpg&quot;</span> <span class="c1"># Replace with your image file</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">original_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">if</span> <span class="n">original_image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Could not load image at </span><span class="si">{</span><span class="n">image_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">exit</span><span class="p">()</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded image: </span><span class="si">{</span><span class="n">image_path</span><span class="si">}</span><span class="s2">, Original Size: </span><span class="si">{</span><span class="n">original_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">original_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Define Resolutions:</strong> Specify two target resolutions for testing.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">low_res_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span> <span class="c1"># Width, Height</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># Use a higher resolution, e.g., 1920x1080 or the original size if appropriate</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">high_res_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">)</span> <span class="c1"># Width, Height</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Or dynamically get a size, e.g., high_res_size = (original_image.shape[1], original_image.shape[0])</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Resize Images:</strong> Create resized versions of the original image using <code>cv2.resize</code>. Remember <code>cv2.resize</code> takes <code>(width, height)</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">low_res_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">original_image</span><span class="p">,</span> <span class="n">low_res_size</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">high_res_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">original_image</span><span class="p">,</span> <span class="n">high_res_size</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">images_to_test</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="s2">&quot;LowRes&quot;</span><span class="p">:</span> <span class="n">low_res_image</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="s2">&quot;HighRes&quot;</span><span class="p">:</span> <span class="n">high_res_image</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Load DeGirum Models:</strong> Keep the code that loads the cloud and local models (<code>dg.connect</code>, <code>dg.load_model</code>). Ensure you replace <code>&lt;your_token_here&gt;</code> with your actual DeGirum token.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Install DeGirum Runtime (if needed):</strong> Ensure the DeGirum runtime is installed on both your laptop and your Raspberry Pi if you want to run local inference on both. You can typically install it using pip:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pip<span class="w"> </span>install<span class="w"> </span>degirum
+</span></code></pre></div>
+<p>Follow DeGirum's documentation for detailed installation instructions and any prerequisites. If local inference is not possible on the Pi (e.g., due to hardware limitations or installation issues), you can skip those specific tests but note why.</p>
+</li>
+<li>
+<p><strong>Set up a DeGirum Account:</strong></p>
+<ul>
+<li>Go to <a href="www.degirum.ai">www.degirum.ai</a> and click <code>Sign In</code> in the upper right hand corner.</li>
+<li>Create an account or sign in with a google account.</li>
+<li>To to the <code>Tokens</code> tab on the left hand side of the page.</li>
+<li>Generate a new token and use this new token in the <code>test_degirum.py</code> script.</li>
+</ul>
+</li>
+<li>
+<p><strong>Run on Laptop:</strong> Execute the modified script on your laptop. Record the four timing results (Local/LowRes, Local/HighRes, Cloud/LowRes, Cloud/HighRes).</p>
+</li>
+<li><strong>Run on Raspberry Pi:</strong> Copy the modified script and the test image to your Raspberry Pi. Execute the script on the Pi. Record the four timing results (Local/LowRes, Local/HighRes, Cloud/LowRes, Cloud/HighRes). Note if local inference fails or is not attempted.</li>
+<li><strong>Analyze Results:</strong> Compare the 8 measurements. Consider:<ul>
+<li>How does local performance compare between the laptop and the Pi?</li>
+<li>How does cloud performance compare when initiated from the laptop versus the Pi? (This primarily reflects network latency differences).</li>
+<li>How does increasing image resolution affect local inference time on each device?</li>
+<li>How does increasing image resolution affect cloud inference time?</li>
+<li>How does local performance compare to cloud performance for each device/resolution combination?</li>
+</ul>
+</li>
+</ol>
+<h2 id="task-4-putting-it-all-together">Task 4: Putting it all together</h2>
+<p>The final task is to integrate the components developed in the previous tasks to create a system that can reliably determine when a object is likely clearly visible next to a QR code and then <em>simulate</em> triggering an external process, such as calling the Google Cloud Vision API for object classification.</p>
+<p><strong>Goal:</strong> Modify <code>stream_data.py</code> to trigger an API call only when specific conditions indicate a high confidence that the object is in view and clearly captured. Crucially, implement a hysteresis mechanism to avoid excessive triggers, conserving resources like API quotas.</p>
+<p><strong>Context: API Limits</strong>: Real-world APIs, like the Google Cloud Vision or DeGirum API, often have usage limits. The free tier might allow only a certain number of calls per month (e.g., 1000). Therefore, it's essential to trigger the API call <em>only</em> when necessary and not continuously, even if the conditions are met frame after frame.</p>
+<p><strong>Trigger Conditions:</strong></p>
+<p>An API call should only be triggered if <strong>all</strong> of the following conditions are met simultaneously:</p>
+<ol>
+<li>A QR code is successfully detected (<code>data</code> is not empty).</li>
+<li>The QR code's bounding box is valid (<code>bbox</code> is not <code>None</code>).</li>
+<li>The <code>object_is_visible()</code> function (from Task 2) returns <code>True</code>.</li>
+<li>The <code>squareness()</code> of the QR code is above a threshold indicating a clear, head-on view (e.g., <code>squareness(bbox) &gt; 0.8</code>).</li>
+<li>A minimum time interval (cooldown period) has passed since the last API call was triggered (e.g., 30 seconds).</li>
+</ol>
+<p><strong>Hysteresis Implementation:</strong></p>
+<p>To implement the cooldown period (hysteresis):</p>
+<ol>
+<li><strong>Track Last Call Time:</strong> You'll need a variable to store the timestamp of the last time the API call was successfully triggered. Initialize this variable before the main loop (e.g., <code>last_api_call_time = 0.0</code>).</li>
+<li><strong>Define Cooldown Period:</strong> Define a constant for the required delay between triggers (e.g., <code>API_COOLDOWN_SECONDS = 30</code>).</li>
+<li><strong>Check Time Elapsed:</strong> Inside the main loop, when evaluating the trigger conditions, add a check using <code>time.time()</code>: <code>(time.time() - last_api_call_time) &gt; API_COOLDOWN_SECONDS</code>.</li>
+<li><strong>Update Timestamp:</strong> If all conditions (including the time check) are met and you trigger the simulated API call, immediately update the <code>last_api_call_time</code> to the current time: <code>last_api_call_time = time.time()</code>.</li>
+</ol>
+<p><strong>Implementation Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Modify <code>stream_data.py</code>:</strong></p>
+<ul>
+<li>Add the <code>last_api_call_time</code> variable and <code>API_COOLDOWN_SECONDS</code> constant before the <code>try</code> block in <code>main()</code>.</li>
+<li>Locate the section within the main loop where the QR code is detected (<code>if data:</code> and <code>if bbox is not None:</code>).</li>
+<li>Inside this block, add a new conditional statement (<code>if</code>) that checks <em>all</em> the trigger conditions listed above (object visible, squareness, and time elapsed).</li>
+<li>Inside this new <code>if</code> block:<ul>
+<li>Print a clear message to the console indicating that the API call is being triggered (e.g., <code>print("&gt;&gt;&gt; Triggering Object Classification API Call! &lt;&lt;&lt;")</code>).</li>
+<li>Update <code>last_api_call_time = time.time()</code>.</li>
+</ul>
+</li>
+<li><strong>Note:</strong> The object detection model may return a number of objects depending on what is visible to the camera. Verify the class of the object that is on the piece of paper by analyzing the geometry of the bounding box. The object should be a specific distance (in pixels) from the QR which can be estimated from the size of the QR code bounding box.</li>
+<li>Ensure your existing visualization logic (drawing colored bounding boxes) still functions correctly alongside this new trigger logic.</li>
+</ul>
+</li>
+<li>
+<p><strong>Testing:</strong></p>
+<ul>
+<li>Run <code>stream_data.py</code> on the Pi and <code>process_video.py</code> on the laptop.</li>
+<li>Position the QR code and a placeholder object classification in front of the camera.</li>
+<li>Move the setup around to test different scenarios:<ul>
+<li>QR code not visible.</li>
+<li>QR code visible but distorted (low squareness).</li>
+<li>QR code visible and square, but object estimated to be out of frame.</li>
+<li>QR code visible, square, and object estimated to be in frame.</li>
+</ul>
+</li>
+<li>Observe the console output on the Pi. Verify that the "Triggering..." message appears <em>only</em> when all conditions are met.</li>
+<li>Verify that after the message appears, it does not appear again for at least 30 seconds, even if the conditions remain true during that time.</li>
+<li>Check that the bounding box colors on the video feed still correctly reflect the squareness and object visibility status.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Example Code Snippet (Conceptual - place within <code>main</code> loop):</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># --- Add these before the try block ---</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">last_api_call_time</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">API_COOLDOWN_SECONDS</span> <span class="o">=</span> <span class="mi">30</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># ---</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># ... inside the main loop ...</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>            <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>                <span class="c1"># ... (existing code to handle data and bbox) ...</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>                <span class="k">if</span> <span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>                    <span class="c1"># ... (existing code for points, squareness, object_is_visible) ...</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>                    <span class="n">frame_width</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>                    <span class="n">object_in_view</span> <span class="o">=</span> <span class="n">object_is_visible</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span> <span class="n">frame_width</span><span class="p">)</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>                    <span class="n">is_square</span> <span class="o">=</span> <span class="n">squareness</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.8</span> <span class="c1"># Or your chosen threshold</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>                    <span class="c1"># --- Add API Trigger Logic ---</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>                    <span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>                    <span class="k">if</span> <span class="n">object_in_view</span> <span class="ow">and</span> <span class="n">is_square</span> <span class="ow">and</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">last_api_call_time</span> <span class="o">&gt;</span> <span class="n">API_COOLDOWN_SECONDS</span><span class="p">):</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>                        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;QR: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2"> - Object Visible: Yes, Square: Yes - Time OK&quot;</span><span class="p">)</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt; Triggering Object Classification API Call! &lt;&lt;&lt;&quot;</span><span class="p">)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>                        <span class="n">last_api_call_time</span> <span class="o">=</span> <span class="n">current_time</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>                        <span class="c1"># In a real application, the API call would happen here.</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>                    <span class="c1"># --- End API Trigger Logic ---</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>                    <span class="c1"># ... (existing code to determine box_color based on object_in_view and is_square) ...</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>                    <span class="c1"># ... (existing code for cv2.polylines and cv2.circle) ...</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>                <span class="k">else</span><span class="p">:</span> <span class="c1"># bbox is None</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>                    <span class="c1"># ... (existing code) ...</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>                 <span class="c1"># ... (existing code for sending frame when no QR code) ...</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>            <span class="c1"># ... (rest of the loop: sender.send_image, time.sleep) ...</span>
+</span></code></pre></div>
+<h2 id="questions">Questions</h2>
+<ol>
+<li>
+<p><strong>QR Code Detection (<code>stream_data.py</code>):</strong></p>
+<ul>
+<li>How does the <code>squareness()</code> threshold (e.g., 0.8) affect the reliability of the <code>object_is_visible()</code> estimation? What are the trade-offs of using a higher or lower threshold?</li>
+<li>The <code>object_is_visible()</code> function makes several assumptions (object size relative to QR code, object position). How could you make this estimation more robust or accurate?</li>
+</ul>
+</li>
+<li>
+<p><strong>Video Streaming (<code>stream_data.py</code> &amp; <code>process_video.py</code>):</strong></p>
+<ul>
+<li>Explain the purpose of the <code>image_hub.send_reply(b"OK")</code> call in <code>process_video.py</code> and the blocking nature of <code>sender.send_image()</code> in <code>stream_data.py</code>. What might happen if this reply mechanism were removed?</li>
+<li>What was the observed impact of increasing the camera resolution (Task 2) on frame rate, CPU usage (if monitored), and network traffic? Discuss the trade-offs between resolution and performance in this streaming scenario.</li>
+</ul>
+</li>
+<li>
+<p><strong>DeGirum Performance (Task 3):</strong></p>
+<ul>
+<li>Based on your measurements, when is local inference preferable to cloud inference, and vice-versa? Consider factors like latency, processing power, network availability, and image resolution.</li>
+<li>Why might cloud inference time be relatively consistent regardless of whether it's initiated from the laptop or the Pi, while local inference times differ significantly?</li>
+<li>How did image resolution impact local inference time compared to cloud inference time? Explain the likely reasons for any differences observed.</li>
+</ul>
+</li>
+<li>
+<p><strong>System Integration &amp; API Triggering (Task 4):</strong></p>
+<ul>
+<li>Explain the concept of hysteresis and why it was implemented using <code>last_api_call_time</code> and <code>API_COOLDOWN_SECONDS</code>. What problems does this solve when interacting with potentially rate-limited or costly APIs?</li>
+<li>The trigger logic combines multiple conditions (QR detected, object visible, squareness, cooldown). Why is it important to check <em>all</em> these conditions before triggering the simulated API call? What could go wrong if one condition was omitted?</li>
+<li>The current system <em>simulates</em> an API call. If you were to implement a real call to an object classification API (like Google Cloud Vision or DeGirum), what additional steps or considerations would be necessary (e.g., handling API keys, processing the API response, error handling)?</li>
+<li>The note in Task 4 mentions verifying the object class based on geometry relative to the QR code. How would you implement this geometric check using the bounding boxes from an object detection model and the QR code's <code>bbox</code>?</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

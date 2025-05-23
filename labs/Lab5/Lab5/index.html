@@ -1,0 +1,2429 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Lab4/Lab4/">
+      
+      
+        <link rel="next" href="../../Lab6/Lab6/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Lab 5 - Signal Processing - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#filtering-and-state-eimstation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 5 - Signal Processing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notes/Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kalman-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kalman Filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files-designed-to-run-on-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Files Designed to Run on the Raspberry Pi Pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-designed-to-run-on-the-laptop-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Files Designed to Run on the Laptop Client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-tuning-the-kalman-filter-parameters-q-and-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Tuning the Kalman Filter Parameters (Q and R)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-2-adjusting-the-array-size-and-measuring-loop-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Adjusting the Array Size and Measuring Loop Speed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-discussion-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3: Discussion Questions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complementary-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complementary Filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-complementary-filter-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Complementary Filter Theory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gyroscope-data-for-attitude-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Gyroscope Data for Attitude Estimation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-calculating-roll-and-pitch-from-the-accelerometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Calculating Roll and Pitch from the Accelerometer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-implementing-the-complementary-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Implementing the Complementary Filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Implementing the Complementary Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-data-transmission-using-udpserver" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Data Transmission Using UDPServer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Data Transmission Using UDPServer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudocode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudocode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-complementary-filter-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Complementary Filter Questions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kalman-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kalman Filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files-designed-to-run-on-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Files Designed to Run on the Raspberry Pi Pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-designed-to-run-on-the-laptop-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Files Designed to Run on the Laptop Client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-tuning-the-kalman-filter-parameters-q-and-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Tuning the Kalman Filter Parameters (Q and R)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-2-adjusting-the-array-size-and-measuring-loop-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Adjusting the Array Size and Measuring Loop Speed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-discussion-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3: Discussion Questions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complementary-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complementary Filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-complementary-filter-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Complementary Filter Theory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gyroscope-data-for-attitude-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Gyroscope Data for Attitude Estimation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-calculating-roll-and-pitch-from-the-accelerometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Calculating Roll and Pitch from the Accelerometer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-implementing-the-complementary-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Implementing the Complementary Filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Implementing the Complementary Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-data-transmission-using-udpserver" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Data Transmission Using UDPServer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Data Transmission Using UDPServer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudocode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudocode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-complementary-filter-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Complementary Filter Questions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="filtering-and-state-eimstation">Filtering and State Eimstation</h1>
+<h2 id="kalman-filter">Kalman Filter</h2>
+<h2 id="file-overview">File Overview</h2>
+<h3 id="files-designed-to-run-on-the-raspberry-pi-pico">Files Designed to Run on the Raspberry Pi Pico</h3>
+<ol>
+<li>
+<p><strong><a href="../code/pico/controller.py">controller.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: An abstract <code>Controller</code> class meant to be extended for different control strategies (e.g., PID). It defines the interface (<code>update</code>, <code>is_done</code>, <code>clear_history</code>) that all controllers must implement.</li>
+<li><strong>How it works</strong>: You can create your own specialized controller (like a PID) by subclassing <code>Controller</code>. That specialized controller then implements how the input (for instance, an error signal) translates into an output (motor effort).</li>
+<li><strong>Usage</strong>: In this project, the <code>PID</code> class (defined in <code>pid.py</code>) inherits from this to handle tasks such as speed control, heading maintenance, or distance-based movement.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/pid.py">pid.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: A <code>PID</code> class that extends <code>Controller</code>. This code tracks integral and derivative terms and handles capping output, integral wind-up, and checking whether the controller has reached its target (via <code>is_done</code>).</li>
+<li><strong>How it works</strong>: The <code>update</code> method calculates a control output based on proportional, integral, and derivative terms. You can configure gains (kp, ki, kd), output limits, and tolerance for stopping.</li>
+<li><strong>Usage</strong>: Used anywhere you want closed-loop control for speeds, positions, or angles (for example, maintaining a certain heading or traveling at a certain velocity).</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/motor.py">motor.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: Two classes (<code>SinglePWMMotor</code> and <code>DualPWMMotor</code>) that manage basic motor operations such as setting direction, PWM duty cycle, and braking or coasting.</li>
+<li><strong>How it works</strong>: Depending on the hardware version, the class sets a PWM signal to the motor driver pins, flipping direction if the effort is negative. There are also methods to brake or let the motor coast.</li>
+<li><strong>Usage</strong>: These classes are lower-level drivers. Higher-level code (like <code>EncodedMotor</code> or <code>DifferentialDrive</code>) calls methods here to move the motors.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/encoder.py">encoder.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: An <code>Encoder</code> class that uses the Raspberry Pi Pico’s Programmable I/O (PIO) to track shaft rotations. It reads two digital input signals (A and B channels) and keeps an internal count.</li>
+<li><strong>How it works</strong>: The code uses a small assembly program (written in rp2 ASM) to decode the quadrature signals from the motor shaft. It returns both raw counts and derived revolutions.</li>
+<li><strong>Usage</strong>: Provides feedback on how far (and in what direction) the motor or wheel has turned. Essential for measuring distance traveled and heading in a differential drive system.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/encoded_motor.py">encoded_motor.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: An <code>EncodedMotor</code> class that combines a motor driver (from <code>motor.py</code>) and an encoder (from <code>encoder.py</code>). It has methods for speed control, effort control, and position resets.</li>
+<li><strong>How it works</strong>:<ul>
+<li>When you call <code>set_speed</code>, it uses a PID controller (from <code>pid.py</code>) to match the measured speed (derived from the encoder) to the requested target.</li>
+<li>When you call <code>set_effort</code>, it directly sets PWM duty cycles.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: Serves as a mid-level abstraction so you do not have to deal directly with PWM signals or raw encoder counts. Great for tasks like “maintain 10 cm/s” or “apply half effort.”</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/differential_drive.py">differential_drive.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: A <code>DifferentialDrive</code> class that encapsulates two <code>EncodedMotor</code> objects (left and right) plus an optional IMU for heading measurements. It also has high-level movement methods (straight, turn, arcade drive).</li>
+<li><strong>How it works</strong>:<ul>
+<li>Functions like <code>arcade</code> or <code>set_speed</code> combine efforts for left and right motors to move the robot forward, backward, or turn in place.</li>
+<li>The “straight” and “turn” methods are asynchronous, using PID logic on distance or angle errors.</li>
+<li>Optionally uses IMU data (if present) to refine turning accuracy.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: Instead of controlling each motor individually, you can just say: “Go 20 cm forward” or “Turn 90 degrees,” and it handles the details via motor and encoder data.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/imu.py">imu.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: An <code>IMU</code> class to read accelerometer and gyroscope data from an onboard LSM6DSO sensor. It includes methods to calibrate the sensor, get X/Y/Z rates, and keep an internal running pitch/roll/yaw.</li>
+<li><strong>How it works</strong>:<ul>
+<li>Uses I2C to communicate with the sensor.</li>
+<li>On a timer interrupt, it continuously updates angles (pitch, roll, yaw) based on the gyro’s rotation rates.</li>
+<li>Allows calibrations for offsets so you can zero out drift on each axis.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: Provides orientation information that can be fused with encoder data. In the lab, this is the “sensor measurement” side of the Kalman filter.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/imu_defs.py">imu_defs.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: Constants and register definitions used by <code>imu.py</code>. For instance, the sensor’s I2C address and bitfield definitions for scale ranges (2g, 4g, etc.), output data rates, and so on.</li>
+<li><strong>How it works</strong>: <code>imu.py</code> uses these definitions to set up the IMU registers (e.g., to pick a measurement rate of 208 Hz and a gyro range of ±2000 dps).</li>
+<li><strong>Usage</strong>: You likely will not need to modify this file unless you want to change register-level behavior.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/udp_server.py">udp_server.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: A simple <code>UDPServer</code> class and a helper function <code>connect_to_wifi</code>. The class handles sending strings or bytes to a specified IP/port.</li>
+<li><strong>How it works</strong>:<ul>
+<li>Uses a standard Python socket on the Pico to transmit data via UDP.</li>
+<li><code>connect_to_wifi(ssid, password)</code> brings up the network interface and attempts to join the WiFi network.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: In <code>kalman_filter.py</code>, you create a <code>UDPServer</code> instance and call <code>send</code> to pass data back to a client on your laptop (for plotting or logging).</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/kalman_filter.py">kalman_filter.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>:<ul>
+<li>A main loop (using <code>asyncio</code>) that continuously reads encoder yaw (from the differential drive) and gyro yaw (from the IMU) and fuses them using a simple 1D Kalman filter.</li>
+<li>Parameters for the filter (Q, R, P) and an example of how to store readings in arrays.</li>
+<li>A routine to send the data arrays to a laptop via UDP once the array is filled.</li>
+</ul>
+</li>
+<li><strong>How it works</strong>:<ul>
+<li>Defines <code>Q</code> (process noise), <code>R</code> (measurement noise), and <code>P</code> (initial covariance).</li>
+<li>Each iteration does a predict-and-update step to estimate heading.</li>
+<li>Collects data in arrays (<code>time_data</code>, <code>encoder_yaw_data</code>, <code>imu_yaw_data</code>, <code>kalman_data</code>, etc.) and sends them via <code>udp_server.send()</code>.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: This is the main script you run on the Pico. You can alter Q, R, or the array sizes and observe the results in real time.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/pico/timeout.py">timeout.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: A <code>Timeout</code> class that helps track elapsed time and can indicate when a specified duration has passed.</li>
+<li><strong>How it works</strong>: When initialized with a timeout value in seconds, it records the current time (in milliseconds) and later checks whether the difference exceeds that timeout. If it does, <code>is_done()</code> returns True.</li>
+<li><strong>Usage</strong>: Primarily used to enforce a maximum duration for certain tasks (for instance, in <code>differential_drive.py</code> to stop trying to move forward or turn if it takes too long). This ensures the robot doesn’t stall indefinitely.</li>
+</ul>
+</li>
+</ol>
+<h3 id="files-designed-to-run-on-the-laptop-client">Files Designed to Run on the Laptop Client</h3>
+<p>The following files are <strong>not</strong> intended for the Pico. They are used on your <strong>laptop</strong> to receive data from the Pico, parse it, log it, and generate plots.</p>
+<ol>
+<li>
+<p><strong><a href="../code/local/data_logger.py">data_logger.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: A <code>DataLogger</code> class that processes incoming sensor data, organizes it by sensor and time, and can save it to a file (either as a pickle or CSV).</li>
+<li><strong>How it works</strong>:<ul>
+<li><code>process_string</code> parses raw text data with fields like <code>"TIME:&lt;time&gt;, SENSOR:&lt;value&gt;"</code>.</li>
+<li><code>process_dict</code> can handle dictionary-based data (e.g., arrays of time and sensor values).</li>
+<li>The data is stored internally, and you can then save it to disk.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: Instantiate this class in your laptop-based script or application. As new data arrives over UDP, call the logger’s methods to store and eventually save the data.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/local/live_plotter.py">live_plotter.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: A <code>LivePlotter</code> class that creates a Matplotlib window and updates it in real time with roll/pitch/yaw (or other) data.</li>
+<li><strong>How it works</strong>:<ul>
+<li>Maintains a fixed buffer size for recent data.</li>
+<li>You can call <code>process_incoming_data(message)</code> to parse new data points.</li>
+<li>An async loop <code>run_plot_loop</code> continuously updates the plot so it appears to stream in real time.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: Use on the laptop side to visualize data as it arrives from the Pico. It can be combined with a UDP client that feeds each incoming message into <code>process_incoming_data</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/local/udp_client.py">udp_client.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: A <code>UDPClient</code> class designed to receive UDP messages on your laptop.</li>
+<li><strong>How it works</strong>:<ul>
+<li>Binds to a local IP/port (e.g., <code>0.0.0.0:5005</code>).</li>
+<li>Runs a background thread that calls a callback function whenever data is received.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: Create a <code>UDPClient</code>, provide a callback to handle incoming packets (e.g., parse and log them). This is the companion to the <code>udp_server</code> code running on the Pico.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="../code/local/udp_client_example.py">udp_client_example.py</a></strong></p>
+<ul>
+<li><strong>What it contains</strong>: A basic example script that uses <code>UDPClient</code> and <code>DataLogger</code>.</li>
+<li><strong>How it works</strong>:<ul>
+<li>Defines a callback function (<code>print_message</code>) that unpacks the data from the Pico. It checks the data length, interprets them as floats, and feeds them into a <code>DataLogger</code>.</li>
+<li>Runs a loop so it can continuously listen and store data.</li>
+</ul>
+</li>
+<li><strong>Usage</strong>: Launch this on your laptop to receive sensor arrays from <code>kalman_filter.py</code> running on the Pico. Adjust the array sizes and sensor lists as needed.</li>
+</ul>
+</li>
+</ol>
+<h2 id="task-1-tuning-the-kalman-filter-parameters-q-and-r">Task 1: Tuning the Kalman Filter Parameters (Q and R)</h2>
+<ol>
+<li>
+<p><strong>Locating Q and R</strong></p>
+<ul>
+<li>
+<p>In <a href="../code/pico/kalman_filter.py"><code>kalman_filter.py</code></a>, near the top, you will see lines like:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Q</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Process noise covariance</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">R</span> <span class="o">=</span> <span class="mf">0.1</span>   <span class="c1"># Measurement noise covariance</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><code>Q</code> represents how uncertain you believe your <em>process</em> model is (i.e., how accurate you think your encoder-based estimate is).</p>
+</li>
+<li><code>R</code> represents how uncertain you believe your <em>sensor</em> (IMU) measurement is.</li>
+</ul>
+</li>
+<li>
+<p><strong>Experiment</strong></p>
+<ul>
+<li>Vary Q and R to explore how the Kalman filter estimate changes.</li>
+<li>Generate three distinct test runs, collecting data each time so you can plot the results:<ul>
+<li><strong>Case A</strong>: Make Q larger than R.</li>
+<li><strong>Case B</strong>: Make R larger than Q.</li>
+<li><strong>Case C</strong>: Make them about the same.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Plot</strong></p>
+<ul>
+<li>For each of the three cases, plot:<ul>
+<li>IMU yaw vs. time</li>
+<li>Encoder yaw vs. time</li>
+<li>Kalman-filtered yaw vs. time</li>
+</ul>
+</li>
+<li>Be sure to include uncertainty bands (variance or the signal) as part of the graph.</li>
+<li>These three lines on one plot show you how the filter merges the two signals differently depending on noise ratios.</li>
+</ul>
+</li>
+<li>
+<p><strong>Observations</strong></p>
+<ul>
+<li>When Q is very large, your encoder (process) updates are deemed untrustworthy, and the filter may rely more on the IMU reading.</li>
+<li>When R is very large, the IMU measurement is seen as untrustworthy, so the filter leans more heavily on the encoder reading.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="task-2-adjusting-the-array-size-and-measuring-loop-speed">Task 2: Adjusting the Array Size and Measuring Loop Speed</h2>
+<ol>
+<li>
+<p><strong>Locate the Array Size</strong></p>
+<ul>
+<li>In <a href="../code/pico/kalman_filter.py"><code>kalman_filter.py</code></a>, there is a variable named <code>ARRAY_SIZE = 50</code>. This controls how many samples you store and send at once.</li>
+</ul>
+</li>
+<li>
+<p><strong>Synchronize Changes</strong></p>
+<ul>
+<li>If you change <code>ARRAY_SIZE</code> on the server (Pico side), you must also change the client-side code that <em>receives</em> the data. The data format uses <code>struct.pack</code> in chunks of <code>ARRAY_SIZE</code> floats, so the client needs to expect the same number.</li>
+</ul>
+</li>
+<li>
+<p><strong>Experiment</strong></p>
+<ul>
+<li>Increase the array size in increments (e.g., 100, 200, 500, …). After each change, run the system:<ul>
+<li>Watch if it successfully transmits or if you get errors or dropped packets.</li>
+<li>Watch your loop time.</li>
+</ul>
+</li>
+<li>Keep going until something breaks, such as out-of-memory errors, UDP errors, or noticeable lag.</li>
+</ul>
+</li>
+<li>
+<p><strong>Measure Loop Timing</strong></p>
+<ul>
+<li>
+<p>Add some code to measure how fast each loop iteration runs. For instance:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># (rest of the loop)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">end_time</span><span class="p">,</span> <span class="n">start_time</span><span class="p">)</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Print or store <code>elapsed</code> to see how the average loop time changes with bigger array sizes. Does it get slower?</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="task-3-discussion-questions">Task 3: Discussion Questions</h2>
+<p>After conducting the above experiments, answer the following:</p>
+<ol>
+<li>
+<p><strong>How do process noise (Q) and sensor noise (R) individually affect the Kalman filter?</strong></p>
+<ul>
+<li>Reflect on how your plots changed in Task 2.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does a Kalman filter compare to a complementary filter?</strong></p>
+<ul>
+<li>Both can fuse multiple sensor inputs.</li>
+<li>The complementary filter is typically simpler, using fixed-weight filtering in the frequency domain, while the Kalman filter adapts weighting based on dynamic estimates of uncertainty.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does the array (buffer) size impact performance?</strong></p>
+<ul>
+<li>Consider your data from Task 3. Did it affect real-time responsiveness? Did you notice memory limits or dropped data?</li>
+</ul>
+</li>
+<li>
+<p><strong>Does the buffer size impact only the server, or also the client?</strong></p>
+<ul>
+<li>Because the client must receive the same number of floats, both ends must match. The client side can also get overwhelmed by larger or more frequent packets.</li>
+</ul>
+</li>
+<li>
+<p><strong>Any additional observations or ideas for improvement?</strong></p>
+<ul>
+<li>This is open-ended. You might consider potential expansions like including the accelerometer reading into the filter or using more sophisticated filtering for the gyroscope drift.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="complementary-filter">Complementary Filter</h2>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>In this lab, your will explore the design and implementation of a <strong>complementary filter</strong>—a simple yet effective method of sensor fusion used to estimate orientation by combining the strengths of accelerometer and gyroscope measurements. The accelerometer offers an absolute measurement of orientation based on gravity, while the gyroscope provides angular rate information that must be integrated over time to obtain an angle. Each sensor has its own weaknesses: the accelerometer is subject to noise and disturbances (e.g., from vibrations), whereas the gyroscope is prone to drift over time. The complementary filter blends both measurements using a weighted approach to produce a reliable estimate of roll and pitch.</p>
+<hr />
+<h2 id="2-complementary-filter-theory">2. Complementary Filter Theory</h2>
+<p>A complementary filter functions by applying a <strong>high-pass filter</strong> on the gyroscope data and a <strong>low-pass filter</strong> on the accelerometer data, effectively covering each sensor’s weaknesses with the strengths of the other. The process is governed by a parameter—commonly referred to as <strong>alpha (α)</strong>—that defines the weight given to the gyroscope versus the accelerometer. A typical filter update equation for an angle (e.g., roll) is:</p>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">roll_filtered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="p">(</span><span class="n">previous_roll</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">gyro_rate</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="n">Δt</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">α</span><span class="p">)</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="n">roll_acc</span>
+</span></code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>(previous_roll + gyro_rate × Δt)</code> is the estimate from the gyroscope.</li>
+<li><code>roll_acc</code> is the angle computed from the accelerometer.</li>
+<li><code>α</code> is the filter coefficient (typically 0.95–0.99).</li>
+</ul>
+<hr />
+<h2 id="3-gyroscope-data-for-attitude-estimation">3. Gyroscope Data for Attitude Estimation</h2>
+<p>Gyroscopes measure the rate of rotation around an axis. When integrated over time, these angular rates yield an estimate of the angle (roll, pitch, and yaw). In the lab, students <strong>do not need to integrate the gyroscope data manually</strong> because the provided IMU class (from <a href="../code/pico/imu.py"><code>imu.py</code></a>) handles this.</p>
+<p>To access these values:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">imu</span><span class="o">.</span><span class="n">get_roll</span><span class="p">()</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">imu</span><span class="o">.</span><span class="n">get_pitch</span><span class="p">()</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">imu</span><span class="o">.</span><span class="n">get_yaw</span><span class="p">()</span>
+</span></code></pre></div>
+<p>These return the orientation values (in degrees) computed from gyroscope integration.</p>
+<hr />
+<h2 id="4-calculating-roll-and-pitch-from-the-accelerometer">4. Calculating Roll and Pitch from the Accelerometer</h2>
+<p>The accelerometer measures acceleration along the sensor’s axes. When gravity is the only force acting, we can calculate orientation using trigonometry:</p>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">roll_acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arctan2</span><span class="p">(</span><span class="n">acc_x</span><span class="p">,</span><span class="w"> </span><span class="n">acc_z</span><span class="p">)</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="p">(</span><span class="mi">180</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">π</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">pitch_acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arctan2</span><span class="p">(</span><span class="n">acc_y</span><span class="p">,</span><span class="w"> </span><span class="n">acc_z</span><span class="p">)</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="p">(</span><span class="mi">180</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">π</span><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li><code>acc_x</code>, <code>acc_y</code>, <code>acc_z</code> are accelerometer readings in mg.</li>
+<li>These formulas yield roll and pitch angles in degrees.</li>
+</ul>
+<p>For a more detailed overview of how these equations are derived, see <a href="https://mwrona.com/posts/accel-roll-pitch/">this</a> blogpost.</p>
+<hr />
+<h2 id="5-implementing-the-complementary-filter">5. Implementing the Complementary Filter</h2>
+<p>To fuse the gyro and accelerometer readings:</p>
+<h3 id="filter-algorithm">Filter Algorithm</h3>
+<ol>
+<li>Get the gyroscope-based angle (<code>imu.get_roll()</code>).</li>
+<li>Get accelerometer readings (<code>imu.get_acc_x()</code>, etc.).</li>
+<li>Compute roll and pitch from accelerometer using <code>arctan2</code>.</li>
+<li>Fuse the values:</li>
+</ol>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">filtered_roll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="p">(</span><span class="n">previous_roll</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">gyro_roll_rate</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="n">dt</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">α</span><span class="p">)</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="n">roll_acc</span>
+</span></code></pre></div>
+<hr />
+<h2 id="6-data-transmission-using-udpserver">6. Data Transmission Using <code>UDPServer</code></h2>
+<p>The <code>UDPServer</code> class (from <a href="../code/pico/udp_server.py"><code>udp_server.py</code></a>) is used to transmit data from the Pico to your computer. Efficient data transmission is critical to ensure smooth operation and minimal delays.</p>
+<h3 id="best-practices">Best Practices</h3>
+<ol>
+<li>
+<p><strong>Use Fixed-Length Array Buffers:</strong></p>
+<ul>
+<li>Instead of Python lists, use <a href="https://docs.micropython.org/en/latest/library/array.html"><strong>MicroPython arrays</strong></a> for buffering data. Arrays are more memory-efficient and faster because they store elements of a fixed type (e.g., <code>float</code> or <code>int</code>), whereas lists can store mixed types and have higher memory overhead.</li>
+<li>Arrays are particularly useful on resource-constrained devices like the Pico, where memory and processing power are limited.</li>
+<li>Think of these arrays as C++ style arrays, which are static but more efficient than python lists.</li>
+</ul>
+</li>
+<li>
+<p><strong>Buffering Strategy:</strong></p>
+<ul>
+<li>Avoid sending data on every loop iteration, as this can overwhelm the UDP connection and lead to dropped packets or delays.</li>
+<li>Use a <strong>fixed-length array buffer</strong> to accumulate data. Only send the data over UDP when the buffer is full. This reduces the frequency of transmissions and ensures that each packet contains meaningful data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Multiple Buffers for Different Data Types:</strong></p>
+<ul>
+<li>If you need to store and transmit multiple types of data (e.g., timestamps, accelerometer roll and pitch, gyroscope roll and pitch, complementary filter roll and pitch), you should use separate buffers for each type. This ensures that the data remains organized and easy to process on the receiving end.</li>
+<li>For example, if you want to store the following:<ul>
+<li><strong>Timestamps</strong></li>
+<li><strong>Accelerometer roll and pitch</strong></li>
+<li><strong>Gyroscope roll and pitch</strong></li>
+<li><strong>Complementary filter roll and pitch</strong></li>
+</ul>
+</li>
+<li>You would need <strong>7 separate buffers</strong> of the same size, one for each data type.</li>
+</ul>
+</li>
+<li>
+<p><strong>Processing Data on the Client:</strong></p>
+<ul>
+<li>When the data is received on your laptop, make sure to parce the strings correctly.</li>
+<li>You can save this data to a CSV file and create visualizations.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="pseudocode">Pseudocode</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Initialize filter parameters</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.98</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># time between updates</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">previous_roll</span> <span class="o">=</span> <span class="n">imu</span><span class="o">.</span><span class="n">get_roll</span><span class="p">()</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Create fixed-length array buffers</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">buffer_size</span> <span class="o">=</span> <span class="n">SOME_SIZE</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">buffer</span> <span class="o">=</span> <span class="n">create_fixed_length_array</span><span class="p">(</span><span class="n">buffer_size</span><span class="p">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">buffer_index</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1"># Main loop</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="n">gyro_roll</span> <span class="o">=</span> <span class="n">imu</span><span class="o">.</span><span class="n">get_roll</span><span class="p">()</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="n">imu</span><span class="o">.</span><span class="n">get_acc_x</span><span class="p">()</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="n">ay</span> <span class="o">=</span> <span class="n">imu</span><span class="o">.</span><span class="n">get_acc_y</span><span class="p">()</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="n">az</span> <span class="o">=</span> <span class="n">imu</span><span class="o">.</span><span class="n">get_acc_z</span><span class="p">()</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    <span class="n">roll_acc</span> <span class="o">=</span> <span class="n">some</span> <span class="n">math</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    <span class="n">filtered_roll</span> <span class="o">=</span> <span class="n">some</span> <span class="n">more</span> <span class="n">math</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    <span class="n">previous_roll</span> <span class="o">=</span> <span class="n">filtered_roll</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>    <span class="n">buffer</span><span class="p">[</span><span class="n">buffer_index</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">filtered_roll</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>    <span class="n">buffer_index</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>    <span class="k">if</span> <span class="n">buffer_index</span> <span class="o">==</span> <span class="n">buffer_size</span><span class="p">:</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>        <span class="n">udp_server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="c1"># Assuming udp_server is an instance of UDPServer from udp_server.py</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>        <span class="n">buffer_index</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>    <span class="n">sleep</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="7-complementary-filter-questions">7. Complementary Filter Questions</h2>
+<p>Answer the following questions after completing your implementation:</p>
+<ol>
+<li>
+<p><strong>Sensor Fusion Advantage:</strong><br />
+   What are the advantages and disadvantages of using only the gyroscope or accelerometer?</p>
+</li>
+<li>
+<p><strong>Filter Mechanism:</strong><br />
+   How does the complementary filter work? Why do we high-pass the gyro and low-pass the accelerometer?</p>
+</li>
+<li>
+<p><strong>Alpha Parameter:</strong><br />
+   What is the role of α in the filter? How does changing α affect performance?</p>
+</li>
+<li>
+<p><strong>Buffering Strategy:</strong><br />
+   Why is buffering necessary before sending over UDP? What benefits do arrays have over lists in MicroPython?</p>
+</li>
+<li>
+<p><strong>Graphs:</strong>
+   Inlcude a graph or the accelleromter, gryoscope, and complementary filter data for roll and pitch (use separate graphs for roll and pitch).</p>
+</li>
+<li>
+<p><strong>Yaw Computation:</strong>
+   Why is the the yaw not computed using a complementary filter?</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

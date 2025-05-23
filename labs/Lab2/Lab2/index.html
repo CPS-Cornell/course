@@ -1,0 +1,2672 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Lab1/Lab1/">
+      
+      
+        <link rel="next" href="../../Lab3/Lab3/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Lab 2 - Wireless Communication Protocols - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab2-tcp-for-data-streaming-and-command-messages" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 2 - Wireless Communication Protocols
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notes/Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-on-your-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python on your Laptop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python on your Laptop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-callback-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background: Callback functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-structure-and-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Structure and Explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Structure and Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-imu_defspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 imu_defs.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-imupy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 imu.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tcp_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 tcp_server.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-test_tcp_serverpy-your-main-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 test_tcp_server.py (Your Main Focus)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tcp_clientpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 tcp_client.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-test_tcp_clientpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 test_tcp_client.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-live_plotterpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 live_plotter.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-callback-functions-and-their-role-in-asynchronous-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Callback Functions and Their Role in Asynchronous Communication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Callback Functions and Their Role in Asynchronous Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-callback-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Callback Function?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-are-we-using-callback-functions-in-this-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Are We Using Callback Functions in This Lab?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-callback-functions-work-in-this-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Do Callback Functions Work in This Lab?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-are-callback-functions-important-for-asynchronous-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Are Callback Functions Important for Asynchronous Communication?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Are Callback Functions Important for Asynchronous Communication?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-callbacks-improve-asynchronous-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do Callbacks Improve Asynchronous Communication?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback-function-implementation-in-micropython-on-the-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Callback Function Implementation in MicroPython on the Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Callback Function Implementation in MicroPython on the Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-the-tcp-server-class-tcp_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. The TCP Server Class (tcp_server.py)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-registering-a-callback-in-test_tcp_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Registering a Callback in test_tcp_server.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-callback-in-a-simple-asynchronous-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Callback in a Simple Asynchronous System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-thoughts-why-micropython-and-the-pico-need-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Thoughts: Why MicroPython and the Pico Need This
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab Tasks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1-imu-data-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: IMU Data Streaming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2-led-control-from-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: LED Control from the Client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Deliverables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thinking-ahead-expanding-robot-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thinking Ahead: Expanding Robot Communication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thinking Ahead: Expanding Robot Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structuring-the-communication-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structuring the Communication Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-the-pico-should-stream-to-the-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data the Pico Should Stream to the Laptop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands-the-laptop-should-send-to-the-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands the Laptop Should Send to the Pico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-on-your-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python on your Laptop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python on your Laptop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-callback-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background: Callback functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-structure-and-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Structure and Explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Structure and Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-imu_defspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 imu_defs.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-imupy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 imu.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tcp_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 tcp_server.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-test_tcp_serverpy-your-main-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 test_tcp_server.py (Your Main Focus)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tcp_clientpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 tcp_client.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-test_tcp_clientpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 test_tcp_client.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-live_plotterpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 live_plotter.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-callback-functions-and-their-role-in-asynchronous-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Callback Functions and Their Role in Asynchronous Communication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Callback Functions and Their Role in Asynchronous Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-callback-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Callback Function?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-are-we-using-callback-functions-in-this-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Are We Using Callback Functions in This Lab?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-callback-functions-work-in-this-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Do Callback Functions Work in This Lab?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-are-callback-functions-important-for-asynchronous-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Are Callback Functions Important for Asynchronous Communication?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Are Callback Functions Important for Asynchronous Communication?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-callbacks-improve-asynchronous-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do Callbacks Improve Asynchronous Communication?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback-function-implementation-in-micropython-on-the-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Callback Function Implementation in MicroPython on the Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Callback Function Implementation in MicroPython on the Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-the-tcp-server-class-tcp_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. The TCP Server Class (tcp_server.py)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-registering-a-callback-in-test_tcp_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Registering a Callback in test_tcp_server.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-callback-in-a-simple-asynchronous-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Callback in a Simple Asynchronous System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-thoughts-why-micropython-and-the-pico-need-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Thoughts: Why MicroPython and the Pico Need This
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab Tasks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1-imu-data-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: IMU Data Streaming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2-led-control-from-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: LED Control from the Client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Deliverables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thinking-ahead-expanding-robot-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thinking Ahead: Expanding Robot Communication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thinking Ahead: Expanding Robot Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structuring-the-communication-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structuring the Communication Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-the-pico-should-stream-to-the-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data the Pico Should Stream to the Laptop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands-the-laptop-should-send-to-the-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands the Laptop Should Send to the Pico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab2-tcp-for-data-streaming-and-command-messages">Lab2: TCP for Data Streaming and Command Messages</h1>
+<h2 id="python-on-your-laptop">Python on your Laptop</h2>
+<p>This lab will require you to run python code locally on your laptop, including using pip to install some dependencies. It is best practice to use a virtual environment to ensure that package dependencies don't interfere with each other from project to project.</p>
+<p>Instructions on how to install and use virtual environment package managers, such as <a href="../../../tutorials/pyenv_tutorial/">pyenv</a> and <a href="../../../tutorials/anaconda_tutorial/">anaconda</a>, can be found on the tutorials page.</p>
+<p>Once you have your virtual environment set up, use conda or pip to install the appropriate dependencies for running <code>test_tcp_client.py</code> on your laptop.</p>
+<hr />
+<h3 id="overview">Overview</h3>
+<p>In this lab, you will modify a Raspberry Pi Pico MicroPython project that streams Inertial Measurement Unit (IMU) data to a laptop and receives commands from the laptop to control the Pico’s on-board LED. You will be working primarily in <strong><code>test_tcp_server.py</code></strong>, where you will:</p>
+<ol>
+<li>Read real-time roll, pitch, and yaw data from the IMU and send those values to a client (running on a PC) via a TCP connection.</li>
+<li>Respond to messages from the client (<code>ON</code> or <code>OFF</code>) by turning the LED on or off accordingly.</li>
+</ol>
+<p>A matching client program (<code>test_tcp_client.py</code>) runs on your laptop, connects to the Pico over Wi-Fi, and plots the received data in real time.</p>
+<p>The second portion of this lab will not require any programming, but instead will require you to think about what future functionality you might want to implement on your robot and design a messaging format that supports those functions</p>
+<hr />
+<h3 id="background-callback-functions">Background: Callback functions</h3>
+<h2 id="code-structure-and-explanation">Code Structure and Explanation</h2>
+<p>Below is an overview of each file and its role in this project.</p>
+<h3 id="1-imu_defspy">1 <a href="../code/pico/imu_defs.py"><code>imu_defs.py</code></a></h3>
+<ul>
+<li>Defines constants and register addresses for the LSM6DSO IMU (an accelerometer + gyroscope).</li>
+<li>Houses low-level bitfield and register definitions (e.g., <code>LSM_REG_CTRL1_XL</code>, <code>LSM_ODR</code>, etc.) that help configure and communicate with the sensor.</li>
+<li>You will not need to edit this file directly, but it is useful to understand how the IMU is being set up and read.</li>
+</ul>
+<h3 id="2-imupy">2 <a href="../code/pico/imu.py"><code>imu.py</code></a></h3>
+<ul>
+<li>Contains the <code>IMU</code> class, which handles higher-level communication with the LSM6DSO sensor.</li>
+<li>Manages initialization, calibration, and reading of accelerometer and gyroscope data (in mg and mdps).</li>
+<li>Maintains internally computed roll, pitch, and yaw angles by integrating gyro data over time.</li>
+<li>Key methods you might call:<ul>
+<li><code>get_roll()</code>, <code>get_pitch()</code>, <code>get_yaw()</code>: Return the current orientation angles in degrees.</li>
+<li><code>calibrate()</code>: Collects baseline readings to zero out the IMU.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-tcp_serverpy">3 <a href="../code/pico/tcp_server.py"><code>tcp_server.py</code></a></h3>
+<ul>
+<li>Implements a simple TCP server class, <code>TCPServer</code>, using <code>uasyncio</code> on the Pico.</li>
+<li>Handles client connections, listens for incoming messages, and sends data back to the client.</li>
+<li>Provides:<ul>
+<li><code>start()</code>: Sets up Wi-Fi, listens on a port for a client connection.</li>
+<li><code>handle_client(reader, writer)</code>: Callback that’s invoked once a client connects. Receives messages from the client.</li>
+<li><code>send(message)</code>: Sends data to the connected client.</li>
+<li><code>callback</code>: A user-defined function (passed in) that processes incoming messages.</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-test_tcp_serverpy-your-main-focus">4 <a href="../code/pico/test_tcp_server.py"><code>test_tcp_server.py</code></a> (Your Main Focus)</h3>
+<ul>
+<li><strong>Where you will do most of your work.</strong></li>
+<li>Imports and instantiates <code>TCPServer</code>.</li>
+<li>Declares (or should declare) the LED pin and the IMU object.</li>
+<li>Contains:<ul>
+<li><code>read_sensor()</code>: A function that <strong>you will modify</strong> to read roll, pitch, and yaw from the IMU.</li>
+<li><code>process_message()</code>: A function that <strong>you will modify</strong> to parse incoming text commands from the client and turn the LED on/off.</li>
+<li>An asynchronous <code>main()</code> function that:<ol>
+<li>Starts the TCP server.</li>
+<li>Waits for a connection.</li>
+<li>In a loop, calls <code>read_sensor()</code> and sends the data to the client over TCP.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-tcp_clientpy">5 <a href="../code/local_computer/tcp_client.py"><code>tcp_client.py</code></a></h3>
+<ul>
+<li>A Python (desktop) client class, <code>TCPClient</code>, using <code>asyncio</code> to connect to the Pico.</li>
+<li>When connected, it listens for incoming messages and can send commands back (like <code>ON</code> or <code>OFF</code>).</li>
+</ul>
+<h3 id="6-test_tcp_clientpy">6 <a href="../code/local_computer/test_tcp_client.py"><code>test_tcp_client.py</code></a></h3>
+<ul>
+<li>Demonstrates usage of <code>TCPClient</code>.</li>
+<li>Prompts you for the Pico’s IP address.</li>
+<li>Opens a live plot (via <code>live_plotter.py</code>).</li>
+<li>Lets you send text commands (like <code>ON</code> or <code>OFF</code>) from the keyboard to the Pico.</li>
+</ul>
+<h3 id="7-live_plotterpy">7 <a href="../code/local_computer/live_plotter.py"><code>live_plotter.py</code></a></h3>
+<ul>
+<li>Handles real-time plotting of roll, pitch, and yaw using <code>matplotlib</code> and an asynchronous loop.</li>
+<li>Whenever new sensor data arrives, it updates the rolling plot in near real time.</li>
+</ul>
+<h2 id="understanding-callback-functions-and-their-role-in-asynchronous-communication"><strong>Understanding Callback Functions and Their Role in Asynchronous Communication</strong></h2>
+<h3 id="what-is-a-callback-function"><strong>What is a Callback Function?</strong></h3>
+<p>A <strong>callback function</strong> is a function that is <strong>passed as an argument</strong> to another function and is <strong>executed later</strong>, usually in response to an event or the completion of an operation. Instead of directly executing a function where it is defined, the program <strong>"calls back"</strong> to it when needed.</p>
+<p>Callbacks are commonly used in <strong>event-driven programming</strong> and <strong>asynchronous systems</strong>, where operations do not execute sequentially but rather respond to external events like user inputs, sensor updates, or incoming network messages.</p>
+<h3 id="why-are-we-using-callback-functions-in-this-lab"><strong>Why Are We Using Callback Functions in This Lab?</strong></h3>
+<p>In this lab, the Raspberry Pi Pico is running a <strong>TCP server</strong> that must:</p>
+<ol>
+<li><strong>Listen for incoming messages from the client</strong> (your laptop).</li>
+<li><strong>Process these messages asynchronously</strong> (without blocking the main execution loop).</li>
+<li><strong>Execute specific actions</strong> based on the received messages, such as toggling the LED.</li>
+</ol>
+<p>Since <strong>incoming messages arrive unpredictably</strong>, we need a mechanism to <strong>handle them as they come in</strong>, without blocking other tasks like sensor readings. This is where callback functions are useful.</p>
+<h3 id="how-do-callback-functions-work-in-this-lab"><strong>How Do Callback Functions Work in This Lab?</strong></h3>
+<p>The <strong>callback function is used to process incoming TCP messages asynchronously.</strong> Let's break it down step by step.</p>
+<ol>
+<li>
+<p><strong>The <code>TCPServer</code> class (in <code>tcp_server.py</code>) is designed to handle TCP communication.</strong></p>
+<ul>
+<li>It includes a <code>callback</code> function that gets executed <strong>whenever</strong> a message is received.</li>
+<li>When we create a <code>TCPServer</code> object, we <strong>pass a function</strong> (e.g., <code>process_message()</code>) as a callback.</li>
+</ul>
+</li>
+<li>
+<p><strong>Whenever the Pico receives a message from the client, the callback function is executed.</strong></p>
+<ul>
+<li>This allows the program to respond dynamically to different messages (like "ON" and "OFF") without needing to check for messages manually.</li>
+</ul>
+</li>
+<li>
+<p><strong>This makes our system asynchronous</strong> because:</p>
+<ul>
+<li>We don’t have to stop everything and wait for a message.</li>
+<li>The Pico can <strong>keep running other tasks</strong> (e.g., reading IMU data) while waiting for messages.</li>
+</ul>
+</li>
+</ol>
+<h3 id="why-are-callback-functions-important-for-asynchronous-communication"><strong>Why Are Callback Functions Important for Asynchronous Communication?</strong></h3>
+<p>In <strong>asynchronous programming</strong>, multiple tasks can run <strong>concurrently</strong> without blocking each other. This is crucial for networking because <strong>network operations (like waiting for a message) can take an unpredictable amount of time</strong>.</p>
+<h4 id="how-do-callbacks-improve-asynchronous-communication"><strong>How do Callbacks Improve Asynchronous Communication?</strong></h4>
+<ul>
+<li>Instead of <strong>pausing execution</strong> to wait for data (which would freeze the Pico), the system <strong>registers a callback function</strong> that is <strong>triggered automatically</strong> when new data arrives.</li>
+<li>The <strong>main program continues running</strong> while waiting for network events.</li>
+<li>This approach <strong>prevents lag</strong> and allows the Pico to handle <strong>multiple tasks at once</strong>.</li>
+</ul>
+<h3 id="callback-function-implementation-in-micropython-on-the-pico"><strong>Callback Function Implementation in MicroPython on the Pico</strong></h3>
+<p>Here’s how we <strong>implement a callback function</strong> to handle incoming TCP messages.</p>
+<h4 id="1-the-tcp-server-class-tcp_serverpy"><strong>1. The TCP Server Class (<code>tcp_server.py</code>)</strong></h4>
+<p>In the <code>TCPServer</code> class, there is a <code>callback</code> function that <strong>gets executed whenever data is received</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">TCPServer</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>  <span class="c1"># Store the callback function</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reader</span><span class="p">,</span> <span class="n">writer</span><span class="p">):</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Handles incoming messages from a client&quot;&quot;&quot;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Client connected&quot;</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>  <span class="c1"># Read incoming message</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Client disconnected&quot;</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                    <span class="k">break</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                <span class="n">message</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received:&quot;</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">:</span>  <span class="c1"># If a callback function is defined, call it!</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error handling client:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Key Idea</strong>: The function <code>self.callback(message)</code> is triggered when a message is received.</p>
+<h4 id="2-registering-a-callback-in-test_tcp_serverpy"><strong>2. Registering a Callback in <code>test_tcp_server.py</code></strong></h4>
+<p>We now <strong>pass our own function (<code>process_message</code>) as the callback</strong> when creating the <code>TCPServer</code> instance.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Function to process incoming TCP messages (callback function)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">process_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing incoming message:&quot;</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="c1">#TODO: Check if message is &quot;ON&quot; or &quot;OFF&quot; and control LED</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># Initialize the TCP Server and pass `process_message` as the callback</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">tcp_server</span> <span class="o">=</span> <span class="n">TCPServer</span><span class="p">(</span><span class="n">callback</span><span class="o">=</span><span class="n">process_message</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Here:</p>
+<ul>
+<li>When <code>TCPServer</code> receives a message, it <strong>automatically calls</strong> <code>process_message()</code>.</li>
+<li>This lets us <strong>separate network handling from application logic</strong>—the Pico’s network module doesn’t need to know what the message means, just that it should forward it to <code>process_message()</code>.</li>
+</ul>
+<h3 id="example-of-callback-in-a-simple-asynchronous-system"><strong>Example of Callback in a Simple Asynchronous System</strong></h3>
+<p>If the concept of callbacks is still unclear, let’s simplify it.</p>
+<p>Imagine you have a <strong>button</strong> on the Pico, and you want to execute a function whenever the button is pressed.</p>
+<p><strong>Define a callback function:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">button_pressed</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Button pressed!&quot;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Initialize button with an interrupt and attach the callback function</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">button</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">button_pressed</span><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li>Instead of <strong>constantly checking</strong> the button in a loop, we register <code>button_pressed()</code> as a callback.</li>
+<li>The function <strong>only runs when needed</strong> (i.e., when the button is pressed).</li>
+</ul>
+<p>This is the <strong>same concept</strong> we apply in <code>TCPServer</code>:</p>
+<ul>
+<li>Instead of <strong>checking for messages manually</strong>, we let the system <strong>call <code>process_message()</code> whenever data is received</strong>.</li>
+</ul>
+<h3 id="final-thoughts-why-micropython-and-the-pico-need-this"><strong>Final Thoughts: Why MicroPython and the Pico Need This</strong></h3>
+<ol>
+<li><strong>Limited resources</strong>: The Pico doesn’t have a powerful processor, so it cannot afford to block execution while waiting for network messages.</li>
+<li><strong>Event-driven model</strong>: MicroPython’s <code>uasyncio</code> is designed to handle multiple tasks efficiently.</li>
+<li><strong>Cleaner Code</strong>: Using callbacks <strong>keeps networking logic separate</strong> from application logic (reading sensors, controlling LEDs, etc.).</li>
+</ol>
+<p><strong>Summary</strong></p>
+<ul>
+<li>Callback functions allow us to <strong>react to events asynchronously</strong> instead of constantly checking for updates.</li>
+<li>They enable <strong>efficient handling of network messages</strong> on the Pico without blocking sensor readings or other tasks.</li>
+<li>In this lab, we <strong>pass <code>process_message()</code> as a callback</strong> so the Pico <strong>automatically handles</strong> TCP messages like "ON" and "OFF" without manual polling.</li>
+<li>This makes our program <strong>responsive, modular, and efficient</strong>, ensuring smooth real-time data transmission.</li>
+</ul>
+<hr />
+<h2 id="lab-tasks">Lab Tasks</h2>
+<h3 id="task-1-imu-data-streaming">Task 1: IMU Data Streaming</h3>
+<ol>
+<li>
+<p><strong>Create and initialize the IMU object</strong>:</p>
+<ul>
+<li>Near the top of <code>test_tcp_server.py</code>, create a new IMU object that you can use to get sensor readings.</li>
+<li>This gives you access to the <code>imu</code> methods: <code>get_roll()</code>, <code>get_pitch()</code>, and <code>get_yaw()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Update <code>read_sensor()</code></strong>:</p>
+<ul>
+<li>Currently, <code>read_sensor()</code> returns random values for demonstration.</li>
+<li>Replace that code with calls to the IMU’s orientation getters:</li>
+<li>Ensure you return a tuple of <code>(roll, pitch, yaw)</code> in degrees.</li>
+</ul>
+</li>
+<li>
+<p><strong>Send the data to the client</strong>:</p>
+<ul>
+<li>In the loop at the end of <code>main()</code>, <code>test_tcp_server.py</code> already does something like:
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">sensor_data</span> <span class="o">=</span> <span class="n">read_sensor</span><span class="p">()</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">await</span> <span class="n">tcp_server</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;Sensor data: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sensor_data</span><span class="p">))</span>
+</span></code></pre></div></li>
+<li>You don’t need to change that line, but now it will actually return meaningful IMU angles.</li>
+</ul>
+</li>
+<li>
+<p><strong>Confirm data is plotted</strong>:</p>
+<ul>
+<li>On your PC, run <code>test_tcp_client.py</code>, provide the Pico’s IP address, and you should see a live plot of roll, pitch, yaw.</li>
+</ul>
+</li>
+</ol>
+<h3 id="task-2-led-control-from-the-client">Task 2: LED Control from the Client</h3>
+<ol>
+<li>
+<p><strong>Declare the LED pin</strong>:</p>
+<ul>
+<li>For most Raspberry Pi Pico boards, the onboard LED is connected to <code>Pin(25)</code> (or <code>Pin("LED")</code> in some builds).</li>
+<li>At the top of <code>test_tcp_server.py</code>, declare an LED pin that you can use to control the onboard LED.</li>
+</ul>
+</li>
+<li>
+<p><strong>Implement <code>process_message(message)</code></strong>:</p>
+<ul>
+<li>The client will send text lines such as <code>"ON"</code> or <code>"OFF"</code>.</li>
+<li>Add code that parses the message and turn the LED on or off depending on <code>"ON"</code> or <code>"OFF"</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Test it</strong>:</p>
+<ul>
+<li>On your PC, run <code>test_tcp_client.py</code>.</li>
+<li>Once connected, type <code>ON</code> or <code>OFF</code> in the console. The Pico’s onboard LED should turn on or off accordingly.</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-deliverables">4. Deliverables</h2>
+<ul>
+<li>
+<p><strong>Modified <code>test_tcp_server.py</code></strong> including:</p>
+<ul>
+<li><strong>Working IMU data read</strong> in <code>read_sensor()</code>.</li>
+<li><strong>Functional LED on/off handling</strong> in <code>process_message(message)</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Short demonstration video</strong> (optional but encouraged) showing:</p>
+<ul>
+<li>This is mostly easily done by uploading a video clip to youtube and including a URL in your report</li>
+<li>The Pico’s LED turning on/off.</li>
+<li>Real-time pitch/roll/yaw changes on the live plot as the Pico is moved.</li>
+</ul>
+</li>
+<li>
+<p><strong>Lab report</strong> detailing:</p>
+<ul>
+<li><strong>Setup</strong>: Your wiring (if any), environment, and steps to connect.</li>
+<li><strong>Code Changes</strong>: Summarize your modifications to <code>test_tcp_server.py</code>.</li>
+<li><strong>Results</strong>: Screenshots of the plot. Observations about the IMU readings.</li>
+<li><strong>Analysis</strong>: Why is implementing something like a TCP server/client for our future robot important?</li>
+<li><strong>Conclusion</strong>: Challenges, insights, or improvements you might make.</li>
+<li><strong>Note</strong>: Overall, this first portion of the lab is mush shorter than previous labs and won't require as long of a report.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="thinking-ahead-expanding-robot-communication"><strong>Thinking Ahead: Expanding Robot Communication</strong></h2>
+<p>In this lab, we established a basic communication system between a Raspberry Pi Pico and a laptop, allowing the Pico to <strong>stream IMU data</strong> and <strong>receive simple ON/OFF commands</strong> to control an LED. However, in a real-world robotics application—especially a <strong>differential drive robot</strong>—communication would need to be much more sophisticated.</p>
+<p>Now, let’s think ahead:</p>
+<ul>
+<li><strong>What types of data should the Pico send to the laptop for logging and analysis?</strong></li>
+<li><strong>What kinds of commands might the laptop send back to the Pico to control its behavior?</strong></li>
+<li><strong>How should these messages be structured for clarity and efficiency?</strong></li>
+</ul>
+<p>Your task in this section is to <strong>brainstorm and document a communication protocol</strong> that could support more advanced functionality for a differential drive robot.</p>
+<hr />
+<h3 id="structuring-the-communication-protocol"><strong>Structuring the Communication Protocol</strong></h3>
+<p>In this section, you'll brainstormed <strong>what data needs to be sent</strong> and <strong>what commands need to be received</strong>, think about <strong>how to structure messages efficiently.</strong> Some questions to consider:</p>
+<ul>
+<li>Should messages be <strong>human-readable</strong> (e.g., <code>"TURN:90"</code>), or should they be <strong>short binary values</strong> to save bandwidth?</li>
+<li>How will messages be <strong>parsed and processed</strong> on both the Pico and the laptop?</li>
+<li>What happens if a message <strong>gets lost</strong> or <strong>corrupt</strong>—should the laptop request data again?</li>
+</ul>
+<p><strong>Documentation Task:</strong></p>
+<ul>
+<li>Propose a <strong>structured message format</strong> for both data streaming and command control.</li>
+<li>Explain how the Pico and the laptop should <strong>interpret</strong> incoming messages.</li>
+</ul>
+<p>For example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&lt;SENSOR_TYPE&gt;:&lt;VALUE_1&gt;,&lt;VALUE_2&gt;,&lt;VALUE_3&gt;
+</span></code></pre></div>
+<p>where <code>&lt;SENSOR_TYPE&gt;</code> could be <code>IMU</code>, <code>ENCODER</code>, or <code>BATTERY</code>, and the <code>&lt;VALUE&gt;</code>s represent specific sensor readings.</p>
+<p>This exercise will help you <strong>think like a systems designer</strong>, structuring real-world communication for robotics applications. Consider this while implementing the tasks in the next two sections.</p>
+<h3 id="data-the-pico-should-stream-to-the-laptop"><strong>Data the Pico Should Stream to the Laptop</strong></h3>
+<p>In a real differential drive robot, the Pico might need to send various types of sensor data to the laptop for monitoring, logging, and control purposes. Some examples include:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Data Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Unit / Format</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IMU</strong></td>
+<td>Orientation (roll, pitch, yaw) and acceleration</td>
+<td>Degrees (°) for angles, m/s² for acceleration</td>
+</tr>
+<tr>
+<td><strong>Motor Speed</strong></td>
+<td>Measures how fast each motor is spinning</td>
+<td>RPM (Rotations Per Minute)</td>
+</tr>
+<tr>
+<td><strong>Ultrasonic/Proximity</strong></td>
+<td>Measures distance to obstacles</td>
+<td>Centimeters (cm) or meters (m)</td>
+</tr>
+<tr>
+<td><strong>Temperature</strong></td>
+<td>Tracks heat levels of components</td>
+<td>Degrees Celsius (°C)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Documentation Task:</strong></p>
+<ul>
+<li>These are just some examples of potential data sources that you might want to stream to your laptop. Try to think of any others that might be relevant for a mobile robot.</li>
+<li>For each data type, there might be multiple values. For example, the IMU returns X, Y, Z values for the accelerometer and gyroscope. Identify all the values for each source of data.</li>
+<li>Consider the format for what a message containing a particular data point might look like. In this lab, we just had three values separated by commas. But as the amount of data grows, we should label the data values before we send them so that the client can use a string parser to get the desired values.</li>
+<li>Pick three of your data types and define an example message format for sending them over TCP.</li>
+</ul>
+<p>For example:<br />
+A message that sends IMU data might be formatted as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>IMU:ROLL=12.5,PITCH=-4.3,YAW=90.0
+</span></code></pre></div>
+<p>Or potentially you want to send more IMU data than just roll, pitch, and yaw.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>IMU:ROLL=12.5,PITCH=-4.3,YAW=90.0,X_GYRO=0.001,Y_GYRO=0.021,Z_GYRO=9.84
+</span></code></pre></div>
+<p>This is just to get you thinking about how we will implement data streaming from our robot in future labs.</p>
+<h3 id="commands-the-laptop-should-send-to-the-pico"><strong>Commands the Laptop Should Send to the Pico</strong></h3>
+<p>Just as the Pico sends sensor data to the laptop, the laptop might need to <strong>send control commands back to the robot</strong> to direct its movements and behavior. Consider the following possible commands:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Command</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Units / Format</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Move Forward</strong></td>
+<td>Moves the robot a specified distance</td>
+<td>Centimeters as an int or float</td>
+</tr>
+<tr>
+<td><strong>Turn</strong></td>
+<td>Rotates the robot by a given number of degrees</td>
+<td>Degrees or radians</td>
+</tr>
+<tr>
+<td><strong>Set Motor Speed</strong></td>
+<td>Controls the speed of left and right motors</td>
+<td>cm/second or rotations/minute</td>
+</tr>
+<tr>
+<td><strong>Emergency Stop</strong></td>
+<td>Immediately stops all movement</td>
+<td>NA</td>
+</tr>
+<tr>
+<td><strong>Request Data</strong></td>
+<td>Requests specific data from the Pico</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Documentation Task:</strong></p>
+<ul>
+<li>Identify any commands you think would be useful for the laptop to send to the Pico to control the robot.</li>
+<li>Explain what each command does.</li>
+<li>Pick three of these commands and define an example format for sending these commands over TCP.</li>
+</ul>
+<p>For example:<br />
+A message that tells the robot to drive forward might look like:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>MOVE:FORWARD,30
+</span></code></pre></div>
+<p>This would tell the robot to move forward 30 cm.</p>
+<p>Or perhaps you want to control each wheel speed directly</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>MOTOR:LEFT=30,RIGHT=20
+</span></code></pre></div>
+<hr />
+<p>Your report should be comprised of two sections:</p>
+<ol>
+<li>
+<p>Implementing TCP communication between your laptop and the pico.</p>
+<ul>
+<li>This section should follow the standard format of the lab reports, but can be shorter than normal due to limited nature of the tasks.</li>
+</ul>
+</li>
+<li>
+<p>Communication documentation.</p>
+</li>
+<li>
+<p>This section should outline the tasks in the thinking ahead portion of the lab. Give an introduction explain why we need a well defined communication interface. Follow that with the documentation tasks, and end with a short conclusion summarizing your implementation of the messaging documentation.</p>
+</li>
+</ol>
+<p>Please email the professor or post on Ed Discussion with any questions.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

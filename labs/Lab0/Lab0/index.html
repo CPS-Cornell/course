@@ -1,0 +1,2512 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../pages/LectureSlides/">
+      
+      
+        <link rel="next" href="../../Lab1/Lab1/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Lab 0 - Programming Languages - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comparing-programming-paradigms-on-the-raspberry-pi-pico" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 0 - Programming Languages
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notes/Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objective
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-introduction-to-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 1: Introduction to the Raspberry Pi Pico
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-setting-up-arduino-ide-for-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 2: Setting Up Arduino IDE for the Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2: Setting Up Arduino IDE for the Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Arduino IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-the-raspberry-pi-pico-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Install the Raspberry Pi Pico Core
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-raspberry-pi-pico-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Add Raspberry Pi Pico Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-connect-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Connect the Raspberry Pi Pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-select-the-board-and-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Select the Board and Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-upload-a-blink-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Upload a Blink Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-using-thonny-to-flash-micropython-onto-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 3: Using Thonny to Flash MicroPython onto the Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3: Using Thonny to Flash MicroPython onto the Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-thonny-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Thonny IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-flash-micropython-using-thonny" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Flash MicroPython Using Thonny
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-write-and-run-a-test-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Write and Run a Test Script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-performance-comparison-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4: Performance Comparison Tasks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4: Performance Comparison Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1-integer-math-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Integer Math Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2-floating-point-math-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Floating Point Math Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-3-digital-output-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3: Digital Output Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-4-analog-to-digital-converter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 4: Analog to Digital Converter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-5-led-pwm-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 5: LED PWM Test
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#micropython-threading-on-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroPython Threading on the Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroPython Threading on the Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-6-threading-performance-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 6: Threading Performance Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-7-extra-credit-1-3-points-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 7: Extra Credit (1-3 points) (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-8-visualize-and-analyze-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 8: Visualize and Analyze Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objective
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-introduction-to-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 1: Introduction to the Raspberry Pi Pico
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-setting-up-arduino-ide-for-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 2: Setting Up Arduino IDE for the Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2: Setting Up Arduino IDE for the Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Arduino IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-the-raspberry-pi-pico-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Install the Raspberry Pi Pico Core
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-raspberry-pi-pico-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Add Raspberry Pi Pico Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-connect-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Connect the Raspberry Pi Pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-select-the-board-and-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Select the Board and Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-upload-a-blink-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Upload a Blink Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-using-thonny-to-flash-micropython-onto-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 3: Using Thonny to Flash MicroPython onto the Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3: Using Thonny to Flash MicroPython onto the Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-thonny-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Thonny IDE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-flash-micropython-using-thonny" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Flash MicroPython Using Thonny
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-write-and-run-a-test-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Write and Run a Test Script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-performance-comparison-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4: Performance Comparison Tasks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4: Performance Comparison Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1-integer-math-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Integer Math Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2-floating-point-math-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Floating Point Math Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-3-digital-output-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3: Digital Output Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-4-analog-to-digital-converter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 4: Analog to Digital Converter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-5-led-pwm-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 5: LED PWM Test
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#micropython-threading-on-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroPython Threading on the Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroPython Threading on the Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-6-threading-performance-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 6: Threading Performance Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-7-extra-credit-1-3-points-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 7: Extra Credit (1-3 points) (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-8-visualize-and-analyze-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 8: Visualize and Analyze Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="comparing-programming-paradigms-on-the-raspberry-pi-pico">Comparing Programming Paradigms on the Raspberry Pi Pico</h1>
+<h2 id="objective">Objective</h2>
+<p>In this lab, students will explore the performance differences between C++ and MicroPython and between single-threaded and multi-threaded programing by implemening tests a Raspberry Pi Pico. The lab provides an opportunity to understand embedded systems programming and performance evaluation using popular development environments: Arduino IDE (C++) and Thonny (MicroPython).</p>
+<p>As you work on the lab and write up the report, consider the following scenario: You work for an engineering firm developing cyber-physical systems (perhaps robots, planes, cars, or anything you'd like). Your team is tasked with starting a new project and are in the initial investigation stage. The project lead decides to make you the head of the computational subsystem team and tasks you with generating a report to justify the high level design decisions you are making. These include:</p>
+<div class="language-text highlight"><pre><span></span><code>- What programming language would work best for this project?
+- How does the type of computation being performed affect the performance of the system?
+- Is there an interplay between the types of computation that are being performed and the programming language being used?
+- Does the system require a multi-core architecture, and if so, how does that impact the software engineering decisions that will be made?
+</code></pre></div>
+<p>You don't need to answer these questions directly, but your report should be structured in such a way that it can easily be read by any engineer to help them make decisions about their computational system with strong justifications.</p>
+<p>Learning outcomes:</p>
+<div class="language-text highlight"><pre><span></span><code>- Introduce the Raspberry Pi Pico, its key features, and programming environments.
+- Understand the performance differences between C++ and MicroPython on the Raspberry Pi Pico.
+- Compare single-threaded and multi-threaded programming on the Raspberry Pi Pico.
+- Develop test benches for comparing computational performance, I/O performance, and threading performance.
+</code></pre></div>
+<hr />
+<h2 id="section-1-introduction-to-the-raspberry-pi-pico">Section 1: Introduction to the Raspberry Pi Pico</h2>
+<p>The Raspberry Pi Pico is a microcontroller board based on the RP2040 chip. Key features include:</p>
+<div class="language-text highlight"><pre><span></span><code>- Dual-core ARM Cortex-M0+ processor running up to 133 MHz.
+- 264KB SRAM and 2MB flash memory.
+- Multiple I/O options: I2C, SPI, UART, PWM, and ADC.
+- Supports programming in C++ and MicroPython.
+</code></pre></div>
+<p>The Pico is designed to offer flexibility and performance, making it an excellent platform for this lab's focus on performance comparison.</p>
+<hr />
+<h2 id="section-2-setting-up-arduino-ide-for-the-raspberry-pi-pico">Section 2: Setting Up Arduino IDE for the Raspberry Pi Pico</h2>
+<h3 id="step-1-install-arduino-ide"><strong>Step 1: Install Arduino IDE</strong></h3>
+<ol>
+<li>Download Arduino IDE from the <a href="https://www.arduino.cc/en/software">official website</a>.</li>
+<li>Install the IDE by following the platform-specific instructions (Windows, macOS, or Linux).</li>
+</ol>
+<h3 id="step-2-install-the-raspberry-pi-pico-core"><strong>Step 2: Install the Raspberry Pi Pico Core</strong></h3>
+<ol>
+<li>Open Arduino IDE and go to <strong>File &gt; Preferences</strong>.</li>
+<li>In the "Additional Boards Manager URLs" field, add the following URL: <code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json</code></li>
+<li>Click <strong>OK</strong> to save.</li>
+</ol>
+<p><img alt="Arduino Board" src="../figs/arduino_board.png" /></p>
+<h3 id="step-3-add-raspberry-pi-pico-support"><strong>Step 3: Add Raspberry Pi Pico Support</strong></h3>
+<ol>
+<li>Go to <strong>Tools &gt; Board &gt; Boards Manager</strong>.</li>
+<li>Search for "rp2040" or "Raspberry Pi Pico."</li>
+<li>Install the "Raspberry Pi RP2040 Boards" package by Earle Philhower.</li>
+</ol>
+<p><img alt="Arduino Library" src="../figs/arduino_library.png" /></p>
+<h3 id="step-4-connect-the-raspberry-pi-pico"><strong>Step 4: Connect the Raspberry Pi Pico</strong></h3>
+<ol>
+<li>Connect the Pico to your computer using a micro-USB cable.</li>
+<li>Hold the <strong>BOOTSEL</strong> button on the Pico and plug it in. This puts the Pico in USB mass storage mode.</li>
+<li>The Pico will appear as a storage device on your computer.</li>
+</ol>
+<h3 id="step-5-select-the-board-and-port"><strong>Step 5: Select the Board and Port</strong></h3>
+<ol>
+<li>In Arduino IDE, go to <strong>Tools &gt; Board</strong> and select "Raspberry Pi Pico W"</li>
+<li>Go to <strong>Tools &gt; Port</strong> and choose the port corresponding to the connected Pico.</li>
+</ol>
+<h3 id="step-6-upload-a-blink-example"><strong>Step 6: Upload a Blink Example</strong></h3>
+<ol>
+<li>Open the <strong>File &gt; Examples &gt; 01.Basics &gt; Blink</strong> sketch.</li>
+<li>Modify the pin number in the code to <code>LED_BUILTIN</code> (the onboard LED of the Pico).</li>
+<li>Click <strong>Upload</strong>. The Pico's onboard LED should blink, confirming successful programming.</li>
+</ol>
+<p><strong>NOTE:</strong> if the LED on you pico isn't blinking, its most likely because you have the wrong board selected. Make sure you have the <strong>"Raspberry Pi Pico W"</strong> board selected and not "Raspberry Pi Pico".</p>
+<p><img alt="Arduino Pico W" src="../figs/pico_w_arduino.png" /></p>
+<hr />
+<h2 id="section-3-using-thonny-to-flash-micropython-onto-the-raspberry-pi-pico">Section 3: Using Thonny to Flash MicroPython onto the Raspberry Pi Pico</h2>
+<h3 id="step-1-install-thonny-ide"><strong>Step 1: Install Thonny IDE</strong></h3>
+<ol>
+<li>Download Thonny from the <a href="https://thonny.org/">official website</a>.</li>
+<li>Install Thonny by following the platform-specific instructions (Windows, macOS, or Linux).</li>
+</ol>
+<h3 id="step-2-flash-micropython-using-thonny"><strong>Step 2: Flash MicroPython Using Thonny</strong></h3>
+<ol>
+<li>Connect the Pico to your computer using a micro-USB cable.</li>
+<li>Open Thonny IDE.</li>
+<li>Go to <strong>Tools &gt; Options &gt; Interpreter</strong>.</li>
+<li>In the "Interpreter" dropdown menu, select "MicroPython (Raspberry Pi Pico)."</li>
+<li>If MicroPython is not already installed on the Pico, Thonny will prompt you to install it. Follow the on-screen instructions to flash MicroPython directly onto the Pico.</li>
+<li>Once the process is complete, Thonny will automatically connect to the Pico, ready for programming.</li>
+</ol>
+<p><img alt="Thonny Setup" src="../figs/Thonny.png" /></p>
+<h3 id="step-3-write-and-run-a-test-script"><strong>Step 3: Write and Run a Test Script</strong></h3>
+<ol>
+<li>
+<p>In Thonny, write the following code to blink the onboard LED:</p>
+<div class="language-text highlight"><pre><span></span><code>```python
+from machine import Pin
+from time import sleep
+
+led = Pin(&quot;LED&quot;, Pin.OUT)
+
+while True:
+    led.toggle()
+    sleep(0.5)
+```
+</code></pre></div>
+</li>
+<li>
+<p>Save the file as <code>main.py</code> on the Pico.</p>
+</li>
+<li>Click <strong>Run</strong>. The Pico's onboard LED should start blinking, confirming successful setup.</li>
+</ol>
+<hr />
+<h2 id="section-4-performance-comparison-tasks">Section 4: Performance Comparison Tasks</h2>
+<p>The goal of this section is to test the performance of C++ and micro python various types of computation and IO. We will develop test benches for integer and floating point computation, digital I/O, analog to digital conversion, and digital to analog conversion.</p>
+<p>Remember, C++ is a compiled language, which means that all of the code is analyzed before it is converted to machine code. This can lead to faster execution times through optimization. One of the optimizations performed by the Arduino IDE is to remove unused code. This means that if the code inside your loop is not used or does not affect the output of the program, it will be removed. As a result, you might find that your C++ loops run very fast every time, regardless of how many iterations you have. If you want to measure the performance of the code inside your</p>
+<p>Helpful Hints and Tips: - Use the <code>millis()</code> function in Arduino to measure time. - Use the <code>time.ticks_ms()</code> function in MicroPython to measure time. - To ensure that a serial connection is established before tests are run, add <code>while(!Serial);</code> to the end of the setup block in Arduino.</p>
+<h3 id="task-1-integer-math-performance"><strong>Task 1: Integer Math Performance</strong></h3>
+<ol>
+<li>To understand the relationship between computation and execution time, we will test how long it takes to execute an integer computation N times, where N=1, 10, 100, 1,000, 10,000, 100,000, and 1000,000.</li>
+<li>Implement the following pseudocode in both C++ (Arduino IDE) and MicroPython (Thonny). Feel free to put any integer computation you want inside the inner loop, but ensure that floating point computations are executed.</li>
+<li>
+<p>Example task pseudocode:</p>
+<div class="language-text highlight"><pre><span></span><code>```c++
+Loop through the 7 different values of N:
+  Store the current time
+  Initialize a running sum to zero
+  Loop from 1 to N:
+    Declare first integer
+    Declare second integer
+    Perform some integer computation such as:
+    Declare third integer = first integer + second integer
+    Add third integer to the running sum
+  Print the elapsed time for the inner loop and the total sum
+```
+</code></pre></div>
+</li>
+<li>
+<p>Measure the execution time in both environments and record the results.</p>
+<ul>
+<li>In Arduino IDE, use <code>millis()</code> to measure the time.</li>
+<li>In MicroPython, use <code>time.ticks_ms()</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="task-2-floating-point-math-performance"><strong>Task 2: Floating Point Math Performance</strong></h3>
+<ol>
+<li>Write a program in both C++ and MicroPython to perform a series of floating-point math operations (e.g., addition, multiplication, and division).</li>
+<li>
+<p>Example task pseudocode:</p>
+<div class="language-text highlight"><pre><span></span><code>```c++
+Loop through the 7 different values of N:
+  Store the current time
+  Initialize a running sum to zero
+  Loop from 1 to N:
+    Declare first float
+    Declare second float
+    Perform some integer computation such as:
+    Declare third float = (first float * second float)/(first float + second float)
+    Add third integer to the running sum
+  Print the elapsed time for the inner loop and the total sum
+```
+</code></pre></div>
+</li>
+<li>
+<p>Measure the execution time in both environments and record the results.</p>
+</li>
+</ol>
+<h3 id="task-3-digital-output-test"><strong>Task 3: Digital Output Test</strong></h3>
+<ol>
+<li>Write a program that tests how quickly the Raspberry Pi Pico can enable and disable a hardware pin in both languages.</li>
+<li>
+<p>Implement the following pseudo code in both Arduino C++ and Thonny MicroPython. The code should turn ON and OFF a digital pin as quickly as possible and count the number of times it can do so in a set period of time.  Test this for different increments of time spanning from 1-15 second in 1 second increments.</p>
+<div class="language-text highlight"><pre><span></span><code>```c++
+Loop through different durations spanning from 1-15 seconds in 1 second increments
+  Initialize a counter variable to 0.
+  Set the start time to the current time.
+  While the elapsed time is less than a given duration (e.g., 1 second):
+    Turn the pin ON
+    Turn the pin OFF
+    Increment the counter variable.
+  Print the value of the counter variable, representing how many toggles occurred in the given duration.
+```
+</code></pre></div>
+</li>
+<li>
+<p>Measure the performance in both environments and compare the results.</p>
+</li>
+</ol>
+<h3 id="task-4-analog-to-digital-converter"><strong>Task 4: Analog to Digital Converter</strong></h3>
+<ol>
+<li>Write a program to test how many analog readings the Raspberry Pi Pico can perform in a set period of time in both Arduino C++ and MicroPython.</li>
+<li>The onboard temperature sensor is connected to the ADC on pin 4.</li>
+<li>
+<p>Implement the following pseudocode in both environments:</p>
+<div class="language-text highlight"><pre><span></span><code>```c++
+Loop through different durations spanning from 1-15 seconds in 1-second increments:
+    Initialize a counter variable to 0.
+    Set the start time to the current time.
+    While the elapsed time is less than the given duration:
+        Perform an analog read on the temperature sensor.
+        Increment the counter variable.
+    Print the value of the counter variable, representing how many readings occurred in the given duration.
+```
+</code></pre></div>
+</li>
+<li>
+<p>Measure the performance in both environments and compare the results.</p>
+</li>
+</ol>
+<h3 id="task-5-led-pwm-test"><strong>Task 5: LED PWM Test</strong></h3>
+<ol>
+<li>Write a program in both C++ and MicroPython to control the brightness of the onboard LED using PWM.</li>
+<li>The brightness of the LED is determined by the PWM value of the pin. The PWM should be a integer from 0-255. The brightness of the LED should oscillate smoothly once per second. This can be achieved through the use of a sine or cosine function.</li>
+<li>
+<p>Implement the following pseudocode in both environments:</p>
+<div class="language-text highlight"><pre><span></span><code>```c++
+Loop through a set duration (e.g., 10 seconds
+  Initialize a counter
+  While the time is less than the duration
+    Calculate the brightness of the led
+    Set the PWM duty cycle to the calculated value
+    Increment the counter
+  Print the number of times the PWM value was updated
+```
+</code></pre></div>
+</li>
+<li>
+<p>Measure the performance in both environments and compare the results.</p>
+</li>
+</ol>
+<h2 id="micropython-threading-on-the-raspberry-pi-pico">MicroPython Threading on the Raspberry Pi Pico</h2>
+<p>Threading allows tasks to run concurrently by assigning them to different processor cores. On the Raspberry Pi Pico, this can leverage both ARM cores. In MicroPython, the "_thread" module offers functions to start threads and synchronize data access.</p>
+<h3 id="main-functions">Main Functions</h3>
+<ul>
+<li><code>start_new_thread(function, args)</code>: Spawns a new thread to run the specified function.</li>
+<li><code>allocate_lock()</code>: Creates a lock object for synchronizing access to shared data.</li>
+<li><code>lock.acquire()</code>: Acquires the lock, blocking if necessary.</li>
+<li><code>lock.release()</code>: Frees the lock so other threads can take it.</li>
+</ul>
+<h3 id="example-usage">Example Usage</h3>
+<div class="language-text highlight"><pre><span></span><code>```python
+import _thread
+import time
+
+# Shared resource
+counter = 0
+lock = _thread.allocate_lock()
+
+# Increment counter on Core 1
+def increment_counter():
+    global counter
+    while True:
+        with lock:  # Acquire the lock
+            counter += 1
+            print(f&quot;Core 1: Counter = {counter}&quot;)
+        time.sleep(1)  # Simulate work
+
+# Monitor counter on Core 0
+def monitor_counter():
+    global counter
+    while True:
+        with lock:  # Acquire the lock
+            print(f&quot;Core 0: Counter = {counter}&quot;)
+        time.sleep(2)  # Simulate work
+
+# Start the task on Core 1
+_thread.start_new_thread(increment_counter, ())
+
+# Main thread continues on Core 0
+monitor_counter()
+```
+</code></pre></div>
+<p>This approach demonstrates simple concurrency on the Pico, with two threads performing separate actions. Use locks to avoid data races anytime you modify shared variables. In this example, neither thread can modify or read the <code>counter</code> variable without first locking it.</p>
+<p>Threading can be particularly helpful for a system with multiple tasks. For example, one thread could handle sensor readings while another manages user input. By running these tasks concurrently, the system can be more responsive and efficient. For now, we will test using threading to see if we can improve the performance of some simple computations.</p>
+<p>Unfortunately, multithreading is not supported in the Arduino IDE. We will use micro python to test the performance of threading on the Raspberry Pi Pico.</p>
+<h3 id="task-6-threading-performance-test"><strong>Task 6: Threading Performance Test</strong></h3>
+<ol>
+<li>
+<p>Write a program in MicroPython that sums all the numbers between 1 to 1000000 in a single thread. Test how long it takes the Pico to complete this task. Use the following pseudocode as reference:</p>
+<div class="language-text highlight"><pre><span></span><code>```c++
+Function calculate_sum(start, end):
+    Initialize total to 0
+    For i from start to end:
+        Add i to total
+    Return total
+
+Start time measurement
+Call calculate_sum(1, 1000000) and store the result
+End time measurement
+
+Print the result of the sum
+Print the elapsed time
+```
+</code></pre></div>
+</li>
+<li>
+<p>For reference, implement the same program in C++ using the Arduino IDE. Test how long it takes the Pico to complete this task and compre it to the equivalent MicroPython program. Use the same pseudocode as above.</p>
+</li>
+<li>
+<p>Now implement the same program in MicroPython using threading. Create two threads, each summing half of the numbers between 1 and 1000000. Test how long it takes the Pico to complete this task and compare it to the single-threaded MicroPython and C++ programs.</p>
+</li>
+<li>
+<p>Use the following pseudocode to implement the threading test:</p>
+<div class="language-text highlight"><pre><span></span><code>```c++
+Shared Variables:
+    partial_sum1 = 0
+    partial_sum2 = 0
+    lock = Create a lock for synchronization
+
+Function calculate_partial_sum_core1(start, end):
+    Initialize local_sum to 0
+    For i from start to end:
+        Add i to local_sum
+    Acquire lock
+    Update partial_sum2 with local_sum
+    Release lock
+
+Function calculate_sum_core0(start, end):
+    Initialize local_sum to 0
+    For i from start to end:
+        Add i to local_sum
+    Update partial_sum1 with local_sum
+
+Start time measurement
+Start a new thread for calculate_partial_sum_core1(500001, 1000000)
+Call calculate_sum_core0(1, 500000)
+
+Wait until partial_sum2 is non-zero
+Combine partial_sum1 and partial_sum2 to get total_sum
+End time measurement
+
+Print the result of the sum
+Print the elapsed time
+```
+</code></pre></div>
+</li>
+<li>
+<p>Measure the performance of the single-threaded and multithreaded programs in MicroPython and compare them to the C++ program. Compare the multithreaded performance to the single-threaded performance in both languages. <strong>Note:</strong> you do not need to implement the threading test in C++ as the Arduino IDE does not support threading.</p>
+</li>
+</ol>
+<h3 id="task-7-extra-credit-1-3-points-optional"><strong>Task 7: Extra Credit (1-3 points) (Optional)</strong></h3>
+<p>Implement an agorithm that computes the sum of all the prime numbers between two values. The algorithm must meet the following requirements:</p>
+<ul>
+<li>The algorithm must be implemented in MicroPython.</li>
+<li>The algorithm must take in two values, <code>start</code> and <code>end</code>, and compute the sum of all prime numbers between <code>start</code> and <code>end</code>.</li>
+<li>The algorithm must work for any range of values.</li>
+</ul>
+<p>Conisder using some of the following techniques:</p>
+<ul>
+<li>
+<p>Use the Sieve of Eratosthenes algorithm to generate a list of prime numbers.</p>
+<div class="language-text highlight"><pre><span></span><code>```python
+def sieve_of_eratosthenes(limit):
+    &quot;&quot;&quot;Find all prime numbers up to &#39;limit&#39; using the Sieve of Eratosthenes.&quot;&quot;&quot;
+    # Create a list to mark prime numbers
+    sieve = [True] * (limit + 1)
+    sieve[0] = sieve[1] = False  # 0 and 1 are not primes
+
+    # Mark non-prime numbers
+    for i in range(2, int(limit**0.5) + 1):
+        if sieve[i]:
+            for j in range(i * i, limit + 1, i):
+                sieve[j] = False
+
+    # Collect all primes
+    primes = [x for x in range(limit + 1) if sieve[x]]
+    return primes
+```
+</code></pre></div>
+</li>
+<li>
+<p>Implement a function to check if a number is prime.</p>
+<div class="language-text highlight"><pre><span></span><code>```python
+def is_prime(n):
+  &quot;&quot;&quot;Check if a number is prime.&quot;&quot;&quot;
+  if n &lt; 2:
+      return False  # 0 and 1 are not prime numbers
+  for i in range(2, int(n**0.5) + 1):  # Check divisors up to sqrt(n)
+      if n % i == 0:
+          return False  # Not prime if divisible by i
+  return True  # Prime if no divisors found
+```
+</code></pre></div>
+</li>
+<li>
+<p>Use threading to improve the performance of the algorithm.</p>
+</li>
+</ul>
+<p>Any solution to this problem will result in 1 extra credit point. However, additional points will be awarded to the top 3 solutions that are the most efficient and well implemented. The following criteria will be used to judge the solutions:</p>
+<ul>
+<li>Execution time of the algorithm</li>
+<li>Funcional range of the algorithm</li>
+</ul>
+<h3 id="task-8-visualize-and-analyze-results"><strong>Task 8: Visualize and Analyze Results</strong></h3>
+<ol>
+<li>For each section, use scatter plots, bar graphs and or tables to present the data, comparing execution times or counts across different tasks and environments (C++ Vs MicroPython, single-threaded vs multi-threaded, etc). These graphs/tables should illustrate the relevant differences between the two programming languages. If relevant and/or helpful, include trendlines as well as analysis of their significance.</li>
+<li>Write a summary of your findings, discussing the strengths and weaknesses of each programming paradigm based on the observed performance metrics.</li>
+<li>
+<p>Suggest considerations for systems engineers considering what paradigm to use for their embedded systems project. This might include:</p>
+<ul>
+<li>Potential optimizations to code</li>
+<li>Use cases where one paradigm might be preferred over the other</li>
+<li>Compare the data across tasks and languages to identify any consistent trends or anomalies that could inform future decisions about programming environments for embedded systems.</li>
+</ul>
+</li>
+<li>
+<p>Give a comprehensive analysis as to why there are speed differences in the in execution time of the code in different paradigms. Are the same computations occurring in both versions of the code? If so, how do you account for the difference in execution speed. Discuss this topic thoroughly.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

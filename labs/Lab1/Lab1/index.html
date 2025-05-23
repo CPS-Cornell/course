@@ -1,0 +1,2270 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Lab0/Lab0/">
+      
+      
+        <link rel="next" href="../../Lab2/Lab2/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Lab 1 - Wired Communication Protocols - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wired-communication-protocols" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 1 - Wired Communication Protocols
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notes/Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objective
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uart" class="md-nav__link">
+    <span class="md-ellipsis">
+      UART
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UART">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-raspberry-pi-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Raspberry Pi Zero
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-implement-send_data-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Implement send_data function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-handle-data-messages-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Handle DATA messages in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-simple_rle_compress-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Implement simple_rle_compress function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-implement-decompress-function-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Implement decompress function in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-implement-send_compressed_data-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Implement send_compressed_data function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-handle-compressed-data-messages-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Handle compressed data messages in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-implement-encrypt_decrypt-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Implement encrypt_decrypt function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-implement-encrypt_decrypt-function-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Implement encrypt_decrypt function in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-implement-send_compressed_encrypted_data-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Implement send_compressed_encrypted_data function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-handle-compressed-and-encrypted-data-messages-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10: Handle compressed and encrypted data messages in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uart-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      UART Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I2C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inertial-measurement-unit-imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inertial Measurement Unit (IMU)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inertial Measurement Unit (IMU)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scan-for-i2c-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scan for I2C Devices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tasks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objective
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uart" class="md-nav__link">
+    <span class="md-ellipsis">
+      UART
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UART">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-raspberry-pi-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Raspberry Pi Zero
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-implement-send_data-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Implement send_data function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-handle-data-messages-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Handle DATA messages in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-simple_rle_compress-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Implement simple_rle_compress function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-implement-decompress-function-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Implement decompress function in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-implement-send_compressed_data-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Implement send_compressed_data function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-handle-compressed-data-messages-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Handle compressed data messages in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-implement-encrypt_decrypt-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Implement encrypt_decrypt function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-implement-encrypt_decrypt-function-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Implement encrypt_decrypt function in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-implement-send_compressed_encrypted_data-function-in-uartmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Implement send_compressed_encrypted_data function in UARTMaster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-handle-compressed-and-encrypted-data-messages-in-uartslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10: Handle compressed and encrypted data messages in UARTSlave
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uart-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      UART Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I2C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inertial-measurement-unit-imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inertial Measurement Unit (IMU)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inertial Measurement Unit (IMU)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scan-for-i2c-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scan for I2C Devices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tasks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="wired-communication-protocols">Wired Communication Protocols</h1>
+<h2 id="objective">Objective</h2>
+<p>In this lab, we will explore the basics of wired communication protocols. We will implement I2C to integrate a light-based proximity sensor and IMU with the Raspberry Pi Pico. We will also implement UART to establish a communication link between the Raspberry Pi Pico and a Raspberry Pi Zero, and test the real-world transmission speeds, and implement a simple data compression algorithm to reduce the amount of data transmitted.</p>
+<h2 id="uart">UART</h2>
+<p>Recall that UART (Universal Asynchronous Receive/Transmit) is a bidirectional communication protocol that uses two wires for communication. UART is a simple protocol that is widely used for communication between microcontrollers and other devices. UART is asynchronous, meaning that there is no clock signal shared between the devices. Instead, the devices must agree on a baud rate, which is the rate at which bits are transmitted.</p>
+<p>In this lab, we will establish a UART connection between the Raspberry Pi Pico and a Raspberry Pi Zero and test the real world transmission speeds.</p>
+<h3 id="setting-up-the-raspberry-pi-zero">Setting up the Raspberry Pi Zero</h3>
+<p>The Raspberry Pi Zero 2 W is a small single-board computer that is similar to the Raspberry Pi Pico, but has more processing power and memory, and is capable of running a full operating system with a graphical user interface (GUI). Because the Zero is still significantly less powerful than a traditional laptop or desktop computer, running a full GUI can be slow and cumbersome.</p>
+<p>For this reason, we will use the Raspberry Pi Zero in headless mode, meaning that we will not connect a monitor, keyboard, or mouse to the Zero. Instead, we will connect to the Zero over SSH (Secure Shell) from a laptop or desktop computer or via a serial connection over USB (much like the REPL on the Raspberry Pi Pico).</p>
+<p>The Raspberry Pi Zero has already been pre-configured to connect to the internet over WiFi. By default, it will connect to RedRover and a random IP address will be assigned. <strong>Note:</strong> The IP address of the Raspberry Pi Zero will usually remain constant for a few hours if you don't move between buildings. There are two ways to connect to the Raspberry Pi Zero: SSH and Serial.</p>
+<p>The Raspberry Pi Zero has been pre-configured to allow a serial connection over USB. To connect to the Raspberry Pi Zero over serial, follow these instructions:</p>
+<ol>
+<li>
+<p>Install a serial terminal tool on your computer. For Windows, you can use <a href="https://www.putty.org/">PuTTY</a>. For Mac, you can use <a href="https://freeware.the-meiers.org/">CoolTerm</a>. For Linux, you can use <a href="https://www.gnu.org/software/screen/manual/screen.html">Screen</a>. However, the easiest, and most universal method is to use a the <a href="https://marketplace.visualstudio.com/items?itemName=awsxxf.serialterminal">Serial Terminal</a> extension for Visual Studio Code.</p>
+</li>
+<li>
+<p>Connect the Raspberry Pi Zero to your computer using a USB cable. The Zero should appear as a serial device on your computer. The Raspberry Pi Zero has two USB ports, one only for power and the other for data, labeled USB. Be sure to connect the USB cable to the data port.</p>
+</li>
+<li>
+<p>Open the serial terminal tool and connect to the Raspberry Pi Zero using a baud rate of 115200. The Raspberry Pi Zero will output a login prompt. The default username is <code>CPSPi</code> and the default password is <code>CPS</code>.</p>
+</li>
+<li>
+<p>Once you are logged in, you can use the Raspberry Pi Zero as you would any other Linux computer. You can use the <code>ifconfig</code> command to find the IP address of the Raspberry Pi Zero. There are two IP addresses. 127.0.0.1 is the default internal IP address and the other is the external IP address. Take note of the external IP address so that we can connect to the Raspberry Pi Zero over SSH.</p>
+</li>
+<li>
+<p>Run the command <code>sudo raspi-config</code> to bring up the Raspberry Pi configuration tool. Use the arrow keys and Enter key to navigate the menu. In order to use UART, we need to disable serial console. Follow these steps:</p>
+<ul>
+<li>Run <code>sudo raspi-config</code>.</li>
+<li>Navigate to Interfacing <code>Options → Serial</code>.</li>
+<li>When asked <em>"Would you like a login shell to be accessible over serial?"</em>, select <em>No</em> (to prevent conflicts when we use UART).</li>
+<li>When asked to enable the serial port hardware, select <em>Yes</em>.</li>
+<li>Reboot the Pi Zero.</li>
+</ul>
+</li>
+<li>
+<p>For a more detailed guide on setting up the Raspberry Pi Zero, refer to the <a href="../../../tutorials/zero_tutorial/">tutorial page</a>.</p>
+</li>
+<li>
+<p>Before running any code or installing any packages via <code>pip</code> on the Raspberry Pi Zero, be sure to activate the virtual environment by running <code>pyenv activate cps</code> in the terminal.</p>
+</li>
+</ol>
+<h3 id="wiring">Wiring</h3>
+<p>Below is a pinout diagram of the Raspberry Pi Pico. Notice that it supports multiple UART interfaces. One of the challenges with this lab is that we do not have direct access to all of the pins on the Pico due to it being soldering directly to the XRP board. We will have to think of a creative way to access UART enabled pins. Look the <a href="https://docs.sparkfun.com/SparkFun_XRP_Controller/hardware_overview/">XRP board hardware overview page</a>. At the bottom you will see a Pinout Reference Table. Cross reference the pinout reference table with the pinout diagram of the Raspberry Pi Pico to determine which pins both support UART interface and are easily accessible with a jumper wire. (hint: consider the servos.)</p>
+<p><img alt="Raspberry Pi Pico Pinout" src="../figs/Raspberry_Pi_Pico_Pinout.png" /></p>
+<p>Now consider the pinout diagram of the Raspberry Pi Zero. There is only one UART interface on the Zero. Consider which pins on on the Pico should connect to which pins on the Zero. Remember, the Pico and Zero must share a common ground for communication to work. While they might have the same ground through the shared USB bus, it is always a good idea to connect the grounds directly, especially when the robot starts driving untethered.</p>
+<p><img alt="Raspberry Pi Zero Pinout" src="../figs/Raspberry_Pi_Zero_Pinout.jpg" /></p>
+<p><strong>Remember:</strong> <code>RX</code> stands for receive and <code>TX</code> stands for transmit. The <code>TX</code> pin on one device should connect to the <code>RX</code> pin on the other device, and vice versa.</p>
+<h3 id="code">Code</h3>
+<p>Download the code for your <a href="../code/pico_uart.py">Raspberry Pi Pico</a> and <a href="../code/zero_uart.py">Raspberry Pi Zero</a>. Also download the <a href="../code/message_types.py">helper class</a> to manage the message types. The code for the Pico is the master and the code for the Zero is the slave. The master is responsible for sending data over UART, while the slave is responsible for receiving and processing the data. This is an arbitrary distinction, and the roles could be reversed by implementing the appropriate code on each device. UART is full duplex, meaning that data can be sent and received simultaneously. So, in theory, both devices could simultaneously sending, receiving, and processing data. However, for the sake of simplicity, we will implement a simple two-way master-slave communication protocol.</p>
+<p>Almost of all of the code for this portion of the lab utilizes asynchronous programming. This is because UART is a blocking protocol, meaning that the program will pause execution while waiting for data to arrive. This is inefficient for real-time applications, so we use asynchronous programming to allow the CPU to listen for incoming data while doing other tasks. Please review asynchronous programming in our <a href="../../../tutorials/async_tutorial/">tutorial</a> if you are unfamiliar with the concept or need a refresher.</p>
+<h4 id="step-1-implement-send_data-function-in-uartmaster">Step 1: Implement <code>send_data</code> function in <code>UARTMaster</code></h4>
+<p>In this step, you will implement the <code>send_data</code> function in the <code>UARTMaster</code> class. This function sends data over UART and waits for an ACK response.</p>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Implement the function to send data over UART using the <code>MessageType.DATA</code> to indicate the message type. This is a string (<code>DATA</code>), and should be followed by a colon (<code>:</code>) and the data characters. These should all be conncatenated together to form a single string. Refer to <code>pint()</code> in UARTMaster for an example how to format the message.</li>
+<li>Use a try-except block to handle timeouts. You can set timeouts using <code>asyncio.wait_for()</code>.</li>
+<li>Refer to the <code>handshake</code> function for an example of how to handle timeouts.</li>
+</ul>
+<h4 id="step-2-handle-data-messages-in-uartslave">Step 2: Handle <code>DATA</code> messages in <code>UARTSlave</code></h4>
+<p>In this step, you will handle <code>DATA</code> messages in the <code>UARTSlave</code> class. This class is responsible for receiving and processing messages from the UART interface.</p>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Implement the case to handle <code>DATA</code> messages in the <code>handle_messages</code> function of <code>UARTSlave</code>.</li>
+<li>When a <code>DATA</code> message is received, send an ACK response back to the sender.</li>
+<li>You should strip off the <code>DATA:</code> prefix before processing the data.</li>
+<li>Print off the length of the data contained in the message to confirm proper transmission.</li>
+</ul>
+<h4 id="step-3-implement-simple_rle_compress-function-in-uartmaster">Step 3: Implement <code>simple_rle_compress</code> function in <code>UARTMaster</code></h4>
+<p>In this step, you will implement the <code>simple_rle_compress</code> function in the <code>UARTMaster</code> class. This function compresses a string using a simple run-length encoding (RLE) algorithm.</p>
+<p>RLE stands for Run-Length Encoding, which is a simple compression algorithm that replaces consecutive characters with the character followed by the number of occurrences. For example, the string 'aaabbc' can be compressed to '3a2b1c'.</p>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Implement the RLE compression algorithm to replace consecutive characters with the character followed by the number of occurrences.</li>
+</ul>
+<h4 id="step-4-implement-decompress-function-in-uartslave">Step 4: Implement <code>decompress</code> function in <code>UARTSlave</code></h4>
+<p>In this step, you will implement the <code>decompress</code> function in the <code>UARTSlave</code> class. This function decompresses a string that was compressed using the RLE algorithm.</p>
+<p>This function should take a compressed string as input and return the original string by undoing the RLE compression.</p>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Implement the RLE decompression algorithm to restore the original string from the compressed format.</li>
+<li>For example, '3a2b1c' should become 'aaabbc'.</li>
+</ul>
+<h4 id="step-5-implement-send_compressed_data-function-in-uartmaster">Step 5: Implement <code>send_compressed_data</code> function in <code>UARTMaster</code></h4>
+<p>In this step, you will implement the <code>send_compressed_data</code> function in the <code>UARTMaster</code> class. This function compresses data using RLE, sends it over UART, and waits for an ACK response.</p>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Compress the data using the <code>simple_rle_compress</code> function.</li>
+<li>Send the compressed data over UART and wait for an ACK response.</li>
+</ul>
+<h4 id="step-6-handle-compressed-data-messages-in-uartslave">Step 6: Handle compressed data messages in <code>UARTSlave</code></h4>
+<p>In this step, you will handle compressed data messages in the <code>UARTSlave</code> class.</p>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Implement the case to handle compressed data messages in the <code>handle_messages</code> function of <code>UARTSlave</code>.</li>
+<li>When a compressed data message is received, decompress the data using the <code>decompress</code> function and send an ACK response back to the sender.</li>
+</ul>
+<h4 id="step-7-implement-encrypt_decrypt-function-in-uartmaster">Step 7: Implement <code>encrypt_decrypt</code> function in <code>UARTMaster</code></h4>
+<p>In this step, you will implement the <code>encrypt_decrypt</code> function in the <code>UARTMaster</code> class. This function encrypts or decrypts data using a simple XOR cipher.</p>
+<p>A XOR cipher is a simple encryption algorithm that works by performing the XOR operation between each character in the plaintext and a key. To decrypt the ciphertext, the same key is used to perform the XOR operation on the ciphertext. This is because the XOR operation is its own inverse, meaning that applying the XOR operation twice with the same key will return the original plaintext.</p>
+<p>The basic structure of the XOR cipher is as follows:</p>
+<ul>
+<li>For each character in the plaintext,</li>
+<li>Convert to an integer using the <code>ord()</code> function,</li>
+<li>Perform the XOR operation with the key using the <code>^</code> operator,</li>
+<li>Convert back to a character using the <code>chr()</code> function.</li>
+<li>Contatenate the characters together to form the ciphertext.</li>
+</ul>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Implement the XOR cipher encryption/decryption algorithm.</li>
+</ul>
+<h4 id="step-8-implement-encrypt_decrypt-function-in-uartslave">Step 8: Implement <code>encrypt_decrypt</code> function in <code>UARTSlave</code></h4>
+<p>In this step, you will implement the <code>encrypt_decrypt</code> function in the <code>UARTSlave</code> class. This function decrypts data that was encrypted using the XOR cipher.</p>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Implement the XOR cipher decryption algorithm.</li>
+<li>Use the same approach as in the <code>UARTMaster</code> class to perform the XOR operation.</li>
+</ul>
+<h4 id="step-9-implement-send_compressed_encrypted_data-function-in-uartmaster">Step 9: Implement <code>send_compressed_encrypted_data</code> function in <code>UARTMaster</code></h4>
+<p>In this step, you will implement the <code>send_compressed_encrypted_data</code> function in the <code>UARTMaster</code> class. This function compresses and encrypts data, sends it over UART, and waits for an ACK response.</p>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Compress the data using the <code>simple_rle_compress</code> function.</li>
+<li>Encrypt the compressed data using the <code>encrypt_decrypt</code> function.</li>
+<li>Send the compressed and encrypted data over UART and wait for an <code>ACK</code> response.</li>
+<li>Ensure that <code>ACK</code> returns the expected length.</li>
+</ul>
+<h4 id="step-10-handle-compressed-and-encrypted-data-messages-in-uartslave">Step 10: Handle compressed and encrypted data messages in <code>UARTSlave</code></h4>
+<p>In this step, you will handle compressed and encrypted data messages in the <code>UARTSlave</code> class.</p>
+<p><strong>Task:</strong></p>
+<ul>
+<li>Implement the case to handle compressed and encrypted data messages in the <code>handle_messages</code> function of <code>UARTSlave</code>.</li>
+<li>When a compressed and encrypted data message is received, decrypt the data using the <code>encrypt_decrypt</code> function and decompress it using the <code>decompress</code> function.</li>
+<li>Print off the length of the data contained in the message to confirm proper transmission.</li>
+<li>Send an <code>ACK</code> response back to the sender.</li>
+<li>Be sure to send the <code>ACK</code> response with the length of the data contained in the message.</li>
+</ul>
+<blockquote>
+<p>Note: When analyzing how this protocol fits into the OSI model, keep in mind that UART is often considered a physical/datalink layer. Our custom packet-based protocol and message handling build on top of it.</p>
+</blockquote>
+<h3 id="testing">Testing</h3>
+<p>To test the UART communication between the Raspberry Pi Pico and the Raspberry Pi Zero, implement a function (or multiple functions) that sends a large amount of data from the Pico to the Zero and measures the time it takes to transmit the data.</p>
+<p>This function should start by opening <a href="../code/data.txt">this</a> file and saving its contents as a string. Then, the function should send the data using the <code>send_data</code>, <code>send_compressed_data</code>, and <code>send_compressed_encrypted_data</code> functions. The function should measure the time it takes to transmit the data, including decompression and decryption time on the Zero. This is why it is essential that the zero send the <code>ACK</code> message after it has decompressed and/or decrypted the data.</p>
+<p>Try this again with a different sized files. You can generate a data.txt file using the <a href="../code/generate_data.py">generate_data.py</a> script. This scrip will generate random numbers and characters to create a string that will be saved to a <code>data.txt</code> file. You can also vary how "random" the data is by changing the mean and standard deviation of the random number generator. A larger mean and smaller standard deviation will result in more repeating characters, which will compress better.</p>
+<p>Reflect on how the data transmission speed changes with different data sizes and compression/encryption methods. What are the advantages and disadvantages of compressing and encrypting data before transmission? How does the data transmission speed compare to the theoretical maximum baud rate of the UART interface? What are some potential applications for the data compression and encryption methods you implemented in this lab?</p>
+<p>Graph some data to show trends in the data transmission speed as a function of data size and compression/encryption method. Include any other relevant data or analysis that you think would be helpful in explaining your results.</p>
+<h3 id="uart-analysis">UART Analysis</h3>
+<p>Consider the OSI model we learned about in class. For each of the 7 layers, analyze how the communication protocol we implemented in this lab fits into the model. See the <a href="../../../notes/Module5/">course notes</a> and <a href="../../../pages/lectureslides/module3-5.pdf">powerpoint</a> for a refresher on the OSI model. Not all of the layers will be relevant to this lab, but consider the ones that are.</p>
+<p>For reference, UART is a datalink layer protocol, however, the protocol we implemented in this lab is a higher level protocol that uses UART as a foundational layer. Consider how the different layers of the ISO model build on top of each other to create a complete communication system.</p>
+<p>Brainstorm some potential applications for the communication protocol we implemented in this lab. What are some real-world scenarios where this protocol could be useful? What are some potential limitations or drawbacks of the protocol? How could the protocol be improved or extended to support additional features or functionality? What layers of the OSI model would be involved in these improvements?</p>
+<p>Discuss the trade-offs between speed, reliability, and complexity/overhead in the communication protocol we implemented. How do these trade-offs affect the performance and usability of the protocol? What are some potential ways to optimize the protocol for different use cases or scenarios? How much overhead does adding features such as compression and encryption add to the communication speed? How does this change with file size or the randomness of the data? Include any graphs, diagrams, or pseudocode that you think would be helpful in explaining your analysis.</p>
+<h2 id="i2c">I2C</h2>
+<h3 id="inertial-measurement-unit-imu">Inertial Measurement Unit (IMU)</h3>
+<p>The IMU built into the XRP control board is the LSM6DSO. This IMU has a 3-axis accelerometer and a 3-axis gyroscope. The IMU is connected to the I2C bus on the XRP control board. Fortunately, there exists significant software support for the XRP, so we don't have to implement the I2C communication for the IMU from scratch.</p>
+<p>For reference, a gyroscope is microelectromechanical system (MEMS) that measures angular velocity. An accelerometer is a MEMS that measures acceleration. The gyroscope measures angular velocity in degrees per second, while the accelerometer measures acceleration in g's. Together, the gyroscope and accelerometer can be used to determine the orientation of the IMU in 3D space. Gyroscopes and accelerometers will be discussed further in the "Sensors" lab.</p>
+<p>For now, you should notice that the gyroscope will return values very close to zero when the IMU is stationary, because the XRP control board is not rotating. The accelerometer, on the other hand, should return values close to 1g in the z-direction (up and down) and 0 in the x and y directions. This is due to the gravitational force acting on the IMU. The accelerometer will only read 0 in all directions when the IMU is in free fall.</p>
+<h4 id="scan-for-i2c-devices">Scan for I2C Devices</h4>
+<p>Below is some code to open a generic I2C bus and scan for devices. This code will be useful for determining the I2C address of the IMU.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Define I2C pins (use default I2C1 on Pico W: GP6=SCL, GP7=SDA)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">19</span><span class="p">),</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>  <span class="c1"># 400kHz frequency</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">scan_i2c</span><span class="p">():</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scanning for I2C devices...&quot;</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">devices</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">if</span> <span class="n">devices</span><span class="p">:</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found devices at addresses:&quot;</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="k">for</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">devices</span><span class="p">:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            <span class="nb">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>  <span class="c1"># Print address in hexadecimal</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No I2C devices found.&quot;</span><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="n">scan_i2c</span><span class="p">()</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Wait 5 seconds before scanning again</span>
+</span></code></pre></div>
+<p>What is the I2C address of the IMU?</p>
+<p>Now download <a href="../code/imu.py">this</a> file as well as <a href="../code/imu_defs.py">this</a> helper file and run it on the XRP control board. This code will wraps around the I2C library to provide a more user-friendly interface for the IMU.</p>
+<p>A new IMU object can be created using the following code:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">imu</span><span class="w"> </span><span class="kn">import</span> <span class="n">IMU</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">myIMU</span> <span class="o">=</span> <span class="n">IMU</span><span class="o">.</span><span class="n">get_default_imu</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="tasks">Tasks</h3>
+<p>Write a script that reads accelerometer data from the IMU and prints it to the console. The IMU class has a method called <code>get_accel_rates()</code> that returns a tuple of the x, y, and z acceleration values. Put this in a loop and analyze what frequency the data is being read at. Are values being repeated, or is each value unique?</p>
+<p>Do the same for the gyroscope data. The IMU class has a method called <code>get_gyro_rates()</code> that returns a tuple of the x, y, and z angular velocity values. Perform a similar analysis on the gyroscope data.</p>
+<p>Now sending a command to the IMU to range the rate at which it measures new data. This can be done with the functions <code>acc_rate()</code> and <code>gyro_rate()</code>. The argument to these functions is the rate in Hz. Only certain rates are supported, so read the comments in the code to find an appropriate rate.</p>
+<p>Try setting the rates to a value lower than the frequency your loop was reading data. What happens? Do you get repeat data, or does your loop slow down to match the rate of the IMU? Do this for both the accelerometer and gyroscope.</p>
+<h3 id="i2c-analysis">I2C Analysis</h3>
+<p>Give careful consideration to the various tasks in this lab. Share your thoughts on various aspects of the I2C communication. What factors affect the data transfer rates of I2C? What are the advantages and disadvantages of using I2C for communication between devices? How does I2C compare to other communication protocols, such as UART and SPI? What layer of it the OSI model does I2C fit into?</p>
+<p>Include any graphs, diagrams, or pseudocode that you think would be helpful in explaining your analysis.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>Compare I2C, UART, and our custom communication protocol built on top of UART. What are the advantages and disadvantages of each protocol? In what scenarios would you use each protocol? How do the protocols differ in terms of speed, reliability, complexity, and overhead? How do the protocols compare in terms of ease of use and implementation? What are some potential applications for each protocol?</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2356 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Lab6/Lab6/">
+      
+      
+        <link rel="next" href="../../../case_studies/RedLightCameraNIST/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Lab 7 - Putting it all Together - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-7-putting-it-all-together" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 7 - Putting it all Together
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notes/Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Assembly
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-range-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Range Sensor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-proximity-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Proximity Sensor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Raspberry Pi Pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-servo-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Servo &amp; Camera
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-implementing-the-roomba-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Implementing the Roomba Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Implementing the Roomba Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-rumbapy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of rumba.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of rumba.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Logic:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Requirements:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-computer-vision-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Computer Vision Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-uart-communication-raspberry-pi-zero-to-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. UART Communication: Raspberry Pi Zero to Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. UART Communication: Raspberry Pi Zero to Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uart-callback-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      UART Callback function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UART Callback function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uart_example_picopy-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      uart_example_pico.py (Raspberry Pi Pico)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uart_example_zeropy-raspberry-pi-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      uart_example_zero.py (Raspberry Pi Zero)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tasks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-servo-optional-2-points-extra-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Servo (Optional 2 points extra credit)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-udp-communication-pico-to-laptop-optional-2-points-extra-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. UDP Communication: Pico to Laptop (Optional 2 points extra credit)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submission-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submission Requirements
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Assembly
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-range-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Range Sensor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-proximity-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Proximity Sensor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Raspberry Pi Pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-servo-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Servo &amp; Camera
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-implementing-the-roomba-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Implementing the Roomba Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Implementing the Roomba Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-rumbapy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of rumba.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of rumba.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Logic:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Requirements:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-computer-vision-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Computer Vision Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-uart-communication-raspberry-pi-zero-to-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. UART Communication: Raspberry Pi Zero to Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. UART Communication: Raspberry Pi Zero to Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uart-callback-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      UART Callback function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UART Callback function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uart_example_picopy-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      uart_example_pico.py (Raspberry Pi Pico)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uart_example_zeropy-raspberry-pi-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      uart_example_zero.py (Raspberry Pi Zero)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tasks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-servo-optional-2-points-extra-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Servo (Optional 2 points extra credit)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-udp-communication-pico-to-laptop-optional-2-points-extra-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. UDP Communication: Pico to Laptop (Optional 2 points extra credit)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submission-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submission Requirements
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab-7-putting-it-all-together">Lab 7: Putting It All Together</h1>
+<h2 id="overview">Overview</h2>
+<p>In this lab, you will integrate all the components and concepts you've learned throughout the course into a functioning robot system. You'll connect hardware components, implement the Roomba algorithm, utilize computer vision, establish communication between microcontrollers, and send data to your laptop.</p>
+<h2 id="1-assembly">1. Assembly</h2>
+<h3 id="11-range-sensor">1.1 Range Sensor</h3>
+<ul>
+<li>Start by inserting the range sensor into the range sensor holder.</li>
+</ul>
+<p><img alt="range1" src="../figs/range1.jpg" />
+<img alt="range2" src="../figs/range2.jpg" /></p>
+<ul>
+<li>Attach the range sensor holder to the range sensor mount.</li>
+</ul>
+<p><img alt="range3" src="../figs/range3.jpg" /></p>
+<ul>
+<li>Attach the range sensor mount to the XRP.</li>
+</ul>
+<p><img alt="range4" src="../figs/range4.jpg" /></p>
+<h3 id="12-proximity-sensor">1.2 Proximity Sensor</h3>
+<ul>
+<li>Because we are using the pin headers instead of the qwiic connector for the proximity sensor, we have to mount the proximity sensory in the holder at an "incorrect" orientation. </li>
+</ul>
+<p><img alt="prox1" src="../figs/prox1.jpg" /></p>
+<ul>
+<li>The proximity sensor will only go into the holder half way. This is fine. </li>
+</ul>
+<p><img alt="prox2" src="../figs/prox2.jpg" /></p>
+<ul>
+<li>The proximity sensor holder attaches into one of the hex points of the mount. </li>
+</ul>
+<p><img alt="prox3" src="../figs/prox3.jpg" />
+<img alt="prox4" src="../figs/prox4.jpg" /></p>
+<ul>
+<li>The hex nut attaches to the proximity sensor holder and secures it to the mount.</li>
+</ul>
+<p><img alt="prox5" src="../figs/prox5.jpg" /></p>
+<ul>
+<li>The proximity sensor mount can be attached anywhere on the XRP.</li>
+</ul>
+<p><img alt="prox7" src="../figs/prox7.jpg" /></p>
+<h3 id="13-raspberry-pi-pico">1.3 Raspberry Pi Pico</h3>
+<ul>
+<li>Insert the Raspberry Pi Zero into its mount.</li>
+</ul>
+<p><img alt="zero1" src="../figs/zero1.jpg" />
+<img alt="zero2" src="../figs/zero2.jpg" /></p>
+<ul>
+<li>Attach the Raspberry Pi Zero mount to the XRP and slide it forward to secure it.</li>
+</ul>
+<p><img alt="zero3" src="../figs/zero3.jpg" />
+<img alt="zero4" src="../figs/zero4.jpg" /></p>
+<h3 id="14-servo-camera">1.4 Servo &amp; Camera</h3>
+<ul>
+<li>The servo arm attaches to the end of the server as a fit press. </li>
+<li>Insert the servo arm int the camera mount, ensuring that the side of the servo arm that attaches to the servo is facing away from the camera.</li>
+<li>It might seem like this isn't a perfect fit, that is fine. </li>
+</ul>
+<p><img alt="servo1" src="../figs/servo1.jpg" />
+<img alt="servo2" src="../figs/servo2.jpg" /></p>
+<ul>
+<li>Attach the servo arm/camera mount to the servo</li>
+</ul>
+<p><img alt="servo3" src="../figs/servo3.jpg" /></p>
+<ul>
+<li>Attach the servo holder to the servo mount (which is identical to the proximity sensor mount).</li>
+</ul>
+<p><img alt="servo4" src="../figs/servo4.jpg" /></p>
+<ul>
+<li>Secure the servo holder to the servo mount using a hex bolt. </li>
+</ul>
+<p><img alt="servo5" src="../figs/servo5.jpg" />
+<img alt="servo6" src="../figs/servo6.jpg" /></p>
+<ul>
+<li>Attach the servo mount to the XRP.</li>
+<li>Insert the servo into the servo mount and attach the camera.</li>
+</ul>
+<p><img alt="servo7" src="../figs/servo7.jpg" />
+<img alt="servo8" src="../figs/servo8.jpg" /></p>
+<h2 id="2-implementing-the-roomba-algorithm">2. Implementing the Roomba Algorithm</h2>
+<p>In this section, you will implement a Roomba-like algorithm that enables your robot to navigate its environment autonomously.</p>
+<h3 id="overview-of-rumbapy">Overview of <a href="../code/pico/roomba.py"><code>rumba.py</code></a></h3>
+<p>The <code>RumbaRobot</code> class implements a simple but effective autonomous navigation algorithm inspired by Roomba vacuum cleaners. Here's how it works:</p>
+<h4 id="key-components">Key Components:</h4>
+<ul>
+<li><strong>Sensors</strong>: Uses a rangefinder (ultrasonic sensor) for forward obstacle detection and a VCNL4040 proximity sensor for rear obstacle detection</li>
+<li><strong>Movement Control</strong>: Utilizes the differential drive system for precise movement control</li>
+<li><strong>State Machine</strong>: Uses a state-based approach with three main states:</li>
+<li><code>STATE_FORWARD</code>: Robot moves forward until detecting an obstacle</li>
+<li><code>STATE_TURN</code>: Robot turns to avoid obstacles</li>
+<li><code>STATE_BACK_UP</code>: Robot backs up when necessary</li>
+</ul>
+<h4 id="algorithm-logic">Algorithm Logic:</h4>
+<ul>
+<li>While moving forward, continuously checks distance to obstacles</li>
+<li>When an obstacle is detected in front (distance &lt; 20cm), enters turning state</li>
+<li>Randomly selects turn direction and duration for unpredictable navigation</li>
+<li>Uses proximity sensor to detect obstacles behind the robot</li>
+<li>Incorporates random behavior changes to prevent getting stuck in repetitive patterns</li>
+</ul>
+<h4 id="implementation-requirements">Implementation Requirements:</h4>
+<ol>
+<li>Ensure proper connection of rangefinder and proximity sensors</li>
+<li>Set appropriate thresholds for obstacle detection</li>
+<li>Tune the movement speeds based on your robot's characteristics</li>
+<li>Test and adjust the random behavior parameters for effective exploration</li>
+<li><strong>Make sure the code runs automatically on bootup</strong><ul>
+<li>This can be done by renaming the script <code>main.py</code> and uploading it to the pico</li>
+<li>When the USB micro cable is disconnected and the XRP is powered via battery, <code>main.py</code> will run automatically on bootup</li>
+</ul>
+</li>
+</ol>
+<h3 id="task">Task:</h3>
+<ol>
+<li>Study the provided <code>rumba.py</code> implementation</li>
+<li>Adjust constants like <code>SAFE_DISTANCE_CM</code> and <code>TURN_SPEED</code> to optimize performance</li>
+<li>Run the algorithm on your robot and observe its behavior</li>
+<li>Make necessary modifications to improve navigation in your specific environment, for example<ul>
+<li>Depending on what end of the robot is the "front", you might need to reverse the direction that the algorithm considers forward. This can be done using negative signs in front of the wheel speeds. </li>
+<li>You might find that the robot runs too fast or slow, try changing the speed of the robot. </li>
+</ul>
+</li>
+</ol>
+<h2 id="3-computer-vision-implementation">3. Computer Vision Implementation</h2>
+<p>In this section, you'll adapt the computer vision algorithm you developed in the previous lab to work with your robot.</p>
+<p>Tasks include:
+- Setting up the camera feed on the Raspberry Pi Zero
+- Implementing the object detection algorithm
+- Processing detection results to identify objects of interest
+- Optimizing the algorithm for real-time performance</p>
+<h2 id="4-uart-communication-raspberry-pi-zero-to-pico">4. UART Communication: Raspberry Pi Zero to Pico</h2>
+<p>In this section, you'll establish communication between the Raspberry Pi Zero (running computer vision) and the Raspberry Pi Pico (controlling the robot). For simplicity, you will only need to send message from the Zero to the Pico (no messages from the Pico to the Zero). </p>
+<h3 id="uart-callback-function">UART Callback function</h3>
+<p>In <a href="../../Lab1/Lab1/">Lab 1</a>, you implemented an entire asynchronous UART server/client architecture. We are going to simplify this down to a one-way UART channel using a callback function. </p>
+<p>Below are example scripts for the Pico and Raspberry Pi Zero that demonstrate this.</p>
+<h4 id="uart_example_picopy-raspberry-pi-pico"><a href="../code/pico/uart_example_pico.py"><code>uart_example_pico.py</code></a> (Raspberry Pi Pico)</h4>
+<p>This MicroPython script runs on the Raspberry Pi Pico and is responsible for receiving messages via UART.</p>
+<p><strong>Overview of Operation:</strong></p>
+<ol>
+<li>
+<p><strong>Initialization</strong>:</p>
+<ul>
+<li>Imports necessary modules (<code>UART</code>, <code>Pin</code> from <code>machine</code>, and <code>time</code>).</li>
+<li>Defines UART configuration parameters: <code>UART_ID</code> (e.g., 0), <code>BAUD_RATE</code> (e.g., 115200), and specific <code>TX_PIN</code> and <code>RX_PIN</code> for the UART communication.</li>
+<li>Initializes a <code>UART</code> object with these parameters.</li>
+</ul>
+</li>
+<li>
+<p><strong>Callback Function (<code>uart_rx_callback</code>)</strong>:</p>
+<ul>
+<li>This function is designed to be executed automatically whenever new data arrives on the UART receive line and the line subsequently becomes idle.</li>
+<li>It takes one argument, <code>uart_obj</code>, which is the UART instance that triggered the interrupt.</li>
+<li>Inside the callback, it checks if there's any data available using <code>uart_obj.any()</code>.</li>
+<li>If data is present, it reads all available bytes using <code>uart_obj.read()</code>.</li>
+<li>It then attempts to decode the received bytes as a UTF-8 string and prints the message to the Pico's console.</li>
+<li>Includes basic error handling for <code>UnicodeError</code> (if data isn't valid UTF-8) and other exceptions.</li>
+</ul>
+</li>
+<li>
+<p><strong>Interrupt Configuration (<code>uart.irq</code>)</strong>:</p>
+<ul>
+<li>The core of the non-polling message reception is <code>uart.irq(trigger=UART.IRQ_RXIDLE, handler=uart_rx_callback)</code>.</li>
+<li><code>uart.irq()</code> configures an interrupt handler for the UART peripheral.</li>
+<li><code>trigger=UART.IRQ_RXIDLE</code>: This specifies the condition for the interrupt. <code>IRQ_RXIDLE</code> triggers when the UART has received data, and the RX line has then been idle for a short period. This is generally preferred for message-based communication as it often indicates the end of a transmission, rather than <code>UART.IRQ_RXNEMPTY</code> which would trigger for every single byte received.</li>
+<li><code>handler=uart_rx_callback</code>: This tells the Pico to execute the <code>uart_rx_callback</code> function when the <code>IRQ_RXIDLE</code> condition is met.</li>
+</ul>
+</li>
+<li>
+<p><strong>Main Loop</strong>:</p>
+<ul>
+<li>The script prints initialization messages.</li>
+<li>An infinite <code>while True</code> loop with <code>time.sleep_ms(100)</code> keeps the script running. This allows the Pico to be responsive to interrupts, as interrupt handlers can preempt the main loop. The sleep also reduces CPU load.</li>
+<li>Includes <code>try...except KeyboardInterrupt...finally</code> for graceful shutdown and deinitialization of the UART.</li>
+</ul>
+</li>
+</ol>
+<h4 id="uart_example_zeropy-raspberry-pi-zero"><a href="../code/zero/uart_example_zero.py"><code>uart_example_zero.py</code></a> (Raspberry Pi Zero)</h4>
+<p>This Python script runs on the Raspberry Pi Zero and is responsible for sending messages via UART to the Pico.</p>
+<p><strong>Overview of Operation:</strong></p>
+<ol>
+<li>
+<p><strong>Initialization</strong>:</p>
+<ul>
+<li>Imports <code>serial</code> (from the <code>pyserial</code> library, which needs to be installed: <code>pip install pyserial</code>) and <code>time</code>.</li>
+<li>Defines <code>SERIAL_PORT</code> (e.g., <code>/dev/serial0</code> or <code>/dev/ttyS0</code> on a Raspberry Pi) and <code>BAUD_RATE</code> (which must match the Pico's configuration).</li>
+</ul>
+</li>
+<li>
+<p><strong>Serial Connection</strong>:</p>
+<ul>
+<li>The <code>main()</code> function attempts to open a serial connection using <code>serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)</code>.</li>
+<li>It includes extensive error messages and suggestions if the serial port cannot be opened, which is common on Raspberry Pi if the serial port is not configured correctly (e.g., used by the system console or Bluetooth).</li>
+</ul>
+</li>
+<li>
+<p><strong>Sending Messages</strong>:</p>
+<ul>
+<li>If the port opens successfully, the script enters a loop.</li>
+<li>It prompts the user to <code>input("Message: ")</code>.</li>
+<li>If the user types "exit", the loop breaks.</li>
+<li>Otherwise, the entered message is encoded into bytes using <code>message.encode('utf-8')</code>. A newline character (<code>\n</code>) is appended to the message before encoding. This helps the receiving end (Pico) to potentially delimit messages if it were reading line by line, though the <code>IRQ_RXIDLE</code> on the Pico often handles message framing well.</li>
+<li>The encoded bytes are sent over the serial port using <code>ser.write()</code>.</li>
+<li>A small delay (<code>time.sleep(0.1)</code>) is added.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cleanup</strong>:</p>
+<ul>
+<li>A <code>try...except...finally</code> block ensures that if the serial port was opened, <code>ser.close()</code> is called to release the port when the script exits or is interrupted.</li>
+</ul>
+</li>
+</ol>
+<h3 id="notes">Notes</h3>
+<ol>
+<li><strong>UART Wiring</strong><ul>
+<li>For setting up the UART wiring, reference your work in Lab 1. </li>
+</ul>
+</li>
+<li><strong>Powering the Zero</strong><ul>
+<li>Run 5v and ground from the Pico to the Zero via one of the servo headers on the XRP control board.</li>
+</ul>
+</li>
+<li><strong>Duplex</strong><ul>
+<li>UART is full-duplex communication protocol. However, it doesn't need to be. </li>
+<li>Because messages only need to flow from Pico to the Zero (and not the other direction), you can remove the wire connecting the Pico TX to the Zero RX pins. </li>
+<li>Be sure to test that messages are still being passed from the Zero to the Pico via the remaining wire.</li>
+</ul>
+</li>
+<li><strong>Running Code on the Zero</strong><ul>
+<li>Use USB micro cable to create an initial connection to the Zero. </li>
+<li>Once you know the IP address of the Zero, you can log in vis SSH from your laptop: <code>ssh CPSPi@&lt;ZERO IP ADDRESS&gt;</code>, for example: <code>ssh CPSPi@10.49.12.225</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="tasks">Tasks</h3>
+<p>Modify the <code>roomba.py</code> script to blink the onboard led whenever the Zero detects one of the objects from the computer vision task.</p>
+<ol>
+<li>Add a UART connection to your <code>roomba.py</code> script and to your Zero computer vision script.</li>
+<li>Create a UART callback function on the Pico that blinks the led when it gets a message from the zero. </li>
+<li>Record a video demonstrating that this function works as expected</li>
+</ol>
+<h2 id="5-servo-optional-2-points-extra-credit">5. Servo (Optional 2 points extra credit)</h2>
+<p>As your robot navigates around the room, it can tilt the camera up and down using the servo. </p>
+<p>For example code using the servo, use <a href="../code/pico/servo.py"><code>servo.py</code></a>. </p>
+<p>Record a video of this process working along side the rest of the <code>roomba.py</code> code for 2 extra credit points. </p>
+<h2 id="6-udp-communication-pico-to-laptop-optional-2-points-extra-credit">6. UDP Communication: Pico to Laptop (Optional 2 points extra credit)</h2>
+<p>Implement UDP communication to send detection results from the Pico to your laptop.</p>
+<p>Tasks include:
+- Configuring the Pico for network communication
+- Implementing a UDP client on the Pico
+- Creating a message format for detection information
+- Setting up a UDP server on your laptop to receive messages</p>
+<p>When the Pico receives information about a detected object from the Raspberry Pi Zero, it should forward this information to your laptop via UDP. Your laptop should display what object the robot has found (as text in the terminal).</p>
+<p>Record a video of this feature working to get 2 extra credit points!</p>
+<h2 id="submission-requirements">Submission Requirements</h2>
+<p>To successfully complete this lab, you must:</p>
+<ol>
+<li><strong>Complete all assigned tasks:</strong><ul>
+<li>Assemble the robot with all specified components.</li>
+<li>Implement and test the Roomba algorithm on the Pico.</li>
+<li>Implement and test the computer vision algorithm on the Raspberry Pi Zero.</li>
+<li>Establish and test UART communication between the Raspberry Pi Zero and the Pico.</li>
+<li>Establish and test UDP communication between the Pico and your laptop.</li>
+</ul>
+</li>
+<li><strong>Record a video demonstration:</strong><ul>
+<li>The video should clearly show your robot operating autonomously, detecting objects, and sending information to your laptop.</li>
+<li>The easiest way to do this is to upload a video to youtube and include a link in your lab report.</li>
+</ul>
+</li>
+<li><strong>Submit a short reflection:</strong><ul>
+<li>Write a brief reflection discussing the main components of this lab. Include your thoughts and learnings on:<ul>
+<li>Wired communication protocols (e.g., UART)</li>
+<li>Wireless communication protocols (e.g., UDP over Wi-Fi)</li>
+<li>Embedded systems computing (e.g., Raspberry Pi Pico)</li>
+<li>Single board computer system computing (e.g., Raspberry Pi Zero)</li>
+<li>Actuators (e.g., motors, servo)</li>
+</ul>
+</li>
+<li>Consider why we partitioned the functionality of the system the way we did<ul>
+<li>What type of computation is the Pico responsible for (and why)?</li>
+<li>What type of computation is the Zero responsible for (and why)?</li>
+<li>What type of computation is the cloud responsible for (and why)?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

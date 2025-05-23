@@ -1,0 +1,3923 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Module7/">
+      
+      
+        <link rel="next" href="../Module9/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Module 8 - State Estimation - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#state-estimation-for-cyber-physical-systems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 8 - State Estimation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../labs/Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signal-processing-concepts-for-cyber-physical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signal Processing Concepts for Cyber-Physical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Signal Processing Concepts for Cyber-Physical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-digital-vs-analog-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Digital vs Analog Signals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sampling-and-quantization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sampling and Quantization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Sampling and Quantization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aliasing-and-the-nyquist-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aliasing and the Nyquist Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aliasing and the Nyquist Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-aliasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Aliasing?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-aliasing-occur" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Does Aliasing Occur?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-nyquist-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nyquist Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-between-aliasing-and-the-nyquist-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship Between Aliasing and the Nyquist Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-aliasing-with-the-nyquist-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Aliasing with the Nyquist Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preventing-aliasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preventing Aliasing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantization:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-frequency-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Frequency Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Frequency Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-fourier-transform-dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Fourier Transform (DFT)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-the-dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of the DFT:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equation-of-the-digital-fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equation of the Digital Fourier Transform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverse-digital-fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverse Digital Fourier Transform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-time-fourier-transform-stft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short-Time Fourier Transform (STFT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wavelet-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wavelet Transform:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Filtering
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Filtering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-pass-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-Pass Filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Low-Pass Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-between-alpha-and-cutoff-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship Between \(\alpha\) and Cutoff Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equivalent-analog-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equivalent Analog Circuit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-pass-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-pass filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High-pass filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-parameter_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-between-alpha-and-cutoff-frequency_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship Between \(\alpha\) and Cutoff Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equivalent-analog-circuit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equivalent Analog Circuit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#band-pass-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Band-pass filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Band-pass filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coefficient-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coefficient Calculation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-between-parameters-and-cutoff-frequencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship Between Parameters and Cutoff Frequencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equivalent-analog-circuit_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equivalent Analog Circuit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notch-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notch Filter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-noise-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Noise Reduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Correlation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-autoregressive-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Autoregressive Modeling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-decimation-and-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Decimation and Interpolation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-modulation-and-demodulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Modulation and Demodulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Space
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="State Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modeling-state-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modeling State Space
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Form:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Form:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#continuous-time-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous-Time Systems:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-time-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete-Time Systems:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-state-space-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of State Space Representation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-mass-spring-damper-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Mass-Spring-Damper System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-state-space-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use State Space Representation?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-in-state-space-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability in State Space Representation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observability in State Space Representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observability-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Criterion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#continuous-time-system-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous-Time System Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-time-system-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete-Time System Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importance-of-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance of Observability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensors-and-uncertainty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensors and Uncertainty
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensors and Uncertainty">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kalman-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kalman Filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particle-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Particle Filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-estimation-in-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Estimation in Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-space-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      State-Space Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signal-processing-concepts-for-cyber-physical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signal Processing Concepts for Cyber-Physical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Signal Processing Concepts for Cyber-Physical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-digital-vs-analog-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Digital vs Analog Signals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sampling-and-quantization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sampling and Quantization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Sampling and Quantization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aliasing-and-the-nyquist-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aliasing and the Nyquist Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aliasing and the Nyquist Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-aliasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Aliasing?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-aliasing-occur" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Does Aliasing Occur?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-nyquist-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nyquist Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-between-aliasing-and-the-nyquist-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship Between Aliasing and the Nyquist Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-aliasing-with-the-nyquist-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Aliasing with the Nyquist Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preventing-aliasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preventing Aliasing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantization:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-frequency-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Frequency Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Frequency Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-fourier-transform-dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Fourier Transform (DFT)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-the-dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of the DFT:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equation-of-the-digital-fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equation of the Digital Fourier Transform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverse-digital-fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverse Digital Fourier Transform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-time-fourier-transform-stft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short-Time Fourier Transform (STFT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wavelet-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wavelet Transform:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Filtering
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Filtering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-pass-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-Pass Filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Low-Pass Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-between-alpha-and-cutoff-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship Between \(\alpha\) and Cutoff Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equivalent-analog-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equivalent Analog Circuit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-pass-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-pass filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High-pass filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-parameter_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-between-alpha-and-cutoff-frequency_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship Between \(\alpha\) and Cutoff Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equivalent-analog-circuit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equivalent Analog Circuit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#band-pass-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Band-pass filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Band-pass filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coefficient-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coefficient Calculation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-between-parameters-and-cutoff-frequencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship Between Parameters and Cutoff Frequencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equivalent-analog-circuit_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equivalent Analog Circuit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notch-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notch Filter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-noise-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Noise Reduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Correlation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-autoregressive-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Autoregressive Modeling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-decimation-and-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Decimation and Interpolation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-modulation-and-demodulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Modulation and Demodulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Space
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="State Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modeling-state-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modeling State Space
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Form:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Form:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#continuous-time-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous-Time Systems:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-time-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete-Time Systems:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-state-space-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of State Space Representation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-mass-spring-damper-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Mass-Spring-Damper System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-state-space-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use State Space Representation?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-in-state-space-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability in State Space Representation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observability in State Space Representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observability-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Criterion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#continuous-time-system-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous-Time System Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-time-system-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete-Time System Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importance-of-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance of Observability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensors-and-uncertainty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensors and Uncertainty
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensors and Uncertainty">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kalman-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kalman Filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particle-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Particle Filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-estimation-in-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Estimation in Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-space-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      State-Space Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="state-estimation-for-cyber-physical-systems">State Estimation for Cyber-physical Systems</h1>
+<h2 id="signal-processing-concepts-for-cyber-physical-systems">Signal Processing Concepts for Cyber-Physical Systems</h2>
+<h3 id="1-digital-vs-analog-signals">1. Digital vs Analog Signals</h3>
+<p>In signal processing, it is important to understand the difference between analog and digital signals.</p>
+<p><strong>Analog signals</strong><br />
+Analog signals are continuous in both time and amplitude, representing real-world phenomena like sound, temperature, or light. Computation can be performed with analog components such as capacitors, resistors, and inductors, which can be used to implement mathematical operations like integration, differentiation, and filtering.</p>
+<p><strong>Digital signals</strong><br />
+Digital signals are discrete in nature, meaning they are represented by a sequence of distinct values. To process analog signals in digital systems, they need to be sampled and quantized. Most signal processing within cyber-physical systems has been shifted to computational systems due to their flexibility and ease of implementation.</p>
+<p>Deciding whether to implement signal processing on an analog signal or convert it to a digital signal for processing is crucial in cyber-physical systems. This decision often depends on factors such as cost, space, reliability, timing constraints, and performance. Environmental conditions like temperature, humidity, and electromagnetic interference can affect both analog and digital components, potentially leading to early failure. Although analog components, such as resistors and capacitors, are often easier to replace compared to surface-mount microprocessors, the low cost of microcontrollers and circuit board production may make replacing the entire circuit board more economical. For this reason, careful analysis is required when designing signal processing systems.</p>
+<h3 id="2-sampling-and-quantization">2. Sampling and Quantization</h3>
+<p>In signal processing, sampling and quantization are key steps in converting an analog signal to a digital signal.</p>
+<h4 id="aliasing-and-the-nyquist-frequency">Aliasing and the Nyquist Frequency</h4>
+<h5 id="what-is-aliasing">What Is Aliasing?</h5>
+<p><strong>Aliasing</strong> is a phenomenon that occurs when a continuous signal is sampled at a rate that is insufficient to accurately capture its frequency content. When the sampling rate is too low, high-frequency components of the signal are "misinterpreted" as lower frequencies in the sampled data, causing distortion. This effect is called aliasing because the high-frequency components appear as "aliases" of lower frequencies in the sampled signal.</p>
+<h5 id="how-does-aliasing-occur">How Does Aliasing Occur?</h5>
+<p>When a signal is sampled, it is multiplied by a series of evenly spaced pulses (the sampling rate). This multiplication produces replicas of the signal’s spectrum centered around multiples of the sampling frequency <span class="arithmatex">\(f_s\)</span>. If the sampling rate is too low, the replicas overlap, causing different frequency components to blend together, which leads to aliasing.</p>
+<h5 id="the-nyquist-frequency">The Nyquist Frequency</h5>
+<p>The <strong>Nyquist frequency</strong> is defined as half of the sampling rate:</p>
+<div class="arithmatex">\[f_{\text{Nyquist}} = \frac{f_s}{2}\]</div>
+<ul>
+<li>
+<p><strong>Sampling Theorem (Nyquist-Shannon Theorem):</strong> To avoid aliasing, a continuous signal must be sampled at a rate greater than twice its highest frequency component. This required rate is known as the <strong>Nyquist rate</strong>.</p>
+</li>
+<li>
+<p><strong>Condition:</strong> If a signal contains frequencies up to <span class="arithmatex">\(f_{\max}\)</span>, then the sampling rate <span class="arithmatex">\(f_s\)</span> should satisfy:</p>
+</li>
+</ul>
+<div class="arithmatex">\[f_s &gt; 2 f_{\max}\]</div>
+<p>This ensures that all frequency components are below the Nyquist frequency <span class="arithmatex">\(f_{\text{Nyquist}}\)</span>, and no aliasing occurs.</p>
+<h5 id="relationship-between-aliasing-and-the-nyquist-frequency">Relationship Between Aliasing and the Nyquist Frequency</h5>
+<ul>
+<li>
+<p><strong>Frequencies Above the Nyquist Frequency:</strong> When sampling a signal, any frequency component above the Nyquist frequency will "fold" back and appear as a lower frequency in the sampled signal. For example, if a frequency component in the original signal is slightly above <span class="arithmatex">\(f_{\text{Nyquist}}\)</span>, it will be interpreted as a frequency just below <span class="arithmatex">\(f_{\text{Nyquist}}\)</span> in the sampled data.</p>
+</li>
+<li>
+<p><strong>Frequency "Folding":</strong> The effect of aliasing can be thought of as a mirroring or folding around the Nyquist frequency. Frequencies above the Nyquist frequency will "reflect" into the range from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(f_{\text{Nyquist}}\)</span>, creating incorrect low-frequency representations.</p>
+</li>
+</ul>
+<h5 id="example-of-aliasing-with-the-nyquist-frequency">Example of Aliasing with the Nyquist Frequency</h5>
+<p>Consider a continuous signal with a frequency component at <span class="arithmatex">\(f = 1.5 f_{\text{Nyquist}}\)</span>. When sampled:</p>
+<ul>
+<li>
+<p><strong>Expected Frequency Representation:</strong> Without aliasing, this component would be represented at <span class="arithmatex">\(f = 1.5 f_{\text{Nyquist}}\)</span>.</p>
+</li>
+<li>
+<p><strong>Aliased Frequency Representation:</strong> Since it exceeds the Nyquist frequency, it folds back to appear as a frequency at <span class="arithmatex">\(f_{\text{alias}} = 0.5 f_{\text{Nyquist}}\)</span>.</p>
+</li>
+</ul>
+<p>This lower frequency (alias) is not present in the original signal, leading to distortion in the sampled signal’s frequency content.</p>
+<h5 id="preventing-aliasing">Preventing Aliasing</h5>
+<ol>
+<li>
+<p><strong>Use a Higher Sampling Rate:</strong> Increase the sampling rate so that it exceeds twice the maximum frequency of the signal.</p>
+</li>
+<li>
+<p><strong>Apply an Anti-Aliasing Filter:</strong> Before sampling, apply a low-pass filter to the continuous signal to remove frequency components above the Nyquist frequency. This filter, known as an <strong>anti-aliasing filter</strong>, ensures that only frequencies within the allowable range are sampled, preventing aliasing.</p>
+</li>
+</ol>
+<h5 id="summary">Summary</h5>
+<ul>
+<li>
+<p><strong>Aliasing</strong> is the distortion that occurs when sampling a signal at a rate that is insufficient to capture its high-frequency content.</p>
+</li>
+<li>
+<p><strong>Nyquist Frequency</strong> is half of the sampling rate and represents the highest frequency that can be accurately represented in sampled data without aliasing.</p>
+</li>
+<li>
+<p><strong>Relation:</strong> To avoid aliasing, the signal must be sampled at a rate greater than twice the highest frequency in the signal (the Nyquist rate).</p>
+</li>
+<li>
+<p><strong>Prevention:</strong> Use a high enough sampling rate and/or an anti-aliasing filter to remove high-frequency components before sampling.</p>
+</li>
+</ul>
+<h4 id="quantization">Quantization:</h4>
+<p><strong>Quantization</strong><br />
+The process of mapping the sampled values to discrete levels. This introduces a level of <strong>quantization error</strong> due to the rounding of values to the nearest level.</p>
+<p><strong>Quantization Error</strong><br />
+The difference between the original analog value and the quantized digital value. It is a form of distortion that affects the accuracy of the digital representation of the signal.</p>
+<p>The resolution of quantization determines how accurately the analog value can be represented digitally. This can be determined by the ADC, or by the computational system during storage after the data is collected. While it might seem better to have the highest resolution possible, there are a number of trade-offs to consider. Higher resolution data takes more memory, longer to transfer, is more computationally expensive to process, and might not match the architecture of the processor.</p>
+<p>For example, the Raspberry Pi Pico’s processor only supports 32-bit numbers. Adding or subtracting any two numbers takes the same amount of time regardless of the number, as long the numbers are 32 bits. When a number is so large it needs to be presented by 64 bits, there will be a slow down when doing computations on a 32-bit processor.</p>
+<h3 id="3-frequency-analysis">3. Frequency Analysis</h3>
+<p>Understanding the frequency components of signals is fundamental for many applications in cyber-physical systems. Different transforms help analyze signals in the frequency domain:</p>
+<h4 id="digital-fourier-transform-dft"><strong>Digital Fourier Transform (DFT)</strong></h4>
+<p>The Digital Fourier Transform is a mathematical technique used to convert a discrete signal from its original domain (often time or space) into the frequency domain. It decomposes a sequence of values into components of different frequencies, effectively revealing the frequency spectrum of the signal. The DFT is defined for a sequence of <span class="arithmatex">\(N\)</span> complex numbers and produces an <span class="arithmatex">\(N\)</span>-point frequency spectrum.</p>
+<h3 id="overview-of-the-dft">Overview of the DFT:</h3>
+<ul>
+<li><strong>Basis Functions:</strong> The DFT uses complex exponentials (sines and cosines) as its basis functions. These functions extend infinitely in time, meaning they are not localized.</li>
+<li><strong>Global Analysis:</strong> Because the basis functions are not localized, the DFT analyzes the signal globally. It considers the entire time domain to compute each frequency component.</li>
+<li><strong>Stationary Signals:</strong> The DFT is most effective for stationary signals—signals whose statistical properties do not change over time—because it assumes the frequency content does not vary with time.</li>
+<li><strong>Resolution:</strong> It provides uniform resolution across all frequencies, which can be a limitation when dealing with signals that have both high-frequency and low-frequency components of interest.</li>
+</ul>
+<h3 id="equation-of-the-digital-fourier-transform">Equation of the Digital Fourier Transform</h3>
+<p>The DFT of a discrete-time signal <span class="arithmatex">\(x[n]\)</span> of length <span class="arithmatex">\(N\)</span> is defined by the equation:</p>
+<div class="arithmatex">\[
+X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-j \frac{2\pi}{N} k n}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(X[k]\)</span>: The <span class="arithmatex">\(k\)</span>-th element of the transformed sequence in the frequency domain.</li>
+<li><span class="arithmatex">\(x[n]\)</span>: The <span class="arithmatex">\(n\)</span>-th element of the original sequence in the time (or spatial) domain.</li>
+<li><span class="arithmatex">\(N\)</span>: The total number of samples in the sequence.</li>
+<li><span class="arithmatex">\(k\)</span>: The index of the frequency component, ranging from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(N-1\)</span>.</li>
+<li><span class="arithmatex">\(n\)</span>: The index of the time-domain sample, ranging from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(N-1\)</span>.</li>
+<li><span class="arithmatex">\(j\)</span>: The imaginary unit (<span class="arithmatex">\(j = \sqrt{-1}\)</span>).</li>
+</ul>
+<p>The exponential term can also be expanded using Euler’s formula:</p>
+<div class="arithmatex">\[
+e^{-j \frac{2\pi}{N} k n} = \cos\left( \frac{2\pi}{N} k n \right) - j \sin\left( \frac{2\pi}{N} k n \right)
+\]</div>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li><strong>Frequency Components:</strong> The DFT decomposes the input sequence into its constituent frequencies. Each <span class="arithmatex">\(X[k]\)</span> represents the amplitude and phase of a specific frequency component.</li>
+<li><strong>Discrete Frequencies:</strong> The frequencies are discrete and are integer multiples of the fundamental frequency <span class="arithmatex">\(f_0 = \frac{1}{N T}\)</span>, where <span class="arithmatex">\(T\)</span> is the sampling interval.</li>
+<li><strong>Complex Numbers:</strong> The result <span class="arithmatex">\(X[k]\)</span> is generally a complex number, encoding both amplitude and phase information.</li>
+</ul>
+<h3 id="inverse-digital-fourier-transform">Inverse Digital Fourier Transform</h3>
+<p>To reconstruct the original time-domain sequence from its frequency-domain representation, the inverse DFT is used:</p>
+<div class="arithmatex">\[
+x[n] = \frac{1}{N} \sum_{k=0}^{N-1} X[k] \cdot e^{j \frac{2\pi}{N} k n}
+\]</div>
+<ul>
+<li>The inverse transform uses a positive exponent in the exponential term.</li>
+<li>The factor <span class="arithmatex">\(\frac{1}{N}\)</span> ensures proper scaling of the amplitude.</li>
+</ul>
+<h3 id="key-points">Key Points</h3>
+<ul>
+<li><strong>Periodicity:</strong> Both <span class="arithmatex">\(x[n]\)</span> and <span class="arithmatex">\(X[k]\)</span> are assumed to be periodic with period <span class="arithmatex">\(N\)</span>.</li>
+<li><strong>Orthogonality:</strong> The exponential functions used in the DFT are orthogonal over the interval <span class="arithmatex">\(N\)</span>, which allows for the unique decomposition of the signal.</li>
+<li><strong>Computational Efficiency:</strong> The Fast Fourier Transform (FFT) is an algorithm to compute the DFT efficiently, reducing the computational complexity from <span class="arithmatex">\(O(N^2)\)</span> to <span class="arithmatex">\(O(N \log N)\)</span>.</li>
+</ul>
+<h4 id="short-time-fourier-transform-stft">Short-Time Fourier Transform (STFT)</h4>
+<p>Analyzes the frequency content of a signal over short windows of time, providing a time-frequency representation. It is useful when the signal’s frequency components change over time. The STFT is computed by breaking the signal into short segments and applying the Fourier Transform to each segment. It is commonly used in speech processing, music analysis, and vibration analysis, as well as visualization tools such as spectrograms.</p>
+<h4 id="wavelet-transform">Wavelet Transform:</h4>
+<p>Unlike STFT, wavelets provide a multi-resolution analysis of a signal, allowing for good frequency resolution for low frequencies and good time resolution for high frequencies. This makes it particularly useful for non-stationary signals. 
+- <strong>Basis Functions:</strong> Wavelets use small waves, called wavelets, as their basis functions. These wavelets are localized in time (they have finite duration) and can be stretched or compressed to analyze different frequency components. 
+- <strong>Time-Frequency Localization:</strong> Wavelets provide a time-frequency representation of the signal, making them ideal for analyzing non-stationary signals where frequency components change over time. 
+- <strong>Multi-Resolution Analysis:</strong> Wavelets can analyze signals at various scales. High-frequency (short-scale) components are analyzed with good time resolution, while low-frequency (long-scale) components are analyzed with good frequency resolution. 
+- <strong>Adaptability:</strong> Because of their ability to focus on specific time intervals and frequency bands, wavelets are useful in applications like image compression, denoising, and feature extraction in signals.</p>
+<h3 id="4-filtering">4. Filtering</h3>
+<p><strong>Filtering</strong> is used to manipulate the frequency content of a signal. Three common types of filters are: <strong>low-pass</strong>, <strong>high-pass</strong>, and <strong>band-pass</strong> filters.</p>
+<h4 id="low-pass-filter">Low-Pass Filter</h4>
+<h5 id="implementation">Implementation</h5>
+<p>To implement a simple digital low-pass filter, you can use a <strong>first-order Infinite Impulse Response (IIR) filter</strong>, also known as a recursive filter. This type of filter is efficient and easy to implement, making it suitable for real-time applications. The filter operates using the following difference equation:</p>
+<div class="arithmatex">\[
+y[n] = \alpha \cdot x[n] + (1 - \alpha) \cdot y[n - 1]
+\]</div>
+<p>Where:
+- <strong><span class="arithmatex">\(y[n]\)</span></strong>: Current output sample
+- <strong><span class="arithmatex">\(x[n]\)</span></strong>: Current input sample
+- <strong><span class="arithmatex">\(y[n - 1]\)</span></strong>: Previous output sample
+- <strong><span class="arithmatex">\(\alpha\)</span></strong>: Filter coefficient (between 0 and 1)</p>
+<p>This equation calculates the output by taking a weighted average of the current input and the previous output, effectively smoothing the signal by attenuating high-frequency components.</p>
+<h5 id="main-parameter">Main Parameter</h5>
+<p>The primary parameter of this filter is the <strong>filter coefficient <span class="arithmatex">\(\alpha\)</span></strong>. This coefficient determines how much the filter responds to new input samples versus the accumulated past outputs.</p>
+<ul>
+<li><strong>When <span class="arithmatex">\(\alpha\)</span> is close to 1</strong>: The filter responds more quickly to changes, allowing higher frequencies to pass through.</li>
+<li><strong>When <span class="arithmatex">\(\alpha\)</span> is close to 0</strong>: The filter responds more slowly, attenuating higher frequencies and providing smoother output.</li>
+</ul>
+<h5 id="relationship-between-alpha-and-cutoff-frequency">Relationship Between <span class="arithmatex">\(\alpha\)</span> and Cutoff Frequency</h5>
+<p>The cutoff frequency <span class="arithmatex">\(f_c\)</span> of the filter defines the frequency at which the output signal’s amplitude is reduced to 70.7% (or -3 dB) of the input signal’s amplitude. The relationship between <span class="arithmatex">\(\alpha\)</span>, the cutoff frequency <span class="arithmatex">\(f_c\)</span>, and the sampling frequency <span class="arithmatex">\(f_s\)</span> is given by:</p>
+<div class="arithmatex">\[
+\alpha = \frac{2\pi f_c T}{2\pi f_c T + 1}
+\]</div>
+<p>Where:
+- <strong><span class="arithmatex">\(T\)</span></strong> is the sampling period (<span class="arithmatex">\(T = \frac{1}{f_s}\)</span>).</p>
+<p>Alternatively, solving for the cutoff frequency:</p>
+<div class="arithmatex">\[
+f_c = \frac{1}{2\pi T} \left( \frac{\alpha}{1 - \alpha} \right)
+\]</div>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>Low <span class="arithmatex">\(\alpha\)</span></strong> (close to 0): Lower cutoff frequency, more smoothing.</li>
+<li><strong>High <span class="arithmatex">\(\alpha\)</span></strong> (close to 1): Higher cutoff frequency, less smoothing.</li>
+</ul>
+<h5 id="equivalent-analog-circuit">Equivalent Analog Circuit</h5>
+<p>The digital low-pass filter described is analogous to a <strong>first-order RC (resistor-capacitor) low-pass filter</strong> in the analog domain.</p>
+<p><strong>Analog RC Low-Pass Filter:</strong></p>
+<ul>
+<li>
+<p><strong>Components:</strong></p>
+<ul>
+<li><strong>Resistor (R)</strong></li>
+<li><strong>Capacitor (C)</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>The resistor is connected in series with the input signal.</li>
+<li>The capacitor is connected between the output node and ground.</li>
+<li>The output is taken across the capacitor.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Cutoff Frequency in Analog Filter:</strong></p>
+<div class="arithmatex">\[
+f_c = \frac{1}{2\pi RC}
+\]</div>
+<p><strong>Relationship to Digital Filter:</strong></p>
+<p>The time constant <span class="arithmatex">\(\tau\)</span> in the analog filter (<span class="arithmatex">\(\tau = RC\)</span>) is analogous to the digital filter’s response determined by <span class="arithmatex">\(\alpha\)</span>. By matching the time constants, you can relate the digital filter coefficient to the analog filter’s components.</p>
+<h4 id="summary_1">Summary</h4>
+<ul>
+<li><strong>Implementation:</strong><ul>
+<li>Use the recursive formula to calculate each output sample based on the current input and previous output.</li>
+</ul>
+</li>
+<li><strong>Main Parameter:</strong><ul>
+<li>The filter coefficient <span class="arithmatex">\(\alpha\)</span>, which controls the balance between the input and the previous output.</li>
+</ul>
+</li>
+<li><strong>Cutoff Frequency Relation:</strong><ul>
+<li><span class="arithmatex">\(\alpha\)</span> is directly related to the cutoff frequency <span class="arithmatex">\(f_c\)</span> and sampling frequency <span class="arithmatex">\(f_s\)</span>.</li>
+<li>Adjusting <span class="arithmatex">\(\alpha\)</span> changes <span class="arithmatex">\(f_c\)</span>, allowing you to control the filter’s frequency response.</li>
+</ul>
+</li>
+<li><strong>Equivalent Analog Circuit:</strong><ul>
+<li>A first-order RC low-pass filter with a resistor and capacitor.</li>
+<li>The digital filter mimics the behavior of this analog circuit in processing discrete signals.</li>
+</ul>
+</li>
+</ul>
+<h4 id="high-pass-filter"><strong>High-pass filter</strong></h4>
+<h5 id="implementation_1">Implementation</h5>
+<p>A simple digital high-pass filter can be implemented using a <strong>first-order Infinite Impulse Response (IIR) filter</strong> with the following difference equation:
+$$
+y[n] = \alpha \cdot y[n - 1] + \alpha \cdot (x[n] - x[n - 1])
+$$</p>
+<ul>
+<li><strong><span class="arithmatex">\(y[n]\)</span></strong>: Current output sample</li>
+<li><strong><span class="arithmatex">\(x[n]\)</span></strong>: Current input sample</li>
+<li><strong><span class="arithmatex">\(y[n - 1]\)</span></strong>: Previous output sample</li>
+<li><strong><span class="arithmatex">\(x[n - 1]\)</span></strong>: Previous input sample</li>
+<li><strong><span class="arithmatex">\(\alpha\)</span></strong>: Filter coefficient (between 0 and 1)</li>
+</ul>
+<p>This equation calculates the output by combining the difference between the current and previous input samples with a scaled version of the previous output. This effectively allows high-frequency components to pass through while attenuating low-frequency components.</p>
+<h5 id="main-parameter_1">Main Parameter</h5>
+<p>The primary parameter of this filter is the <strong>filter coefficient <span class="arithmatex">\(\alpha\)</span></strong>. This coefficient determines the filter’s response characteristics, particularly its cutoff frequency.</p>
+<ul>
+<li><strong>When <span class="arithmatex">\(\alpha\)</span> is close to 0</strong>: The filter attenuates most frequencies, including higher frequencies.</li>
+<li><strong>When <span class="arithmatex">\(\alpha\)</span> is close to 1</strong>: The filter allows higher frequencies to pass through more effectively, providing less attenuation of high-frequency components.</li>
+</ul>
+<h5 id="relationship-between-alpha-and-cutoff-frequency_1">Relationship Between <span class="arithmatex">\(\alpha\)</span> and Cutoff Frequency</h5>
+<p>The cutoff frequency <span class="arithmatex">\(f_c\)</span> defines the frequency at which the output signal’s amplitude is reduced to 70.7% (or -3 dB) of the input signal’s amplitude. The relationship between the filter coefficient <span class="arithmatex">\(\alpha\)</span>, the cutoff frequency <span class="arithmatex">\(f_c\)</span>, and the sampling frequency <span class="arithmatex">\(f_s\)</span> is given by:</p>
+<div class="arithmatex">\[
+\alpha = \frac{\tau}{\tau + T}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><strong><span class="arithmatex">\(\tau\)</span></strong> is the time constant of the filter (<span class="arithmatex">\(\tau = \frac{1}{2\pi f_c}\)</span>)</li>
+<li><strong><span class="arithmatex">\(T\)</span></strong> is the sampling period (<span class="arithmatex">\(T = \frac{1}{f_s}\)</span>)</li>
+</ul>
+<p>Substituting <span class="arithmatex">\(\tau\)</span> into the equation:</p>
+<div class="arithmatex">\[
+\alpha = \frac{1}{1 + \frac{1}{2\pi f_c T}}
+\]</div>
+<p>This can also be expressed in terms of <span class="arithmatex">\(f_c\)</span> and <span class="arithmatex">\(f_s\)</span>:</p>
+<div class="arithmatex">\[
+\alpha = \frac{1}{1 + \frac{f_s}{2\pi f_c}}
+\]</div>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>Low <span class="arithmatex">\(\alpha\)</span></strong> (close to 0): Lower cutoff frequency, more attenuation of low frequencies.</li>
+<li><strong>High <span class="arithmatex">\(\alpha\)</span></strong> (close to 1): Higher cutoff frequency, allowing more high-frequency components to pass.</li>
+</ul>
+<h5 id="equivalent-analog-circuit_1">Equivalent Analog Circuit</h5>
+<p>The digital high-pass filter described is analogous to a <strong>first-order RC (resistor-capacitor) high-pass filter</strong> in the analog domain.</p>
+<p><strong>Analog RC High-Pass Filter:</strong></p>
+<ul>
+<li>
+<p><strong>Components:</strong></p>
+<ul>
+<li><strong>Capacitor (C)</strong></li>
+<li><strong>Resistor (R)</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>The capacitor is connected in series with the input signal.</li>
+<li>The resistor is connected from the output node to ground.</li>
+<li>The output is taken across the resistor.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Cutoff Frequency in Analog Filter:</strong></p>
+<div class="arithmatex">\[
+f_c = \frac{1}{2\pi RC}
+\]</div>
+<p><strong>Relationship to Digital Filter:</strong></p>
+<p>The time constant <span class="arithmatex">\(\tau\)</span> in the analog filter (<span class="arithmatex">\(\tau = RC\)</span>) is analogous to the digital filter’s response determined by <span class="arithmatex">\(\alpha\)</span>. By matching the time constants, you can relate the digital filter coefficient to the analog filter’s components.</p>
+<h5 id="summary_2">Summary</h5>
+<ul>
+<li>
+<p><strong>Implementation:</strong></p>
+<ul>
+<li>Use the recursive formula involving current and previous input and output samples to calculate each output sample.</li>
+</ul>
+</li>
+<li>
+<p><strong>Main Parameter:</strong></p>
+<ul>
+<li>The filter coefficient <span class="arithmatex">\(\alpha\)</span>, which controls the cutoff frequency and the balance between attenuating low frequencies and allowing high frequencies to pass.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cutoff Frequency Relation:</strong></p>
+<ul>
+<li><span class="arithmatex">\(\alpha\)</span> is directly related to the cutoff frequency <span class="arithmatex">\(f_c\)</span> and the sampling frequency <span class="arithmatex">\(f_s\)</span>. Adjusting <span class="arithmatex">\(\alpha\)</span> changes <span class="arithmatex">\(f_c\)</span>, allowing you to control the filter’s frequency response.</li>
+</ul>
+</li>
+<li>
+<p><strong>Equivalent Analog Circuit:</strong></p>
+<ul>
+<li>A first-order RC high-pass filter with a capacitor and a resistor. The digital filter mimics the behavior of this analog circuit in processing discrete signals.</li>
+</ul>
+</li>
+</ul>
+<h4 id="band-pass-filter"><strong>Band-pass filter</strong></h4>
+<h5 id="implementation_2">Implementation</h5>
+<p>To implement a simple digital band-pass filter, you can use a <strong>second-order Infinite Impulse Response (IIR) filter</strong>, commonly known as a biquad filter. This filter allows frequencies within a certain range to pass through while attenuating frequencies outside that range.</p>
+<p>The difference equation for a digital band-pass filter is:</p>
+<div class="arithmatex">\[
+y[n] = b_0 x[n] + b_1 x[n - 1] + b_2 x[n - 2] - a_1 y[n - 1] - a_2 y[n - 2]
+\]</div>
+<ul>
+<li><strong><span class="arithmatex">\(y[n]\)</span></strong>: Current output sample</li>
+<li><strong><span class="arithmatex">\(x[n]\)</span></strong>: Current input sample</li>
+<li><strong><span class="arithmatex">\(b_0, b_1, b_2\)</span></strong>: Feedforward coefficients</li>
+<li><strong><span class="arithmatex">\(a_1, a_2\)</span></strong>: Feedback coefficients</li>
+</ul>
+<p>These coefficients are calculated based on the desired center frequency (<span class="arithmatex">\(f_0\)</span>), quality factor (<span class="arithmatex">\(Q\)</span>), and the sampling frequency (<span class="arithmatex">\(f_s\)</span>).</p>
+<h5 id="coefficient-calculation">Coefficient Calculation</h5>
+<p>First, compute the intermediate variables:</p>
+<div class="arithmatex">\[
+\omega_0 = 2\pi \frac{f_0}{f_s}
+\]</div>
+<div class="arithmatex">\[
+\alpha = \frac{\sin(\omega_0)}{2Q}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><strong><span class="arithmatex">\(Q\)</span></strong>: Quality factor, which determines the filter’s bandwidth.</li>
+</ul>
+<p>The coefficients for a <strong>band-pass filter</strong> (constant skirt gain, peak gain = <span class="arithmatex">\(Q\)</span>) are:</p>
+<div class="arithmatex">\[
+b_0 = \alpha \\
+b_1 = 0 \\
+b_2 = -\alpha \\
+a_0 = 1 + \alpha \\
+a_1 = -2 \cos(\omega_0) \\
+a_2 = 1 - \alpha
+\]</div>
+<p>Normalize the coefficients by dividing each by <span class="arithmatex">\(a_0\)</span>:</p>
+<div class="arithmatex">\[
+b_0 = \frac{b_0}{a_0} \\
+b_1 = \frac{b_1}{a_0} \\
+b_2 = \frac{b_2}{a_0} \\
+a_1 = \frac{a_1}{a_0} \\
+a_2 = \frac{a_2}{a_0}
+\]</div>
+<p>The normalized coefficients are then used in the difference equation to process the input signal.</p>
+<h5 id="main-parameters">Main Parameters</h5>
+<p>The main parameters of the digital band-pass filter are:</p>
+<ol>
+<li><strong>Center Frequency (<span class="arithmatex">\(f_0\)</span>)</strong>: The frequency at which the filter has maximum gain.</li>
+<li><strong>Quality Factor (<span class="arithmatex">\(Q\)</span>)</strong>: Determines the sharpness or selectivity of the filter. A higher <span class="arithmatex">\(Q\)</span> results in a narrower bandwidth.</li>
+<li><strong>Sampling Frequency (<span class="arithmatex">\(f_s\)</span>)</strong>: The rate at which the input signal is sampled.</li>
+</ol>
+<h5 id="relationship-between-parameters-and-cutoff-frequencies">Relationship Between Parameters and Cutoff Frequencies</h5>
+<p>The bandwidth (BW) of the filter is related to the center frequency and the quality factor:</p>
+<div class="arithmatex">\[
+BW = \frac{f_0}{Q}
+\]</div>
+<p>The lower (<span class="arithmatex">\(f_L\)</span>) and upper (<span class="arithmatex">\(f_H\)</span>) cutoff frequencies are:</p>
+<div class="arithmatex">\[
+f_L = f_0 - \frac{BW}{2} \\
+f_H = f_0 + \frac{BW}{2}
+\]</div>
+<p>By adjusting <span class="arithmatex">\(Q\)</span>, you control the bandwidth of the filter around the center frequency:</p>
+<ul>
+<li><strong>Higher <span class="arithmatex">\(Q\)</span></strong>: Narrower bandwidth, more selective filtering.</li>
+<li><strong>Lower <span class="arithmatex">\(Q\)</span></strong>: Wider bandwidth, less selective filtering.</li>
+</ul>
+<h5 id="equivalent-analog-circuit_2">Equivalent Analog Circuit</h5>
+<p>The equivalent analog circuit for a band-pass filter is a <strong>series RLC circuit</strong> or a <strong>parallel RLC circuit</strong>, depending on the design.</p>
+<p><strong>Series RLC Band-Pass Filter:</strong></p>
+<ul>
+<li>
+<p><strong>Components:</strong></p>
+<ul>
+<li><strong>Resistor (R)</strong></li>
+<li><strong>Inductor (L)</strong></li>
+<li><strong>Capacitor (C)</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>The resistor, inductor, and capacitor are connected in series.</li>
+<li>The output is taken across the resistor or the entire series circuit.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Analog Band-Pass Filter Characteristics:</strong></p>
+<ul>
+<li><strong>Resonant Frequency (<span class="arithmatex">\(f_0\)</span>):</strong></li>
+</ul>
+<div class="arithmatex">\[
+f_0 = \frac{1}{2\pi \sqrt{LC}}
+\]</div>
+<ul>
+<li><strong>Bandwidth (BW):</strong></li>
+</ul>
+<div class="arithmatex">\[
+BW = \frac{R}{2\pi L}
+\]</div>
+<ul>
+<li><strong>Quality Factor (<span class="arithmatex">\(Q\)</span>):</strong></li>
+</ul>
+<div class="arithmatex">\[
+Q = \frac{f_0}{BW} = \frac{1}{R} \sqrt{\frac{L}{C}}
+\]</div>
+<p>The digital band-pass filter emulates the frequency-selective behavior of the analog RLC circuit in the discrete-time domain.</p>
+<h5 id="summary_3">Summary</h5>
+<ul>
+<li><strong>Implementation:</strong><ul>
+<li>Use a second-order IIR (biquad) filter with coefficients calculated based on <span class="arithmatex">\(f_0\)</span>, <span class="arithmatex">\(Q\)</span>, and <span class="arithmatex">\(f_s\)</span>.</li>
+</ul>
+</li>
+<li><strong>Main Parameters:</strong><ul>
+<li>Center frequency (<span class="arithmatex">\(f_0\)</span>), quality factor (<span class="arithmatex">\(Q\)</span>), and sampling frequency (<span class="arithmatex">\(f_s\)</span>).</li>
+</ul>
+</li>
+<li><strong>Cutoff Frequency Relation:</strong><ul>
+<li>Bandwidth (<span class="arithmatex">\(BW = f_0 / Q\)</span>) determines the range of frequencies passed.</li>
+<li>Lower and upper cutoff frequencies are <span class="arithmatex">\(f_L = f_0 - BW/2\)</span> and <span class="arithmatex">\(f_H = f_0 + BW/2\)</span>.</li>
+</ul>
+</li>
+<li><strong>Equivalent Analog Circuit:</strong><ul>
+<li>A series or parallel RLC circuit acting as a band-pass filter.</li>
+<li>The digital filter replicates the frequency-selective behavior of the analog RLC circuit.</li>
+</ul>
+</li>
+</ul>
+<h4 id="notch-filter">Notch Filter</h4>
+<p>A notch filter can be composed by combining a low-pass and a high-pass filter. The low-pass filter is used to attenuate frequencies below the notch frequency, while the high-pass filter is used to attenuate frequencies above the notch frequency. The notch frequency is the frequency that is neither attenuated nor amplified by the filter.</p>
+<h3 id="5-noise-reduction">5. Noise Reduction</h3>
+<p>Noise reduction is crucial for reliable signal interpretation in cyber-physical systems:</p>
+<ul>
+<li>
+<p><strong>Moving Average</strong>: A simple technique that averages a window of successive samples to smooth out noise. It is effective against high-frequency noise but can introduce lag.</p>
+</li>
+<li>
+<p><strong>Adaptive Filtering</strong>: Adaptive filters, such as the Least Mean Squares (LMS) filter, Recursive Least Squares (RLS) filter, Kalman filter, and Normalized Least Mean Squares (NLMS) filter, change their parameters based on the incoming signal to effectively minimize the noise. They are useful when noise characteristics change over time.</p>
+</li>
+</ul>
+<h3 id="6-correlation">6. Correlation</h3>
+<p><strong>Correlation</strong> measures the similarity between two signals, which is particularly helpful in pattern recognition and synchronization tasks.</p>
+<ul>
+<li>
+<p><strong>Cross-correlation</strong> measures the similarity between two different signals as a function of the time-lag applied to one of them, which can help identify repeating patterns or align signals.</p>
+</li>
+<li>
+<p><strong>Autocorrelation</strong> is used to find repeating patterns within a single signal, like identifying the fundamental period in a periodic signal.</p>
+</li>
+<li>
+<p>Correlation can be performed using convolution, as it is mathematically equivalent to convolution with a time-reversed signal. Additionally, correlation can be computed efficiently in the frequency domain using Fourier transforms.</p>
+</li>
+</ul>
+<h3 id="7-autoregressive-modeling">7. Autoregressive Modeling</h3>
+<p><strong>Autoregressive (AR) models</strong> predict future values in a time series by using past values. An AR model uses a linear combination of previous data points to forecast future points.</p>
+<ul>
+<li>In real-time applications, AR models are used for <strong>predictive maintenance</strong>, where future signal behavior is estimated based on historical data. This approach is also used in noise reduction and system identification.</li>
+</ul>
+<h3 id="8-decimation-and-interpolation">8. Decimation and Interpolation</h3>
+<p><strong>Decimation</strong> and <strong>interpolation</strong> are techniques used to change the sampling rate of a signal.</p>
+<ul>
+<li>
+<p><strong>Decimation</strong> involves reducing the number of samples in a signal by a factor, effectively downsampling it. It is useful in reducing the amount of data for processing while maintaining the essential characteristics of the signal. Common methods for decimation include:</p>
+</li>
+<li>
+<p><strong>Averaging Decimation</strong>: Averaging a group of consecutive samples to reduce the sampling rate while preserving the overall signal characteristics.</p>
+</li>
+<li>
+<p><strong>Decimation by a Factor</strong>: Keeping every Nth sample and discarding the others, often followed by a low-pass filter to prevent aliasing.</p>
+</li>
+<li>
+<p><strong>CIC (Cascaded Integrator-Comb) Filter</strong>: A computationally efficient filter structure used in hardware implementations for decimation, especially in high-speed digital signal processing.</p>
+</li>
+<li>
+<p><strong>Interpolation</strong> involves increasing the number of samples in a signal, effectively upsampling it. It is used when a higher sampling rate is needed, often followed by low-pass filtering to smooth the upsampled signal. Common methods for interpolation include:</p>
+</li>
+<li>
+<p><strong>Zero-Order Hold (ZOH)</strong>: Repeats each sample value for the duration of the new sampling interval.</p>
+</li>
+<li>
+<p><strong>Linear Interpolation</strong>: Estimates intermediate values by linearly connecting adjacent samples.</p>
+</li>
+<li>
+<p><strong>Polynomial Interpolation</strong>: Uses higher-order polynomials to estimate new sample values, providing a smoother result compared to linear interpolation.</p>
+</li>
+<li>
+<p><strong>Spline Interpolation</strong>: Uses piecewise polynomials (splines) for interpolation, ensuring smoothness at the boundaries between intervals.</p>
+</li>
+</ul>
+<h3 id="9-modulation-and-demodulation">9. Modulation and Demodulation</h3>
+<p><strong>Modulation</strong> is the process of altering a carrier signal to encode information, and <strong>demodulation</strong> is the reverse process to extract the information from the modulated signal.</p>
+<ul>
+<li>
+<p><strong>Amplitude Modulation (AM)</strong> and <strong>Frequency Modulation (FM)</strong> are common techniques used for transmitting data over communication channels.</p>
+</li>
+<li>
+<p>In cyber-physical systems, modulation is used for <strong>wireless communication</strong>, where sensor data is transmitted over a distance. Proper modulation helps in efficient and robust data transfer, especially in environments with significant interference.</p>
+</li>
+</ul>
+<h2 id="state-space">State Space</h2>
+<p>In a CPS, the "state" represents all the information required to describe the system’s current condition. This could include physical quantities like position, velocity, temperature, and electrical currents, as well as digital aspects like mode states or error conditions.</p>
+<ul>
+<li>
+<p><strong>Coordinate System Selection</strong>: Selecting an appropriate coordinate system is crucial for accurately representing the system state. The choice of coordinate system can simplify the representation of system dynamics and facilitate efficient state estimation, especially for complex systems with multiple degrees of freedom.</p>
+</li>
+<li>
+<p><strong>Degrees of Freedom (DoF)</strong>: Degrees of freedom represent the number of independent variables that define the state of a system. Understanding and correctly modeling the DoF is essential to accurately describe the system state and effectively estimate it in real-time applications.</p>
+</li>
+<li>
+<p><strong>State-Space vs. Configuration Space</strong>: The system state can be represented in different forms, such as <strong>state-space</strong> or <strong>configuration space</strong>. State-space representation includes all the dynamic variables (e.g., positions and velocities), whereas configuration space focuses on the possible positions or configurations of the system. Choosing the appropriate representation depends on the application and the nature of the system being analyzed.</p>
+</li>
+</ul>
+<h3 id="modeling-state-space">Modeling State Space</h3>
+<p><strong>State space representation</strong> is a mathematical framework used to model and analyze dynamic systems. It expresses a system’s dynamics using a set of first-order differential (or difference) equations in terms of state variables, inputs, and outputs. This representation is particularly powerful for complex systems, especially those with multiple inputs and outputs (MIMO systems), time-varying parameters, or nonlinearities.</p>
+<h3 id="key-components">Key Components:</h3>
+<ol>
+<li>
+<p><strong>State Variables (<span class="arithmatex">\(\mathbf{x}(t)\)</span> or <span class="arithmatex">\(\mathbf{x}[k]\)</span>)</strong>:</p>
+<ul>
+<li>Represent the smallest set of variables that describe the system’s current state.</li>
+<li>Capture all the necessary information to predict future behavior, given the inputs.</li>
+</ul>
+</li>
+<li>
+<p><strong>Input Variables (<span class="arithmatex">\(\mathbf{u}(t)\)</span> or <span class="arithmatex">\(\mathbf{u}[k]\)</span>)</strong>:</p>
+<ul>
+<li>External signals or controls applied to the system.</li>
+</ul>
+</li>
+<li>
+<p><strong>Output Variables (<span class="arithmatex">\(\mathbf{y}(t)\)</span> or <span class="arithmatex">\(\mathbf{y}[k]\)</span>)</strong>:</p>
+<ul>
+<li>Measurable signals or quantities of interest derived from the system.</li>
+</ul>
+</li>
+<li>
+<p><strong>System Matrices</strong>:</p>
+<ul>
+<li><strong><span class="arithmatex">\(\mathbf{A}\)</span></strong>: State matrix (defines the system dynamics).</li>
+<li><strong><span class="arithmatex">\(\mathbf{B}\)</span></strong>: Input matrix (how inputs affect states).</li>
+<li><strong><span class="arithmatex">\(\mathbf{C}\)</span></strong>: Output matrix (how states affect outputs).</li>
+<li><strong><span class="arithmatex">\(\mathbf{D}\)</span></strong>: Feedthrough (or direct transmission) matrix (direct input-output relationship).</li>
+</ul>
+</li>
+</ol>
+<h3 id="general-form">General Form:</h3>
+<h4 id="continuous-time-systems">Continuous-Time Systems:</h4>
+<p><strong>State Equation</strong>:</p>
+<div class="arithmatex">\[\dot{\mathbf{x}}(t) = \mathbf{A}\mathbf{x}(t) + \mathbf{B}\mathbf{u}(t)\]</div>
+<p><strong>Output Equation</strong>:</p>
+<div class="arithmatex">\[\mathbf{y}(t) = \mathbf{C}\mathbf{x}(t) + \mathbf{D}\mathbf{u}(t)\]</div>
+<h4 id="discrete-time-systems">Discrete-Time Systems:</h4>
+<p><strong>State Equation</strong>:</p>
+<div class="arithmatex">\[\mathbf{x}[k+1] = \mathbf{A}\mathbf{x}[k] + \mathbf{B}\mathbf{u}[k]\]</div>
+<p><strong>Output Equation</strong>:</p>
+<div class="arithmatex">\[\mathbf{y}[k] = \mathbf{C}\mathbf{x}[k] + \mathbf{D}\mathbf{u}[k]\]</div>
+<h3 id="advantages-of-state-space-representation">Advantages of State Space Representation:</h3>
+<ul>
+<li>Handles complex systems with multiple inputs and outputs.</li>
+<li>Suitable for time-varying and nonlinear systems.</li>
+<li>
+<p>Facilitates modern control design techniques like state feedback and observers.</p>
+</li>
+<li>
+<p><strong>Handles Complex Systems</strong>: Suitable for MIMO systems and higher-order systems without the complexity of transfer functions.</p>
+</li>
+<li>
+<p><strong>Time-Varying and Nonlinear Systems</strong>: Can model systems where parameters change over time or with the state.</p>
+</li>
+<li>
+<p><strong>Modern Control Design</strong>: Facilitates advanced control strategies like state feedback, observers, and optimal control.</p>
+</li>
+</ul>
+<h3 id="example-mass-spring-damper-system">Example: Mass-Spring-Damper System</h3>
+<p>Consider a mechanical system described by the second-order differential equation:</p>
+<div class="arithmatex">\[m\ddot{x}(t) + c\dot{x}(t) + kx(t) = u(t)\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(x(t)\)</span>: Position of the mass.</li>
+<li><span class="arithmatex">\(u(t)\)</span>: External force applied.</li>
+<li><span class="arithmatex">\(m\)</span>: Mass.</li>
+<li><span class="arithmatex">\(c\)</span>: Damping coefficient.</li>
+<li><span class="arithmatex">\(k\)</span>: Spring constant.</li>
+</ul>
+<p><strong>Step 1: Define State Variables</strong></p>
+<p>Let:</p>
+<ul>
+<li><span class="arithmatex">\(x_1(t) = x(t)\)</span> (Position)</li>
+<li><span class="arithmatex">\(x_2(t) = \dot{x}(t)\)</span> (Velocity)</li>
+</ul>
+<p><strong>Step 2: Derive State Equations</strong></p>
+<p>Express the system as first-order differential equations:</p>
+<ol>
+<li><span class="arithmatex">\(\dot{x}_1(t) = x_2(t)\)</span></li>
+<li><span class="arithmatex">\(\dot{x}_2(t) = -\dfrac{k}{m} x_1(t) - \dfrac{c}{m} x_2(t) + \dfrac{1}{m} u(t)\)</span></li>
+</ol>
+<p><strong>Step 3: Write in Matrix Form</strong></p>
+<div class="arithmatex">\[
+\begin{bmatrix} 
+\dot{x}_1(t) \\ 
+\dot{x}_2(t) 
+\end{bmatrix} = 
+\begin{bmatrix} 
+0 &amp; 1 \\ 
+-\dfrac{k}{m} &amp; -\dfrac{c}{m} 
+\end{bmatrix} 
+\begin{bmatrix} 
+x_1(t) \\ 
+x_2(t) 
+\end{bmatrix} + 
+\begin{bmatrix} 
+0 \\ 
+\dfrac{1}{m} 
+\end{bmatrix} u(t)
+\]</div>
+<p><strong>Output Equation</strong> (Assuming output is position):</p>
+<div class="arithmatex">\[
+y(t) = \begin{bmatrix} 1 &amp; 0 \end{bmatrix} 
+\begin{bmatrix} 
+x_1(t) \\ 
+x_2(t) 
+\end{bmatrix}
+\]</div>
+<h3 id="interpretation">Interpretation:</h3>
+<ul>
+<li>
+<p><strong>State Vector</strong> (<span class="arithmatex">\(\mathbf{x}(t)\)</span>): Encapsulates the system’s current position and velocity.</p>
+</li>
+<li>
+<p><strong>State Matrix</strong> (<span class="arithmatex">\(\mathbf{A}\)</span>): Describes how the current state affects the rate of change of the state.</p>
+</li>
+<li>
+<p><strong>Input Matrix</strong> (<span class="arithmatex">\(\mathbf{B}\)</span>): Shows how the external force influences the state.</p>
+</li>
+<li>
+<p><strong>Output Matrix</strong> (<span class="arithmatex">\(\mathbf{C}\)</span>): Relates the state to the measurable output.</p>
+</li>
+<li>
+<p><strong>Feedthrough Matrix</strong> (<span class="arithmatex">\(\mathbf{D}\)</span>): Zero in this case, indicating no direct input-to-output path.</p>
+</li>
+</ul>
+<h3 id="why-use-state-space-representation">Why Use State Space Representation?</h3>
+<ul>
+<li>
+<p><strong>Unified Framework</strong>: Offers a consistent method to model various types of systems.</p>
+</li>
+<li>
+<p><strong>Computational Efficiency</strong>: Suitable for numerical simulations and computer-based analysis.</p>
+</li>
+<li>
+<p><strong>Control Design</strong>: Essential for designing controllers that modify the system’s behavior based on its state (e.g., feedback control).</p>
+</li>
+</ul>
+<h3 id="observability">Observability</h3>
+<p>The ability to estimate the complete internal state of the system based on the available sensor measurements is known as <strong>observability</strong>. State estimation aims to make sure the state of the system is accurately tracked, even when some internal variables are not directly measurable.</p>
+<h2 id="observability-in-state-space-representation">Observability in State Space Representation</h2>
+<p><strong>Observability</strong> is a fundamental concept in control theory and state-space analysis. It determines whether the internal states of a dynamic system can be inferred by observing its external outputs over time. In both continuous-time and discrete-time systems, observability plays a crucial role in system analysis, controller design, and state estimation.</p>
+<ul>
+<li>
+<p><strong>Observable System</strong>: A system is said to be observable if the current state can be determined in finite time using only the outputs and inputs.</p>
+</li>
+<li>
+<p><strong>Unobservable System</strong>: If some states cannot be reconstructed from the outputs and inputs, the system is unobservable.</p>
+</li>
+</ul>
+<p>Consider a linear time-invariant (LTI) system represented in state-space form for both continuous-time and discrete-time systems, where the system is given by the state vector (<span class="arithmatex">\(\mathbf{x}(t)\)</span>), state matrix (<span class="arithmatex">\(\mathbf{A}\)</span>), input matrix (<span class="arithmatex">\(\mathbf{B}\)</span>), output matrix (<span class="arithmatex">\(\mathbf{C}\)</span>), and feedthrough matrix (<span class="arithmatex">\(\mathbf{D}\)</span>).</p>
+<p>The steps for determining observability are as follows:</p>
+<ol>
+<li>
+<p><strong>Construct Observability Matrix <span class="arithmatex">\(\mathcal{O}\)</span></strong>:</p>
+<ul>
+<li>Calculate <span class="arithmatex">\(\mathbf{C}\)</span>, <span class="arithmatex">\(\mathbf{C}\mathbf{A}\)</span>, <span class="arithmatex">\(\mathbf{C}\mathbf{A}^2\)</span>, …​, <span class="arithmatex">\(\mathbf{C}\mathbf{A}^{n-1}\)</span>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Calculate Rank of <span class="arithmatex">\(\mathcal{O}\)</span></strong>:</p>
+<ul>
+<li>Use matrix rank determination methods (e.g., Gaussian elimination, singular value decomposition).</li>
+</ul>
+</li>
+<li>
+<p><strong>Assess Observability</strong>:</p>
+<ul>
+<li>If rank <span class="arithmatex">\(\mathcal{O} = n\)</span>, the system is observable.</li>
+<li>If rank <span class="arithmatex">\(\mathcal{O} &lt; n\)</span>, the system is unobservable.</li>
+</ul>
+</li>
+</ol>
+<h3 id="observability-matrix">Observability Matrix</h3>
+<p>The observability of a system can be assessed using the <strong>Observability Matrix</strong>, <span class="arithmatex">\(\mathcal{O}\)</span>, which is constructed as:</p>
+<div class="arithmatex">\[
+\mathcal{O} = \begin{bmatrix} 
+\mathbf{C} \\ 
+\mathbf{C}\mathbf{A} \\ 
+\mathbf{C}\mathbf{A}^2 \\ 
+\vdots \\ 
+\mathbf{C}\mathbf{A}^{n-1} 
+\end{bmatrix}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(n\)</span> is the number of state variables in the system.</li>
+<li>The matrix <span class="arithmatex">\(\mathcal{O}\)</span> has dimensions <span class="arithmatex">\(n \times n\)</span> for single-output systems.</li>
+</ul>
+<h3 id="observability-criterion">Observability Criterion</h3>
+<ul>
+<li><strong>A system is observable if and only if</strong> the observability matrix <span class="arithmatex">\(\mathcal{O}\)</span> has full rank (i.e., rank <span class="arithmatex">\(n\)</span>).</li>
+<li>If <span class="arithmatex">\(\mathcal{O}\)</span> is rank-deficient (rank less than <span class="arithmatex">\(n\)</span>), the system is unobservable.</li>
+</ul>
+<h3 id="interpretation_1">Interpretation</h3>
+<ul>
+<li>
+<p><strong>Full Rank</strong>: Every state contributes uniquely to the output, allowing reconstruction of the entire state vector.</p>
+</li>
+<li>
+<p><strong>Rank Deficient</strong>: Some states do not influence the output sufficiently, making them unobservable.</p>
+</li>
+</ul>
+<h3 id="examples">Examples</h3>
+<h4 id="continuous-time-system-example">Continuous-Time System Example</h4>
+<p><strong>System Matrices</strong>:</p>
+<div class="arithmatex">\[\mathbf{A} = \begin{bmatrix} 0 &amp; 1 \\ -2 &amp; -3 \end{bmatrix}, \quad \mathbf{C} = \begin{bmatrix} 1 &amp; 0 \end{bmatrix}\]</div>
+<p><strong>Construct Observability Matrix</strong>:</p>
+<div class="arithmatex">\[\mathcal{O} = \begin{bmatrix} \mathbf{C} \\ \mathbf{C}\mathbf{A} \end{bmatrix} = \begin{bmatrix} 1 &amp; 0 \\ 1 \times 0 + 0 \times (-2) &amp; 1 \times 1 + 0 \times (-3) \end{bmatrix} = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}\]</div>
+<p><strong>Analysis</strong>:</p>
+<ul>
+<li>
+<p>The observability matrix <span class="arithmatex">\(\mathcal{O}\)</span> has full rank (rank 2).</p>
+</li>
+<li>
+<p><strong>Conclusion</strong>: The system is observable.</p>
+</li>
+</ul>
+<h4 id="discrete-time-system-example">Discrete-Time System Example</h4>
+<p><strong>System Matrices</strong>:</p>
+<div class="arithmatex">\[\mathbf{A} = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; \lambda \end{bmatrix}, \quad \mathbf{C} = \begin{bmatrix} 0 &amp; 1 \end{bmatrix}\]</div>
+<p>Assume <span class="arithmatex">\(\lambda\)</span> is a scalar.</p>
+<p><strong>Construct Observability Matrix</strong>:</p>
+<div class="arithmatex">\[\mathcal{O} = \begin{bmatrix} \mathbf{C} \\ \mathbf{C}\mathbf{A} \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 0 \times 1 + 1 \times 0 &amp; 0 \times 0 + 1 \times \lambda \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 0 &amp; \lambda \end{bmatrix}\]</div>
+<p><strong>Analysis</strong>:</p>
+<ul>
+<li>
+<p>The rank of <span class="arithmatex">\(\mathcal{O}\)</span> depends on <span class="arithmatex">\(\lambda\)</span>.</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(\lambda \neq 0\)</span>, the rank is 2, and the system is observable.</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(\lambda = 0\)</span>, the rank is 1, and the system is unobservable.</p>
+</li>
+</ul>
+<p><strong>Conclusion</strong>:</p>
+<ul>
+<li>The system’s observability depends on the value of <span class="arithmatex">\(\lambda\)</span>.</li>
+</ul>
+<h3 id="importance-of-observability">Importance of Observability</h3>
+<ul>
+<li>
+<p><strong>State Estimation</strong>: Necessary for designing observers or estimators (e.g., Luenberger observer, Kalman filter) to estimate the internal states.</p>
+</li>
+<li>
+<p><strong>Control Design</strong>: Essential for implementing state feedback controllers when not all states are measured directly.</p>
+</li>
+<li>
+<p><strong>System Diagnostics</strong>: Helps in fault detection and system monitoring by ensuring that all states can be observed.</p>
+</li>
+</ul>
+<h3 id="practical-considerations">Practical Considerations</h3>
+<ul>
+<li>
+<p><strong>Sensor Placement</strong>: Adequate and strategic placement of sensors can improve observability.</p>
+</li>
+<li>
+<p><strong>Noise and Disturbances</strong>: Real-world measurements are affected by noise, impacting state estimation accuracy.</p>
+</li>
+<li>
+<p><strong>Time-Varying Systems</strong>: For time-varying systems, observability may change over time and requires time-dependent analysis.</p>
+</li>
+</ul>
+<h2 id="sensors-and-uncertainty">Sensors and Uncertainty</h2>
+<p>Sensors provide data to estimate the system state, but real-world sensors often have inaccuracies, delays, and noise. State estimation techniques are used to reduce the impact of these uncertainties and provide a more reliable understanding of the system state.</p>
+<h3 id="kalman-filter">Kalman Filter</h3>
+<p>One of the most common methods for state estimation in CPS is the <strong>Kalman Filter</strong>. The Kalman Filter is used to estimate the state of a system by combining sensor measurements with a mathematical model of the system dynamics. It does this in two steps:</p>
+<ul>
+<li>
+<p><strong>Prediction</strong>: The system model is used to predict the future state based on previous estimates.</p>
+</li>
+<li>
+<p><strong>Update</strong>: The prediction is adjusted using new sensor measurements, correcting the estimate based on observed data and uncertainty levels.</p>
+</li>
+</ul>
+<p>For non-linear systems, an <strong>Extended Kalman Filter (EKF)</strong> or <strong>Unscented Kalman Filter (UKF)</strong> may be used, which handle the non-linearities in the prediction or update steps.</p>
+<h3 id="particle-filter">Particle Filter</h3>
+<p>In more complex, highly non-linear systems where the Kalman Filter cannot be effectively applied, <strong>Particle Filters</strong> can be used for state estimation. Particle filters use a set of random samples (particles) to approximate the probability distribution of the system state.</p>
+<h3 id="state-estimation-in-control">State Estimation in Control</h3>
+<p>State estimation is crucial for feedback control. Many control systems require information about variables that cannot be directly measured, such as velocity or acceleration. For example, in an autonomous vehicle, a state estimator can predict the vehicle’s speed and orientation based on GPS, inertial sensors, and control inputs.</p>
+<h3 id="state-space-representation">State-Space Representation</h3>
+<p>State-space representation is a mathematical model that describes the internal state of a system using a set of first-order differential or difference equations. In a state-space model, the system is represented by state variables, input variables, and output variables, which are organized into vector form. This approach is particularly useful for modeling multi-input, multi-output (MIMO) systems, and provides a unified framework for analyzing both linear and non-linear dynamics. The state-space representation is essential for designing modern control systems and implementing state estimation techniques like the Kalman Filter, as it allows for a compact and efficient representation of the system’s dynamic behavior.</p>
+<h3 id="applications">Applications</h3>
+<ul>
+<li>
+<p><strong>Robotics</strong>: Estimating the position, velocity, and orientation of a robot in environments where direct measurement might not be possible.</p>
+</li>
+<li>
+<p><strong>Automotive Systems</strong>: State estimation for vehicle stability, adaptive cruise control, and other driver assistance systems.</p>
+</li>
+<li>
+<p><strong>Power Systems</strong>: Monitoring the internal state of power grids to ensure stability, detect faults, and adjust loads.</p>
+</li>
+<li>
+<p><strong>Smart Manufacturing</strong>: Estimating the health and operational state of machinery based on sensor data, which helps in predictive maintenance and process optimization.</p>
+</li>
+</ul>
+<p>State estimation is essential for achieving robustness, reliability, and real-time responsiveness in cyber-physical systems. By combining sensor data with system models, state estimation enables accurate monitoring, enhances control performance, and helps systems deal with sensor inaccuracies and unexpected disturbances.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

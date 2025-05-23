@@ -1,0 +1,2147 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Lab2/Lab2/">
+      
+      
+        <link rel="next" href="../../Lab4/Lab4/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Lab 3 - Sensors - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab3-sensors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 3 - Sensors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notes/Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notes/Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Descriptions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udp-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP Basics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab Tasks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-imu-review-from-previous-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. IMU (Review from Previous Lab)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-line-following-reflectance-sensor-qre113" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Line-Following Reflectance Sensor (QRE113)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ultrasonic-rangefinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ultrasonic Rangefinder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vcnl4040-proximity-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. VCNL4040 Proximity Sensor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-udp-server-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the UDP Server &amp; Client
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-proximity-sensor-vcnl4040" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Proximity Sensor (VCNL4040)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-ultrasonic-rangefinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Ultrasonic Rangefinder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. IMU
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Descriptions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udp-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP Basics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab Tasks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-imu-review-from-previous-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. IMU (Review from Previous Lab)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-line-following-reflectance-sensor-qre113" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Line-Following Reflectance Sensor (QRE113)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ultrasonic-rangefinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ultrasonic Rangefinder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vcnl4040-proximity-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. VCNL4040 Proximity Sensor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-udp-server-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the UDP Server &amp; Client
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-proximity-sensor-vcnl4040" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Proximity Sensor (VCNL4040)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-ultrasonic-rangefinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Ultrasonic Rangefinder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. IMU
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab3-sensors">Lab3: Sensors</h1>
+<p>In this lab, you will work with multiple sensors on the Raspberry Pi Pico: an IMU, a line-following reflectance sensor, an ultrasonic rangefinder, and a VCNL4040 proximity sensor. Your goal is to get each sensor up and running, print out their data values, and then experiment with transmitting data to a host computer using UDP. You will also learn how to visualize your live data and record logs for later analysis.</p>
+<hr />
+<h2 id="file-descriptions">File Descriptions</h2>
+<p>Below is a brief description of the files included in your lab. These files provide sensor drivers, utilities for data transmission, live plotting, and logging.</p>
+<ol>
+<li>
+<p><a href="../code/pico/imu.py"><code>imu.py</code></a></p>
+<ul>
+<li>Contains Python code to interface with the Inertial Measurement Unit (IMU) over I2C. It likely includes functions to initialize the IMU, read sensor data (e.g., accelerometer, gyroscope, possibly magnetometer), and return the sensor readings for further processing.</li>
+</ul>
+</li>
+<li>
+<p><a href="../code/pico/imu_defs.py"><code>imu_defs.py</code></a></p>
+<ul>
+<li>Holds various definitions, constants, register addresses, or configuration details used by <code>imu.py</code>. This separates hardware-specific constants from the main driver code, making it clearer and easier to maintain.</li>
+</ul>
+</li>
+<li>
+<p><a href="../code/pico/rangefinder.py"><code>rangefinder.py</code></a></p>
+<ul>
+<li>Implements functions to interface with an ultrasonic rangefinder (like the HC-SR04 or similar). This file probably contains code to trigger the sensor, measure the echo time, and compute the distance in centimeters or inches.&#x20;</li>
+</ul>
+</li>
+<li>
+<p><a href="../code/pico/reflectance.py"><code>reflectance.py</code></a></p>
+<ul>
+<li>Provides code for reading data from a line-following reflectance sensor. Your sensor uses QRE113-based reflectance detectors. The code will typically initialize the sensor's GPIO pins (or ADC pins), read the reflectance values, and return either an analog or digital reading indicating the presence or absence of a line.</li>
+</ul>
+</li>
+<li>
+<p><a href="../code/pico/vcnl4040.py"><code>vcnl4040.py</code></a></p>
+<ul>
+<li>Contains code to interface with the VCNL4040 proximity sensor over I2C. This file will give you functions to read the "proximity," "lux," and "light" values from the device registers and return them for printing or further processing.</li>
+</ul>
+</li>
+<li>
+<p><a href="../code/pico/udp_server.py"><code>udp_server.py</code></a></p>
+<ul>
+<li>The UDP server script that runs on the Raspberry Pi Pico. It is primarily responsible for streaming data over to the client (running on the laptop) as fast as possible. It can also receive messages from the client. However, these messages aren't currently being used for anything. </li>
+</ul>
+</li>
+<li>
+<p><a href="../code/local/udp_client.py"><code>udp_client.py</code></a></p>
+<ul>
+<li>The client script runs on the laptop. It is responsible for handling incoming data messages from the pico. It can choose to format this data for plotting or data logging. It can also send messages back to the server (pico), which should receive an acknowledge message to ensure proper message transmission. </li>
+</ul>
+</li>
+<li>
+<p><a href="../code/pico/test_udp_server.py"><code>test_udp_server.py</code></a></p>
+<ul>
+<li>This is where most of your code will be written. This script implements the sensor readings and sending messages to the client.</li>
+</ul>
+</li>
+<li>
+<p><a href="../code/local/live_plotter.py"><code>live_plotter.py</code></a></p>
+<ul>
+<li>This class runs a plotting threads that can be updated with data reviewed by the UDP client. </li>
+</ul>
+</li>
+<li>
+<p><a href="../code/local/data_logger.py"><code>data_logger.py</code></a></p>
+<ul>
+<li>A utility script that runs on the laptop and can be used to log the incoming UDP data from the Pico into a CSV file, which you can analyze later with Excel, Python, MATLAB, or other data analysis tools. The CSV file is automatically generated when the python script is killed. </li>
+</ul>
+</li>
+<li>
+<p><a href="../code/local/test_udp_client.py"><code>test_udp_client.py</code></a></p>
+<ul>
+<li>A test script that runs on the laptop to interact with the UDP server on the Pico. This file demonstrates how to set up a UDP client, process incoming data, and send messages back to the Pico. It provides a foundation for visualizing sensor data and can be modified to work with the live plotter or data logger.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="udp-basics">UDP Basics</h2>
+<p><strong>User Datagram Protocol (UDP)</strong> is a simple transmission protocol that offers minimal overhead compared to TCP. Here’s what you need to know:</p>
+<ul>
+<li><strong>Connectionless</strong>: UDP does not require a formal connection setup (the “handshake”) that TCP uses. One device sends a datagram to a designated IP and port, and if a server is listening, it receives it.</li>
+<li><strong>Faster, but less reliable</strong>: There’s no guarantee of packet delivery or ordering. This lack of overhead makes UDP ideal for real-time applications (e.g., streaming sensor data), but you must handle potential data loss.</li>
+<li><strong>Why we use it</strong>: For small sensor updates, speed is often more important than guaranteed reliability. If the occasional packet is lost, the next reading will still come in. This is generally acceptable for real-time sensor visualization.</li>
+</ul>
+<hr />
+<h2 id="lab-tasks">Lab Tasks</h2>
+<p>This section goes over how to setup each of the sensors. Note: you do not need to include the terminal outputs or raw sensor readings from this section in your lap report. The lap report should only graphs or information relevant to the methodology, such as debug messages that you needed to find a solution to. The Experiment section below will require you to generate figures. </p>
+<h3 id="1-imu-review-from-previous-lab">1. IMU (Review from Previous Lab)</h3>
+<p>If you completed the last lab, you should already have the IMU working. Your first task is to verify that your IMU still initializes correctly and that you can read accelerometer and gyroscope data. Print these values to the terminal (REPL) to confirm. This should still be working from the last two labs. However, please note that the constructor of the for the IMU class has been updated to take an I2C object instead of pin numbers. This is so that the same I2C object can be shared across different sensors. </p>
+<ul>
+<li>Verify I2C connections.</li>
+<li>Use the functions in <code>imu.py</code> (and any supporting definitions in <code>imu_defs.py</code>).</li>
+<li>Print accelerometer and gyro data to the REPL in a human-readable format to verify that it is working.</li>
+</ul>
+<h3 id="2-line-following-reflectance-sensor-qre113">2. Line-Following Reflectance Sensor (QRE113)</h3>
+<p>Next, move on to the line-following reflectance sensor:</p>
+<ul>
+<li>Refer to <code>reflectance.py</code> to see how the sensors are read (they may provide an analog value or a simple digital threshold).</li>
+<li>Print the sensor values to see how they change depending on whether they are over a dark or a reflective surface.</li>
+<li>If available, take note of the two sensors’ readings (left vs. right) so you can see how each sensor compares.</li>
+</ul>
+<h3 id="3-ultrasonic-rangefinder">3. Ultrasonic Rangefinder</h3>
+<p>Now, get the ultrasonic sensor working:</p>
+<ul>
+<li>Look in <code>rangefinder.py</code> to see how to trigger a measurement (often done via a short pulse on a trigger pin) and measure echo time on an input pin.</li>
+<li>Print the computed distance to the REPL.</li>
+<li><strong>How it works</strong>: The sensor sends out an ultrasonic pulse and measures how long it takes for the echo to return. The speed of sound is approximately 340 m/s, so distance is computed by:
+  $$
+  \text{Distance} = \frac{\text{Time} \times \text{Speed of Sound}}{2}
+  $$
+  (divide by 2 because the wave must travel out and back).</li>
+</ul>
+<h3 id="4-vcnl4040-proximity-sensor">4. VCNL4040 Proximity Sensor</h3>
+<p>Finally, set up the VCNL4040:</p>
+<ul>
+<li>Use <code>vcnl4040.py</code> to initialize the sensor and read values.</li>
+<li>Print the following to the REPL:</li>
+<li><strong>Proximity</strong>: A dimensionless measure of how close an object is to the sensor (usually a larger number indicates closer proximity).</li>
+<li><strong>Lux</strong>: An approximate measure of ambient light intensity in SI units (lux).</li>
+<li><strong>Light</strong>: This may be a more raw or differently calibrated light reading, depending on how the code is written.</li>
+<li><strong>How it works</strong>: This sensor uses infrared emitters to measure reflections and estimate proximity. The ambient light sensor measures the environment’s brightness.</li>
+</ul>
+<hr />
+<h2 id="using-the-udp-server-client">Using the UDP Server &amp; Client</h2>
+<p>Once all sensors are working and you can reliably read data, set up the UDP server to stream data.</p>
+<ol>
+<li>
+<p>On the pico:</p>
+<ul>
+<li>Set up the wifi SSID and password in <code>test_udp_server.py</code>. Its also important check your laptop's IP address so the pico knows "where" to send the data. </li>
+<li>Mac and Linux: this can be done py opening a terminal and running <code>ifconfig</code>.</li>
+<li>Windows: Open a powershell and run <code>ipconfig</code>.</li>
+<li>WSL: On WSL2, the subsystem creates its own internal IP address that it uses to interface with windows, a kind of virtual ethernet card. This means that WSL does not operate on the same local area network as the pico, even if your windows machine is connected to RedRover. The easiest way around this is to just use windows or downgrade to WSL1. Conda on windows powershell makes for a suitable alternative. However, there are ways to enable port forwarding. <a href="https://www.youtube.com/watch?v=yCK3easuYm4">Here</a> is a video describing how to enable port forwarding for WSL2. Note you will likely need to enable UDP in Windows Defender Firewall. <a href="https://learn.microsoft.com/en-us/windows/wsl/networking">Here</a> is Window's documentation on port forwarding. </li>
+</ul>
+</li>
+<li>
+<p>On the laptop:</p>
+</li>
+<li>Configure the IP address of the pico in the UDPClient declaratin: <code>client = UDPClient(remote_ip='10.49.10.167', listen_port=12345, callback=process_incoming)</code>.</li>
+<li>Implement the desired call back function. This should either print the message to the terminal, plot it using the Live Plotter, and/or save the data using the Data Logger.</li>
+</ol>
+<p><strong>Important</strong>: Make sure your sensor data is formatted consistently. </p>
+<p>For the plotter, use three values separated by commas
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(accel_x, accel_y, accel_z)
+</span></code></pre></div></p>
+<p>for the data logger, every message should have a time field. Each value has a sensor title, followed by a colon and the sensor value. Use <code>time.ticks_ms()</code> to generate the time stamps</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TEMP:23.5, HUMID:45, TIME:1001
+</span></code></pre></div>
+<hr />
+<h2 id="experiments">Experiments</h2>
+<h3 id="a-proximity-sensor-vcnl4040">A. Proximity Sensor (VCNL4040)</h3>
+<ol>
+<li><strong>Objective</strong>: Investigate how the proximity, lux, and light values relate to each other.</li>
+<li><strong>Procedure</strong>:</li>
+<li>Place an object at distances of 0, 2, 4, 6, …, 20 cm from the sensor (Consider using the range finder to assist with this).</li>
+<li>Record the sensor readings (proximity, lux, and light).</li>
+<li>Plot or tabulate the values to see how they change with distance.</li>
+<li><strong>Discussion questions</strong></li>
+<li>How is the proximity related to the distance of an object </li>
+<li>How does ambient light (lux/light) relate to the proximity reading?</li>
+<li>Why might this proximity sensor need to measure ambient light?</li>
+<li><strong>Color Variation</strong>:<ul>
+<li>Repeat the experiment with a white object and then a black, matte object.</li>
+<li>Notice how the color and reflectivity of the object can affect IR-based proximity readings.</li>
+</ul>
+</li>
+</ol>
+<h3 id="b-ultrasonic-rangefinder">B. Ultrasonic Rangefinder</h3>
+<ol>
+<li><strong>Maximum Range</strong>:<ul>
+<li>Take a sturdy object like a notebook or box.</li>
+<li>Move it further and further away until the sensor can no longer detect it.</li>
+<li>Record that maximum distance.</li>
+</ul>
+</li>
+<li><strong>Accuracy and Precision</strong>:<ul>
+<li>Take a ruler or tape measure and take three measurements at different distances. Consider averaging a couple of readings together to get a better measurement.</li>
+<li>Take note of the absolute error (accuracy) of this measurement.</li>
+<li>Pick one stationary distance to place an object and take a couple hundred sensor readings. What is the standard deviation (precision) of these readings?</li>
+</ul>
+</li>
+<li><strong>Material Differences</strong>:<ul>
+<li>Choose a few different materials (e.g., metal, cardboard, soft clothing).</li>
+<li>Check whether the ultrasonic sensor can detect them at roughly the same distances. Keep trying materials until you find one that the range finder cannot detect.</li>
+<li>Observe which materials reflect ultrasonic waves well and which do not.</li>
+<li>Observe if the precision of the readings change depending on the material.</li>
+</ul>
+</li>
+</ol>
+<h3 id="c-imu">C. IMU</h3>
+<ol>
+<li><strong>Gyroscope</strong><ul>
+<li>Before conducting these experiements, note that there is an automatic calibration sequence that the code. To see the desired effect, we need to disable that with the following code:</li>
+</ul>
+</li>
+</ol>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">myIMU</span><span class="o">.</span><span class="n">gyro_offsets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">myIMU</span><span class="o">.</span><span class="n">gyro_offsets</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">myIMU</span><span class="o">.</span><span class="n">gyro_offsets</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></code></pre></div>
++
+    - This will reset the internal bias calibration and demonstrate the true bias of the gyroscope
+    - Bias: take gyroscope readings once or twice a second for a minute or two from one axis <em>without</em> moving your board at all. The readings should remain zero. Is this the case?
+    - Integration: Because the gyroscope returns angular velocity, the angular position of the board can be determined by integrating. Below is some pseudocode to implement a digital integrator.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Initialize variables
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>gyro_reading = 0  # Raw gyroscope measurement (degrees per second or radians per second)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>angular_position = 0  # Estimated angle (degrees or radians)
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>previous_time = get_current_time()  # Get initial timestamp
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a># Loop to continuously read gyroscope and update angular position
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>while true:
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    current_time = get_current_time()  # Get current time
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    dt = current_time - previous_time  # Calculate time difference
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    previous_time = current_time  # Update last timestamp
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    gyro_reading = read_gyroscope()  # Read gyroscope value (angular velocity)
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    # Integrate to get angular position (θ = θ + ω * dt)
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    angular_position = angular_position + (gyro_reading * dt)
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    print(&quot;Angular Position:&quot;, angular_position)  # Display updated angle
+</span></code></pre></div>
++
+    - *<em>Note:</em> this loop doesn't have any <code>delay</code> or <code>sleep</code> calls. This is because it is imperative to integrate a digital signal as quickly as possible to ensure an accurate approximation for the angular position. Because your code calls <code>await asyncio.sleep(0.3)</code>, it is recommended to remove this line of code. If you want updates to be less frequently, implement a time to control the rate of data transfer. 
+    - Take a couple hundred readings of the gyroscope (with just one axis). What is the mean and standard deviation? The mean of these readings is what we call the "bias". Use two different methods to estimate the orientation the IMU around one axis using the gyroscope.</p>
+<div class="language-text highlight"><pre><span></span><code>  - First, integrate the readings to estimate the angle for a minute or so. Plot this and estimate how much drift has accumulated. (Be sure that the `gryo_offset` fields are set to zero.)
+  - Next, record gyroscope readings for a few seconds and take the average like before. Then subtract this average from each reading before you integrate it to estimate the IMU angle. Be sure to do these steps right after each other. 
+  - Graph both orientations over the course of a minute. Does subtracting the bias of the gyroscope readings reduce the bias of your angle estimates after integrating?
+</code></pre></div>
+<ol>
+<li><strong>Accelerometer</strong><ul>
+<li>Next measure the noise of the accelerometer. Collect a couple of seconds of accelerometer data and save it in a pickle or CSV file on your laptop. Avoid moving the XRP control board or causing any vibrations by bumping the table. </li>
+<li>Compute the standard deviations of all three axis of the control board.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="report">Report</h2>
+<p>Here is an outline that you can follow to organize your report. </p>
+<p><strong>Introduction</strong> - Give the reader a general sense of what this lab is about and why this topic is important to CPS. </p>
+<ol>
+<li>
+<p><strong>Proximity Sensor</strong> </p>
+<ul>
+<li>Methodology </li>
+<li>Results</li>
+<li>Discussion</li>
+</ul>
+</li>
+<li>
+<p><strong>Range Finder</strong> </p>
+<ul>
+<li>Methodology </li>
+<li>Results</li>
+<li>Discussion</li>
+</ul>
+</li>
+<li>
+<p><strong>IMU</strong> </p>
+<ul>
+<li>Methodology </li>
+<li>Results</li>
+<li>Discussion</li>
+</ul>
+</li>
+<li>
+<p><strong>Analysis</strong> </p>
+<ul>
+<li>Give an overview of the significance of your results.</li>
+</ul>
+</li>
+<li>
+<p><strong>Conclusion and Application</strong> </p>
+<ul>
+<li>Briefly ties these concepts to broader CPS application.</li>
+</ul>
+</li>
+</ol>
+<p>As always, refer to the lab report rubric for a more detailed outline of report expectations.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

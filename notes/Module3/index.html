@@ -1,0 +1,3215 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Module2/">
+      
+      
+        <link rel="next" href="../Module4/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Module 3 - Wired Communication Protocols - Cyber-Physical Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wired-communication-protocols" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cyber-Physical Systems" class="md-header__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber-Physical Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 3 - Wired Communication Protocols
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Module0/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pages/LectureSlides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecture Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../labs/Lab0/Lab0/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../case_studies/RedLightCameraNIST/" class="md-tabs__link">
+          
+  
+  
+  Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pages/rubric/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../in_class_examples/actuators/actuator_control/" class="md-tabs__link">
+          
+  
+  
+  In Class Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cyber-Physical Systems" class="md-nav__button md-logo" aria-label="Cyber-Physical Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cyber-Physical Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 0 - Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1 - Computational Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2 - Computer Architecture and Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamental-concepts-in-wired-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fundamental Concepts in Wired Communication Protocols
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations-for-reducing-electro-magnetic-interference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Considerations for Reducing Electro-Magnetic Interference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Considerations for Reducing Electro-Magnetic Interference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-key-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Key Considerations:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-consumption-considerations-for-wired-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Consumption Considerations for Wired Communication Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Consumption Considerations for Wired Communication Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Power
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Static Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pull-up-resistors-in-open-draincollector-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull-up Resistors (in Open-Drain/Collector Architectures)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leakage-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leakage Current
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Power
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#charging-and-discharging-capacitance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charging and Discharging Capacitance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuit-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short-Circuit Power
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-vs-dynamic-power-in-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static vs. Dynamic Power in Communication Protocols
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Implications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broader-applicability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Broader Applicability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-common-wired-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of Common Wired Communication Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of Common Wired Communication Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-support-for-wired-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Support for Wired Communication Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware Support for Wired Communication Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 4 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 5 - Communication Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 6 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 7 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 8 - State Estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 9 - Feedback Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 12 - Systems of Sensors and Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/LectureSlides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab0/Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0 - Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab1/Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Wired Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab2/Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Wireless Communication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab3/Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab4/Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Actuators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab5/Lab5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab6/Lab6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6 - Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/Lab7/Lab7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7 - Putting it all Together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Case Studies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Case Studies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/RedLightCameraNIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 1 - Traffic Light Cameras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/DigitalTwins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Case Study 2 - Digital Twins in Gardening & Greenhouses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab Report Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Raspberry Pi Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/zero_wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Zero Wifi Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/pip_apt_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Apt and Pip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/async_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/webrtc_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebRTC Video Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    In Class Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            In Class Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/actuators/actuator_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/computer_vision/computer_vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/control/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/filtering/filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filtering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/interrupts/interrupts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Interrupts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/RANSAC/RANSAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Sampling Consensus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/signal_processing/signal_processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/thingspeak/thingspeak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - ThingSpeak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in_class_examples/MQTT/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IoT - MQTT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamental-concepts-in-wired-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fundamental Concepts in Wired Communication Protocols
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations-for-reducing-electro-magnetic-interference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Considerations for Reducing Electro-Magnetic Interference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Considerations for Reducing Electro-Magnetic Interference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-key-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Key Considerations:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-consumption-considerations-for-wired-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Consumption Considerations for Wired Communication Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Consumption Considerations for Wired Communication Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Power
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Static Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pull-up-resistors-in-open-draincollector-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull-up Resistors (in Open-Drain/Collector Architectures)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leakage-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leakage Current
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Power
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#charging-and-discharging-capacitance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charging and Discharging Capacitance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuit-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short-Circuit Power
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-vs-dynamic-power-in-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static vs. Dynamic Power in Communication Protocols
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Implications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broader-applicability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Broader Applicability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-common-wired-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of Common Wired Communication Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of Common Wired Communication Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-support-for-wired-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Support for Wired Communication Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware Support for Wired Communication Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="wired-communication-protocols">Wired Communication Protocols</h1>
+<h2 id="fundamental-concepts-in-wired-communication-protocols">Fundamental Concepts in Wired Communication Protocols</h2>
+<ol>
+<li>
+<p><strong>Signal Transmission</strong> (Analog vs. Digital)</p>
+<ul>
+<li>
+<p>Data is transmitted through electrical signals.</p>
+</li>
+<li>
+<p><strong>Analog</strong>: Continuous signal variation.</p>
+<ul>
+<li>
+<p>Advantages</p>
+<ul>
+<li>
+<p>Can represent a wider range of values, making it suitable for audio and video signals.</p>
+</li>
+<li>
+<p>Often simpler and more intuitive for real-world applications like voice transmission.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Disadvantages</p>
+<ul>
+<li>
+<p>More susceptible to noise and signal degradation over distance.</p>
+</li>
+<li>
+<p>Harder to process, store, and recover accurately compared to digital signals.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Digital</strong>: Discrete voltage levels represent 1s and 0s.</p>
+<ul>
+<li>
+<p>Advantages</p>
+<ul>
+<li>
+<p>More resistant to noise, allowing for clearer signals over long distances.</p>
+</li>
+<li>
+<p>Easier to encrypt, compress, and correct errors in transmission.</p>
+</li>
+<li>
+<p>Allows for greater data processing and storage efficiency.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Disadvantages</p>
+<ul>
+<li>
+<p>Requires more bandwidth for the same amount of data compared to analog.</p>
+</li>
+<li>
+<p>Can be more complex and expensive to implement, especially in high-speed systems.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Synchronous vs. Asynchronous Communication</strong></p>
+<ul>
+<li>
+<p><strong>Synchronous</strong>: Devices use a shared clock to synchronize data transfer (e.g., SPI).</p>
+<ul>
+<li>Faster, but requires clock lines.</li>
+</ul>
+</li>
+<li>
+<p><strong>Asynchronous</strong>: No shared clock. Uses start/stop bits to mark data transmission (e.g., UART).</p>
+<ul>
+<li>More flexible but slower due to additional bits.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Baud Rate vs. Bit Rate</strong></p>
+<ul>
+<li>
+<p><strong>Baud rate</strong>: Number of signal changes (symbols) per second.</p>
+</li>
+<li>
+<p><strong>Bit rate</strong>: Number of bits transmitted per second.</p>
+</li>
+<li>
+<p>May differ if complex encoding is used.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Duplexing</strong> (Half-duplex vs. Full-duplex)</p>
+<ul>
+<li>
+<p><strong>Half-duplex</strong>: Data flows in both directions, but not simultaneously (e.g., RS-485).</p>
+</li>
+<li>
+<p><strong>Full-duplex</strong>: Simultaneous bidirectional data flow (e.g., Ethernet, SPI with separate lines).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bus Topology &amp; Communication</strong></p>
+<ul>
+<li>
+<p>Multiple devices share the same data lines.</p>
+</li>
+<li>
+<p><strong>Single-master</strong> (e.g., I²C) vs. <strong>multi-master</strong> systems (e.g., CAN).</p>
+</li>
+<li>
+<p>Arbitration and bus contention are key in shared communication environments.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Addressing &amp; Device Identification</strong></p>
+<ul>
+<li>
+<p>Each device must have an address in shared communication systems.</p>
+</li>
+<li>
+<p><strong>Static</strong> vs. <strong>dynamic addressing</strong>: Defines how devices are identified.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Error Detection &amp; Correction</strong></p>
+<ul>
+<li>
+<p>Errors are common in communication; systems must detect and correct them.</p>
+</li>
+<li>
+<p>Techniques include <strong>parity bits</strong>, <strong>checksums</strong>, and <strong>CRC (Cyclic Redundancy Check)</strong>.</p>
+</li>
+<li>
+<p>Ensures data integrity, especially in critical applications.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Electrical Characteristics</strong> (Pull-up/Pull-down Resistors)</p>
+<ul>
+<li>
+<p><strong>Pull-up/pull-down resistors</strong> define logic levels when no active signal is present.</p>
+</li>
+<li>
+<p>Important in open-drain/open-collector configurations (e.g., I²C).</p>
+</li>
+<li>
+<p>Helps prevent floating pins and ensures signal stability.</p>
+</li>
+<li>
+<p><strong>Selecting Resistor Value</strong></p>
+<ul>
+<li>
+<p><strong>Large Values</strong>: reduce power consumption and noise sensitivity, but reduce rise time and reduce maximum communication speeds</p>
+</li>
+<li>
+<p><strong>Small Values</strong>: increase rise time and communication speeds, but also increase power consumption and noise sensitivity</p>
+</li>
+<li>
+<p>Key considerations:</p>
+<ul>
+<li>
+<p>Bus capacitance (affected by the length of the wires and number of devices)</p>
+</li>
+<li>
+<p>Desired clock speed</p>
+</li>
+<li>
+<p>Operating Voltage</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Framing &amp; Data Packets</strong></p>
+<ul>
+<li>
+<p>Data is transmitted in structured frames or packets.</p>
+</li>
+<li>
+<p>Components include start/stop bits, headers, payloads, and error-check fields.</p>
+</li>
+<li>
+<p>Relevant in protocols like CAN and Ethernet for managing data streams and preventing collisions.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocol Layering &amp; Abstraction</strong></p>
+<ul>
+<li>
+<p>Different communication protocols work at different layers of a system, with each layer adding additional functionality such as error correction, encryption, etc.</p>
+</li>
+<li>
+<p>Each layer is able to ignore all previous layers and assume the previously layers' functionality.</p>
+</li>
+<li>
+<p>Relates to the OSI model (e.g., Ethernet at the data link layer, TCP/IP at the network layer).</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="considerations-for-reducing-electro-magnetic-interference">Considerations for Reducing Electro-Magnetic Interference</h2>
+<ol>
+<li>
+<p><strong>Twisted Pair Cabling</strong></p>
+<ul>
+<li><strong>Why it helps</strong>: Twisting the wires helps cancel out electromagnetic interference, as noise affects both wires equally, and the interference is neutralized when the signals are combined.</li>
+</ul>
+</li>
+<li>
+<p><strong>Shielded Cables</strong></p>
+<ul>
+<li><strong>Why it helps</strong>: Shielding cables with a conductive layer (usually braided or foil) helps block external electromagnetic fields from penetrating and interfering with the signal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Grounding</strong></p>
+<ul>
+<li>
+<p><strong>Why it helps</strong>: Proper grounding helps protect communication lines from voltage spikes, reduces the potential difference that can cause noise, and drains excess noise from the environment.</p>
+</li>
+<li>
+<p><strong>Key tips</strong>: Ensure that the shield (if using shielded cables) is grounded at one end, and avoid ground loops, which can introduce noise instead of reducing it.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Cable Routing</strong></p>
+<ul>
+<li>
+<p><strong>Why it helps</strong>: Positioning communication cables away from sources of EMI (like power cables, motors, or high-frequency devices) minimizes the likelihood of noise induction.</p>
+</li>
+<li>
+<p><strong>Key tips</strong>: Keep data cables as short as possible, and avoid running them parallel to power lines. If necessary, cross them at right angles to reduce exposure to magnetic fields.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Differential Signaling</strong></p>
+<ul>
+<li><strong>Why it helps</strong>: Differential signaling transmits signals across two wires, with one wire carrying the inverse of the other. This reduces the impact of common-mode noise, as interference affects both wires equally and can be canceled out.</li>
+</ul>
+</li>
+<li>
+<p><strong>Use of Termination Resistors</strong></p>
+<ul>
+<li><strong>Why it helps</strong>: Termination resistors at the ends of transmission lines (particularly for high-speed or long-distance communication) help prevent signal reflections, which can degrade signal quality and introduce noise.</li>
+</ul>
+</li>
+<li>
+<p><strong>Electrical Design</strong></p>
+<ul>
+<li>
+<p><strong>Ferrite Beads</strong></p>
+<ul>
+<li>
+<p><strong>Why it helps</strong>: Ferrite beads act as low-pass filters, absorbing high-frequency noise from the communication lines and reducing EMI. They help suppress transient noise that may enter the circuit.</p>
+</li>
+<li>
+<p><strong>Use cases</strong>: Commonly placed on power lines or data lines in sensitive systems like USB or Ethernet networks.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Capacitors</strong></p>
+<ul>
+<li>
+<p><strong>Why it helps</strong>: Placing decoupling capacitors across power and ground lines of communication components helps filter out high-frequency noise.</p>
+</li>
+<li>
+<p><strong>Key tips</strong>: Use small-value capacitors (e.g., 0.1 µF) near communication ICs to filter noise from power supply lines.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="summary-of-key-considerations">Summary of Key Considerations:</h3>
+<ul>
+<li>
+<p>Twisted pair and shielded cables reduce EMI exposure.</p>
+</li>
+<li>
+<p>Grounding and proper cable routing minimize noise and interference.</p>
+</li>
+<li>
+<p>Differential signaling and termination resistors improve noise immunity and signal quality.</p>
+</li>
+<li>
+<p>Ferrite beads and decoupling capacitors help filter high-frequency noise.</p>
+</li>
+<li>
+<p>Slower signal transitions, lower frequencies, and good PCB design help in reducing EMI and ensuring reliable communication.</p>
+</li>
+</ul>
+<h2 id="power-consumption-considerations-for-wired-communication-protocols">Power Consumption Considerations for Wired Communication Protocols</h2>
+<h3 id="static-power">Static Power</h3>
+<p>Static power is the power consumed when a circuit is idle or in a steady-state condition. In communication protocols, static power primarily arises from:</p>
+<h4 id="pull-up-resistors-in-open-draincollector-architectures">Pull-up Resistors (in Open-Drain/Collector Architectures)</h4>
+<ul>
+<li>
+<p><strong>What Happens?</strong></p>
+</li>
+<li>
+<p>Many communication protocols, like I2C, use open-drain or open-collector outputs.</p>
+</li>
+<li>
+<p>A pull-up resistor is used to pull the voltage line high when no device is actively driving it low.</p>
+</li>
+<li>
+<p>Static power is consumed when the line is pulled <strong>low</strong>, creating a current path from the pull-up resistor to ground.</p>
+</li>
+<li>
+<p><strong>Power Formula:</strong></p>
+<div class="arithmatex">\[P_{static} = \frac{V^2}{R_{pullup}}\]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(V\)</span>: Bus voltage (e.g., 3.3V or 5V)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(R_{pullup}\)</span>: Pull-up resistor value (e.g., 4.7 kΩ or 1 kΩ)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Insights:</strong></p>
+<ul>
+<li>
+<p>Static power is <strong>proportional to the voltage</strong> and <strong>inversely proportional to the pull-up resistance</strong>.</p>
+</li>
+<li>
+<p>Using smaller resistors increases static power but allows faster signal transitions.</p>
+</li>
+<li>
+<p>Example for I2C:</p>
+<div class="arithmatex">\[P_{static} = \frac{3.3^2}{4700} ≈ 2.3 mW per line\]</div>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="leakage-current">Leakage Current</h4>
+<ul>
+<li>
+<p>Leakage currents can occur in transistors and other components even when a device is in an idle or low-power state.</p>
+</li>
+<li>
+<p>Though usually very small (nanoamps to microamps), they contribute to static power dissipation.</p>
+</li>
+</ul>
+<h3 id="dynamic-power">Dynamic Power</h3>
+<p>Dynamic power is the power consumed during <strong>switching activity</strong>, when signals toggle between logic high and low. This is the dominant power component during active communication.</p>
+<h4 id="charging-and-discharging-capacitance">Charging and Discharging Capacitance</h4>
+<ul>
+<li>
+<p><strong>What Happens?</strong></p>
+<ul>
+<li>
+<p>Every time a signal transitions (rising or falling edge), the <strong>bus capacitance</strong> (wires, connectors, and device input pins) is charged or discharged.</p>
+</li>
+<li>
+<p>To transition a signal from low to high, current flows from the power supply to charge the capacitance.</p>
+</li>
+<li>
+<p>To transition from high to low, the stored charge flows to ground.</p>
+</li>
+<li>
+<p>This charge/discharge cycle consumes power.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Power Formula:</strong></p>
+<div class="arithmatex">\[ P_{dynamic} = f * C * V^2 \]</div>
+</li>
+<li>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(f\)</span>: Signal frequency (transitions per second, e.g., 100 kHz for I2C standard mode)</li>
+<li><span class="arithmatex">\(C\)</span>: Effective capacitance of the bus (e.g., ~100 pF for I2C with small wiring)</li>
+<li><span class="arithmatex">\(V\)</span>: Voltage level of the bus (e.g., 3.3V or 5V)</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Insights:</strong></p>
+</li>
+<li>
+<p>Dynamic power is <strong>proportional to the square of the voltage</strong>.</p>
+</li>
+<li>
+<p>Increasing bus frequency or capacitance significantly increases power.</p>
+</li>
+<li>
+<p>Example for I2C:</p>
+<div class="arithmatex">\[ P_{dynamic} = 100 * 10^3 * 100 * 10^-12 * (3.3)^2 ≈ 0.11 mW \]</div>
+</li>
+</ul>
+<h4 id="short-circuit-power">Short-Circuit Power</h4>
+<ul>
+<li>
+<p>During switching, there’s a brief moment when both the pull-up and pull-down transistors of a CMOS driver are conducting simultaneously, creating a <strong>short circuit</strong> between the supply and ground.</p>
+</li>
+<li>
+<p>This power dissipation is typically small but increases with higher operating frequencies.</p>
+</li>
+</ul>
+<h3 id="static-vs-dynamic-power-in-communication-protocols">Static vs. Dynamic Power in Communication Protocols</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Static Power</th>
+<th>Dynamic Power</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td>Pull-up resistors, leakage currents</td>
+<td>Charging/discharging bus capacitance</td>
+</tr>
+<tr>
+<td>When Consumed</td>
+<td>Even when the bus is idle or steady</td>
+<td>Only during signal transitions (active bus)</td>
+</tr>
+<tr>
+<td>Dependent On</td>
+<td>Bus voltage, pull-up resistance</td>
+<td>Frequency, bus capacitance, voltage level</td>
+</tr>
+<tr>
+<td>Formula</td>
+<td>\P_{static} = \frac{V^2}{R_{pullup}}\</td>
+<td>\P_{dynamic} = f * C * V^2A\</td>
+</tr>
+<tr>
+<td>Reduction Strategies</td>
+<td>Increase pull-up resistor value, lower bus voltage</td>
+<td>Lower capacitance, reduce frequency, lower V</td>
+</tr>
+</tbody>
+</table>
+<h3 id="practical-implications">Practical Implications</h3>
+<ol>
+<li>
+<p><strong>At Low Speeds</strong>:</p>
+<ul>
+<li>
+<p>Static power dominates because the frequency of transitions is low.</p>
+</li>
+<li>
+<p>Example: I2C at 100 kHz primarily dissipates power through pull-up resistors.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>At High Speeds</strong>:</p>
+<ul>
+<li>
+<p>Dynamic power dominates due to frequent charging/discharging of bus capacitance.</p>
+</li>
+<li>
+<p>Example: I2C at 3.4 MHz or SPI running at tens of MHz sees higher dynamic power dissipation.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimizing Power</strong>:</p>
+<ul>
+<li>
+<p><strong>Pull-up resistors</strong>: Use the largest value that still satisfies signal rise-time requirements.</p>
+</li>
+<li>
+<p><strong>Bus capacitance</strong>: Minimize trace lengths and device loads to reduce capacitance.</p>
+</li>
+<li>
+<p><strong>Voltage levels</strong>: Use lower voltage levels (e.g., 1.8V instead of 3.3V or 5V).</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="broader-applicability">Broader Applicability</h3>
+<ul>
+<li>
+<p>These principles are not unique to I2C; they apply to other communication protocols like <strong>SPI</strong>, <strong>UART</strong>, or <strong>CAN bus</strong>.</p>
+</li>
+<li>
+<p>High-speed protocols like <strong>PCIe</strong> or <strong>Ethernet</strong> manage dynamic power by careful impedance matching and reducing load capacitance.</p>
+</li>
+<li>
+<p>Static power concerns are increasingly relevant in ultra-low-power systems, where minimizing idle consumption is critical.</p>
+</li>
+</ul>
+<p>By understanding static and dynamic power, engineers can optimize communication protocols to balance speed, performance, and energy efficiency.</p>
+<h2 id="overview-of-common-wired-communication-protocols">Overview of Common Wired Communication Protocols</h2>
+<ol>
+<li>
+<p><strong>Ethernet</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Ethernet is the most widely used networking protocol for connecting devices in LANs, MANs, and industrial automation. It supports high-speed data transfer and internet communication.</p>
+</li>
+<li>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>
+<p><strong>Wires:</strong> Typically 8 wires (4 twisted pairs) in Cat5e or Cat6 cables. Only 4 wires are used for data in 10/100 Mbps Ethernet, while all 8 wires are used for Gigabit Ethernet and above.</p>
+</li>
+<li>
+<p><strong>Type:</strong> Synchronous communication with clock synchronization provided within the physical layer.</p>
+</li>
+<li>
+<p><strong>Topology:</strong> Star or tree topology with a central switch/router.</p>
+</li>
+<li>
+<p><strong>Speed:</strong> 10 Mbps to 400 Gbps (e.g., Fast Ethernet, Gigabit Ethernet, or 400G Ethernet).</p>
+</li>
+<li>
+<p><strong>Frame Size:</strong> 64 to 1518 bytes, with support for jumbo frames up to 9000 bytes.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Use Cases:</strong></p>
+<ul>
+<li>
+<p>Office and industrial networks</p>
+</li>
+<li>
+<p>Backbone infrastructure for data centers</p>
+</li>
+<li>
+<p>Industrial Ethernet variants (e.g., EtherCAT, PROFINET)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>
+<p>High speed and scalability for large networks</p>
+</li>
+<li>
+<p>Standardized across the globe, ensuring interoperability</p>
+</li>
+<li>
+<p>Supports advanced features like Quality of Service (QoS) and Time-Sensitive Networking (TSN)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>
+<p>Requires switches and routers, increasing complexity and cost</p>
+</li>
+<li>
+<p>Industrial setups may need ruggedized components for reliability</p>
+</li>
+<li>
+<p>Latency may not always meet real-time requirements without additional protocols</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>I2C (Inter-Integrated Circuit)</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> I2C is designed for short-distance, low-speed communication between ICs on a circuit board, particularly where space and pin count are constraints.</p>
+</li>
+<li>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>
+<p><strong>Wires:</strong> 2 wires (SCL - Serial Clock, SDA - Serial Data) shared across all devices.</p>
+</li>
+<li>
+<p><strong>Type:</strong> Synchronous master-slave communication, with the clock signal controlled by the master.</p>
+</li>
+<li>
+<p><strong>Topology:</strong> Multi-master, multi-slave bus topology with pull-up resistors.</p>
+</li>
+<li>
+<p><strong>Speed:</strong></p>
+<ul>
+<li>
+<p>Standard mode: 100 kbps</p>
+</li>
+<li>
+<p>Fast mode: 400 kbps</p>
+</li>
+<li>
+<p>Fast mode plus: 1 Mbps</p>
+</li>
+<li>
+<p>High-speed mode: 3.4 Mbps</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Addressing:</strong> Uses 7-bit or 10-bit addressing for up to 127/1023 devices.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Use Cases:</strong></p>
+<ul>
+<li>
+<p>Connecting sensors, EEPROMs, real-time clocks (RTCs), and displays.</p>
+</li>
+<li>
+<p>Intra-board communication in microcontroller systems.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>
+<p>Simple and cost-effective, requiring only 2 wires.</p>
+</li>
+<li>
+<p>Can support multiple devices with unique addresses.</p>
+</li>
+<li>
+<p>Low power consumption.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>
+<p>Limited to short distances and low speed.</p>
+</li>
+<li>
+<p>Bus contention can occur in multi-master systems.</p>
+</li>
+<li>
+<p>Susceptible to noise due to the open-drain configuration.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>SPI (Serial Peripheral Interface)</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> SPI is used for high-speed, short-distance communication between a microcontroller and peripherals such as sensors, displays, and memory.</p>
+</li>
+<li>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>
+<p><strong>Wires:</strong> 4 wires minimum (MISO, MOSI, SCLK, and SS); additional lines may be required for multiple slaves</p>
+</li>
+<li>
+<p><strong>Type:</strong> Synchronous communication with a dedicated clock line</p>
+</li>
+<li>
+<p><strong>Topology:</strong> Master-slave topology, often daisy-chained or using separate slave select lines</p>
+</li>
+<li>
+<p><strong>Speed:</strong> Typically up to 50 Mbps, depending on the hardware</p>
+</li>
+<li>
+<p><strong>Mode:</strong> Four clock polarity/phase modes (CPOL and CPHA) allow flexibility</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Use Cases:</strong></p>
+<ul>
+<li>
+<p>High-speed sensors, SD cards, and OLED displays</p>
+</li>
+<li>
+<p>Applications requiring high throughput, like data logging and video processing</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>
+<p>High speed and efficient for continuous data transfer</p>
+</li>
+<li>
+<p>Simple hardware implementation</p>
+</li>
+<li>
+<p>Supports full-duplex communication</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>
+<p>Requires more wires compared to I2C</p>
+</li>
+<li>
+<p>No standard addressing scheme, leading to scalability challenges</p>
+</li>
+<li>
+<p>Limited to short distances</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>UART (Universal Asynchronous Receiver/Transmitter)</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> UART provides point-to-point communication between two devices, typically for debugging or low-speed data transfer.</p>
+</li>
+<li>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>
+<p><strong>Wires:</strong> 2 wires for data (TX and RX), optionally more for control signals like RTS/CTS</p>
+</li>
+<li>
+<p><strong>Type:</strong> Asynchronous communication, with data framed by start and stop bits</p>
+</li>
+<li>
+<p><strong>Topology:</strong> Point-to-point</p>
+</li>
+<li>
+<p><strong>Speed:</strong> 9600 bps to 1 Mbps, though higher rates are possible with specialized hardware</p>
+</li>
+<li>
+<p><strong>Frame Format:</strong> Includes start/stop bits, parity bit (optional), and data bits (typically 8)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Use Cases:</strong></p>
+<ul>
+<li>
+<p>Debugging microcontrollers</p>
+</li>
+<li>
+<p>Communication with GPS modules and modems</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>
+<p>Simple and widely supported</p>
+</li>
+<li>
+<p>Low resource overhead</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>
+<p>Limited to two devices</p>
+</li>
+<li>
+<p>Asynchronous nature requires precise clock matching to avoid errors</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>CAN Bus (Controller Area Network)</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Designed for robust communication in noisy environments, especially in automotive and industrial systems.</p>
+</li>
+<li>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>
+<p><strong>Wires:</strong> 2 wires for differential signaling (CAN_H and CAN_L)</p>
+</li>
+<li>
+<p><strong>Type:</strong> Asynchronous but supports deterministic behavior with a priority-based arbitration scheme</p>
+</li>
+<li>
+<p><strong>Topology:</strong> Bus topology with termination resistors at each end</p>
+</li>
+<li>
+<p><strong>Speed:</strong> 125 kbps to 1 Mbps (Classical CAN), up to 5 Mbps for CAN FD</p>
+</li>
+<li>
+<p><strong>Frame Format:</strong> Supports standard (11-bit) and extended (29-bit) identifiers</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Use Cases:</strong></p>
+<ul>
+<li>
+<p>Vehicle control systems (ECUs, sensors, actuators)</p>
+</li>
+<li>
+<p>Industrial automation and robotics</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>
+<p>Excellent noise immunity and reliability</p>
+</li>
+<li>
+<p>Arbitration ensures efficient bandwidth utilization</p>
+</li>
+<li>
+<p>Fault-tolerant and self-diagnostic features</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>
+<p>Limited data payload per frame (8 bytes for Classical CAN)</p>
+</li>
+<li>
+<p>Slower compared to Ethernet or SPI</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>USB (Universal Serial Bus)</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> High-speed, plug-and-play communication standard for peripherals like storage devices, printers, and input devices.</p>
+</li>
+<li>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>
+<p><strong>Wires:</strong> 4 wires (VCC, GND, D+, D-)</p>
+</li>
+<li>
+<p><strong>Type:</strong> Synchronous communication</p>
+</li>
+<li>
+<p><strong>Topology:</strong> Star topology with a host at the center</p>
+</li>
+<li>
+<p><strong>Speed:</strong></p>
+<ul>
+<li>
+<p>USB 2.0: 480 Mbps</p>
+</li>
+<li>
+<p>USB 3.0: 5 Gbps</p>
+</li>
+<li>
+<p>USB 4.0: 40 Gbps</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Use Cases:</strong></p>
+<ul>
+<li>
+<p>Data transfer between computers and peripherals</p>
+</li>
+<li>
+<p>Power delivery and charging</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>
+<p>High speed and versatility</p>
+</li>
+<li>
+<p>Hot-swappable and widely adopted</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>
+<p>Host-centric model can limit scalability</p>
+</li>
+<li>
+<p>Short cable lengths for higher-speed standards</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>PCI/PCIe (Peripheral Component Interconnect/Express)</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> High-speed interconnect for internal hardware like GPUs, NICs, and storage controllers.</p>
+</li>
+<li>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>
+<p><strong>Wires:</strong> Varies by lanes; PCIe x1 uses 2 differential pairs (TX, RX) per direction</p>
+</li>
+<li>
+<p><strong>Type:</strong> Synchronous, point-to-point lanes</p>
+</li>
+<li>
+<p><strong>Topology:</strong> Star topology with a central root complex</p>
+</li>
+<li>
+<p><strong>Speed:</strong></p>
+<ul>
+<li>
+<p>PCI: 133 MBps</p>
+</li>
+<li>
+<p>PCIe Gen 5: 128 GBps (x16 link)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Use Cases:</strong></p>
+<ul>
+<li>Internal PC components like graphics cards and SSDs</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>
+<p>Extremely high speed and low latency</p>
+</li>
+<li>
+<p>Scalable with lanes (x1, x4, x16)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Complex to implement and expensive</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>RS-232</strong> (Recommended Standard 232)</p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Legacy serial communication standard for point-to-point connections between devices.</p>
+</li>
+<li>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>
+<p><strong>Wires:</strong> 3 wires (TX, RX, GND) for basic communication</p>
+</li>
+<li>
+<p><strong>Type:</strong> Asynchronous communication with start/stop bits</p>
+</li>
+<li>
+<p><strong>Topology:</strong> Point-to-point</p>
+</li>
+<li>
+<p><strong>Speed:</strong> Up to 115.2 kbps</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Use Cases:</strong></p>
+<ul>
+<li>Legacy industrial equipment</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>
+<p>Simple and widely supported</p>
+</li>
+<li>
+<p>Long-distance communication</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>
+<p>Slow and short distances compared to modern standards</p>
+</li>
+<li>
+<p>Limited featurues and can only support one device</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>RS-485</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Robust serial communication protocol designed for reliable multi-point communication over long distances in industrial environments.</p>
+</li>
+<li>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>
+<p><strong>Wires:</strong> 2 wires for differential signaling</p>
+</li>
+<li>
+<p><strong>Type:</strong> Asynchronous, half-duplex or full-duplex communication</p>
+</li>
+<li>
+<p><strong>Topology:</strong> Multi-point bus topology with termination resistors</p>
+</li>
+<li>
+<p><strong>Speed:</strong> Up to 10 Mbps</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Use Cases:</strong></p>
+<ul>
+<li>Industrial automation and control systems, building automation and access control, SCADA systems</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>
+<p>Long-distance communication (up to 1200 meters)</p>
+</li>
+<li>
+<p>High noise immunity and multi-point support</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>
+<p>Slower compared to Ethernet or USB</p>
+</li>
+<li>
+<p>Requires additional hardware for multi-point communication</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="summary-table">Summary Table</h3>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Speed</th>
+<th>Wires</th>
+<th>Common Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ethernet</td>
+<td>10 Mbps–400 Gbps</td>
+<td>8 (Cat5e/Cat6)</td>
+<td>Networking, industrial automation</td>
+</tr>
+<tr>
+<td>I2C</td>
+<td>100 kbps–3.4 Mbps</td>
+<td>2</td>
+<td>Sensors, EEPROMs, real-time clocks</td>
+</tr>
+<tr>
+<td>SPI</td>
+<td>Up to 50 Mbps</td>
+<td>4+</td>
+<td>High-speed peripherals like displays</td>
+</tr>
+<tr>
+<td>UART</td>
+<td>9600 bps–1 Mbps</td>
+<td>2+</td>
+<td>Debugging, GPS modules</td>
+</tr>
+<tr>
+<td>CAN Bus</td>
+<td>125 kbps–5 Mbps</td>
+<td>2</td>
+<td>Automotive, industrial automation</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>480 Mbps–40 Gbps</td>
+<td>4</td>
+<td>Storage devices, peripherals</td>
+</tr>
+<tr>
+<td>PCI/PCIe</td>
+<td>133 MBps–128 GBps</td>
+<td>Varies</td>
+<td>GPUs, high-speed internal devices</td>
+</tr>
+<tr>
+<td>RS-485</td>
+<td>10 Mbps</td>
+<td>2</td>
+<td>Industrial automation, SCADA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hardware-support-for-wired-communication-protocols">Hardware Support for Wired Communication Protocols</h2>
+<p>Most microcontrollers have hardware-level support for communication protocols like SPI, UART, and I2C. These protocols are typically implemented in hardware as dedicated peripheral modules, integrated into the microcontroller. Here’s a more detailed explanation:</p>
+<ol>
+<li>
+<p><strong>Hardware-Level Support for Communication Protocols</strong></p>
+<ul>
+<li>
+<p>Microcontrollers usually include dedicated hardware peripherals for common communication protocols:</p>
+</li>
+<li>
+<p><strong>SPI</strong>: Microcontrollers have <strong>SPI hardware modules</strong> (often called <strong>SPI peripherals</strong>) that handle the clock generation, data shifting, and synchronization needed for SPI communication. This hardware support simplifies the communication process, offloading the low-level timing and data handling from the CPU.</p>
+</li>
+<li>
+<p><strong>UART</strong>: <strong>UART peripherals</strong> are also very common in microcontrollers. The hardware handles generating start and stop bits, serializing data, adjusting baud rates, and detecting errors like parity errors. This greatly reduces the complexity of managing serial communication since software doesn’t need to manually manipulate bits and timing.</p>
+</li>
+<li>
+<p><strong>I2C</strong>: Microcontrollers generally provide dedicated <strong>I2C hardware modules</strong> to handle clock generation, acknowledge bits, addressing, clock stretching, and data transfer. Hardware-level I2C support is particularly beneficial since I2C involves complex timing, addressing, and synchronization requirements that would be difficult to reliably manage in software alone.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages of Hardware-Level Support</strong></p>
+<ul>
+<li>
+<p><strong>Offloading Workload</strong>: With hardware-level support, the <strong>microcontroller’s CPU is freed</strong> from managing the timing and low-level data manipulation required for communication, which allows it to focus on higher-level tasks.</p>
+</li>
+<li>
+<p><strong>Precise Timing</strong>: The hardware peripherals generate the necessary <strong>clock signals</strong> for these protocols, ensuring precise timing that is difficult to achieve at the software level, especially with protocols like SPI and I2C that are sensitive to timing.</p>
+</li>
+<li>
+<p><strong>Reduced Latency</strong>: Hardware peripherals operate independently of the CPU, which helps in achieving <strong>lower latency</strong> during data transmission and reception compared to a software-only implementation.</p>
+</li>
+<li>
+<p><strong>Reliability</strong>: Hardware implementation is less prone to timing-related issues, which is crucial in synchronous protocols like SPI or I2C. Dedicated hardware modules ensure reliable clock synchronization and data integrity.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Software Implementation of Communication Protocols</strong></p>
+<ul>
+<li>
+<p>In some cases, communication protocols can also be implemented entirely in software, known as <strong>bit-banging</strong>. However, this is less efficient compared to using hardware peripherals:</p>
+</li>
+<li>
+<p><strong>Bit-Banging</strong>: In bit-banging, the microcontroller’s CPU directly controls GPIO pins to emulate the timing and signaling of a communication protocol. While this approach is flexible and can be used on any GPIO pins, it consumes considerable CPU resources and is prone to timing inaccuracies, especially for higher baud rates or complex protocols like I2C.</p>
+</li>
+<li>
+<p><strong>Use Cases</strong>: Bit-banging is typically used when the microcontroller lacks hardware support for a particular protocol or when a greater number of communication channels are needed than the hardware peripherals can support. However, it is less common in production systems due to its drawbacks in terms of efficiency and reliability.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Hybrid Approach</strong></p>
+<ul>
+<li>Many microcontroller environments provide <strong>hardware abstraction layers (HAL)</strong> or <strong>drivers</strong> that allow developers to interact with the communication peripherals at a higher level using software. While the underlying data handling is still performed by hardware, software libraries or HALs provide an easier interface for configuring and controlling the peripherals.</li>
+</ul>
+</li>
+</ol>
+<h3 id="summary">Summary</h3>
+<ul>
+<li>
+<p><strong>Most microcontrollers</strong> include <strong>hardware peripherals</strong> for protocols like <strong>SPI</strong>, <strong>UART</strong>, and <strong>I2C</strong>.</p>
+</li>
+<li>
+<p>These hardware modules handle the low-level operations (clocking, timing, data serialization) required for the protocol, allowing for <strong>efficient, reliable, and low-latency</strong> communication.</p>
+</li>
+<li>
+<p><strong>Software implementations</strong> (bit-banging) are possible but are generally less efficient and used primarily when hardware support is not available or more channels are needed.</p>
+</li>
+<li>
+<p><strong>Hardware-level support</strong> provides numerous advantages in terms of <strong>reliability, performance, and freeing CPU resources</strong>, making it the preferred approach for implementing communication protocols in embedded systems.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.breadcrumbs", "navigation.path", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
